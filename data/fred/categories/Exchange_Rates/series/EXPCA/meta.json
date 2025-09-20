@@ -1,0 +1,21 @@
+{
+  "id": "EXPCA",
+  "realtime_start": "2025-09-07",
+  "realtime_end": "2025-09-07",
+  "title": "U.S. Exports of Goods by F.A.S. Basis to Canada",
+  "observation_start": "1985-01-01",
+  "observation_end": "2025-07-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-09-04 13:23:04-05",
+  "popularity": 21,
+  "notes": "Free Alongside Ship Basis (f.a.s.)\nFurther information related to the international trade data can be found at https://www.census.gov/foreign-trade/data/index.html \nMethodology details can be found at https://www.census.gov/foreign-trade/Press-Release/current_press_release/explain.pdf",
+  "sync_timestamp": "2025-09-13T13:16:25.033656",
+  "alias": "U_S_Exports_of_Goods_by_F_A_S_Basis_to_Canada",
+  "category_id": 16,
+  "next_release": "N/A"
+}

@@ -1,0 +1,158 @@
+metadata:
+  category_id: 122
+  created_at: '2025-09-13'
+  description: Borrowings 数据
+  name: Borrowings
+  parent_category: Major_Category
+  total_series: 18
+series:
+- alias: Adjustment Plus Seasonal Borrowings of Depository Institutions from the Federal
+    Reserve (DISCONTINUED)
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: ADJBORNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Billions of Dollars
+- alias: Adjustment Plus Seasonal Borrowings of Depository Institutions from the Federal
+    Reserve (DISCONTINUED)
+  category_id: 122
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ASBORR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Billions of Dollars
+- alias: Total Borrowings from the Federal Reserve
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: BORROW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Total Borrowings from the Federal Reserve (DISCONTINUED)
+  category_id: 122
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: BORROWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Total Borrowings of Depository Institutions from the Federal Reserve excluding
+    Term Auction Credit (DISCONTINUED)
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: DISCBORR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Billions of Dollars
+- alias: Extended Credit Borrowings of Depository Institutions from the Federal Reserve
+    (DISCONTINUED)
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: EXTENDNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Billions of Dollars
+- alias: Borrowings from the Federal Reserve, Other Credit Extensions (DISCONTINUED)
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: OTHBORR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Borrowings from the Federal Reserve, Other Credit Extensions (DISCONTINUED)
+  category_id: 122
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OTHBORRW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Borrowings from the Federal Reserve, Primary (DISCONTINUED)
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: PRIMBORR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Borrowings from the Federal Reserve, Primary (DISCONTINUED)
+  category_id: 122
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: PRIMBORRW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Seasonal Borrowings of Depository Institutions from the Federal Reserve (DISCONTINUED)
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: SEABORR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Billions of Dollars
+- alias: Borrowings from the Federal Reserve, Seasonal (DISCONTINUED)
+  category_id: 122
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SEABORRW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Borrowings from the Federal Reserve, Secondary (DISCONTINUED)
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: SECBORR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Borrowings from the Federal Reserve, Secondary (DISCONTINUED)
+  category_id: 122
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SECBORRW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Borrowings from the Federal Reserve, Term Asset-Backed Securities Loan Facility
+    (DISCONTINUED)
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: TABSLFBORR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Borrowings from the Federal Reserve, Term Asset-Backed Securities Loan Facility
+    (DISCONTINUED)
+  category_id: 122
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TABSLFBORRW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Millions of Dollars
+- alias: Term Auction Credit (DISCONTINUED)
+  category_id: 122
+  frequency: Monthly
+  freshness_days: 7
+  id: TERMAUC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Billions of Dollars
+- alias: Total Borrowings of Depository Institutions from the Federal Reserve (DISCONTINUED)
+  category_id: 122
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TOTBORR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Borrowings
+  units: Billions of Dollars

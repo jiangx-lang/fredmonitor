@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-11",
+  "realtime_end": "2025-09-11",
+  "seriess": [
+    {
+      "id": "TOTBORR",
+      "realtime_start": "2025-09-11",
+      "realtime_end": "2025-09-11",
+      "title": "Total Borrowings of Depository Institutions from the Federal Reserve (DISCONTINUED)",
+      "observation_start": "1984-01-04",
+      "observation_end": "2025-03-26",
+      "frequency": "Weekly, Ending Wednesday",
+      "frequency_short": "W",
+      "units": "Billions of Dollars",
+      "units_short": "Bil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-03-27 15:36:18-05",
+      "popularity": 21,
+      "notes": "This series is calculated by the Federal Reserve Bank of St. Louis using historical data from the Board of Governors' H.4.1 press releases. The data include the value of primary, secondary, and seasonal credit, and other credit facilities and extensions. For historical changes to the data reported in Table H.4.1, see here (https://www.federalreserve.gov/feeds/h41.html)."
+    }
+  ]
+}

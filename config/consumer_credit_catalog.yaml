@@ -1,0 +1,819 @@
+metadata:
+  category_id: 101
+  created_at: '2025-09-13'
+  description: Consumer Credit 数据
+  name: Consumer Credit
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: Total Automobile Credit Outstanding (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly, End of Period
+  freshness_days: 7
+  id: AUTONS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars
+- alias: Total Automobile Credit Outstanding (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly, End of Period
+  freshness_days: 7
+  id: AUTOSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars
+- alias: Total Consumer Credit Securitized by Depository Institutions
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLHDNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Total Consumer Credit Securitized by Depository Institutions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLHDXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Securitized by Finance Companies
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLHFNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Total Consumer Credit Securitized by Finance Companies, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLHFXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Securitized by Nonfinancial Business (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLHNNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Total Consumer Credit Securitized by Nonfinancial Business, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLHNXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Securitized by Depository Institutions
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLNHDNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Nonrevolving Consumer Credit Securitized by Depository Institutions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLNHDXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Securitized by Finance Companies
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLNHFNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Nonrevolving Consumer Credit Securitized by Finance Companies, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLNHFXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Securitized by Nonfinancial Business (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLNHNNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Nonrevolving Consumer Credit Securitized by Nonfinancial Business, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLNHNXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Securitized by Depository Institutions
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLRHDNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Revolving Consumer Credit Securitized by Depository Institutions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLRHDXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Securitized by Nonfinancial Business (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLRHNNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Revolving Consumer Credit Securitized by Nonfinancial Business, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCNLRHNXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned and Securitized by Depository Institutions
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLHDNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Total Consumer Credit Owned and Securitized by Depository Institutions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLHDXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned and Securitized by Finance Companies
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLHFNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Total Consumer Credit Owned and Securitized by Finance Companies, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLHFXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned and Securitized by Nonfinancial Business (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLHNNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Total Consumer Credit Owned and Securitized by Nonfinancial Business, Flow
+    (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLHNXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned and Securitized by Depository Institutions
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLNHDNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Nonrevolving Consumer Credit Owned and Securitized by Depository Institutions,
+    Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLNHDXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned and Securitized by Finance Companies
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLNHFNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Nonrevolving Consumer Credit Owned and Securitized by Finance Companies,
+    Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLNHFXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned and Securitized by Nonfinancial Business
+    (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLNHNNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Nonrevolving Consumer Credit Owned and Securitized by Nonfinancial Business,
+    Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLNHNXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned and Securitized by Depository Institutions
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLRHDNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Revolving Consumer Credit Owned and Securitized by Depository Institutions,
+    Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLRHDXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned and Securitized by Nonfinancial Business
+    (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLRHNNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars
+- alias: Revolving Consumer Credit Owned and Securitized by Nonfinancial Business,
+    Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: DTCTLRHNXDFBANM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Motor Vehicle Loans Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: FLMVLOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of Dollars, Monthly Rate
+- alias: Motor Vehicle Loans Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: FLMVLOASA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Motor Vehicle Loans Owned and Securitized, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLMVLOASM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned and Securitized, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNONREVNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNONREVNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Consumer Credit Owned and Securitized, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNONREVSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNONREVSLA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Consumer Credit Owned by Commercial Banks, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNCB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned by Commercial Banks, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNCBA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Consumer Credit Owned by Credit Unions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNCU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned by Credit Unions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNCUA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Consumer Credit Owned by Depository Institutions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNDI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned by Depository Institutions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNDIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Consumer Credit Owned by Nonprofit and Educational Institutions,
+    Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNEI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned by Nonprofit and Educational Institutions,
+    Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNEIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Consumer Credit Owned by Finance Companies, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNFC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned by Finance Companies, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNFCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Consumer Credit Owned by Federal Government, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNGOV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned by Federal Government, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNGOVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Consumer Credit Owned by Nonfinancial Business, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNNFC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned by Nonfinancial Business, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNNFCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Consumer Credit Owned by Savings Institutions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNSAV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Consumer Credit Owned by Savings Institutions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNSAVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Nonrevolving Securitized Consumer Credit, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNSEC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Nonrevolving Securitized Consumer Credit, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLNREVNSECA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Revolving Consumer Credit Owned by Commercial Banks, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNCB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned by Commercial Banks, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNCBA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Revolving Consumer Credit Owned by Credit Unions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNCU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned by Credit Unions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNCUA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Revolving Consumer Credit Owned by Depository Institutions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNDI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned by Depository Institutions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNDIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Revolving Consumer Credit Owned by Finance Companies, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNFC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned by Finance Companies, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNFCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Revolving Consumer Credit Owned by Nonfinancial Business, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNNFC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned by Nonfinancial Business, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNNFCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Revolving Consumer Credit Owned and Securitized, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Revolving Consumer Credit Owned by Savings Institutions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNSAV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned by Savings Institutions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNSAVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Revolving Securitized Consumer Credit, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNSEC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Securitized Consumer Credit, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLNSECA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Revolving Consumer Credit Owned and Securitized, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Revolving Consumer Credit Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLREVOLSLA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Student Loans Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: FLSLOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of Dollars, Monthly Rate
+- alias: Student Loans Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: FLSLOASA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Student Loans Owned and Securitized, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLSLOASM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned by Commercial Banks, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALCB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned by Commercial Banks, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALCBA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Total Consumer Credit Owned by Depository Institutions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALDI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned by Depository Institutions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALDIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Total Consumer Credit Owned by Finance Companies, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALFC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned by Finance Companies, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALFCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Total Consumer Credit Owned by Federal Government, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALGOV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned by Federal Government, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALGOVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Total Consumer Credit Owned by Nonprofit and Educational Institutions, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALNEI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned by Nonprofit and Educational Institutions, Flow
+    (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALNEIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Total Consumer Credit Owned by Nonfinancial Business, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALNFC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned by Nonfinancial Business, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALNFCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Total Consumer Credit Owned and Securitized, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Total Consumer Credit Owned by Savings Institutions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALSAV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned by Savings Institutions, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALSAVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Total Securitized Consumer Credit, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALSEC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Securitized Consumer Credit, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALSECA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate
+- alias: Total Consumer Credit Owned and Securitized, Flow
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Millions of U.S. Dollars, Monthly Rate
+- alias: Total Consumer Credit Owned and Securitized, Flow (DISCONTINUED)
+  category_id: 101
+  frequency: Monthly
+  freshness_days: 7
+  id: FLTOTALSLA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Consumer_Credit
+  units: Billions of Dollars, Annual Rate

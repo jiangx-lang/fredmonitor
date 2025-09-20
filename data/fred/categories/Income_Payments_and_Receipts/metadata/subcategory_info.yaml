@@ -1,0 +1,7 @@
+# Income Payments and Receipts
+subcategory:
+  name: "Income_Payments_and_Receipts"
+  description: "Income Payments & Receipts"
+  category_id: 3000
+  parent_category: "International_Data"
+  created_at: "C:\Users\admin\上网"

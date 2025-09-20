@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "MAFAINUSNEA646N",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Mean Family Income in Northeast Census Region",
+      "observation_start": "1967-01-01",
+      "observation_end": "2024-01-01",
+      "frequency": "Annual",
+      "frequency_short": "A",
+      "units": "Current Dollars",
+      "units_short": "Current $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-09 13:19:27-05",
+      "popularity": 2,
+      "notes": "Families as of March of the following year."
+    }
+  ]
+}

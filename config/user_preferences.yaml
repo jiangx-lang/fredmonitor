@@ -1,0 +1,40 @@
+# 用户偏好设置
+# 永久用户配置
+
+# 用户身份设置
+user:
+  id: "admin"
+  name: "管理员"
+  auto_confirm: true  # 永远自动确认所有操作
+  
+# 自动确认设置
+auto_confirm:
+  terminal_commands: true      # 自动确认终端命令
+  file_operations: true        # 自动确认文件操作
+  code_modifications: true     # 自动确认代码修改
+  data_sync: true             # 自动确认数据同步
+  factor_calculations: true    # 自动确认因子计算
+  report_generation: true     # 自动确认报告生成
+  database_operations: true    # 自动确认数据库操作
+  
+# 默认行为设置
+defaults:
+  skip_confirmation_dialogs: true
+  auto_proceed_on_errors: false
+  save_results_automatically: true
+  
+# 路径偏好
+paths:
+  preferred_data_drive: "D:"  # 用户偏好D盘存储
+  backup_location: "D:\\MacroLab\\backups"
+  
+# 界面设置
+interface:
+  language: "zh-CN"
+  theme: "default"
+  show_debug_info: true
+  
+# 安全设置
+security:
+  require_confirmation_for: []  # 空列表表示不需要确认任何操作
+  trusted_operations: ["all"]   # 信任所有操作

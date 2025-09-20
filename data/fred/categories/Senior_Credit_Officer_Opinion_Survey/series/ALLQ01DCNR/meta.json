@@ -1,0 +1,22 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "ALLQ01DCNR",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "1) Over the Past Three Months, How Has the Amount of Resources and Attention Your Firm Devotes to Management of Concentrated Credit Exposure to Dealers and Other Financial Intermediaries (Such as Large Banking Institutions) Changed?| Answer Type: Decreased Considerably",
+      "observation_start": "2010-04-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Number of Respondents",
+      "units_short": "Number of Respondents",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-03-27 13:21:41-05",
+      "popularity": 1
+    }
+  ]
+}

@@ -1,0 +1,2051 @@
+series:
+- id: CROASMIDTIER
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Credit_and_Opti
+  freshness_days: 60
+  category_id: 46
+  priority_score: 52.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCUARETTRARETTR
+  alias: Producer_Price_Index_by_Industry_Total_Retail_Trad
+  freshness_days: 60
+  category_id: 31
+  priority_score: 52.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: DPCXRG3M086SBEA
+  alias: Personal_consumption_expenditures_Market_based_PCE
+  freshness_days: 60
+  category_id: 21
+  priority_score: 50.8
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCUATTDSVATTDSV
+  alias: Producer_Price_Index_by_Industry_Services_Less_Tra
+  freshness_days: 60
+  category_id: 31
+  priority_score: 49.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CROASTIER0
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Credit_and_Opti
+  freshness_days: 60
+  category_id: 46
+  priority_score: 49.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCUASTDSVASTDSV
+  alias: Producer_Price_Index_by_Industry_Other_Selected_Se
+  freshness_days: 60
+  category_id: 31
+  priority_score: 49.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CROASTIER3
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Credit_and_Opti
+  freshness_days: 60
+  category_id: 46
+  priority_score: 49.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CROASTIER1
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Credit_and_Opti
+  freshness_days: 60
+  category_id: 46
+  priority_score: 49.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CROASTIER2
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Credit_and_Opti
+  freshness_days: 60
+  category_id: 46
+  priority_score: 48.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PC001176Q
+  alias: Personal_Consumption_Expenditures_PCE_Excluding_Fo
+  freshness_days: 120
+  category_id: 21
+  priority_score: 46.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BPCXRO1Q156NBEA
+  alias: Market_based_PCE_excluding_Food_and_Energy_chain_t
+  freshness_days: 120
+  category_id: 21
+  priority_score: 46.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCMFLRIGIRAPCTF30SGTE740
+  alias: Large_Bank_Consumer_Mortgage_Originations_Average_
+  freshness_days: 120
+  category_id: 23
+  priority_score: 46.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCUOMFGOMFG
+  alias: Producer_Price_Index_by_Industry_Total_Manufacturi
+  freshness_days: 60
+  category_id: 31
+  priority_score: 45.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: DPCCRV1Q225SBEA
+  alias: Personal_Consumption_Expenditures_PCE_Excluding_Fo
+  freshness_days: 120
+  category_id: 21
+  priority_score: 43.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: NROU
+  alias: Noncyclical_Rate_of_Unemployment
+  freshness_days: 120
+  category_id: 10
+  priority_score: 43.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCUATRNWRATRNWR
+  alias: Producer_Price_Index_by_Industry_Transportation_an
+  freshness_days: 60
+  category_id: 31
+  priority_score: 42.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IA001260M
+  alias: Personal_Consumption_Expenditures_Services_Excludi
+  freshness_days: 60
+  category_id: 21
+  priority_score: 42.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RMFSL
+  alias: Retail_Money_Market_Funds
+  freshness_days: 60
+  category_id: 29
+  priority_score: 42.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCUAWHLTRAWHLTR
+  alias: Producer_Price_Index_by_Industry_Total_Wholesale_T
+  freshness_days: 60
+  category_id: 31
+  priority_score: 42.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: WRMFNS
+  alias: Retail_Money_Market_Funds
+  freshness_days: 30
+  category_id: 29
+  priority_score: 41.7
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: NROUST
+  alias: Natural_Rate_of_Unemployment_Short_Term_DISCONTINU
+  freshness_days: 120
+  category_id: 10
+  priority_score: 40.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCUAMUMAMUM
+  alias: Producer_Price_Index_by_Industry_Total_Mining_Util
+  freshness_days: 60
+  category_id: 31
+  priority_score: 40.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IA001176M
+  alias: Personal_Consumption_Expenditures_Excluding_Food_E
+  freshness_days: 60
+  category_id: 21
+  priority_score: 40.8
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCCCBACTDPD30P
+  alias: Large_Bank_Consumer_Credit_Card_Balances_30_or_Mor
+  freshness_days: 120
+  category_id: 23
+  priority_score: 40.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RMFNS
+  alias: Retail_Money_Market_Funds
+  freshness_days: 60
+  category_id: 29
+  priority_score: 40.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCUATRADEATRADE
+  alias: Producer_Price_Index_by_Industry_Total_Trade_Indus
+  freshness_days: 60
+  category_id: 31
+  priority_score: 40.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCCCBACTDPD90P
+  alias: Large_Bank_Consumer_Credit_Card_Balances_90_or_Mor
+  freshness_days: 120
+  category_id: 23
+  priority_score: 40.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCCCBBALDPD90P
+  alias: Large_Bank_Consumer_Credit_Card_Balances_90_or_Mor
+  freshness_days: 120
+  category_id: 23
+  priority_score: 39.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCCCBBALDPD30P
+  alias: Large_Bank_Consumer_Credit_Card_Balances_30_or_Mor
+  freshness_days: 120
+  category_id: 23
+  priority_score: 38.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: DPCMRG3M086SBEA
+  alias: Personal_consumption_expenditures_Market_based_cha
+  freshness_days: 60
+  category_id: 21
+  priority_score: 38.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: DHUTRG3Q086SBEA
+  alias: Personal_consumption_expenditures_Services_Housing
+  freshness_days: 120
+  category_id: 21
+  priority_score: 37.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCCCBBALDPD60P
+  alias: Large_Bank_Consumer_Credit_Card_Balances_60_or_Mor
+  freshness_days: 120
+  category_id: 23
+  priority_score: 37.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PC001260Q
+  alias: Personal_Consumption_Expenditures_Services_Excludi
+  freshness_days: 120
+  category_id: 21
+  priority_score: 37.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: B307RG3Q086SBEA
+  alias: Price_Index_for_Private_Fixed_Investment_Nonreside
+  freshness_days: 120
+  category_id: 21
+  priority_score: 37.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCCCBACTDPD60P
+  alias: Large_Bank_Consumer_Credit_Card_Balances_60_or_Mor
+  freshness_days: 120
+  category_id: 23
+  priority_score: 37.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCCCBNCOPCT
+  alias: Large_Bank_Consumer_Credit_Card_Balances_Net_Charg
+  freshness_days: 120
+  category_id: 23
+  priority_score: 37.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IA001260Q
+  alias: Personal_Consumption_Expenditures_Services_Excludi
+  freshness_days: 120
+  category_id: 21
+  priority_score: 36.8
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: YC001176Q
+  alias: Personal_Consumption_Expenditures_Excluding_Food_E
+  freshness_days: 120
+  category_id: 21
+  priority_score: 36.8
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: B358RG3Q086SBEA
+  alias: Gross_value_added_GDP_Business_Nonfarm_chain_type_
+  freshness_days: 120
+  category_id: 21
+  priority_score: 36.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: DIFSRG3Q086SBEA
+  alias: Personal_consumption_expenditures_Financial_servic
+  freshness_days: 120
+  category_id: 21
+  priority_score: 36.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IA001176Q
+  alias: Personal_Consumption_Expenditures_Excluding_Food_E
+  freshness_days: 120
+  category_id: 21
+  priority_score: 36.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: YC001177Q
+  alias: Personal_Consumption_Expenditures_Services_Excludi
+  freshness_days: 120
+  category_id: 21
+  priority_score: 36.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: DNRGRV1Q225SBEA
+  alias: Personal_Consumption_Expenditures_PCE_Energy_Goods
+  freshness_days: 120
+  category_id: 21
+  priority_score: 36.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: B639RG3Q086SBEA
+  alias: Exports_of_goods_Industrial_supplies_and_materials
+  freshness_days: 120
+  category_id: 21
+  priority_score: 36.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: B820RG3Q086SBEA
+  alias: Imports_of_goods_Industrial_supplies_and_materials
+  freshness_days: 120
+  category_id: 21
+  priority_score: 36.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCEPI
+  alias: Personal_Consumption_Expenditures_Chain_type_Price
+  freshness_days: 60
+  category_id: 21
+  priority_score: 36.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCMFLRIGIRAPCTF30LTVGTE80
+  alias: Large_Bank_Consumer_Mortgage_Originations_Average_
+  freshness_days: 120
+  category_id: 23
+  priority_score: 36.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: RCMFLRIGIRAPCTF30LTV66T79
+  alias: Large_Bank_Consumer_Mortgage_Originations_Average_
+  freshness_days: 120
+  category_id: 23
+  priority_score: 36.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PPIACO
+  alias: Producer_Price_Index_by_Commodity_All_Commodities
+  freshness_days: 60
+  category_id: 31
+  priority_score: 36.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: WRMFSL
+  alias: Retail_Money_Market_Funds_DISCONTINUED
+  freshness_days: 30
+  category_id: 29
+  priority_score: 35.8
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: PCUOMINOMIN
+  alias: Producer_Price_Index_by_Industry_Total_Mining_Indu
+  freshness_days: 60
+  category_id: 31
+  priority_score: 31.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ALLMON
+  alias: M2_Plus_Institutional_Type_Money_Market_Mutual_Fun
+  freshness_days: 60
+  category_id: 29
+  priority_score: 29.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MSIM2
+  alias: Monetary_Services_Index_M2_preferred
+  freshness_days: 60
+  category_id: 29
+  priority_score: 29.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MSIALLP
+  alias: Monetary_Services_Index_ALL_Assets_preferred
+  freshness_days: 60
+  category_id: 28
+  priority_score: 29.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CRTINDEXTIER1
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Tier_1
+  freshness_days: 60
+  category_id: 46
+  priority_score: 29.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IRAMMF
+  alias: IRA_and_Keogh_Accounts_at_Money_Market_Funds
+  freshness_days: 60
+  category_id: 26
+  priority_score: 28.8
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MSIMZMP
+  alias: Monetary_Services_Index_MZM_preferred
+  freshness_days: 60
+  category_id: 30
+  priority_score: 28.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CRTINDEXTIER2
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Tier_2
+  freshness_days: 60
+  category_id: 46
+  priority_score: 28.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CRTINDEXTIER0
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Tier_0
+  freshness_days: 60
+  category_id: 46
+  priority_score: 28.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMFSL
+  alias: Institutional_Money_Market_Funds_DISCONTINUED
+  freshness_days: 60
+  category_id: 28
+  priority_score: 28.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MSIM2A
+  alias: Monetary_Services_Index_M2_alternative
+  freshness_days: 60
+  category_id: 29
+  priority_score: 28.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CRTINDEXTIER3
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Tier_3
+  freshness_days: 60
+  category_id: 46
+  priority_score: 28.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CRTINDEXMIDTIER
+  alias: AD_Co_US_Mortgage_High_Yield_Index_Mid_Tier
+  freshness_days: 60
+  category_id: 46
+  priority_score: 28.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MSIM3P
+  alias: Monetary_Services_Index_M3_preferred_DISCONTINUED
+  freshness_days: 60
+  category_id: 28
+  priority_score: 28.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MSIALLA
+  alias: Monetary_Services_Index_ALL_Assets_alternative
+  freshness_days: 60
+  category_id: 28
+  priority_score: 28.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAX
+  alias: Exports_of_goods_and_services_and_income_receipts_
+  freshness_days: 120
+  category_id: 16
+  priority_score: 26.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: WIMFSL
+  alias: Institutional_Money_Market_Funds_DISCONTINUED
+  freshness_days: 30
+  category_id: 28
+  priority_score: 26.4
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M2REAL
+  alias: Real_M2_Money_Stock
+  freshness_days: 60
+  category_id: 29
+  priority_score: 25.8
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: WIMFNS
+  alias: Institutional_Money_Market_Funds_DISCONTINUED
+  freshness_days: 30
+  category_id: 28
+  priority_score: 25.4
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M1REAL
+  alias: Real_M1_Money_Stock
+  freshness_days: 60
+  category_id: 25
+  priority_score: 23.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CURRSL
+  alias: Currency_Component_of_M1
+  freshness_days: 60
+  category_id: 25
+  priority_score: 23.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M2OWN
+  alias: M2_Own_Rate_DISCONTINUED
+  freshness_days: 60
+  category_id: 29
+  priority_score: 22.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CURRNS
+  alias: Currency_Component_of_M1
+  freshness_days: 60
+  category_id: 25
+  priority_score: 20.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MZMSL
+  alias: MZM_Money_Stock_DISCONTINUED
+  freshness_days: 60
+  category_id: 30
+  priority_score: 19.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MZMNS
+  alias: MZM_Money_Stock_DISCONTINUED
+  freshness_days: 60
+  category_id: 30
+  priority_score: 19.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CURRDD
+  alias: Currency_Component_of_M1_Plus_Demand_Deposits_DISC
+  freshness_days: 60
+  category_id: 25
+  priority_score: 19.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITXFISM133S
+  alias: U_S_Exports_of_Services_Financial_Services
+  freshness_days: 60
+  category_id: 16
+  priority_score: 18.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MZM
+  alias: MZM_Money_Stock_DISCONTINUED
+  freshness_days: 30
+  category_id: 30
+  priority_score: 18.9
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M3
+  alias: M3_Money_Stock_DISCONTINUED
+  freshness_days: 30
+  category_id: 28
+  priority_score: 18.7
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M1ASL
+  alias: M1A_Money_Supply_Currency_plus_Demand_Deposits_DIS
+  freshness_days: 60
+  category_id: 25
+  priority_score: 18.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: OCM2P
+  alias: Real_User_Cost_Index_of_MSI_M2_preferred
+  freshness_days: 60
+  category_id: 29
+  priority_score: 18.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EURONS
+  alias: Eurodollars_DISCONTINUED
+  freshness_days: 60
+  category_id: 28
+  priority_score: 18.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: OCM2A
+  alias: Real_User_Cost_Index_of_MSI_M2_alternative
+  freshness_days: 60
+  category_id: 29
+  priority_score: 18.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M2SL
+  alias: M2
+  freshness_days: 60
+  category_id: 29
+  priority_score: 17.700000000000003
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: WCURRNS
+  alias: Currency_Component_of_M1
+  freshness_days: 30
+  category_id: 25
+  priority_score: 17.7
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGGN
+  alias: Imports_of_Goods_Nonmonetary_gold
+  freshness_days: 120
+  category_id: 17
+  priority_score: 17.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGG
+  alias: Imports_of_Goods_Nonmonetary_gold
+  freshness_days: 120
+  category_id: 17
+  priority_score: 17.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXGG
+  alias: Exports_of_Goods_Nonmonetary_gold
+  freshness_days: 120
+  category_id: 16
+  priority_score: 16.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMI
+  alias: Primary_income_payments
+  freshness_days: 120
+  category_id: 17
+  priority_score: 16.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMII
+  alias: Primary_income_payments_Investment_income
+  freshness_days: 120
+  category_id: 17
+  priority_score: 16.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMSIR
+  alias: Secondary_income_current_transfer_payments
+  freshness_days: 120
+  category_id: 17
+  priority_score: 16.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGI
+  alias: Imports_of_Goods_General_Merchandise_Industrial_su
+  freshness_days: 120
+  category_id: 17
+  priority_score: 16.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M1SL
+  alias: M1
+  freshness_days: 60
+  category_id: 25
+  priority_score: 16.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMID
+  alias: Primary_income_payments_Investment_income_Direct_i
+  freshness_days: 120
+  category_id: 17
+  priority_score: 16.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGIN
+  alias: Imports_of_Goods_General_Merchandise_Industrial_su
+  freshness_days: 120
+  category_id: 17
+  priority_score: 16.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAM
+  alias: Imports_of_goods_and_services_and_income_receipts_
+  freshness_days: 120
+  category_id: 17
+  priority_score: 16.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: CURRENCY
+  alias: Currency_Component_of_M1_DISCONTINUED
+  freshness_days: 30
+  category_id: 25
+  priority_score: 16.1
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: WM3NS
+  alias: M3_Money_Stock_DISCONTINUED
+  freshness_days: 30
+  category_id: 28
+  priority_score: 16.0
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: GDBFRW
+  alias: U_S_Government_Deposits_General_Account_Balance_at
+  freshness_days: 30
+  category_id: 26
+  priority_score: 15.9
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: H0MEUWM
+  alias: Eurodollars_DISCONTINUED
+  freshness_days: 30
+  category_id: 28
+  priority_score: 15.9
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M2NS
+  alias: M2
+  freshness_days: 60
+  category_id: 29
+  priority_score: 14.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: WM2NS
+  alias: M2
+  freshness_days: 30
+  category_id: 29
+  priority_score: 13.8
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPCH
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_China
+  freshness_days: 60
+  category_id: 17
+  priority_score: 13.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MDLM
+  alias: Other_Liquid_Deposits_Total
+  freshness_days: 60
+  category_id: 25
+  priority_score: 13.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: DEMDEPSL
+  alias: Demand_Deposits
+  freshness_days: 60
+  category_id: 25
+  priority_score: 12.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: STDSL
+  alias: Small_Denomination_Time_Deposits_Total
+  freshness_days: 60
+  category_id: 29
+  priority_score: 12.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPTEXP
+  alias: Exports_of_Goods_and_Services_Balance_of_Payments_
+  freshness_days: 60
+  category_id: 16
+  priority_score: 12.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M1NS
+  alias: M1
+  freshness_days: 60
+  category_id: 25
+  priority_score: 12.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPTIMP
+  alias: Imports_of_Goods_and_Services_Balance_of_Payments_
+  freshness_days: 60
+  category_id: 17
+  priority_score: 12.100000000000001
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPTOTUS
+  alias: Imports_of_Goods_for_United_States
+  freshness_days: 60
+  category_id: 17
+  priority_score: 12.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: WM1NS
+  alias: M1
+  freshness_days: 30
+  category_id: 25
+  priority_score: 11.8
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPMX
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_Mexico
+  freshness_days: 60
+  category_id: 17
+  priority_score: 11.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPCH
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Mainland_Ch
+  freshness_days: 60
+  category_id: 16
+  priority_score: 11.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPJP
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Japan
+  freshness_days: 60
+  category_id: 16
+  priority_score: 11.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPGEXP
+  alias: Exports_of_Goods_Balance_of_Payments_Basis
+  freshness_days: 60
+  category_id: 16
+  priority_score: 11.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPGIMP
+  alias: Imports_of_Goods_Balance_of_Payments_Basis
+  freshness_days: 60
+  category_id: 17
+  priority_score: 11.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPCA
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_Canada
+  freshness_days: 60
+  category_id: 17
+  priority_score: 10.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPJP
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_Japan
+  freshness_days: 60
+  category_id: 17
+  priority_score: 10.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: OCDSL
+  alias: Other_Checkable_Deposits_Total_DISCONTINUED
+  freshness_days: 60
+  category_id: 25
+  priority_score: 10.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPMANUS
+  alias: Exports_of_Goods_Manufactured_Commodities_for_Unit
+  freshness_days: 60
+  category_id: 16
+  priority_score: 10.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IRA
+  alias: IRA_and_Keogh_Accounts_Total
+  freshness_days: 60
+  category_id: 26
+  priority_score: 10.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: TCDSL
+  alias: Total_Checkable_Deposits_DISCONTINUED
+  freshness_days: 60
+  category_id: 25
+  priority_score: 9.9
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPMX
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Mexico
+  freshness_days: 60
+  category_id: 16
+  priority_score: 9.8
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPMANUS
+  alias: Imports_of_Goods_Manufactured_Commodities_for_Unit
+  freshness_days: 60
+  category_id: 17
+  priority_score: 9.8
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPCA
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Canada
+  freshness_days: 60
+  category_id: 16
+  priority_score: 9.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: DEMDEPNS
+  alias: Demand_Deposits
+  freshness_days: 60
+  category_id: 25
+  priority_score: 9.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXGS
+  alias: Exports_of_goods_and_services
+  freshness_days: 120
+  category_id: 16
+  priority_score: 9.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGSN
+  alias: Imports_of_goods_and_services
+  freshness_days: 120
+  category_id: 17
+  priority_score: 9.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: M1
+  alias: M1_DISCONTINUED
+  freshness_days: 30
+  category_id: 25
+  priority_score: 9.5
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: TVCKSSL
+  alias: Travelers_Checks_DISCONTINUED
+  freshness_days: 60
+  category_id: 25
+  priority_score: 9.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPSEXP
+  alias: Exports_of_Services_Balance_of_Payments_Basis
+  freshness_days: 60
+  category_id: 16
+  priority_score: 9.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPTOTUS
+  alias: Exports_of_Goods_for_United_States
+  freshness_days: 60
+  category_id: 16
+  priority_score: 9.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPGE
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_Germany
+  freshness_days: 60
+  category_id: 17
+  priority_score: 9.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPKR
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_South_K
+  freshness_days: 60
+  category_id: 17
+  priority_score: 9.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPTOTPR
+  alias: Imports_of_Goods_for_Puerto_Rico
+  freshness_days: 60
+  category_id: 17
+  priority_score: 9.2
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: WDDNS
+  alias: Demand_Deposits
+  freshness_days: 30
+  category_id: 25
+  priority_score: 9.100000000000001
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITXTAEM133S
+  alias: U_S_Exports_of_Services_Travel_for_All_Purposes_In
+  freshness_days: 60
+  category_id: 16
+  priority_score: 9.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPSIMP
+  alias: Imports_of_Services_Balance_of_Payments_Basis
+  freshness_days: 60
+  category_id: 17
+  priority_score: 9.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITMTCIM133S
+  alias: U_S_Imports_of_Services_Telecommunications_Compute
+  freshness_days: 60
+  category_id: 17
+  priority_score: 9.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: MDLNM
+  alias: Other_Liquid_Deposits_Total
+  freshness_days: 60
+  category_id: 25
+  priority_score: 9.1
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPGE
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Germany
+  freshness_days: 60
+  category_id: 16
+  priority_score: 9.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: TCDNS
+  alias: Total_Checkable_Deposits_DISCONTINUED
+  freshness_days: 60
+  category_id: 25
+  priority_score: 8.8
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPKR
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_South_Korea
+  freshness_days: 60
+  category_id: 16
+  priority_score: 8.7
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPTOTPR
+  alias: Exports_of_Goods_for_Puerto_Rico
+  freshness_days: 60
+  category_id: 16
+  priority_score: 8.6
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPUK
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_the_United_
+  freshness_days: 60
+  category_id: 16
+  priority_score: 8.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPUK
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_the_Uni
+  freshness_days: 60
+  category_id: 17
+  priority_score: 8.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITMTAEM133S
+  alias: U_S_Imports_of_Services_Travel_for_All_Purposes_In
+  freshness_days: 60
+  category_id: 17
+  priority_score: 8.5
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPFR
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_France
+  freshness_days: 60
+  category_id: 16
+  priority_score: 8.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITXTCIM133S
+  alias: U_S_Exports_of_Services_Telecommunications_Compute
+  freshness_days: 60
+  category_id: 16
+  priority_score: 8.4
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IRADI
+  alias: IRA_and_Keogh_Accounts_at_Depository_Institutions
+  freshness_days: 60
+  category_id: 26
+  priority_score: 8.3
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: GDTCBW
+  alias: U_S_Government_Deposits_Total_Cash_Balance_DISCONT
+  freshness_days: 30
+  category_id: 26
+  priority_score: 5.3
+  calc:
+    wow:
+      op: pct_change
+      shift: 1
+      scale: 100

@@ -1,0 +1,52 @@
+total_categories: 12
+total_series: 151
+categories:
+- id: 46
+  name: Geography
+  path: C:\Users\admin\上网\data\fred\categories\Geography
+  series_count: 10
+- id: 31
+  name: Business_Cycle_Expansions_Contractions
+  path: C:\Users\admin\上网\data\fred\categories\Business_Cycle_Expansions_Contractions
+  series_count: 10
+- id: 21
+  name: Current_Employment_Statistics
+  path: C:\Users\admin\上网\data\fred\categories\Current_Employment_Statistics
+  series_count: 20
+- id: 23
+  name: Income_Distribution
+  path: C:\Users\admin\上网\data\fred\categories\Income_Distribution
+  series_count: 10
+- id: 10
+  name: Money_Banking_Finance
+  path: C:\Users\admin\上网\data\fred\categories\Money_Banking_Finance
+  series_count: 2
+- id: 29
+  name: US_Trade_International_Transactions
+  path: C:\Users\admin\上网\data\fred\categories\US_Trade_International_Transactions
+  series_count: 15
+- id: 28
+  name: Federal_Government_Debt
+  path: C:\Users\admin\上网\data\fred\categories\Federal_Government_Debt
+  series_count: 10
+- id: 26
+  name: Productivity_Costs
+  path: C:\Users\admin\上网\data\fred\categories\Productivity_Costs
+  series_count: 5
+- id: 30
+  name: Flow_of_Funds
+  path: C:\Users\admin\上网\data\fred\categories\Flow_of_Funds
+  series_count: 4
+- id: 16
+  name: Prices
+  path: C:\Users\admin\上网\data\fred\categories\Prices
+  series_count: 20
+- id: 25
+  name: Population
+  path: C:\Users\admin\上网\data\fred\categories\Population
+  series_count: 20
+- id: 17
+  name: International_Data
+  path: C:\Users\admin\上网\data\fred\categories\International_Data
+  series_count: 25
+created_at: 1757737218.1293538

@@ -1,0 +1,32 @@
+# {{ title }} ({{ series_id }})
+
+**Observations**: {{ latest_value }} ({{ latest_period }})  
+**Updated**: {{ last_updated }}  
+**Next Release**: {{ next_release }}  
+**Units**: {{ units }}  
+**Frequency**: {{ frequency }}  
+**Seasonal Adjustment**: {{ seasonal_adjustment }}  
+**Range**: {{ observation_start }} → {{ observation_end }}  
+
+---
+
+## Chart
+![chart](notes/attachments/latest.png)
+
+## Latest Readings
+- Latest: **{{ latest_value }}** ({{ latest_period_short }})
+- YoY: {{ yoy }} | MoM: {{ mom }}  
+- 6m Trend (slope): {{ trend6m }}
+
+## Official Notes (from FRED)
+{{ official_notes }}
+
+**Source**: {{ source_name }} via FRED  
+**Release**: {{ release_name }}  
+**Link**: https://fred.stlouisfed.org/series/{{ series_id }}  
+
+## Research Notes (Manual)
+{{ custom_notes }}
+
+## Attachments
+{{ attachments_list }}

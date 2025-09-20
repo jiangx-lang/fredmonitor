@@ -1,0 +1,96 @@
+metadata:
+  category_id: 34009
+  created_at: '2025-09-13'
+  description: AMERIBOR Benchmark Rates 数据
+  name: AMERIBOR Benchmark Rates
+  parent_category: Major_Category
+  total_series: 11
+series:
+- alias: 1-Month AMERIBOR Term Structure of Interest Rates (DISCONTINUED)
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: 1-Week AMERIBOR Term Structure of Interest Rates (DISCONTINUED)
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR1W
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: 1-Year AMERIBOR Term Structure of Interest Rates (DISCONTINUED)
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR1Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: 2-Year AMERIBOR Term Structure of Interest Rates (DISCONTINUED)
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR2Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: 30-Day Moving Average AMERIBOR Benchmark Interest Rate
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: AMERIBOR Term-30 Derived Interest Rate Index
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR30T
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: 3-Month AMERIBOR Term Structure of Interest Rates (DISCONTINUED)
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: 6-Month AMERIBOR Term Structure of Interest Rates (DISCONTINUED)
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR6M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: 90-Day Moving Average AMERIBOR Benchmark Interest Rate
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR90
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: AMERIBOR Term-90 Derived Interest Rate Index
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMBOR90T
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent
+- alias: Overnight Unsecured AMERIBOR Benchmark Interest Rate
+  category_id: 34009
+  frequency: Daily
+  freshness_days: 7
+  id: AMERIBOR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: AMERIBOR_Benchmark_Rates
+  units: Percent

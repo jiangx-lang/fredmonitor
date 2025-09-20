@@ -1,0 +1,72 @@
+metadata:
+  category_id: 34078
+  created_at: '2025-09-13'
+  description: Banking Indexes 数据
+  name: Banking Indexes
+  parent_category: Major_Category
+  total_series: 8
+series:
+- alias: CSBS Community Bank Sentiment, Business Conditions Index
+  category_id: 34078
+  frequency: Quarterly
+  freshness_days: 7
+  id: CBSIBC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Banking_Indexes
+  units: Diffusion Index = 100
+- alias: CSBS Community Bank Sentiment Index
+  category_id: 34078
+  frequency: Quarterly
+  freshness_days: 7
+  id: CBSICO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Banking_Indexes
+  units: Diffusion Index = 100
+- alias: CSBS Community Bank Sentiment, Capital Spending Index
+  category_id: 34078
+  frequency: Quarterly
+  freshness_days: 7
+  id: CBSICS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Banking_Indexes
+  units: Diffusion Index = 100
+- alias: CSBS Community Bank Sentiment, Franchise Value Index
+  category_id: 34078
+  frequency: Quarterly
+  freshness_days: 7
+  id: CBSIFV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Banking_Indexes
+  units: Diffusion Index = 100
+- alias: CSBS Community Bank Sentiment, Monetary Policy Index
+  category_id: 34078
+  frequency: Quarterly
+  freshness_days: 7
+  id: CBSIMP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Banking_Indexes
+  units: Diffusion Index = 100
+- alias: CSBS Community Bank Sentiment, Operations Expansion Index
+  category_id: 34078
+  frequency: Quarterly
+  freshness_days: 7
+  id: CBSIOE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Banking_Indexes
+  units: Diffusion Index = 100
+- alias: CSBS Community Bank Sentiment, Profitability Index
+  category_id: 34078
+  frequency: Quarterly
+  freshness_days: 7
+  id: CBSIPR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Banking_Indexes
+  units: Diffusion Index = 100
+- alias: CSBS Community Bank Sentiment, Regulatory Burden Index
+  category_id: 34078
+  frequency: Quarterly
+  freshness_days: 7
+  id: CBSIRB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Banking_Indexes
+  units: Diffusion Index = 100

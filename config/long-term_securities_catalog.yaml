@@ -1,0 +1,72 @@
+metadata:
+  category_id: 32995
+  created_at: '2025-09-13'
+  description: Long-Term Securities 数据
+  name: Long-Term Securities
+  parent_category: Major_Category
+  total_series: 8
+series:
+- alias: Composite Yield on U.S. Treasury Bonds with Maturity over 10 Years (DISCONTINUED)
+  category_id: 32995
+  frequency: Daily
+  freshness_days: 7
+  id: DLTBOARD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Long-Term_Securities
+  units: Percent
+- alias: Composite Yield on U.S. Treasury Bonds with Maturity over 10 Years (DISCONTINUED)
+  category_id: 32995
+  frequency: Annual
+  freshness_days: 7
+  id: H1RIFLGFY10PNA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Long-Term_Securities
+  units: Percent
+- alias: Composite Yield on U.S. Treasury Bonds with Maturity over 10 Years (DISCONTINUED)
+  category_id: 32995
+  frequency: Monthly
+  freshness_days: 7
+  id: H1RIFLGFY10PNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Long-Term_Securities
+  units: Percent
+- alias: Composite Yield on U.S. Treasury Bonds with Maturity over 10 Years (DISCONTINUED)
+  category_id: 32995
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: LTBOARD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Long-Term_Securities
+  units: Percent
+- alias: Long-Term U.S. Government Securities (DISCONTINUED)
+  category_id: 32995
+  frequency: Monthly
+  freshness_days: 7
+  id: LTGOVTBD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Long-Term_Securities
+  units: Percent
+- alias: Long-Term U.S. Treasury Securities - Market Yield (DISCONTINUED)
+  category_id: 32995
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: LTGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Long-Term_Securities
+  units: Percent
+- alias: Bond Buyer Go 20-Bond Municipal Bond Index (DISCONTINUED)
+  category_id: 32995
+  frequency: Monthly
+  freshness_days: 7
+  id: MSLB20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Long-Term_Securities
+  units: Percent
+- alias: Bond Buyer Go 20-Bond Municipal Bond Index (DISCONTINUED)
+  category_id: 32995
+  frequency: Weekly, As of Thursday
+  freshness_days: 7
+  id: WSLB20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Long-Term_Securities
+  units: Percent

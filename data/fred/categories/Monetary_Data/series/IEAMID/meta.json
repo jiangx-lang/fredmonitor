@@ -1,0 +1,20 @@
+{
+  "id": "IEAMID",
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "title": "Primary income payments: Investment income: Direct investment income",
+  "observation_start": "1999-01-01",
+  "observation_end": "2025-01-01",
+  "frequency": "Quarterly",
+  "frequency_short": "Q",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Seasonally Adjusted",
+  "seasonal_adjustment_short": "SA",
+  "last_updated": "2025-06-24 08:51:14-05",
+  "popularity": 3,
+  "sync_timestamp": "2025-09-13T13:19:42.743870",
+  "alias": "Primary_income_payments_Investment_income_Direct_i",
+  "category_id": 17,
+  "next_release": "N/A"
+}

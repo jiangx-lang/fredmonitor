@@ -1,0 +1,216 @@
+metadata:
+  category_id: 32219
+  created_at: '2025-09-13'
+  description: Annual Rates 数据
+  name: Annual Rates
+  parent_category: Major_Category
+  total_series: 26
+series:
+- alias: Brazilian Reals to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXBZUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Brazilian Reals to One U.S. Dollar
+- alias: Canadian Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXCAUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Canadian Dollars to One U.S. Dollar
+- alias: Chinese Yuan Renminbi to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXCHUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Chinese Yuan Renminbi to One U.S. Dollar
+- alias: Danish Kroner to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXDNUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Danish Kroner to One U.S. Dollar
+- alias: Hong Kong Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXHKUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Hong Kong Dollars to One U.S. Dollar
+- alias: Indian Rupees to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXINUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Indian Rupees to One U.S. Dollar
+- alias: Japanese Yen to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXJPUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Japanese Yen to One U.S. Dollar
+- alias: South Korean Won to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXKOUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: South Korean Won to One U.S. Dollar
+- alias: Malaysian Ringgit to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXMAUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Malaysian Ringgit to One U.S. Dollar
+- alias: Mexican Pesos to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXMXUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Mexican Pesos to One U.S. Dollar
+- alias: Norwegian Kroner to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXNOUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Norwegian Kroner to One U.S. Dollar
+- alias: Swedish Kronor to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXSDUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Swedish Kronor to One U.S. Dollar
+- alias: South African Rand to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXSFUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: South African Rand to One U.S. Dollar
+- alias: Singapore Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXSIUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Singapore Dollars to One U.S. Dollar
+- alias: Sri Lankan Rupees to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXSLUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Sri Lankan Rupees to One U.S. Dollar
+- alias: Swiss Francs to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXSZUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Swiss Francs to One U.S. Dollar
+- alias: Taiwan Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXTAUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Taiwan Dollars to One U.S. Dollar
+- alias: Thai Baht to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXTHUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Thai Baht to One U.S. Dollar
+- alias: U.S. Dollars to Australian Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXUSAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: U.S. Dollars to One Australian Dollar
+- alias: U.S. Dollars to Euro Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXUSEU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: U.S. Dollars to One Euro
+- alias: U.S. Dollars to New Zealand Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXUSNZ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: U.S. Dollars to One New Zealand Dollar
+- alias: U.S. Dollars to U.K. Pound Sterling Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXUSUK
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: U.S. Dollars to One U.K. Pound Sterling
+- alias: Venezuelan Bolivares to U.S. Dollar Spot Exchange Rate
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: AEXVZUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Venezuelan Bolivares to One U.S. Dollar
+- alias: Nominal Broad U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXBANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Index 1997=100
+- alias: Nominal Major Currencies U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXMANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Index Mar 1973=100
+- alias: Nominal Other Important Trading Partners U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 32219
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXOANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Annual_Rates
+  units: Index Jan 1997=100

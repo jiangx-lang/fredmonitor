@@ -1,0 +1,21 @@
+{
+  "id": "DEXCHUS",
+  "realtime_start": "2025-09-16",
+  "realtime_end": "2025-09-16",
+  "title": "Chinese Yuan Renminbi to U.S. Dollar Spot Exchange Rate",
+  "observation_start": "1981-01-02",
+  "observation_end": "2025-09-12",
+  "frequency": "Daily",
+  "frequency_short": "D",
+  "units": "Chinese Yuan Renminbi to One U.S. Dollar",
+  "units_short": "Chinese Yuan Renminbi to  1 U.S. $",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-09-15 15:21:43-05",
+  "popularity": 70,
+  "notes": "Noon buying rates in New York City for cable transfers payable in foreign currencies.",
+  "sync_timestamp": "2025-09-20T10:46:56.788288",
+  "alias": "USD_CNY_Exchange_Rate",
+  "freshness_days": 7,
+  "next_release": "N/A"
+}

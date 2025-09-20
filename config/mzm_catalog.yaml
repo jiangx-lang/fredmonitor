@@ -1,0 +1,88 @@
+metadata:
+  category_id: 30
+  created_at: '2025-09-13'
+  description: MZM 数据
+  name: MZM
+  parent_category: Major_Category
+  total_series: 10
+series:
+- alias: 'Monetary Services Index: MZM (alternative)'
+  category_id: 30
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIMZMA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: MZM
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: MZM (preferred)'
+  category_id: 30
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIMZMP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: MZM
+  units: Billions of Dollars
+- alias: MZM Money Stock (DISCONTINUED)
+  category_id: 30
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: MZM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: MZM
+  units: Billions of Dollars
+- alias: MZM Money Stock (DISCONTINUED)
+  category_id: 30
+  frequency: Monthly
+  freshness_days: 7
+  id: MZMNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: MZM
+  units: Billions of Dollars
+- alias: MZM Own Rate (DISCONTINUED)
+  category_id: 30
+  frequency: Monthly
+  freshness_days: 7
+  id: MZMOWN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: MZM
+  units: Percent
+- alias: Real MZM Money Stock (DISCONTINUED)
+  category_id: 30
+  frequency: Monthly
+  freshness_days: 7
+  id: MZMREAL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: MZM
+  units: Billions of 1982-84 Dollars
+- alias: MZM Money Stock (DISCONTINUED)
+  category_id: 30
+  frequency: Monthly
+  freshness_days: 7
+  id: MZMSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: MZM
+  units: Billions of Dollars
+- alias: Real User Cost Index of MSI-MZM (alternative)
+  category_id: 30
+  frequency: Monthly
+  freshness_days: 7
+  id: OCMZMA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: MZM
+  units: Percent
+- alias: Real User Cost Index of MSI-MZM (preferred)
+  category_id: 30
+  frequency: Monthly
+  freshness_days: 7
+  id: OCMZMP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: MZM
+  units: Percent
+- alias: MZM Money Stock (DISCONTINUED)
+  category_id: 30
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WMZMNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: MZM
+  units: Billions of Dollars

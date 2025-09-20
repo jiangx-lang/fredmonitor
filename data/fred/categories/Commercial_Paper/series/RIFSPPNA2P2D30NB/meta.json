@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "RIFSPPNA2P2D30NB",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "30-Day A2/P2 Nonfinancial Commercial Paper Interest Rate",
+      "observation_start": "1997-01-02",
+      "observation_end": "2025-09-11",
+      "frequency": "Daily",
+      "frequency_short": "D",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-12 12:02:01-05",
+      "popularity": 21,
+      "notes": "https://www.federalreserve.gov/releases/cp/about.htm (https://www.federalreserve.gov/releases/cp/about.htm). For questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/cp/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Securities, Loans, & Other Assets & Liabilities Held by Fed (203 series)
+subcategory:
+  name: "Securities_Loans_Assets_Liabilities"
+  description: "Securities, Loans, & Other Assets & Liabilities Held by Fed (203 series)"
+  keywords: ['SECURITIES', 'LOANS', 'ASSETS', 'LIABILITIES']
+  parent_category: "Monetary_Data"
+  created_at: "C:\Users\admin\上网"

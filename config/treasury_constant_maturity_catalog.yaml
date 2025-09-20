@@ -1,0 +1,571 @@
+metadata:
+  category_id: 115
+  created_at: '2025-09-13'
+  description: Treasury Constant Maturity 数据
+  name: Treasury Constant Maturity
+  parent_category: Major_Category
+  total_series: 63
+series:
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DFII10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DFII20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DFII30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DFII5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DFII7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 1-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 1-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS1MO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 3-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS3
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 3-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS3MO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 6-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS6MO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: DGS7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: FII10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: FII20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: FII30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: FII5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: FII7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 1-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 1-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 3-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS3
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 3-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 6-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS6M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: GS7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: 20-Year U.S. Government Constant Maturity Yield (DISCONTINUED)
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFLGFCY20NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: 20-Year U.S. Government Constant Maturity Yield (DISCONTINUED)
+  category_id: 115
+  frequency: Daily
+  freshness_days: 7
+  id: H0RIFLGFCY20NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: 20 Year U.S. Govt. Constant Maturity Yield (DISCONTINUED)
+  category_id: 115
+  frequency: Monthly
+  freshness_days: 7
+  id: H0RIFLGFCY20NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: 20-Year U.S. Government Constant Maturity Yield (DISCONTINUED)
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: H0RIFLGFCY20NWF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 1-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCM01NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 3-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCM03NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 6-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCM06NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 1-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY01NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY02NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 3-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY03NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY05NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY07NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY10NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY20NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY30NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WFII10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WFII20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WFII30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WFII5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WFII7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS10YR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 1-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS1MO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 1-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS1YR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS20YR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS2YR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS30YR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 3-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS3MO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 3-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS3YR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS5YR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 6-Month Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS6MO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis
+  category_id: 115
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WGS7YR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Constant_Maturity
+  units: Percent

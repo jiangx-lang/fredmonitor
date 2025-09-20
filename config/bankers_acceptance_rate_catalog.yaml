@@ -1,0 +1,112 @@
+metadata:
+  category_id: 51
+  created_at: '2025-09-13'
+  description: Bankers Acceptance Rate 数据
+  name: Bankers Acceptance Rate
+  parent_category: Major_Category
+  total_series: 12
+series:
+- alias: 3-Month Bankers Acceptance Rate (DISCONTINUED)
+  category_id: 51
+  frequency: Monthly
+  freshness_days: 7
+  id: BA3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: 6-Month Bankers Acceptance Rate (DISCONTINUED)
+  category_id: 51
+  frequency: Monthly
+  freshness_days: 7
+  id: BA6M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: 3-Month Bankers Acceptance Rate (DISCONTINUED)
+  category_id: 51
+  frequency: Daily
+  freshness_days: 7
+  id: DBKAC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: Average Dealer Offering Rate on 6-Month Domestic Private Bankers' Acceptances,
+    Quoted on a Discount Basis (DISCONTINUED)
+  category_id: 51
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPABM06NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: Average Dealer Offering Rate on 6-Month Domestic Private Bankers' Acceptances,
+    Quoted on a Discount Basis (DISCONTINUED)
+  category_id: 51
+  frequency: Daily
+  freshness_days: 7
+  id: H0RIFSPABM06NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: Average Dealer Offering Rate on 6-Month Domestic Private Bankers' Acceptances,
+    Quoted on a Discount Basis (DISCONTINUED)
+  category_id: 51
+  frequency: Monthly
+  freshness_days: 7
+  id: H0RIFSPABM06NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: Average Dealer Offering Rate on 3-Month Domestic Private Bankers' Acceptances,
+    Quoted on a Discount Basis (DISCONTINUED)
+  category_id: 51
+  frequency: Annual
+  freshness_days: 7
+  id: H1RIFSPABM03NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: Average Dealer Offering Rate on 3-Month Domestic Private Bankers' Acceptances,
+    Quoted on a Discount Basis (DISCONTINUED)
+  category_id: 51
+  frequency: Daily
+  freshness_days: 7
+  id: H1RIFSPABM03NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: Average Dealer Offering Rate on 3-Month Domestic Private Bankers' Acceptances,
+    Quoted on a Discount Basis (DISCONTINUED)
+  category_id: 51
+  frequency: Monthly
+  freshness_days: 7
+  id: H1RIFSPABM03NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: Average Dealer Offering Rate on 3-Month Domestic Private Bankers' Acceptances,
+    Quoted on a Discount Basis (DISCONTINUED)
+  category_id: 51
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: H1RIFSPABM03NWF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: 3-Month Bankers Acceptance Rate (DISCONTINUED)
+  category_id: 51
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WBA3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent
+- alias: Average Dealer Offering Rate on 6-Month Domestic Private Bankers' Acceptances,
+    Quoted on a Discount Basis (DISCONTINUED)
+  category_id: 51
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WBA6M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Bankers_Acceptance_Rate
+  units: Percent

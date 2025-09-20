@@ -1,0 +1,8 @@
+category_id: 10
+category_name: Money_Banking_Finance
+series_count: 2
+series_list:
+- NROU
+- NROUST
+description: 'FRED Category 10: Money_Banking_Finance'
+created_at: 1757737218.1293538

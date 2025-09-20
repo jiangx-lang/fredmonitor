@@ -1,0 +1,818 @@
+metadata:
+  category_id: 33731
+  created_at: '2025-09-13'
+  description: Tax Data 数据
+  name: Tax Data
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: Age 65 and Over Tax Exemptions for Alaska
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMAK2A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Alabama
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMAL1A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Arkansas
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMAR5A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Arizona
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMAZ4A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for California
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMCA6A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Colorado
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMCO8A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Connecticut
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMCT9A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for District of Columbia
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMDC11A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Delaware
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMDE10A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Florida
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMFL12A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Georgia
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMGA13A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Hawaii
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMHI15A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Iowa
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMIA19A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Idaho
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMID16A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Illinois
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMIL17A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Indiana
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMIN18A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Kansas
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMKS20A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Kentucky
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMKY21A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Louisiana
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMLA22A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Massachusetts
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMMA25A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Maryland
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMMD24A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Maine
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMME23A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Michigan
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMMI26A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Minnesota
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMMN27A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Missouri
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMMO29A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Mississippi
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMMS28A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Montana
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMMT30A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for North Carolina
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMNC37A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for North Dakota
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMND38A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Nebraska
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMNE31A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for New Hampshire
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMNH33A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for New Jersey
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMNJ34A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for New Mexico
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMNM35A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Nevada
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMNV32A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for New York
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMNY36A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Ohio
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMOH39A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Oklahoma
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMOK40A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Oregon
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMOR41A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Pennsylvania
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMPA42A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Rhode Island
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMRI44A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for South Carolina
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMSC45A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for South Dakota
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMSD46A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Tennessee
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMTN47A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Texas
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMTX48A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Utah
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMUT49A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Virginia
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMVA51A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Vermont
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMVT50A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Washington
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMWA53A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Wisconsin
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMWI55A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for West Virginia
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMWV54A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Age 65 and Over Tax Exemptions for Wyoming
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGEXMWY56A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: 'Individual Income Tax Filing: Adjusted Gross Income (AGI)'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGICM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: 'Individual Income Tax Filing: Adjusted Gross Income (AGI): Salaries and
+    Wages'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGISAW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Returns
+- alias: 'Individual Income Tax Filing: Adjusted Gross Income (AGI): Salaries and
+    Wages'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AGISAWA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: 'Individual Income Tax Filing: Total Income Tax: Alternative Minimum Tax'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AMTXCT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Returns
+- alias: 'Individual Income Tax Filing: Total Income Tax: Alternative Minimum Tax'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: AMTXCTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: 'Individual Income Tax Filing: Adjusted Gross Income (AGI): Business or Profession
+    Net Income'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: BOPNIC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Returns
+- alias: 'Individual Income Tax Filing: Adjusted Gross Income (AGI): Business or Profession
+    Net Income'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: BOPNICA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: 'Individual Income Tax Filing: Adjusted Gross Income (AGI): Business or Profession
+    Net Loss'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: BOPNLS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Returns
+- alias: 'Individual Income Tax Filing: Adjusted Gross Income (AGI): Business or Profession
+    Net Loss'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: BOPNLSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: 'Individual Income Tax Filing: Statutory Adjustments: Certain Business Expenses
+    of Reservists, Performing Artists, and Fee-basis Government Officials'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CBERAGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Returns
+- alias: 'Individual Income Tax Filing: Statutory Adjustments: Certain Business Expenses
+    of Reservists, Performing Artists, and Fee-basis Government Officials'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CBERAGOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: 'Individual Income Tax Filing: Tax Credits: Child Care Credit'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CCDTXCT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Returns
+- alias: 'Individual Income Tax Filing: Tax Credits: Child Care Credit'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CCDTXCTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: 'Individual Income Tax Filing: Tax Credits: Child Tax Credit'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CDTXCT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Returns
+- alias: 'Individual Income Tax Filing: Tax Credits: Child Tax Credit'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CDTXCTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: 'Individual Income Tax Filing: Tax Credits: Credit for the Elderly or Disabled'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CFEAD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Returns
+- alias: 'Individual Income Tax Filing: Tax Credits: Credit for the Elderly or Disabled'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CFEADA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: 'Individual Income Tax Filing: Adjusted Gross Income (AGI): Capital Gain
+    Distributions Reported on Form 1040'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CGDTROFR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Returns
+- alias: 'Individual Income Tax Filing: Adjusted Gross Income (AGI): Capital Gain
+    Distributions Reported on Form 1040'
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CGDTROFRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Thousands of U.S. Dollars
+- alias: Child Tax Exemptions for Alaska
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMAK2A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Alabama
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMAL1A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Arkansas
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMAR5A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Arizona
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMAZ4A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for California
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMCA6A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Colorado
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMCO8A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Connecticut
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMCT9A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for District of Columbia
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMDC11A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Delaware
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMDE10A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Florida
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMFL12A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Georgia
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMGA13A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Hawaii
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMHI15A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Iowa
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMIA19A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Idaho
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMID16A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Illinois
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMIL17A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Indiana
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMIN18A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Kansas
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMKS20A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Kentucky
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMKY21A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Louisiana
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMLA22A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Massachusetts
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMMA25A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Maryland
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMMD24A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Maine
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMME23A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Michigan
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMMI26A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Minnesota
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMMN27A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Missouri
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMMO29A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Mississippi
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMMS28A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Montana
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMMT30A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for North Carolina
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMNC37A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for North Dakota
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMND38A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions
+- alias: Child Tax Exemptions for Nebraska
+  category_id: 33731
+  frequency: Annual
+  freshness_days: 7
+  id: CHEXMNE31A647NCEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Tax_Data
+  units: Number of Exemptions

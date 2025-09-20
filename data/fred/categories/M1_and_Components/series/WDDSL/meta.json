@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-07",
+  "realtime_end": "2025-09-07",
+  "seriess": [
+    {
+      "id": "WDDSL",
+      "realtime_start": "2025-09-07",
+      "realtime_end": "2025-09-07",
+      "title": "Demand Deposits (DISCONTINUED)",
+      "observation_start": "1975-01-06",
+      "observation_end": "2021-02-01",
+      "frequency": "Weekly, Ending Monday",
+      "frequency_short": "W",
+      "units": "Billions of Dollars",
+      "units_short": "Bil. of $",
+      "seasonal_adjustment": "Seasonally Adjusted",
+      "seasonal_adjustment_short": "SA",
+      "last_updated": "2024-08-27 15:25:44-05",
+      "popularity": 2,
+      "notes": "WDDNS (https://fred.stlouisfed.org/series/WDDNS), and the seasonally adjusted monthly series is DEMDEPSL (https://fred.stlouisfed.org/series/DEMDEPSL).\n\nStarting on February 23, 2021, the H.6 statistical release is now published at a monthly frequency and contains only monthly average data needed to construct the monetary aggregates. Weekly average, non-seasonally adjusted data will continue to be made available, while weekly average, seasonally adjusted data will no longer be provided. For further information about the changes to the H.6 statistical release, see the announcements (https://www.federalreserve.gov/feeds/h6.html) provided by the source.\n\nThe demand deposits component of M1 is defined as demand deposits at domestically chartered commercial banks, U.S. branches and agencies of foreign banks, and Edge Act corporations (excluding those amounts held by depository institutions, the U.S. government, and foreign banks and official institutions) less cash items in the process of collection (CIPC) and Federal Reserve float. CIPC and Federal Reserve float are substracted from the demand deposit component of M1 in order to avoid double counting deposits that are simultaneously on the books of two depository institutions. Demand deposits due to the public and CIPC are reported on the FR 2900 and, for institutions that do not file the FR 2900, are estimated using data reported on the Call Reports. Demand deposits held by foreign banks and foreign official institutions are estimated using data reported on the Call Reports. Federal Reserve float is obtained from the consolidated balance sheet of the Federal Reserve Banks, which is published each week in the Federal Reserve Board's H.4.1 statistical release.\n\n#For questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h6/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

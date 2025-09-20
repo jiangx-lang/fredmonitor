@@ -1,0 +1,8 @@
+[
+  "tests/test_sync_http.py::TestSyncHttp::test_calculate_features",
+  "tests/test_sync_http.py::TestSyncHttp::test_ensure_series_directory",
+  "tests/test_sync_http.py::TestSyncHttp::test_safe_write_json",
+  "tests/test_sync_http.py::TestSyncHttp::test_sync_series_empty_data",
+  "tests/test_sync_http.py::TestSyncHttp::test_sync_series_mock",
+  "tests/test_sync_http.py::test_integration_with_real_api"
+]

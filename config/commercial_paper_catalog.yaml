@@ -1,0 +1,720 @@
+metadata:
+  category_id: 120
+  created_at: '2025-09-13'
+  description: Commercial Paper 数据
+  name: Commercial Paper
+  parent_category: Major_Category
+  total_series: 84
+series:
+- alias: 1-Month Commercial Paper Rate (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: CP1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 3-Month Commercial Paper Rate (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: CP3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 6-Month Commercial Paper Rate (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: CP6M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: CPF1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: CPF2M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: CPF3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: CPN1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: CPN2M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: CPN3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 1-Month Commercial Paper Rate (DISCONTINUED)
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: DCP30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: DCPF1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: DCPF2M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: DCPF3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: DCPN2M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: DCPN30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: DCPN3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 1-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPPCM01NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 1-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: H0RIFSPPCM01NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 3-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPPCM03NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 3-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: H0RIFSPPCM03NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 6-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPPCM06NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 6-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: H0RIFSPPCM06NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 6-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: H0RIFSPPCM06NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 1-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPPFM01NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 1-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: H0RIFSPPFM01NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 1-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: H0RIFSPPFM01NWF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 3-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPPFM03NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 3-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: H0RIFSPPFM03NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 3-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: H0RIFSPPFM03NWF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 6-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPPFM06NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 6-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: H0RIFSPPFM06NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 6-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: H0RIFSPPFM06NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 6-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: H0RIFSPPFM06NWF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 1-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: H15H0RIFSPPCM01NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 3-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: H15H0RIFSPPCM03NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 1-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: H15H0RIFSPPFM01NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 3-Month Finance Paper Placed Directly, Average Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: H15H0RIFSPPFM03NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Overnight AA Asset-Backed Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPAAAD01NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 7-Day AA Asset-Backed Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPAAAD07NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 15-Day AA Asset-Backed Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPAAAD15NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Asset-Backed Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPAAAD30NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Asset-Backed Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPAAAD60NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Asset-Backed Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPAAAD90NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Interest Rate That Issuers Not Subject to the Unsecured Credit Surcharge
+    Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility
+    (CPFF) (DISCONTINUED)
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPPCUNA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Interest Rate That Issuers Not Subject to the Unsecured Credit Surcharge
+    Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility
+    (CPFF) (DISCONTINUED)
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPCUNB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Interest Rate That Issuers Not Subject to the Unsecured Credit Surcharge
+    Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility
+    (CPFF) (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: RIFSPPCUNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Interest Rate That Issuers Not Subject to the Unsecured Credit Surcharge
+    Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility
+    (CPFF) (DISCONTINUED)
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: RIFSPPCUNWF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Interest Rate That Issuers Subject to the Unsecured Credit Surcharge Pay
+    to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)
+    (DISCONTINUED)
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPPCUSNA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Interest Rate That Issuers Subject to the Unsecured Credit Surcharge Pay
+    to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)
+    (DISCONTINUED)
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPCUSNB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Interest Rate That Issuers Subject to the Unsecured Credit Surcharge Pay
+    to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)
+    (DISCONTINUED)
+  category_id: 120
+  frequency: Monthly
+  freshness_days: 7
+  id: RIFSPPCUSNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Interest Rate That Issuers Subject to the Unsecured Credit Surcharge Pay
+    to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)
+    (DISCONTINUED)
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: RIFSPPCUSNWF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Overnight AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPFAAD01NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 7-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPFAAD07NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 15-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPFAAD15NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPPFAAD30NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPFAAD30NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPPFAAD60NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPFAAD60NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPPFAAD90NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPFAAD90NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Overnight A2/P2 Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNA2P2D01NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 7-Day A2/P2 Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNA2P2D07NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 15-Day A2/P2 Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNA2P2D15NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day A2/P2 Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNA2P2D30NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day A2/P2 Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNA2P2D60NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day A2/P2 Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNA2P2D90NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: Overnight AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNAAD01NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 7-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNAAD07NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 15-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNAAD15NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPPNAAD30NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNAAD30NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPPNAAD60NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNAAD60NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPPNAAD90NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPPNAAD90NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 1-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCP1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 3-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCP3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 6-Month Prime Commercial Paper, Average Dealer Offering Rate, Quoted on a
+    Discount Basis (DISCONTINUED)
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCP6M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCPF1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCPF2M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Financial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCPF3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 30-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCPN1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 60-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCPN2M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent
+- alias: 90-Day AA Nonfinancial Commercial Paper Interest Rate
+  category_id: 120
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCPN3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Paper
+  units: Percent

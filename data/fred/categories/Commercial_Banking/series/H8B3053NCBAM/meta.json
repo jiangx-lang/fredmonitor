@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "H8B3053NCBAM",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Other Assets, All Commercial Banks",
+      "observation_start": "1973-01-01",
+      "observation_end": "2025-08-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Millions of U.S. Dollars",
+      "units_short": "Mil. of U.S. $",
+      "seasonal_adjustment": "Seasonally Adjusted",
+      "seasonal_adjustment_short": "SA",
+      "last_updated": "2025-09-12 15:22:18-05",
+      "popularity": 1,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h8/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

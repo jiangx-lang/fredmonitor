@@ -1,0 +1,21 @@
+{
+  "id": "VIXCLS",
+  "realtime_start": "2025-09-19",
+  "realtime_end": "2025-09-19",
+  "title": "CBOE Volatility Index: VIX",
+  "observation_start": "1990-01-02",
+  "observation_end": "2025-09-18",
+  "frequency": "Daily, Close",
+  "frequency_short": "D",
+  "units": "Index",
+  "units_short": "Index",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-09-19 08:36:04-05",
+  "popularity": 83,
+  "notes": "VIX measures market expectation of near term volatility conveyed by stock index option prices. Copyright, 2016, Chicago Board Options Exchange, Inc. Reprinted with permission.",
+  "sync_timestamp": "2025-09-20T10:46:04.552162",
+  "alias": "VIX",
+  "freshness_days": 7,
+  "next_release": "N/A"
+}

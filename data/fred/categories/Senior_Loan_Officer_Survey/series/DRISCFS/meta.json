@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "DRISCFS",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Net Percentage of Domestic Banks Increasing Spreads of Loan Rates Over Banks' Cost of Funds to Small Firms",
+      "observation_start": "1990-04-01",
+      "observation_end": "2025-07-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-08-04 13:01:40-05",
+      "popularity": 11,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/data/SLOOS%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

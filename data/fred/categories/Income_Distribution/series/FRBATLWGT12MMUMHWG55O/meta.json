@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "FRBATLWGT12MMUMHWG55O",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "12-Month Moving Average of Unweighted Median Hourly Wage Growth: Age: 55 Years and Over",
+      "observation_start": "1997-12-01",
+      "observation_end": "2025-08-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Percent Change from Year Ago",
+      "units_short": "% Chg. from Yr. Ago",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-11 15:03:08-05",
+      "popularity": 4,
+      "notes": "Median of the year-over-year percent change in hourly wage rates computed at the individual level using linked wage records. Reported as a 12-month moving average.\n\nFor more details about this release from the Federal Reserve Bank of Atlanta, visit their Wage Growth Tracker webpage (https://www.atlantafed.org/chcs/wage-growth-tracker?panel=2)."
+    }
+  ]
+}

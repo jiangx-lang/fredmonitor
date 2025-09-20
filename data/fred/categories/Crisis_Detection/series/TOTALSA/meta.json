@@ -1,0 +1,22 @@
+{
+  "realtime_start": "2025-09-05",
+  "realtime_end": "2025-09-05",
+  "seriess": [
+    {
+      "id": "TOTALSA",
+      "realtime_start": "2025-09-05",
+      "realtime_end": "2025-09-05",
+      "title": "Total Vehicle Sales",
+      "observation_start": "1976-01-01",
+      "observation_end": "2025-08-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Millions of Units",
+      "units_short": "Mil. of Units",
+      "seasonal_adjustment": "Seasonally Adjusted Annual Rate",
+      "seasonal_adjustment_short": "SAAR",
+      "last_updated": "2025-09-05 13:18:10-05",
+      "popularity": 78
+    }
+  ]
+}

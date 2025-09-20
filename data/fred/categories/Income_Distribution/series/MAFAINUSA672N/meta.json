@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "MAFAINUSA672N",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Real Mean Family Income in the United States",
+      "observation_start": "1953-01-01",
+      "observation_end": "2024-01-01",
+      "frequency": "Annual",
+      "frequency_short": "A",
+      "units": "2023 CPI-U-RS Adjusted Dollars",
+      "units_short": "2023 CPI-U-RS Adjusted $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-09 13:19:06-05",
+      "popularity": 32,
+      "notes": "Families as of March of the following year."
+    }
+  ]
+}

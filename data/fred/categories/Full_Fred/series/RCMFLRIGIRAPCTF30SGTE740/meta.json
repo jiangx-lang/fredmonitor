@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "RCMFLRIGIRAPCTF30SGTE740",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Large Bank Consumer Mortgage Originations: Average Interest Rate at Origination by Credit Score: 30-Year Fixed Rate Mortgage: >=740 Credit Score ",
+      "observation_start": "2012-07-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Quarterly, End of Quarter",
+      "frequency_short": "Q",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-07-18 15:08:19-05",
+      "popularity": 5,
+      "notes": "The average interest rate at origination for 30-year fixed rate mortgages with a borrower with a credit score greater than or equal to 740 at the time of origination.\n\nFor more detail see the methodology (https://sc103-philfed-prod-cm.sitecore-prod-ase4.appserviceenvironment.net/surveys-and-data/y14-methodology)."
+    }
+  ]
+}

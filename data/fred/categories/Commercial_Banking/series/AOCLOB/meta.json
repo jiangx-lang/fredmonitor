@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "AOCLOB",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Other Consumer Loans, Banks Not Among the 100 Largest in Size by Assets",
+      "observation_start": "1985-01-01",
+      "observation_end": "2025-04-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Millions of Dollars",
+      "units_short": "Mil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-08-18 14:44:57-05",
+      "popularity": 1,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/chargeoff/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

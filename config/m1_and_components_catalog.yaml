@@ -1,0 +1,584 @@
+metadata:
+  category_id: 25
+  created_at: '2025-09-13'
+  description: M1 and Components 数据
+  name: M1 and Components
+  parent_category: Major_Category
+  total_series: 72
+series:
+- alias: Federal Reserve Expenses for Cash Operations
+  category_id: 25
+  frequency: Annual
+  freshness_days: 7
+  id: CASHEXP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Millions of Dollars
+- alias: Cost of New Currency
+  category_id: 25
+  frequency: Annual
+  freshness_days: 7
+  id: COSTCURR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Millions of Dollars
+- alias: Currency Component of M1 Plus Demand Deposits (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: CURRDD
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Currency Component of M1 (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: CURRENCY
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Mint Orders of $1 Coin
+  category_id: 25
+  frequency: Quarterly
+  freshness_days: 7
+  id: CURRMTORD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Millions of Pieces
+- alias: Currency Component of M1
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: CURRNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Reserve Bank $1 Coin Inventories
+  category_id: 25
+  frequency: Quarterly
+  freshness_days: 7
+  id: CURRRSBINV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Millions of Pieces
+- alias: Reserve Bank $1 Coin Payments to Circulation
+  category_id: 25
+  frequency: Quarterly
+  freshness_days: 7
+  id: CURRRSBPMT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Millions of Pieces
+- alias: Reserve Bank $1 Coin Receipts from Circulation
+  category_id: 25
+  frequency: Quarterly
+  freshness_days: 7
+  id: CURRRSBRCP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Millions of Pieces
+- alias: Currency Component of M1
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: CURRSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Value of Currency in Circulation: $1'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVAL1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Value of Currency in Circulation: $10'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVAL10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Value of Currency in Circulation: $100'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVAL100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Value of Currency in Circulation: $2'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVAL2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Value of Currency in Circulation: $20'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVAL20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Value of Currency in Circulation: $5'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVAL5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Value of Currency in Circulation: $50'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVAL50
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Value of Currency in Circulation: $500 to $10,000'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVAL500
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Value of Currency in Circulation: Total'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVALALL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Volume of Currency in Circulation: $1'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVOL1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: 'Volume of Currency in Circulation: $10'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVOL10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: 'Volume of Currency in Circulation: $100'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVOL100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: 'Volume of Currency in Circulation: $2'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVOL2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: 'Volume of Currency in Circulation: $20'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVOL20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: 'Volume of Currency in Circulation: $5'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVOL5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: 'Volume of Currency in Circulation: $50'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVOL50
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: 'Volume of Currency in Circulation: $500 to $10,000'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVOL500
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: 'Volume of Currency in Circulation: Total'
+  category_id: 25
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: CURRVOLALL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: Demand Deposits
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: DEMDEPNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Demand Deposits
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: DEMDEPSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: M1 Money Multiplier (DISCONTINUED)
+  category_id: 25
+  frequency: Biweekly, Ending Monday
+  freshness_days: 7
+  id: DISMULT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Ratio
+- alias: M1 (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: M1
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: M1 Adjusted for Retail Sweeps
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: M1ADJ
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: M1A Money Supply (Currency plus Demand Deposits) (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: M1ASL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: M1
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: M1NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Real M1 Money Stock
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: M1REAL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of 1982-84 Dollars
+- alias: M1
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: M1SL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Other Liquid Deposits: Total'
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: MDLM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Other Liquid Deposits: Total'
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: MDLNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Other Liquid Deposits: Total'
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: MDLNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Other Liquid Deposits: Total (DISCONTINUED)'
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: MDLWM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: M1 (alternative)'
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIM1A
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: M1 (preferred)'
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIM1P
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: M1 Money Multiplier (DISCONTINUED)
+  category_id: 25
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: MULT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Ratio
+- alias: Value of Notes Printed by Bureau of Engraving and Printing
+  category_id: 25
+  frequency: Annual
+  freshness_days: 7
+  id: NOTEVALUE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Volume of Notes Printed by Bureau of Engraving and Printing
+  category_id: 25
+  frequency: Annual
+  freshness_days: 7
+  id: NOTEVOLUME
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Notes
+- alias: Other Checkable Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: OCDCBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Other Checkable Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: OCDCBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Other Checkable Deposits: Total (DISCONTINUED)'
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: OCDNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Other Checkable Deposits: Total (DISCONTINUED)'
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: OCDSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Other Checkable Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: OCDTIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Other Checkable Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: OCDTIS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Real User Cost Index of MSI-M1 (alternative)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: OCM1A
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Percent
+- alias: Real User Cost Index of MSI-M1 (preferred)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: OCM1P
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Percent
+- alias: Total Checkable Deposits (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: TCD
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Total Checkable Deposits (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: TCDNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Total Checkable Deposits (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: TCDSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Travelers Checks (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: TVCKSNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Travelers Checks (DISCONTINUED)
+  category_id: 25
+  frequency: Monthly
+  freshness_days: 7
+  id: TVCKSSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Currency Component of M1
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WCURRNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Demand Deposits
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WDDNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Demand Deposits (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WDDSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: M1
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WM1NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Other Checkable Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WOCDCN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Other Checkable Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WOCDCS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Other Checkable Deposits: Total (DISCONTINUED)'
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WOCDNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: 'Other Checkable Deposits: Total (DISCONTINUED)'
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WOCDSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Other Checkable Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WOCDTNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Other Checkable Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WOCDTSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Total Checkable Deposits (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WTCDNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Travelers Checks (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WTCNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars
+- alias: Travelers Checks (DISCONTINUED)
+  category_id: 25
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WTCSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_and_Components
+  units: Billions of Dollars

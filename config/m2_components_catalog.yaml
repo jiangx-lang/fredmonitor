@@ -1,0 +1,53 @@
+metadata:
+  category_id: 17
+  created_at: '2025-09-13'
+  description: M2 Components 数据
+  name: M2 Components
+  subcategory: M2_Components
+  total_series: 5
+series:
+- alias: M2 Money Stock (Seasonally Adjusted)
+  category_id: 17
+  description: M2货币供应量（季节性调整）
+  frequency: Monthly
+  freshness_days: 7
+  id: M2SL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_Components
+  units: Billions of Dollars
+- alias: M2 Money Stock (Not Seasonally Adjusted)
+  category_id: 17
+  description: M2货币供应量（非季节性调整）
+  frequency: Monthly
+  freshness_days: 7
+  id: M2NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_Components
+  units: Billions of Dollars
+- alias: Real M2 Money Stock
+  category_id: 17
+  description: 实际M2货币供应量
+  frequency: Monthly
+  freshness_days: 7
+  id: M2REAL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_Components
+  units: Billions of 1982-84 Dollars
+- alias: M2 Less Small Time Deposits (Not Seasonally Adjusted)
+  category_id: 17
+  description: M2减去小额定期存款（非季节性调整）
+  frequency: Monthly
+  freshness_days: 7
+  id: M2MNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_Components
+  units: Billions of Dollars
+- alias: M2 Less Small Time Deposits (Seasonally Adjusted)
+  category_id: 17
+  description: M2减去小额定期存款（季节性调整）
+  frequency: Monthly
+  freshness_days: 7
+  id: M2MSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_Components
+  units: Billions of Dollars

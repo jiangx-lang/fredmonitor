@@ -1,0 +1,42 @@
+metadata:
+  category_id: 33055
+  created_at: '2025-09-13'
+  description: Money Market Accounts 数据
+  name: Money Market Accounts
+  parent_category: Major_Category
+  total_series: 4
+series:
+- alias: 'National Rate on Jumbo Deposits (greater or equal to $100,000): Money Market
+    (DISCONTINUED)'
+  category_id: 33055
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: MMNRJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Money_Market_Accounts
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): Money Market (DISCONTINUED)'
+  category_id: 33055
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: MMNRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Money_Market_Accounts
+  units: Percent
+- alias: 'Rate Cap on Jumbo Deposits (greater or equal to $100,000): Money Market
+    (DISCONTINUED)'
+  category_id: 33055
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: MMRCJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Money_Market_Accounts
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): Money Market (DISCONTINUED)'
+  category_id: 33055
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: MMRCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Money_Market_Accounts
+  units: Percent

@@ -1,0 +1,912 @@
+metadata:
+  category_id: 32239
+  created_at: '2025-09-13'
+  description: Senior Loan Officer Survey 数据
+  name: Senior Loan Officer Survey
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Auto Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DEMAUTO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Credit Card
+    Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DEMCC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Consumer Loans
+    Excluding Credit Card and Auto Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DEMOTHCONS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Increasing Spreads of Loan Rates Over Banks'
+    Cost of Funds to Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRISCFLM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Increasing Spreads of Loan Rates Over Banks'
+    Cost of Funds to Small Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRISCFS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Increased Willingness to Make
+    Consumer Installment Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRIWCIL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Commercial
+    and Industrial Loans From Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRSDCILM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Commercial
+    and Industrial Loans From Small Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRSDCIS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Consumer Loans
+    (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRSDCL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Commercial
+    Real Estate Loans (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRSDCREL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Nontraditional
+    Mortgage Loans (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRSDNT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Prime Mortgage
+    Loans (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRSDPM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Stronger Demand for Subprime Mortgage
+    Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRSDSP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Commercial and
+    Industrial Loans to Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRTSCILM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Commercial and
+    Industrial Loans to Small Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRTSCIS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Credit Card Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRTSCLCC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Consumer Loans
+    Excluding Credit Card (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRTSCOCL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Commercial Real
+    Estate Loans (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRTSCREL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Nontraditional
+    Mortgage Loans (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRTSNT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Prime Mortgage
+    Loans (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRTSPM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Subprime Mortgage
+    Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: DRTSSP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Banks Reporting Stronger Demand for Mortgage Loans (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: H0SUBLPDHMDNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Banks Tightening Standards for Mortgage Loans (DISCONTINUED)
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: H0SUBLPDHMSNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Auto Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: STDSAUTO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Standards for Consumer Loans
+    Excluding Credit Card and Auto Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: STDSOTHCONS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Reporting Increased Number of Inquiries
+    for Commercial and Industrial Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIAILGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reporting Increased Number of Inquiries
+    for Commercial and Industrial Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIAINQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Reporting Increased Number of Inquiries
+    for Commercial and Industrial Loans
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIAIOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Reporting Stronger Demand for Commercial
+    and Industrial Loans From Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILDLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Reporting Stronger Demand for Commercial
+    and Industrial Loans From Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILDOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Tightening Standards for Commercial
+    and Industrial Loans to Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILSLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Tightening Standards for Commercial
+    and Industrial Loans to Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILSOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Reducing the Maximum Maturity of Credit
+    Lines for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTALGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reducing the Maximum Maturity of Credit
+    Lines for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTANQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Reducing the Maximum Maturity of Credit
+    Lines for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTAOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Increasing the Cost of Credit Lines
+    to Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTCLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Increasing the Cost of Credit Lines to Large
+    and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTCNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Increasing the Cost of Credit Lines
+    to Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTCOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Increasing the Use of Interest Rate
+    Floors for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTFLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Increasing the Use of Interest Rate Floors
+    for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTFNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Increasing the Use of Interest Rate
+    Floors for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTFOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Tightening Loan Covenants for Large
+    and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTLLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Tightening Loan Covenants for Large and
+    Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTLNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Tightening Loan Covenants for Large
+    and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTLOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Reducing the Maximum Size of Credit
+    Lines for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTMLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Reducing the Maximum Size of Credit Lines
+    for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTMNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Reducing the Maximum Size of Credit
+    Lines for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTMOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Increasing Collateral Requirements
+    for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTQLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Increasing Collateral Requirements for Large
+    and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTQNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Increasing Collateral Requirements
+    for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTQOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Increasing Premiums Charged on Riskier
+    Loans for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTRLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Domestic Banks Increasing Premiums Charged on Riskier Loans
+    for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTRNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Increasing Premiums Charged on Riskier
+    Loans for Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTROTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Large Domestic Banks Increasing Spreads of Loan Rates Over
+    Banks' Cost of Funds to Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTSLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Net Percentage of Other Domestic Banks Increasing Spreads of Loan Rates Over
+    Banks' Cost of Funds to Large and Middle-Market Firms
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCILTSOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Percent
+- alias: Number of Large Domestic Banks That Eased and Reported That More Aggressive
+    Competition From Other Banks or Nonbank Lenders Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREANLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That More Aggressive Competition
+    From Other Banks or Nonbank Lenders Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREANNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That More Aggressive
+    Competition From Other Banks or Nonbank Lenders Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREANOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That More Aggressive
+    Competition From Other Banks or Nonbank Lenders Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREASLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That More Aggressive Competition
+    From Other Banks or Nonbank Lenders Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREASNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That More Aggressive
+    Competition From Other Banks or Nonbank Lenders Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREASOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That More Aggressive
+    Competition From Other Banks or Nonbank Lenders Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREAVLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That More Aggressive Competition
+    From Other Banks or Nonbank Lenders Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREAVNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That More Aggressive
+    Competition From Other Banks or Nonbank Lenders Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREAVOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Improvement in
+    Current or Expected Capital Position Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIRECNLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Improvement in Current
+    or Expected Capital Position Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIRECNNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Improvement in
+    Current or Expected Capital Position Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIRECNOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Improvement in
+    Current or Expected Capital Position Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIRECSLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Improvement in Current
+    or Expected Capital Position Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIRECSNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Improvement in
+    Current or Expected Capital Position Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIRECSOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Improvement in
+    Current or Expected Capital Position Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIRECVLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Improvement in Current
+    or Expected Capital Position Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIRECVNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Improvement in
+    Current or Expected Capital Position Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIRECVOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Reduction in
+    Defaults by Borrowers in Public Debt Markets Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREDNLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Reduction in Defaults
+    by Borrowers in Public Debt Markets Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREDNNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Reduction in
+    Defaults by Borrowers in Public Debt Markets Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREDNOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Reduction in
+    Defaults by Borrowers in Public Debt Markets Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREDSLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Reduction in Defaults
+    by Borrowers in Public Debt Markets Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREDSNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Reduction in
+    Defaults by Borrowers in Public Debt Markets Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREDSOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Reduction in
+    Defaults by Borrowers in Public Debt Markets Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREDVLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Reduction in Defaults
+    by Borrowers in Public Debt Markets Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREDVNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Reduction in
+    Defaults by Borrowers in Public Debt Markets Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREDVOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Reduced Concerns
+    About the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting
+    Standards Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREENLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Reduced Concerns About
+    the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting
+    Standards Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREENNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Reduced Concerns
+    About the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting
+    Standards Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREENOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Reduced Concerns
+    About the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting
+    Standards Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREESLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Reduced Concerns About
+    the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting
+    Standards Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREESNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Reduced Concerns
+    About the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting
+    Standards Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREESOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Reduced Concerns
+    About the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting
+    Standards Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREEVLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Reduced Concerns About
+    the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting
+    Standards Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREEVNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Reduced Concerns
+    About the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting
+    Standards Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREEVOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Improvement in
+    Industry-Specific Problems Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREINLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Improvement in Industry-Specific
+    Problems Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREINNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Improvement in
+    Industry-Specific Problems Was Not an Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREINOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Improvement in
+    Industry-Specific Problems Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREISLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Improvement in Industry-Specific
+    Problems Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREISNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Improvement in
+    Industry-Specific Problems Was a Somewhat Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREISOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Large Domestic Banks That Eased and Reported That Improvement in
+    Industry-Specific Problems Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREIVLGNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Domestic Banks That Eased and Reported That Improvement in Industry-Specific
+    Problems Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREIVNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents
+- alias: Number of Other Domestic Banks That Eased and Reported That Improvement in
+    Industry-Specific Problems Was a Very Important Reason
+  category_id: 32239
+  frequency: Quarterly
+  freshness_days: 7
+  id: SUBLPDCIREIVOTHNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Loan_Officer_Survey
+  units: Number of Respondents

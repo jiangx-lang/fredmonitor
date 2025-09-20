@@ -1,0 +1,17 @@
+metadata:
+  category_id: 17
+  created_at: '2025-09-13'
+  description: Securities Loans Assets Liabilities 数据
+  name: Securities Loans Assets Liabilities
+  subcategory: Securities_Loans_Assets_Liabilities
+  total_series: 1
+series:
+- alias: Loans and Leases in Bank Credit, All Commercial Banks
+  category_id: 17
+  description: 银行信贷中的贷款和租赁，所有商业银行
+  frequency: Monthly
+  freshness_days: 7
+  id: LOANS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_Loans_Assets_Liabilities
+  units: Billions of U.S. Dollars

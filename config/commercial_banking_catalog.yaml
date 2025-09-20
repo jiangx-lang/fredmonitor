@@ -1,0 +1,850 @@
+metadata:
+  category_id: 100
+  created_at: '2025-09-13'
+  description: Commercial Banking 数据
+  name: Commercial Banking
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: Commercial and Industrial Loans, Banks Not Among the 100 Largest in Size
+    by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ACILOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Commercial and Industrial Loans, Banks Ranked 1st to 100th Largest in Size
+    by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ACILT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Consumer Loans, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ACLOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Consumer Loans, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ACLT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Loans to Finance Agricultural Production, Banks Not Among the 100 Largest
+    in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALFAPGOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Loans to Finance Agricultural Production, Banks Ranked 1st to 100th Largest
+    in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALFAPGT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Loans Secured by Real Estate, Banks Not Among the 100 Largest in Size by
+    Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALSREOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Loans Secured by Real Estate, Banks Ranked 1st to 100th Largest in Size by
+    Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALSRET100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Other Consumer Loans, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: AOCLOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Other Consumer Loans, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: AOCLT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Consumer Loans,
+    Credit Cards, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGCLCROB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Consumer Loans,
+    Credit Cards, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGCLCRT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Lease Financing
+    Receivables, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGLFROB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Lease Financing
+    Receivables, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGLFRT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Banks Not Among
+    the 100 Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Secured by Real
+    Estate, Commercial Real Estate Loans (Excluding Farmland), Booked in Domestic
+    Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGSRECRELEXFOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Secured by Real
+    Estate, Commercial Real Estate Loans (Excluding Farmland), Booked in Domestic
+    Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGSRECRELEXFT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Secured by Real
+    Estate, Farmland, Booked in Domestic Offices, Banks Not Among the 100 Largest
+    in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGSREFOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Secured by Real
+    Estate, Farmland, Booked in Domestic Offices, Banks Ranked 1st to 100th Largest
+    in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGSREFT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Secured by Real
+    Estate, Single-Family (1 to 4 Family) Residential Mortgages, Booked in Domestic
+    Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGSRESFRMOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Secured by Real
+    Estate, Single-Family (1 to 4 Family) Residential Mortgages, Booked in Domestic
+    Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGSRESFRMT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: ATAIEALLGT100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Commercial and
+    Industrial, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: CILOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Commercial and
+    Industrial, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: CILT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Consumer Loans,
+    Banks Not Among the 100 Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: CLOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Total Assets, Interest-Earning, All Loans and Leases, Gross, Consumer Loans,
+    Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 100
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: CLT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of Dollars
+- alias: Bank Credit, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1001NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Bank Credit, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1001NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Securities in Bank Credit, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1002NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Securities in Bank Credit, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1002NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Treasury and Agency Securities, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1003NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Treasury and Agency Securities, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1003NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Other Securities, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1011NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Other Securities, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1011NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Loans and Leases in Bank Credit, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1020NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Loans and Leases in Bank Credit, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1020NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Commercial and Industrial Loans, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1023NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Commercial and Industrial Loans, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1023NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Real Estate Loans, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1026NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Real Estate Loans, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1026NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Real Estate Loans: Residential Real Estate Loans: Revolving Home Equity
+    Loans, All Commercial Banks'
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1027NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Real Estate Loans: Residential Real Estate Loans: Revolving Home Equity
+    Loans, All Commercial Banks'
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1027NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Consumer Loans, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1029NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Consumer Loans, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1029NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'LESS: Allowance for Loan and Lease Losses, All Commercial Banks'
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1043NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'LESS: Allowance for Loan and Lease Losses, All Commercial Banks'
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1043NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Loans to Commercial Banks, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1047NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Loans to Commercial Banks, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1047NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Loans to Commercial Banks, All Commercial Banks
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: H8B1047NCBCQG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Cash Assets, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1048NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Cash Assets, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1048NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Deposits, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1058NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Deposits, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1058NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Large Time Deposits, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1072NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Large Time Deposits, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1072NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Residual (Assets Less Liabilities), All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1091NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Residual (Assets Less Liabilities), All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1091NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Residual (Assets Less Liabilities), All Commercial Banks
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: H8B1091NCBCQG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Other Deposits, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1110NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Other Deposits, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1110NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Total Assets, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1151NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Total Assets, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1151NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Total Liabilities, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1152NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Total Liabilities, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1152NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Real Estate Loans: Residential Real Estate Loans: Closed-End Residential
+    Loans, All Commercial Banks'
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1220NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Real Estate Loans: Residential Real Estate Loans: Closed-End Residential
+    Loans, All Commercial Banks'
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1220NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Real Estate Loans: Residential Real Estate Loans, All Commercial Banks'
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1221NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Real Estate Loans: Residential Real Estate Loans, All Commercial Banks'
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1221NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Consumer Loans: Credit Cards and Other Revolving Plans, All Commercial Banks'
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1247NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Consumer Loans: Credit Cards and Other Revolving Plans, All Commercial Banks'
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1247NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Treasury and Agency Securities: Mortgage-Backed Securities (MBS), All Commercial
+    Banks'
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1301NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Treasury and Agency Securities: Mortgage-Backed Securities (MBS), All Commercial
+    Banks'
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1301NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Treasury and Agency Securities: Mortgage-Backed Securities (MBS), All Commercial
+    Banks'
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: H8B1301NCBCQG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Treasury and Agency Securities: Non-MBS, All Commercial Banks'
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1302NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Treasury and Agency Securities: Non-MBS, All Commercial Banks'
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1302NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Treasury and Agency Securities: Non-MBS, All Commercial Banks'
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: H8B1302NCBCQG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Other Securities: Mortgage-Backed Securities, All Commercial Banks'
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1303NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Other Securities: Mortgage-Backed Securities, All Commercial Banks'
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1303NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Other Securities: Mortgage-Backed Securities, All Commercial Banks'
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: H8B1303NCBCQG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Other Securities: Non-MBS, All Commercial Banks'
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B1304NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Other Securities: Non-MBS, All Commercial Banks'
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B1304NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: 'Other Securities: Non-MBS, All Commercial Banks'
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: H8B1304NCBCQG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Other Assets, All Commercial Banks
+  category_id: 100
+  frequency: Weekly
+  freshness_days: 7
+  id: H8B3053NCBA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Other Assets, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B3053NCBAM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Other Assets, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B3053NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Other Assets, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B3053NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Other Assets, All Commercial Banks
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: H8B3053NCBCQG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Other Assets, All Commercial Banks
+  category_id: 100
+  frequency: Weekly
+  freshness_days: 7
+  id: H8B3053NCBD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Other Assets, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B3053NCBDM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Total Fed Funds Sold and Securities Purchased Under Agreements to Resell,
+    All Commercial Banks
+  category_id: 100
+  frequency: Weekly
+  freshness_days: 7
+  id: H8B3092NCBA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Total Fed Funds Sold and Securities Purchased Under Agreements to Resell,
+    All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B3092NCBAM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Total Fed Funds Sold and Securities Purchased Under Agreements to Resell,
+    All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B3092NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Total Fed Funds Sold and Securities Purchased Under Agreements to Resell,
+    All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B3092NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Total Fed Funds Sold and Securities Purchased Under Agreements to Resell,
+    All Commercial Banks
+  category_id: 100
+  frequency: Quarterly
+  freshness_days: 7
+  id: H8B3092NCBCQG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Total Fed Funds Sold and Securities Purchased Under Agreements to Resell,
+    All Commercial Banks
+  category_id: 100
+  frequency: Weekly
+  freshness_days: 7
+  id: H8B3092NCBD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Total Fed Funds Sold and Securities Purchased Under Agreements to Resell,
+    All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B3092NCBDM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Borrowings, All Commercial Banks
+  category_id: 100
+  frequency: Weekly
+  freshness_days: 7
+  id: H8B3094NCBA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Borrowings, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B3094NCBAM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Millions of U.S. Dollars
+- alias: Borrowings, All Commercial Banks
+  category_id: 100
+  frequency: Annual
+  freshness_days: 7
+  id: H8B3094NCBCAG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate
+- alias: Borrowings, All Commercial Banks
+  category_id: 100
+  frequency: Monthly
+  freshness_days: 7
+  id: H8B3094NCBCMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Commercial_Banking
+  units: Percent Change at Annual Rate

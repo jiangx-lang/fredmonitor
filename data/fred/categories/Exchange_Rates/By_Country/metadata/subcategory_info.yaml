@@ -1,0 +1,7 @@
+# By Country
+subcategory:
+  name: "By_Country"
+  description: "By Country"
+  keywords: ['EXUSEU', 'EXUSUK', 'EXUSJP', 'EXUSCA']
+  parent_category: "Exchange_Rates"
+  created_at: "C:\Users\admin\上网"

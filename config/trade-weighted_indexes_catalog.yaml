@@ -1,0 +1,641 @@
+metadata:
+  category_id: 105
+  created_at: '2025-09-13'
+  description: Trade-Weighted Indexes 数据
+  name: Trade-Weighted Indexes
+  parent_category: Major_Category
+  total_series: 79
+series:
+- alias: Nominal Advanced Foreign Economies U.S. Dollar Index
+  category_id: 105
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXAFEGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 2006=100
+- alias: Nominal Broad U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1997=100
+- alias: Nominal Broad U.S. Dollar Index
+  category_id: 105
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXBGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 2006=100
+- alias: Nominal Emerging Market Economies U.S. Dollar Index
+  category_id: 105
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXEMEGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 2006=100
+- alias: Nominal Major Currencies U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Mar 1973=100
+- alias: Nominal Other Important Trading Partners U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1997=100
+- alias: Real Advanced Foreign Economies Dollar Index
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWEXAFEGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 2006=100
+- alias: Real Broad Dollar Index
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWEXBGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 2006=100
+- alias: Real Emerging Market Economies Dollar Index
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWEXEMEGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 2006=100
+- alias: Real Trade-Weighted Value of the dollar for Alaska (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDAK684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Alabama (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDAL684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Arkansas (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDAR684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Arizona (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDAZ684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for California (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDCA684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Colorado (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDCO684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Connecticut (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDCT684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Delaware (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDDE684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Florida (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDFL684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Georgia (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDGA684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Hawaii (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDHI684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Iowa (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDIA684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Idaho (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDID684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Illinois (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDIL684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Indiana (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDIN684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Kansas (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDKS684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Kentucky (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDKY684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Louisiana (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDLA684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Massachusetts (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDMA684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Maryland (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDMD684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Maine (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDME684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Michigan (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDMI684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Minnesota (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDMN684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Missouri (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDMO684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Mississippi (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDMS684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Montana (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDMT684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for North Carolina (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDNC684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for North Dakota (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDND684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Nebraska (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDNE684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for New Hampshire (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDNH684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for New Jersey (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDNJ684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for New Mexico (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDNM684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Nevada (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDNV684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for New York (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDNY684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Ohio (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDOH684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Oklahoma (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDOK684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Oregon (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDOR684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Pennsylvania (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDPA684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Rhode Island (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDRI684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for South Carolina (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDSC684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for South Dakota (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDSD684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Tennessee (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDTN684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Texas (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDTX684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Utah (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDUT684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Virginia (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDVA684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Vermont (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDVT684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Washington (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDWA684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Wisconsin (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDWI684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for West Virginia (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDWV684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Real Trade-Weighted Value of the dollar for Wyoming (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: RTWVDWY684NMFRBDAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1988=100
+- alias: Dollar's Trade Weighted Exchange Index (DISCONTINUED)
+  category_id: 105
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TWEX
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Mar 1973=100
+- alias: Nominal Advanced Foreign Economies U.S. Dollar Index
+  category_id: 105
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXAFEGSANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index 2006=100
+- alias: Nominal Advanced Foreign Economies U.S. Dollar Index
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXAFEGSMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 2006=100
+- alias: 'Trade Weighted U.S. Dollar Index: Broad, Goods (DISCONTINUED)'
+  category_id: 105
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TWEXB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1997=100
+- alias: Nominal Broad U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXBANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index 1997=100
+- alias: Nominal Broad U.S. Dollar Index
+  category_id: 105
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXBGSANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index 2006=100
+- alias: Nominal Broad U.S. Dollar Index
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXBGSMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 2006=100
+- alias: Nominal Broad U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXBMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1997=100
+- alias: Real Broad Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXBPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Mar 1973=100
+- alias: Nominal Emerging Market Economies U.S. Dollar Index
+  category_id: 105
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXEMEGSANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index 2006=100
+- alias: Nominal Emerging Market Economies U.S. Dollar Index
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXEMEGSMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 2006=100
+- alias: 'Trade Weighted U.S. Dollar Index: Major Currencies, Goods (DISCONTINUED)'
+  category_id: 105
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TWEXM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Mar 1973=100
+- alias: Nominal Major Currencies U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXMANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Mar 1973=100
+- alias: Nominal Major Currencies U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXMMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Mar 1973=100
+- alias: Real Major Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXMPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Mar 1973=100
+- alias: Trade-Weighted Exchange Value of U.S. Dollar vs G-10 Countries (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXMTHY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Mar 1973=100
+- alias: 'Trade Weighted U.S. Dollar Index: Other Important Trading Partners, Goods
+    (DISCONTINUED)'
+  category_id: 105
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TWEXO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1997=100
+- alias: Nominal Other Important Trading Partners U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXOANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1997=100
+- alias: Nominal Other Important Trading Partners U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXOMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Jan 1997=100
+- alias: Real OITP Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 105
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXOPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade-Weighted_Indexes
+  units: Index Mar 1973=100

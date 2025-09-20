@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "COSTCURR",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Cost of New Currency",
+      "observation_start": "1994-01-01",
+      "observation_end": "2023-01-01",
+      "frequency": "Annual",
+      "frequency_short": "A",
+      "units": "Millions of Dollars",
+      "units_short": "Mil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2024-11-14 14:35:04-06",
+      "popularity": 1,
+      "notes": "Costs include printing, transportation, and destruction of mutilated currency"
+    }
+  ]
+}

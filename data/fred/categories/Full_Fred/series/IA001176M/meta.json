@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "IA001176M",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Personal Consumption Expenditures Excluding Food, Energy, and Housing (Chain-Type Price Index)",
+      "observation_start": "1959-01-01",
+      "observation_end": "2025-07-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Index 2017=100",
+      "units_short": "Index 2017=100",
+      "seasonal_adjustment": "Seasonally Adjusted",
+      "seasonal_adjustment_short": "SA",
+      "last_updated": "2025-08-29 07:43:14-05",
+      "popularity": 30,
+      "notes": "BEA Account Code: IA001176\n\nFor more information about this series, please see please visit the Guide to the National Income and Product Accounts of the United States (NIPA)  (https://www.bea.gov/resources/methodologies/nipa-handbook)."
+    }
+  ]
+}

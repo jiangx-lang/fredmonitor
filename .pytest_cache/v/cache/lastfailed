@@ -1,0 +1,5 @@
+{
+  "tests/test_sync_http.py::TestSyncHttp": true,
+  "tests/test_sync_http.py::TestSyncHttp::test_sync_series_mock": true,
+  "tests/test_sync_http.py::TestSyncHttp::test_sync_series_empty_data": true
+}

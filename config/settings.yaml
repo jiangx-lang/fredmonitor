@@ -1,0 +1,56 @@
+# MacroLab 全局设置
+
+# 用户设置
+user:
+  id: "admin"
+  auto_confirm_all: true  # 永远自动确认所有操作
+
+# 默认数据新鲜度要求（天数）
+freshness_default_days: 45
+
+# 评分区间配置
+bands:
+  CPI_yoy: [2.0, 4.0]      # 风险评分区间：低风险2.0%，高风险4.0%
+  CPI_core_yoy: [2.0, 4.0]
+  NFCI: [-2.0, 1.0]        # NFCI：低风险-2.0，高风险1.0
+  VIX: [12, 30]            # VIX：低风险12，高风险30
+  TermSpread: [0.5, 2.0]   # 期限利差：低风险0.5%，高风险2.0%
+  HY_Spread: [3.0, 7.0]    # 高收益利差
+  Consumer_Confidence: [90, 70, "reverse"]  # 反向评分
+  House_Price_yoy: [0, -2.0, "reverse"]     # 反向评分
+  EM_Spread: [2.0, 6.0]
+  SP500_Vol: [0.01, 0.02]  # 标普500波动率
+  DXY_Vol: [0.005, 0.01]   # 美元指数波动率
+
+# 因子权重配置
+weights:
+  CPI_yoy: 0.15
+  CPI_core_yoy: 0.10
+  NFCI: 0.15
+  VIX: 0.15
+  TermSpread: 0.15
+  HY_Spread: 0.10
+  Consumer_Confidence: 0.08
+  House_Price_yoy: 0.07
+  EM_Spread: 0.05
+
+# 输出配置
+outputs:
+  write_parquet: true
+  write_duckdb: true
+  render_fact_sheet: true
+  write_csv: true
+
+# AI配置
+ai:
+  enable: true
+  language: zh-CN
+  temperature: 0.4
+  max_tokens: 2000
+
+# 风险等级阈值
+risk_thresholds:
+  low: 30
+  medium: 50
+  high: 70
+  extreme: 100

@@ -1,0 +1,31 @@
+category_id: 17
+category_name: International_Data
+series_count: 25
+series_list:
+- IEAMGGN
+- IEAMGG
+- IEAMI
+- IEAMII
+- IEAMSIR
+- IEAMGI
+- IEAMID
+- IEAMGIN
+- IEAM
+- IMPCH
+- BOPTIMP
+- IMPTOTUS
+- IMPMX
+- BOPGIMP
+- IMPCA
+- IMPJP
+- IMPMANUS
+- IEAMGSN
+- IMPGE
+- IMPKR
+- IMPTOTPR
+- BOPSIMP
+- ITMTCIM133S
+- IMPUK
+- ITMTAEM133S
+description: 'FRED Category 17: International_Data'
+created_at: 1757737218.1293538

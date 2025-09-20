@@ -1,0 +1,24 @@
+metadata:
+  category_id: 33059
+  created_at: '2025-09-13'
+  description: Credit Card Loan Rates 数据
+  name: Credit Card Loan Rates
+  parent_category: Major_Category
+  total_series: 2
+series:
+- alias: Commercial Bank Interest Rate on Credit Card Plans, All Accounts
+  category_id: 33059
+  frequency: Monthly
+  freshness_days: 7
+  id: TERMCBCCALLNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Credit_Card_Loan_Rates
+  units: Percent
+- alias: Commercial Bank Interest Rate on Credit Card Plans, Accounts Assessed Interest
+  category_id: 33059
+  frequency: Monthly
+  freshness_days: 7
+  id: TERMCBCCINTNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Credit_Card_Loan_Rates
+  units: Percent

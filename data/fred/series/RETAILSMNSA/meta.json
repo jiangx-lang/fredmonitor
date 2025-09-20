@@ -1,0 +1,20 @@
+{
+  "id": "RETAILSMNSA",
+  "realtime_start": "2025-09-18",
+  "realtime_end": "2025-09-18",
+  "title": "Retailers Sales",
+  "observation_start": "1992-01-01",
+  "observation_end": "2025-07-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-09-16 09:01:10-05",
+  "popularity": 11,
+  "sync_timestamp": "2025-09-20T10:47:04.809067",
+  "alias": "Retail_Sales",
+  "freshness_days": 30,
+  "next_release": "N/A"
+}

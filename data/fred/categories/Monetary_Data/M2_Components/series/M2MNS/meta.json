@@ -1,0 +1,22 @@
+{
+  "id": "M2MNS",
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "title": "M2 Less Small Time Deposits",
+  "observation_start": "1959-01-01",
+  "observation_end": "2025-07-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Billions of Dollars",
+  "units_short": "Bil. of $",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-08-26 12:32:02-05",
+  "popularity": 26,
+  "notes": "M2 less small time deposits. Calculated by the Federal Reserve Bank of St. Louis.",
+  "sync_timestamp": "2025-09-13T13:52:00.927984",
+  "alias": "M2 Less Small Time Deposits (Not Seasonally Adjusted)",
+  "category_id": 17,
+  "subcategory": "M2_Components",
+  "next_release": "N/A"
+}

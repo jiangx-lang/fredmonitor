@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "FLNREVNCB",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Nonrevolving Consumer Credit Owned by Commercial Banks, Flow (DISCONTINUED)",
+      "observation_start": "1943-02-01",
+      "observation_end": "2011-02-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Millions of U.S. Dollars, Monthly Rate",
+      "units_short": "Mil. of U.S. $, Monthly Rate",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-02-07 14:11:13-06",
+      "popularity": 1,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/g19/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

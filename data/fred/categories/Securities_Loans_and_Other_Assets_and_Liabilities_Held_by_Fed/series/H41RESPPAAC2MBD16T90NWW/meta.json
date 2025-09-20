@@ -1,0 +1,22 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "H41RESPPAAC2MBD16T90NWW",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Assets: Liquidity and Credit Facilities: Commercial Paper Held by Commercial Paper Funding Facility LLC, Book Value, Maturing Within 16 Days to 90 Days (Effective 2020-06-10, Through 2022-06-29): Wednesday Level (DISCONTINUED)",
+      "observation_start": "2002-12-18",
+      "observation_end": "2022-07-20",
+      "frequency": "Weekly",
+      "frequency_short": "W",
+      "units": "Millions of U.S. Dollars",
+      "units_short": "Mil. of U.S. $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2022-07-21 15:35:19-05",
+      "popularity": 1
+    }
+  ]
+}

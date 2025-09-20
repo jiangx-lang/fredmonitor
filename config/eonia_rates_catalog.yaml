@@ -1,0 +1,16 @@
+metadata:
+  category_id: 34005
+  created_at: '2025-09-13'
+  description: EONIA Rates 数据
+  name: EONIA Rates
+  parent_category: Major_Category
+  total_series: 1
+series:
+- alias: 'EONIA: Euro Interbank Offered Rate (DISCONTINUED)'
+  category_id: 34005
+  frequency: Daily
+  freshness_days: 7
+  id: EONIARATE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: EONIA_Rates
+  units: Percent

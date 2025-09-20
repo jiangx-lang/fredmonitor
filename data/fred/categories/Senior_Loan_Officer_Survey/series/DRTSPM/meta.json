@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "DRTSPM",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Net Percentage of Domestic Banks Tightening Standards for Prime Mortgage Loans (DISCONTINUED)",
+      "observation_start": "2007-04-01",
+      "observation_end": "2014-10-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2019-11-04 16:10:03-06",
+      "popularity": 3,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/data/SLOOS%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

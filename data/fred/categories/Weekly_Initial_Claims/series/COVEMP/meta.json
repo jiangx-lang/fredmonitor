@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-11",
+  "realtime_end": "2025-09-11",
+  "seriess": [
+    {
+      "id": "COVEMP",
+      "realtime_start": "2025-09-11",
+      "realtime_end": "2025-09-11",
+      "title": "Covered Employment",
+      "observation_start": "1971-01-02",
+      "observation_end": "2025-08-23",
+      "frequency": "Weekly, Ending Saturday",
+      "frequency_short": "W",
+      "units": "Number",
+      "units_short": "Number",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-11 07:33:27-05",
+      "popularity": 26,
+      "notes": "Covered employment is the number of employees covered by state insurance programs."
+    }
+  ]
+}

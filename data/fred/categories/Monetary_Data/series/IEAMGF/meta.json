@@ -1,0 +1,20 @@
+{
+  "id": "IEAMGF",
+  "realtime_start": "2025-09-10",
+  "realtime_end": "2025-09-10",
+  "title": "Imports of Goods: General Merchandise: Foods, feeds, and beverages",
+  "observation_start": "1999-01-01",
+  "observation_end": "2025-01-01",
+  "frequency": "Quarterly",
+  "frequency_short": "Q",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Seasonally Adjusted",
+  "seasonal_adjustment_short": "SA",
+  "last_updated": "2025-06-24 08:51:12-05",
+  "popularity": 2,
+  "sync_timestamp": "2025-09-13T13:20:00.515412",
+  "alias": "Imports_of_Goods_General_Merchandise_Foods_feeds_a",
+  "category_id": 17,
+  "next_release": "N/A"
+}

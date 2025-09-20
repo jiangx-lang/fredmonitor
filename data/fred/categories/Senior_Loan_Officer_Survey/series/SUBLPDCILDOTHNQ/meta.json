@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "SUBLPDCILDOTHNQ",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Net Percentage of Other Domestic Banks Reporting Stronger Demand for Commercial and Industrial Loans From Large and Middle-Market Firms",
+      "observation_start": "1991-10-01",
+      "observation_end": "2025-07-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-08-04 13:02:31-05",
+      "popularity": 5,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/data/SLOOS%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

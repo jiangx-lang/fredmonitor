@@ -1,0 +1,81 @@
+metadata:
+  category_id: 17
+  created_at: '2025-09-13'
+  description: M1货币供应量及其组成部分数据
+  name: M1 Money Stock and Components
+  note: 真正的M1货币供应量数据，不是服务贸易数据
+  subcategory: M1_Components
+  total_series: 8
+series:
+- alias: M1 Money Stock (Seasonally Adjusted)
+  category_id: 17
+  description: M1货币供应量（季节性调整）
+  frequency: Monthly
+  freshness_days: 7
+  id: M1SL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_Components
+  units: Billions of Dollars
+- alias: M1 Money Stock (Not Seasonally Adjusted)
+  category_id: 17
+  description: M1货币供应量（非季节性调整）
+  frequency: Monthly
+  freshness_days: 7
+  id: M1NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_Components
+  units: Billions of Dollars
+- alias: Real M1 Money Stock
+  category_id: 17
+  description: 实际M1货币供应量
+  frequency: Monthly
+  freshness_days: 7
+  id: M1REAL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_Components
+  units: Billions of 1982-84 Dollars
+- alias: Currency Component of M1 (DISCONTINUED)
+  category_id: 17
+  description: M1货币组成部分（已停止）
+  frequency: Weekly
+  freshness_days: 7
+  id: CURRENCY
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_Components
+  units: Billions of Dollars
+- alias: Currency in Circulation
+  category_id: 17
+  description: 流通中的货币
+  frequency: Monthly
+  freshness_days: 7
+  id: CURRCIR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M1_Components
+  units: Billions of Dollars
+- alias: Demand Deposits
+  category_id: 17
+  description: 活期存款
+  frequency: Monthly
+  freshness_days: 7
+  id: DEMDEPSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_Components
+  units: Billions of Dollars
+- alias: 'Savings Deposits: Total (DISCONTINUED)'
+  category_id: 17
+  description: 储蓄存款总额（已停止）
+  frequency: Monthly
+  freshness_days: 7
+  id: SAVINGSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_Components
+  units: Billions of Dollars
+- alias: Total Checkable Deposits (DISCONTINUED)
+  category_id: 17
+  description: 可开支票存款总额（已停止）
+  frequency: Monthly
+  freshness_days: 7
+  id: TCDSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M1_Components
+  units: Billions of Dollars

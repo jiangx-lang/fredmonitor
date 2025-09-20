@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "AEXUSUK",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "U.S. Dollars to U.K. Pound Sterling Spot Exchange Rate",
+      "observation_start": "1971-01-01",
+      "observation_end": "2024-01-01",
+      "frequency": "Annual",
+      "frequency_short": "A",
+      "units": "U.S. Dollars to One U.K. Pound Sterling",
+      "units_short": "U.S. $ to  1 U.K. Pound Sterling",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-01-03 13:42:45-06",
+      "popularity": 26,
+      "notes": "Averages of daily figures. Noon buying rates in New York City for cable transfers payable in foreign currenices."
+    }
+  ]
+}

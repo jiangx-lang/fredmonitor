@@ -1,0 +1,26 @@
+category_id: 25
+category_name: Population
+series_count: 20
+series_list:
+- M1REAL
+- CURRSL
+- CURRNS
+- CURRDD
+- M1ASL
+- WCURRNS
+- M1SL
+- CURRENCY
+- MDLM
+- DEMDEPSL
+- M1NS
+- WM1NS
+- OCDSL
+- TCDSL
+- DEMDEPNS
+- M1
+- TVCKSSL
+- WDDNS
+- MDLNM
+- TCDNS
+description: 'FRED Category 25: Population'
+created_at: 1757737218.1293538

@@ -1,0 +1,7 @@
+# Daily Rates
+subcategory:
+  name: "Daily_Rates"
+  description: "Daily Rates"
+  category_id: 94
+  parent_category: "Prices"
+  created_at: "C:\Users\admin\上网"

@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "DFEDTARL",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Federal Funds Target Range - Lower Limit",
+      "observation_start": "2008-12-16",
+      "observation_end": "2025-09-12",
+      "frequency": "Daily, 7-Day",
+      "frequency_short": "D",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-12 07:02:02-05",
+      "popularity": 66,
+      "notes": "This series represents lower limit of the federal funds target range established by the Federal Open Market Committee. The data updated each day is the data effective as of that day."
+    }
+  ]
+}

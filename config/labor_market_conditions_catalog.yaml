@@ -1,0 +1,850 @@
+metadata:
+  category_id: 33509
+  created_at: '2025-09-13'
+  description: Labor Market Conditions 数据
+  name: Labor Market Conditions
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Establishment Size Class: 1-9 Employees
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMI1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Establishment Size Class: 10-49
+    Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMI10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Establishment Size Class: 1000-4999
+    Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMI1000
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Establishment Size Class: 250-999
+    Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMI250
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Establishment Size Class: 50-249
+    Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMI50
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Establishment Size Class: 5000+
+    Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMI5000
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Construction (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Education (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Education and Health
+    Services (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIEHS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Financial Services (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIFS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Government (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Health Services (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIHS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Information (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMII
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Leisure and Hospitality
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMILH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Manufacturing (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: DHI-DFH Mean Vacancy Duration Measure for Midwest Census Region (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIMW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: DHI-DFH Mean Vacancy Duration Measure for Northeast Census Region (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMINE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Other Services (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIOS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Private (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Professional and Business
+    Services (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIPBS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Resources (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: DHI-DFH Mean Vacancy Duration Measure for South Census Region (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMISO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: DHI-DFH Mean Vacancy Duration Measure for West Census Region (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIWE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Wholesale and Retail
+    Trade (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIWRT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: 'DHI-DFH Mean Vacancy Duration Measure by Industry: Warehouse, Transportation
+    & Utilities (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHDMIWTU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: DHI-DFH Index of Recruiting Intensity per Vacancy (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHIRIPV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: DHI-DFH Mean Vacancy Duration Measure (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHMVDM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Working Days
+- alias: Quits Rate (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHQTRT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Ratio
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Establishment Size
+    Class: 1-9 Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIV1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Establishment Size
+    Class: 10-49 Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIV10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Establishment Size
+    Class: 1000-4999 Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIV1000
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Establishment Size
+    Class: 250-999 Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIV250
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Establishment Size
+    Class: 50-249 Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIV50
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Establishment Size
+    Class: 5000+ Employees (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIV5000
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: DHI-DFH Index of Recruiting Intensity per Vacancy for Midwest Census Region
+    (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIVMW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: DHI-DFH Index of Recruiting Intensity per Vacancy for Northeast Census Region
+    (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIVNE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: DHI-DFH Index of Recruiting Intensity per Vacancy for South Census Region
+    (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIVSO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: DHI-DFH Index of Recruiting Intensity per Vacancy for West Census Region
+    (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRIVWE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: Rescaled Quits Rate (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRSQTRT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Ratio
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Construction
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Education
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Education
+    and Health Services (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIEHS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Financial
+    Services (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIFS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Government
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Health Services
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIHS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Information
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVII
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Leisure and
+    Hospitality (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVILH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Manufacturing
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Other Services
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIOS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Private (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Professional
+    and Business Services (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIPB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Resources
+    (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Wholesale
+    and Retail Trade (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIWRT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: 'DHI-DFH Index of Recruiting Intensity per Vacancy by Industry: Warehouse,
+    Trans. & Utilities (DISCONTINUED)'
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHRVIWTU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: Vacancies to Short-Term Unemployment (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHVTSTUT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Ratio
+- alias: Vacancy to Unemployment Ratio (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: DHIDFHVTUR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Ratio
+- alias: Monthly Transition Rate of All U.S. Workers From Employment to Non-Employment
+    Due to a Layoff
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: EMELASA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: Monthly Transition Rate of Prime-Age U.S. Workers From Employment to Non-Employment
+    Due to a Layoff
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: EMELPSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: Monthly Transition Rate of All U.S. Workers From Employment to Non-Employment
+    Due to a Quit
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: EMEQASA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: Monthly Transition Rate of Prime-Age U.S. Workers From Employment to Non-Employment
+    Due to a Quit
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: EMEQPSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: Monthly Share of All U.S. Workers Who Leave the Labor Force After a Layoff
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: EMSHRNLA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: Monthly Share of Prime-Age U.S. Workers Who Leave the Labor Force After a
+    Layoff
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: EMSHRNLP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: Monthly Share of All U.S. Workers Who Leave the Labor Force After a Quit
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: EMSHRNQA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: Monthly Share of Prime-Age U.S. Workers Who Leave the Labor Force After a
+    Quit
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: EMSHRNQP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: Average Probability of U.S. Workers Making Employer to Employer Transitions
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: FMPNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: Average Probability of U.S. Workers Making Employer to Employer Transitions
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: FMPSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: 3-Month Moving Average of Average Probability of U.S. Workers Making Employer
+    to Employer Transitions
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: FMPSA3MA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent
+- alias: KC Fed Labor Market Conditions Index, Level of Activity Indicator
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBKCLMCILA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: KC Fed Labor Market Conditions Index, Momentum Indicator
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBKCLMCIM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index
+- alias: Change in Labor Market Conditions Index (DISCONTINUED)
+  category_id: 33509
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBLMCI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Index Points
+- alias: Job Postings on Indeed in Akron, OH (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG10420
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Albany-Schenectady-Troy, NY (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG10580
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Albuquerque, NM (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG10740
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Allentown-Bethlehem-Easton, PA-NJ (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG10900
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Atlanta-Sandy Springs-Alpharetta, GA (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG12060
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Augusta-Richmond County, GA-SC (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG12260
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Austin-Round Rock-Georgetown, TX (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG12420
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Bakersfield, CA (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG12540
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Baltimore-Columbia-Towson, MD (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG12580
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Baton Rouge, LA (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG12940
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Birmingham-Hoover, AL (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG13820
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Boise City, ID (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG14260
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Boston-Cambridge-Newton, MA-NH (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG14460
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Bridgeport-Stamford-Norwalk, CT (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG14860
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Buffalo-Cheektowaga, NY (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG15380
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Cape Coral-Fort Myers, FL (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG15980
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Charleston-North Charleston, SC (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG16700
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Charlotte-Concord-Gastonia, NC-SC (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG16740
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Chattanooga, TN-GA (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG16860
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Chicago-Naperville-Elgin, IL-IN-WI (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG16980
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Cincinnati, OH-KY-IN (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG17140
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Cleveland-Elyria, OH (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG17460
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Colorado Springs, CO (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG17820
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Columbia, SC (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG17900
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Columbus, OH (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG18140
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Dallas-Fort Worth-Arlington, TX (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG19100
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Dayton-Kettering, OH (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG19430
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Deltona-Daytona Beach-Ormond Beach, FL (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG19660
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Denver-Aurora-Lakewood, CO (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG19740
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020
+- alias: Job Postings on Indeed in Des Moines-West Des Moines, IA (MSA) (DISCONTINUED)
+  category_id: 33509
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IHLCHG19780
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Labor_Market_Conditions
+  units: Percent Change from Feb 01, 2020

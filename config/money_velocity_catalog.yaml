@@ -1,0 +1,32 @@
+metadata:
+  category_id: 32242
+  created_at: '2025-09-13'
+  description: Money Velocity 数据
+  name: Money Velocity
+  parent_category: Major_Category
+  total_series: 3
+series:
+- alias: Velocity of M1 Money Stock
+  category_id: 32242
+  frequency: Quarterly
+  freshness_days: 7
+  id: M1V
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Money_Velocity
+  units: Ratio
+- alias: Velocity of M2 Money Stock
+  category_id: 32242
+  frequency: Quarterly
+  freshness_days: 7
+  id: M2V
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Money_Velocity
+  units: Ratio
+- alias: Velocity of MZM Money Stock (DISCONTINUED)
+  category_id: 32242
+  frequency: Quarterly
+  freshness_days: 7
+  id: MZMV
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Money_Velocity
+  units: Ratio

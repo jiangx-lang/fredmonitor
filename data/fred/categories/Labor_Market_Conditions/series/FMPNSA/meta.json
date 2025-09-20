@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "FMPNSA",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Average Probability of U.S. Workers Making Employer to Employer Transitions",
+      "observation_start": "1995-10-01",
+      "observation_end": "2025-08-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-12 13:01:36-05",
+      "popularity": 12,
+      "notes": "Fujita, Moscarini, and Postel-Vinay (FMP) Employer-to-Employer (E2E) Transition Probability tracks the rate at which U.S. workers transition from one employer to another in a given month. Expressed as the share (percentage) of movers among all employed workers in the previous month, E2E Transition Probability provides a timely gauge of the pace of worker reallocation in the U.S. labor market."
+    }
+  ]
+}

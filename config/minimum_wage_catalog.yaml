@@ -1,0 +1,416 @@
+metadata:
+  category_id: 33831
+  created_at: '2025-09-13'
+  description: Minimum Wage 数据
+  name: Minimum Wage
+  parent_category: Major_Category
+  total_series: 51
+series:
+- alias: State Minimum Wage Rate for Alaska
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGAK
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Arkansas
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGAR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Arizona
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGAZ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for California
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Colorado
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGCO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Connecticut
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGCT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for District of Columbia
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGDC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Delaware
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGDE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: Federal Minimum Wage Rate under the Federal Fair Labor Standards Act
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGFG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Florida
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGFL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Georgia
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Georgia
+  category_id: 33831
+  frequency: Monthly
+  freshness_days: 7
+  id: STTMINWGGAM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Guam
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGGU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Hawaii
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGHI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Iowa
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Idaho
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGID
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Illinois
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGIL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Indiana
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Kansas
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGKS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Kentucky
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGKY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Massachusetts
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGMA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Maryland
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGMD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Maine
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGME
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Michigan
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGMI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Minnesota
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGMN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Missouri
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGMO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Montana
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGMT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for North Carolina
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGNC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for North Dakota
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGND
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Nebraska
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGNE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for New Hampshire
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGNH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for New Jersey
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for New Mexico
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Nevada
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGNV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for New York
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGNY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Ohio
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGOH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Oklahoma
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGOK
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Oregon
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGOR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Pennsylvania
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Puerto Rico
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGPR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Rhode Island
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGRI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for South Dakota
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGSD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Texas
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGTX
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Utah
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGUT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Virginia
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for U.S. Virgin Islands
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGVI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Vermont
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGVT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Washington
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGWA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Wisconsin
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGWI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for West Virginia
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGWV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour
+- alias: State Minimum Wage Rate for Wyoming
+  category_id: 33831
+  frequency: Annual
+  freshness_days: 7
+  id: STTMINWGWY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Minimum_Wage
+  units: Dollars per Hour

@@ -1,0 +1,965 @@
+metadata:
+  category_id: 32215
+  created_at: '2025-09-13'
+  description: Factors Affecting Reserve Balances 数据
+  name: Factors Affecting Reserve Balances
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: 'Capital Accounts: Capital Paid in'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: CACP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Capital Accounts: Other Capital Account Items: Reserve for Contingencies,
+    Other Capital Accounts'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: CAOCARC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Capital Accounts: Other Capital Account Items: Subscription for Federal
+    Deposit Insurance Corporation Stock Called for Payment on April 15th, 1936'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: CAOCASFDICS04151934
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Capital Accounts: Other Capital Account Items: Subscription for Federal
+    Deposit Insurance Corporation Stock Paid'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: CAOCASFDICSP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Capital Accounts: Surplus: Section 13b'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: CASS13B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Capital Accounts: Surplus: Section 7'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: CASS7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Capital Accounts: Surplus: Surplus Not Specified'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: CASSNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Capital Accounts: Surplus: Total Surplus'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: CASTOTS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Capital Accounts: Total Capital Accounts'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: CATOTCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: Currency in Circulation
+  category_id: 32215
+  frequency: Monthly
+  freshness_days: 7
+  id: CURRCIR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Billions of Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Required Clearing
+    Balances: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESFSCBNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Required Clearing
+    Balances: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESFSCBXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Required Clearing
+    Balances: Change in Week Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESFSCBXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Required Clearing
+    Balances: Change in Week Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESFSCBXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Adjustments to
+    Compensate for Float: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESH4AAPANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Adjustments to
+    Compensate for Float: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4AAPAXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Adjustments to
+    Compensate for Float: Change in Week Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4AAPAXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Adjustments to
+    Compensate for Float: Change in Week Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4AAPAXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Preferred Interests
+    in AIA Aurora LLC and ALICO Holdings LLC: Preferred Interests in AIA Aurora LLC:
+    Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAAIAIANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Preferred Interests
+    in AIA Aurora LLC and ALICO Holdings LLC: Preferred Interests in ALICO Holdings
+    LLC: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAAIALINWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Preferred Interests: Preferred Interests in AIA Aurora LLC and ALICO
+    Holdings LLC: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAAINWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Preferred Interests: Preferred Interests in AIA Aurora LLC and ALICO
+    Holdings LLC: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAAIXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Preferred Interests: Preferred Interests in AIA Aurora LLC and ALICO
+    Holdings LLC: Change in Week Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAAIXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Preferred Interests: Preferred Interests in AIA Aurora LLC and ALICO
+    Holdings LLC: Change in Week Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAAIXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Preferred Interests: Preferred Interests in AIA Aurora LLC and ALICO
+    Holdings LLC: Change in Wednesday Level from Previous Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAAIXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Preferred Interests: Preferred Interests in AIA Aurora LLC and ALICO
+    Holdings LLC: Change in Wednesday Level from Year Ago Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAAIXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Preferred Interests
+    in AIA Aurora LLC and ALICO Holdings LLC: Accrued Dividends on Preferred Interests
+    in AIA Aurora LLC: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAALDAIANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Preferred Interests
+    in AIA Aurora LLC and ALICO Holdings LLC: Accrued Dividends on Preferred Interests
+    in ALICO Holdings LLC: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAALDALINWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Preferred Interests
+    in AIA Aurora LLC and ALICO Holdings LLC: Accrued Dividends on Preferred Interests
+    in AIA Aurora LLC and ALICO Holdings LLC: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAAAALDNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of Commercial Paper Funding Facility: Commercial Paper Holdings, Net: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACHCNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of Commercial
+    Paper Funding Facility LLC: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACHNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of Commercial Paper Funding Facility: Other Investments, Net: Wednesday Level
+    (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACHONWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of Commercial
+    Paper Funding Facility LLC: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAACHXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of Commercial
+    Paper Funding Facility LLC: Change in Week Average from Previous Week Average
+    (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAACHXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of Commercial
+    Paper Funding Facility LLC: Change in Week Average from Year Ago Week Average
+    (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAACHXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of Commercial
+    Paper Funding Facility LLC: Change in Wednesday Level from Previous Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACHXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of Commercial
+    Paper Funding Facility LLC: Change in Wednesday Level from Year Ago Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACHXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of Commercial Paper Funding Facility: Accrued Interest Payable to the Federal
+    Reserve Bank of New York: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACLINWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of Commercial Paper Funding Facility: Outstanding Principal Amount of Loan Extended
+    by the Federal Reserve Bank of New York: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACLPNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of Commercial Paper Funding Facility: Commercial Paper Held by Commercial Paper
+    Funding Facility LLC, Within 15 Days: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACMCD15NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of Commercial Paper Funding Facility: Commercial Paper Held by Commercial Paper
+    Funding Facility LLC, Maturing in 16 Days to 90 Days: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACMCD16T90NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of Commercial Paper Funding Facility: Commercial Paper Holdings, Face Value: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACMCNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of Commercial Paper Funding Facility: Commercial Paper Held by Commercial Paper
+    Funding Facility LLC, Maturing in 91 Days to 1 Year: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAACMCY01NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of LLCs Funded Through the Money Market Investor Funding Facility: Money Market
+    Instrument Holdings, Net: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIHMNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of LLCs
+    Funded Through the Money Market Investor Funding Facility: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIHNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of LLCs Funded Through the Money Market Investor Funding Facility: Other Investments,
+    Net: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIHONWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of LLCs
+    Funded Through the Money Market Investor Funding Facility: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIHXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of LLCs
+    Funded Through the Money Market Investor Funding Facility: Change in Week Average
+    from Previous Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIHXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of LLCs
+    Funded Through the Money Market Investor Funding Facility: Change in Week Average
+    from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIHXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of LLCs
+    Funded Through the Money Market Investor Funding Facility: Change in Wednesday
+    Level from Previous Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIHXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Net Portfolio Holdings of LLCs
+    Funded Through the Money Market Investor Funding Facility: Change in Wednesday
+    Level from Year Ago Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIHXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of LLCs Funded Through the Money Market Investor Funding Facility: Accrued Interest
+    Payable to the Federal Reserve Bank of New York: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMILINWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of LLCs Funded Through the Money Market Investor Funding Facility: Outstanding
+    Principal Amount of Loan Extended by the Federal Reserve Bank of New York: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMILPNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of LLCs Funded Through the Money Market Investor Funding Facility: Money Market
+    Instruments Held by LLCs Funded Through the Money Market Investor Funding Facility:
+    Maturing Within 15 Days: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIMMD15NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of LLCs Funded Through the Money Market Investor Funding Facility: Money Market
+    Instruments Held by LLCs Funded Through the Money Market Investor Funding Facility:
+    Maturing in 16 Days to 90 Days: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIMMD16T90NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of LLCs Funded Through the Money Market Investor Funding Facility: Money Market
+    Instrument Holdings, Face Value: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIMMNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of LLCs Funded Through the Money Market Investor Funding Facility: Money Market
+    Instruments Held by LLCs Funded Through the Money Market Investor Funding Facility:
+    Maturing in 91 Days to 1 Year: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAAMMIMMY01NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Asset-Backed Security Holdings (Fair Value): Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHFNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Net Portfolio Holdings of TALF LLC: Net Portfolio Holdings of TALF
+    LLC: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Other Investments, Net: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHONWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Asset-Backed Security Holdings (Face Value): Within 15 Days: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHSD15NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Asset-Backed Security Holdings (Face Value): Within 16 to 90 Days:
+    Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHSD16T90NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Asset-Backed Security Holdings (Face Value): Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHSNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Asset-Backed Security Holdings (Face Value): Maturing in 91 Days
+    to 1 Year: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHSY01NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Asset-Backed Security Holdings (Face Value): Maturing in over 1 Year
+    to 5 Years: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHSY01T05NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Asset-Backed Security Holdings (Face Value): Maturing in over 5 Years
+    to 10 Years: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHSY05T10NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Asset-Backed Security Holdings (Face Value): Maturing in over 10
+    Years: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHSY10PNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Net Portfolio Holdings of TALF LLC: Net Portfolio Holdings of TALF
+    LLC: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Net Portfolio Holdings of TALF LLC: Net Portfolio Holdings of TALF
+    LLC: Change in Week Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Net Portfolio Holdings of TALF LLC: Net Portfolio Holdings of TALF
+    LLC: Change in Week Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Net Portfolio Holdings of TALF LLC: Net Portfolio Holdings of TALF
+    LLC: Change in Wednesday Level from Previous Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Net Portfolio Holdings of TALF LLC: Net Portfolio Holdings of TALF
+    LLC: Change in Wednesday Level from Year Ago Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALHXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Accrued Interest Payable to the Federal Reserve Bank of New York:
+    Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALLINWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Outstanding Principal Amount Extended by the Federal Reserve Bank
+    of New York: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPAATALLPNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Primary Dealer and Other
+    Broker-Dealer Credit: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPALDDNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Primary Dealer and Other
+    Broker-Dealer Credit: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPALDDXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Primary Dealer and Other
+    Broker-Dealer Credit: Change in Week Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPALDDXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Primary Dealer and Other
+    Broker-Dealer Credit: Change in Week Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPALDDXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Asset-Backed Commercial
+    Paper Money Market Mutual Fund Liquidity Facility: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPALDFNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Asset-Backed Commercial
+    Paper Money Market Mutual Fund Liquidity Facility: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPALDFXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Asset-Backed Commercial
+    Paper Money Market Mutual Fund Liquidity Facility: Change in Week Average from
+    Previous Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPALDFXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Asset-Backed Commercial
+    Paper Money Market Mutual Fund Liquidity Facility: Change in Week Average from
+    Year Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPALDFXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Credit Extended to American
+    International Group, Inc., Net: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPALDGNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Credit Extended to American
+    International Group, Inc., Net: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPALDGXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Credit Extended to American
+    International Group, Inc., Net: Change in Week Average from Previous Week Average
+    (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPALDGXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Credit Extended to American
+    International Group, Inc., Net: Change in Week Average from Year Ago Week Average
+    (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPALDGXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of LLCs Funded Through the Money Market Investor Funding Facility: Commercial
+    Paper Issued by LLCs Funded Through Money Market Investor Funding Facility, Net
+    of Related Discounts: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPLAMMILCNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplementary Information on Principal Accounts
+    of TALF LLC: Funding Provided by U.S. Treasury to TALF LLC, Included Accrued Interest
+    Payable: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPLATALLTNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Liabilities: Funds from American International
+    Group, Inc. Asset Dispositions, Held as Agent: Wednesday Level (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPLLANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Liabilities: Funds from American International
+    Group, Inc. Asset Dispositions, Held as Agent: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPLLAXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Liabilities: Funds from American International
+    Group, Inc. Asset Dispositions, Held as Agent: Change in Week Average from Previous
+    Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPLLAXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Liabilities: Funds from American International
+    Group, Inc. Asset Dispositions, Held as Agent: Change in Week Average from Year
+    Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPLLAXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Wednesday Level
+    (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPLLDDSNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPLLDDSXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Change in Week
+    Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPLLDDSXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Deposits
+    with F.R. Banks, Other Than Reserve Balances: Service-Related: Change in Week
+    Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPLLDDSXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Liabilities: Deposits with F.R. Banks, Other Than
+    Reserve Balances: U.S. Treasury, Supplementary Financing Account: Wednesday Level
+    (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESPPLLDSNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Liabilities: Deposits with F.R. Banks, Other Than
+    Reserve Balances: U.S. Treasury, Supplementary Financing Account: Week Average
+    (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPLLDSXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Liabilities: Deposits with F.R. Banks, Other Than
+    Reserve Balances: U.S. Treasury, Supplementary Financing Account: Change in Week
+    Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPLLDSXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Liabilities: Deposits with F.R. Banks, Other Than
+    Reserve Balances: U.S. Treasury, Supplementary Financing Account: Change in Week
+    Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32215
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESPPLLDSXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Factors_Affecting_Reserve_Balances
+  units: Millions of U.S. Dollars

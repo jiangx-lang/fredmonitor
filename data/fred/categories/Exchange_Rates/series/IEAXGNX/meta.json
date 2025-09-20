@@ -1,0 +1,20 @@
+{
+  "id": "IEAXGNX",
+  "realtime_start": "2025-09-11",
+  "realtime_end": "2025-09-11",
+  "title": "Exports of Goods: Net exports of goods under merchanting",
+  "observation_start": "1999-01-01",
+  "observation_end": "2025-01-01",
+  "frequency": "Quarterly",
+  "frequency_short": "Q",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Seasonally Adjusted",
+  "seasonal_adjustment_short": "SA",
+  "last_updated": "2025-06-24 08:59:02-05",
+  "popularity": 4,
+  "sync_timestamp": "2025-09-13T13:19:23.342421",
+  "alias": "Exports_of_Goods_Net_exports_of_goods_under_mercha",
+  "category_id": 16,
+  "next_release": "N/A"
+}

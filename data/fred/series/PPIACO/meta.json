@@ -1,0 +1,20 @@
+{
+  "id": "PPIACO",
+  "realtime_start": "2025-09-10",
+  "realtime_end": "2025-09-10",
+  "title": "Producer Price Index by Commodity: All Commodities",
+  "observation_start": "1913-01-01",
+  "observation_end": "2025-08-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Index 1982=100",
+  "units_short": "Index 1982=100",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-09-10 07:52:02-05",
+  "popularity": 79,
+  "sync_timestamp": "2025-09-20T10:45:07.970397",
+  "alias": "PPI_All_Commodities",
+  "freshness_days": 60,
+  "next_release": "N/A"
+}

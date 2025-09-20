@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "STLFSI3",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "St. Louis Fed Financial Stress Index (DISCONTINUED)",
+      "observation_start": "1993-12-31",
+      "observation_end": "2022-10-28",
+      "frequency": "Weekly, Ending Friday",
+      "frequency_short": "W",
+      "units": "Index",
+      "units_short": "Index",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2022-11-03 09:00:04-05",
+      "popularity": 36,
+      "notes": "The methodology for the St. Louis Fed's Financial Stress Index was revised and this series is discontinued. The new version, STLFSI4, can be found HERE (https://fred.stlouisfed.org/series/STLFSI4).\r\n\r\nThe STLFSI3 measures the degree of financial stress in the markets and is constructed from 18 weekly data series: seven interest rate series, six yield spreads and five other indicators. Each of these variables captures some aspect of financial stress. Accordingly, as the level of financial stress in the economy changes, the data series are likely to move together.\r\n\r\nHow to Interpret the Index:\r\nThe average value of the index, which begins in late 1993, is designed to be zero. Thus, zero is viewed as representing normal financial market conditions. Values below zero suggest below-average financial market stress, while values above zero suggest above-average financial market stress.\r\n\r\nMore information:\r\nThe STLFSI3 is a revision of the STLFSI2 (https://fred.stlouisfed.org/series/STLFSI2), itself a revision of the original STLFSI (https://fred.stlouisfed.org/series/STLFSI). Whereas the STLFSI and STLFSI2 used the 3-month LIBOR in two of their yield spreads (https://files.stlouisfed.org/files/htdocs/publications/net/NETJan2010Appendix.pdf), the STLFSI3 now uses the 90-day average SOFR (https://fred.stlouisfed.org/series/SOFR90DAYAVG) in its place, in deference to concerns about the LIBOR and its subsequent retirement. For more information, see “The St. Louis Fed’s Financial Stress Index, Version 3.0.” (https://fredblog.stlouisfed.org/2022/01/the-st-louis-feds-financial-stress-index-version-3-0/) For information on earlier STLFSIs, see “Measuring Financial Market Stress” (https://files.stlouisfed.org/files/htdocs/publications/es/10/ES1002.pdf) and “The St. Louis Fed’s Financial Stress Index, Version 2.0.” (https://fredblog.stlouisfed.org/2020/03/the-st-louis-feds-financial-stress-index-version-2-0/)"
+    }
+  ]
+}

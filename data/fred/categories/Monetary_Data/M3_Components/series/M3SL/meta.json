@@ -1,0 +1,22 @@
+{
+  "id": "M3SL",
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "title": "M3 (DISCONTINUED)",
+  "observation_start": "1959-01-01",
+  "observation_end": "2006-02-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Billions of Dollars",
+  "units_short": "Bil. of $",
+  "seasonal_adjustment": "Seasonally Adjusted",
+  "seasonal_adjustment_short": "SA",
+  "last_updated": "2008-01-15 12:36:22-06",
+  "popularity": 18,
+  "notes": "announcement (https://www.federalreserve.gov/releases/h6/discm3.htm) provided by the source.\n\nFor questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h6/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>",
+  "sync_timestamp": "2025-09-13T13:52:37.289203",
+  "alias": "M3 Money Stock (DISCONTINUED)",
+  "category_id": 17,
+  "subcategory": "M3_Components",
+  "next_release": "N/A"
+}

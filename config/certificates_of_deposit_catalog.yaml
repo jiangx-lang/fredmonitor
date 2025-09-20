@@ -1,0 +1,396 @@
+metadata:
+  category_id: 121
+  created_at: '2025-09-13'
+  description: Certificates of Deposit 数据
+  name: Certificates of Deposit
+  parent_category: Major_Category
+  total_series: 46
+series:
+- alias: 'National Rate on Jumbo Deposits (greater or equal to $100,000): 12 Month
+    CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD12NRJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): 12 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD12NRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Jumbo Deposits (greater or equal to $100,000): 12 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD12RCJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): 12 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD12RCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 1-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Monthly
+  freshness_days: 7
+  id: CD1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Jumbo Deposits (greater or equal to $100,000): 1 Month
+    CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD1NRJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): 1 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD1NRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Jumbo Deposits (greater or equal to $100,000): 1 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD1RCJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): 1 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD1RCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Jumbo Deposits (greater or equal to $100,000): 24 Month
+    CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD24NRJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): 24 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD24NRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Jumbo Deposits (greater or equal to $100,000): 24 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD24RCJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): 24 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD24RCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Jumbo Deposits (greater or equal to $100,000): 36 Month
+    CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD36NRJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): 36 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD36NRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Jumbo Deposits (greater or equal to $100,000): 36 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD36RCJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): 36 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD36RCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 3-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Monthly
+  freshness_days: 7
+  id: CD3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Jumbo Deposits (greater or equal to $100,000): 3 Month
+    CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD3NRJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): 3 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD3NRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Jumbo Deposits (greater or equal to $100,000): 3 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD3RCJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): 3 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD3RCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Jumbo Deposits (greater or equal to $100,000): 48 Month
+    CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD48NRJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): 48 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD48NRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Jumbo Deposits (greater or equal to $100,000): 48 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD48RCJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): 48 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD48RCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Jumbo Deposits (greater or equal to $100,000): 60 Month
+    CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD60NRJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): 60 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD60NRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Jumbo Deposits (greater or equal to $100,000): 60 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD60RCJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): 60 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD60RCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 6-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Monthly
+  freshness_days: 7
+  id: CD6M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Jumbo Deposits (greater or equal to $100,000): 6 Month
+    CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD6NRJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): 6 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD6NRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Jumbo Deposits (greater or equal to $100,000): 6 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD6RCJD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): 6 Month CD (DISCONTINUED)'
+  category_id: 121
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: CD6RCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 1-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Daily
+  freshness_days: 7
+  id: DCD1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 6-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Daily
+  freshness_days: 7
+  id: DCD6M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 3-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Daily
+  freshness_days: 7
+  id: DCD90
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 1-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPDCNSM01NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 3-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPDCNSM03NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 6-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSPDCNSM06NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Treasury Yield: 48 Month CD <100M'
+  category_id: 121
+  frequency: Monthly
+  freshness_days: 7
+  id: TY48MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: 48 Month CD <100M'
+  category_id: 121
+  frequency: Monthly
+  freshness_days: 7
+  id: TYRCA48MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 1-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCD1M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 3-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCD3M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent
+- alias: Average Rate on 6-Month Negotiable Certificates of Deposit (Secondary Market),
+    Quoted on an Investment Basis (DISCONTINUED)
+  category_id: 121
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WCD6M
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Certificates_of_Deposit
+  units: Percent

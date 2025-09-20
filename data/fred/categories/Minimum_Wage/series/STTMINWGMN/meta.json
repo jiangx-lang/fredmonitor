@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "STTMINWGMN",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "State Minimum Wage Rate for Minnesota",
+      "observation_start": "1968-01-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Annual",
+      "frequency_short": "A",
+      "units": "Dollars per Hour",
+      "units_short": "$ per Hour",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-03-20 10:24:28-05",
+      "popularity": 26,
+      "notes": "State minimum wage applies only after a certain level of gross annual sales or receipts is reached by the employer.\n\nFor more information, visit https://www.dol.gov/whd/state/stateMinWageHis.htm"
+    }
+  ]
+}

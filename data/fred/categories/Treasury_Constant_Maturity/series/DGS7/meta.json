@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-12",
+  "realtime_end": "2025-09-12",
+  "seriess": [
+    {
+      "id": "DGS7",
+      "realtime_start": "2025-09-12",
+      "realtime_end": "2025-09-12",
+      "title": "Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted on an Investment Basis",
+      "observation_start": "1969-07-01",
+      "observation_end": "2025-09-11",
+      "frequency": "Daily",
+      "frequency_short": "D",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-12 15:16:52-05",
+      "popularity": 64,
+      "notes": "H.15 Statistical Release notes (https://www.federalreserve.gov/releases/h15/default.htm) and the Treasury Yield Curve Methodology (https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/treasury-yield-curve-methodology).\n\nFor questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h15/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

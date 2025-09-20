@@ -1,0 +1,7 @@
+# Monetary Base (27 series)
+subcategory:
+  name: "Monetary_Base"
+  description: "Monetary Base (27 series)"
+  keywords: ['BASE', 'MBASE', 'MONETARYBASE']
+  parent_category: "Monetary_Data"
+  created_at: "C:\Users\admin\上网"

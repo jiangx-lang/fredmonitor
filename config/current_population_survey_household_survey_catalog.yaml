@@ -1,0 +1,349 @@
+metadata:
+  category_id: 12
+  created_at: '2025-09-13'
+  description: Current Population Survey Household Survey 数据
+  name: Current Population Survey Household Survey
+  parent_category: Major_Category
+  total_series: 41
+series:
+- alias: Population Level
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: CNP16OV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Number At Work 1-34 Hours, Usually Work Part Time Noneconomic Reasons
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS12005977
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Employment Level - Part-Time for Economic Reasons, All Industries
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS12032194
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Employment Level - Part-Time for Economic Reasons, Slack Work or Business
+    Conditions, All Industries
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS12032195
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Employment Level - Part-Time for Economic Reasons, Could Only Find Part-Time
+    Work, All Industries
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS12032196
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Unemployment Level - Reentrants to Labor Force
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS13023557
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Unemployment Level - New Entrants
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS13023569
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Unemployment Level - Job Losers
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS13023621
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Unemployment Level - Job Leavers
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS13023705
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Unemployment Rate - White
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14000003
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - Black or African American
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14000006
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - Hispanic or Latino
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14000009
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - 16-19 Yrs.
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14000012
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - 20 Yrs. & over, Men
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14000025
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - 20 Yrs. & over, Women
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14000026
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - 25 Yrs. & over
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14000048
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - Less Than a High School Diploma, 25 Yrs. & over
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14027659
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - High School Graduates, No College, 25 Yrs. & over
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14027660
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - Some College or Associate Degree, 25 Yrs. & over
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS14027689
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Not in Labor Force
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNS15000000
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Unemployment Rate - Asian
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU04032183
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Not in Labor Force - Want a Job Now, Marginally Attached (Searched for Work
+    in Previous Year, Available to Work Now)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU05026642
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Not in Labor Force - Want a Job Now, Marginally Attached, Discouraged Workers
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU05026645
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Not in Labor Force - Want a Job Now
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: NILFWJN
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Not in Labor Force - Want a Job Now
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: NILFWJNN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Percent of Civilian Labor Force Unemployed 15 Weeks and over (U-1)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U1RATE
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Percent of Civilian Labor Force Unemployed 15 Weeks and over (U-1)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U1RATENSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - Job Losers (U-2)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U2RATE
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Unemployment Rate - Job Losers (U-2)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U2RATENSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Total Unemployed Plus Discouraged Workers, as a Percent of the Civilian Labor
+    Force Plus Discouraged Workers (U-4)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U4RATE
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Total Unemployed Plus Discouraged Workers, as a Percent of the Civilian Labor
+    Force Plus Discouraged Workers (U-4)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U4RATENSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Total Unemployed, Plus Discouraged Workers, Plus All Other Persons Marginally
+    Attached to the Labor Force, as a Percent of the Civilian Labor Force Plus All
+    Persons Marginally Attached to the Labor Force (U-5)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U5RATE
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Total Unemployed, Plus Discouraged Workers, Plus All Other Persons Marginally
+    Attached to the Labor Force, as a Percent of the Civilian Labor Force Plus All
+    Persons Marginally Attached to the Labor Force (U-5)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U5RATENSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Total Unemployed, Plus All Persons Marginally Attached to the Labor Force,
+    Plus Total Employed Part Time for Economic Reasons, as a Percent of the Civilian
+    Labor Force Plus All Persons Marginally Attached to the Labor Force (U-6)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U6RATE
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Total Unemployed, Plus All Persons Marginally Attached to the Labor Force,
+    Plus Total Employed Part Time for Economic Reasons, as a Percent of the Civilian
+    Labor Force Plus All Persons Marginally Attached to the Labor Force (U-6)
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: U6RATENSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Percent
+- alias: Number Unemployed for 15 Weeks & over
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: UEMP15OV
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Number Unemployed for 15-26 Weeks
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: UEMP15T26
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Number Unemployed for 27 Weeks & over
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: UEMP27OV
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Number Unemployed for 5-14 Weeks
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: UEMP5TO14
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Number Unemployed for Less Than 5 Weeks
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: UEMPLT5
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Thousands of Persons
+- alias: Median Weeks Unemployed
+  category_id: 12
+  frequency: Monthly
+  freshness_days: 7
+  id: UEMPMED
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Current_Population_Survey_Household_Survey
+  units: Weeks

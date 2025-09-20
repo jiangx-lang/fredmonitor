@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "B230RC0Q173SBEA",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Population",
+      "observation_start": "1947-01-01",
+      "observation_end": "2025-04-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Thousands",
+      "units_short": "Thous.",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-07-30 07:56:17-05",
+      "popularity": 34,
+      "notes": "Population includes resident population plus armed forces overseas. The annual estimate is constructed as an average of monthly series https://fred.stlouisfed.org/series/POPTHM. \nBEA Account Code: B230RC\n\nFor more information about this series, please see http://www.bea.gov/national/."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Monthly Rates
+subcategory:
+  name: "Monthly_Rates"
+  description: "Monthly Rates"
+  category_id: 95
+  parent_category: "Prices"
+  created_at: "C:\Users\admin\上网"

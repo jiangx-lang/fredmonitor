@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "ADPWINDMANNERSA",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Nonfarm Private Payroll Employment for Manufacturing",
+      "observation_start": "2010-01-09",
+      "observation_end": "2025-07-19",
+      "frequency": "Weekly",
+      "frequency_short": "W",
+      "units": "Persons",
+      "units_short": "Persons",
+      "seasonal_adjustment": "Seasonally Adjusted",
+      "seasonal_adjustment_short": "SA",
+      "last_updated": "2025-09-04 07:26:03-05",
+      "popularity": 38,
+      "notes": "The current year’s January report reflects the scheduled annual revision of the ADP National Employment Report (NER). The data series has been reweighted to match annual Quarterly Census of Employment and Wages (QCEW) benchmark data through March of the previous year. This is a recurring process that happens every year in February and is a common practice for reports of this nature. More information about this report can be found at <a href=https://adpemploymentreport.com>ADP National Employment Report website</a>."
+    }
+  ]
+}

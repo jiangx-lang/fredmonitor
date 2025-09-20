@@ -1,0 +1,56 @@
+metadata:
+  category_id: 117
+  created_at: '2025-09-13'
+  description: Prime Bank Loan Rate 数据
+  name: Prime Bank Loan Rate
+  parent_category: Major_Category
+  total_series: 6
+series:
+- alias: Bank Prime Loan Rate
+  category_id: 117
+  frequency: Daily
+  freshness_days: 7
+  id: DPRIME
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Prime_Bank_Loan_Rate
+  units: Percent
+- alias: Bank Prime Loan Rate
+  category_id: 117
+  frequency: Monthly
+  freshness_days: 7
+  id: MPRIME
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Prime_Bank_Loan_Rate
+  units: Percent
+- alias: 'Bank Prime Loan Rate Changes: Historical Dates of Changes and Rates'
+  category_id: 117
+  frequency: Not Applicable
+  freshness_days: 7
+  id: PRIME
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Prime_Bank_Loan_Rate
+  units: Percent
+- alias: Bank Prime Loan Rate
+  category_id: 117
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPBLPNA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Prime_Bank_Loan_Rate
+  units: Percent
+- alias: Bank Prime Loan Rate
+  category_id: 117
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: RIFSPBLPND
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Prime_Bank_Loan_Rate
+  units: Percent
+- alias: Bank Prime Loan Rate
+  category_id: 117
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: WPRIME
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Prime_Bank_Loan_Rate
+  units: Percent

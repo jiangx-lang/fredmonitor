@@ -1,0 +1,234 @@
+# FRED数据目录配置
+# 定义需要同步的FRED序列及其特征计算规则
+
+series:
+  # === Prices (价格) ===
+  - id: CPIAUCSL
+    alias: CPI_Headline
+    calc:
+      yoy: {op: pct_change, shift: 12, scale: 100}
+      mom: {op: pct_change, shift: 1, scale: 100}
+    freshness_days: 60
+
+  - id: CPILFESL
+    alias: CPI_Core
+    calc:
+      yoy: {op: pct_change, shift: 12, scale: 100}
+    freshness_days: 60
+
+  - id: PCEPI
+    alias: PCE_Price_Index
+    calc:
+      yoy: {op: pct_change, shift: 12, scale: 100}
+    freshness_days: 60
+
+  - id: CSUSHPINSA
+    alias: House_Price_Index
+    calc:
+      yoy: {op: pct_change, shift: 12, scale: 100}
+    freshness_days: 40
+
+  - id: PPIACO
+    alias: PPI_All_Commodities
+    calc:
+      yoy: {op: pct_change, shift: 12, scale: 100}
+    freshness_days: 60
+
+  # === Population, Employment, & Labor Markets ===
+  - id: UNRATE
+    alias: Unemployment_Rate
+    freshness_days: 30
+
+  - id: PAYEMS
+    alias: Nonfarm_Payrolls
+    freshness_days: 30
+
+  - id: CIVPART
+    alias: Labor_Force_Participation_Rate
+    freshness_days: 30
+
+  - id: EMRATIO
+    alias: Employment_Population_Ratio
+    freshness_days: 30
+
+  # JOLTS Data (detailed)
+  - id: JTSJOL
+    alias: Job_Openings_Total_Nonfarm
+    freshness_days: 30
+
+  - id: JTSJOR
+    alias: Job_Openings_Rate_Total_Nonfarm
+    freshness_days: 30
+
+  - id: JTSHIL
+    alias: Hires_Total_Nonfarm
+    freshness_days: 30
+
+  - id: JTSQUL
+    alias: Quits_Total_Nonfarm
+    freshness_days: 30
+
+  - id: JTSLDL
+    alias: Layoffs_Discharges_Total_Nonfarm
+    freshness_days: 30
+
+  - id: JTSOSL
+    alias: Other_Separations_Total_Nonfarm
+    freshness_days: 30
+
+  # === National Accounts ===
+  - id: GDP
+    alias: GDP
+    calc:
+      yoy: {op: pct_change, shift: 4, scale: 100}
+    freshness_days: 120
+
+  - id: PCE
+    alias: Personal_Consumption_Expenditures
+    calc:
+      yoy: {op: pct_change, shift: 4, scale: 100}
+    freshness_days: 120
+
+  - id: GPDI
+    alias: Gross_Private_Domestic_Investment
+    calc:
+      yoy: {op: pct_change, shift: 4, scale: 100}
+    freshness_days: 120
+
+  # === Money, Banking, & Finance ===
+  - id: VIXCLS
+    alias: VIX
+    freshness_days: 7
+
+  - id: DGS10
+    alias: UST10Y
+    freshness_days: 7
+
+  - id: DGS2
+    alias: UST2Y
+    freshness_days: 7
+
+  - id: FEDFUNDS
+    alias: Fed_Funds_Rate
+    freshness_days: 7
+
+  - id: SOFR
+    alias: SOFR
+    freshness_days: 7
+
+  - id: NFCI
+    alias: Chicago_NFCI
+    freshness_days: 14
+
+  - id: BAMLH0A0HYM2
+    alias: HY_Spread
+    freshness_days: 7
+
+  - id: DTWEXBGS
+    alias: DXY
+    freshness_days: 7
+
+  # Exchange Rates
+  - id: DEXUSEU
+    alias: USD_EUR_Exchange_Rate
+    freshness_days: 7
+
+  - id: DEXJPUS
+    alias: USD_JPY_Exchange_Rate
+    freshness_days: 7
+
+  - id: DEXCHUS
+    alias: USD_CNY_Exchange_Rate
+    freshness_days: 7
+
+  - id: DEXUSUK
+    alias: USD_GBP_Exchange_Rate
+    freshness_days: 7
+
+  # === Production & Business Activity ===
+  - id: INDPRO
+    alias: Industrial_Production
+    calc:
+      yoy: {op: pct_change, shift: 12, scale: 100}
+    freshness_days: 30
+
+  - id: RETAILSMNSA
+    alias: Retail_Sales
+    calc:
+      yoy: {op: pct_change, shift: 12, scale: 100}
+    freshness_days: 30
+
+  - id: UMCSENT
+    alias: Consumer_Confidence
+    freshness_days: 40
+
+  - id: SP500
+    alias: SP500_Index
+    freshness_days: 7
+
+  - id: HOUST
+    alias: Housing_Starts
+    freshness_days: 30
+
+  # === U.S. Regional Data ===
+  - id: CAUR
+    alias: California_Unemployment_Rate
+    freshness_days: 30
+
+  - id: NYUR
+    alias: New_York_Unemployment_Rate
+    freshness_days: 30
+
+  - id: TXUR
+    alias: Texas_Unemployment_Rate
+    freshness_days: 30
+
+  - id: FLUR
+    alias: Florida_Unemployment_Rate
+    freshness_days: 30
+
+  - id: ILUR
+    alias: Illinois_Unemployment_Rate
+    freshness_days: 30
+
+  - id: PAUR
+    alias: Pennsylvania_Unemployment_Rate
+    freshness_days: 30
+
+  - id: OHUR
+    alias: Ohio_Unemployment_Rate
+    freshness_days: 30
+
+  - id: GAUR
+    alias: Georgia_Unemployment_Rate
+    freshness_days: 30
+
+  - id: NCUR
+    alias: North_Carolina_Unemployment_Rate
+    freshness_days: 30
+
+  - id: MIUR
+    alias: Michigan_Unemployment_Rate
+    freshness_days: 30
+
+  # === Academic Data ===
+  - id: USREC
+    alias: Recession_Probabilities_US
+    freshness_days: 30
+
+  - id: EPUINDX
+    alias: Economic_Policy_Uncertainty_Index
+    freshness_days: 30
+
+  # === Crisis Detection Indicators (危机检测指标) ===
+  - id: TDSP
+    alias: Household_Debt_Service_Ratio
+    freshness_days: 120
+
+  - id: DRSFRMACBS
+    alias: Mortgage_Delinquency_Rate
+    freshness_days: 120
+
+  - id: NCBDBIQ027S
+    alias: Corporate_Debt_to_GDP_Ratio
+    freshness_days: 120

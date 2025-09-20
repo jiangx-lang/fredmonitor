@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "DTP5A23",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "5-Year 0.625% Treasury Inflation-Indexed Note, Due 4/15/2023 (DISCONTINUED)",
+      "observation_start": "2018-04-20",
+      "observation_end": "2023-04-14",
+      "frequency": "Daily",
+      "frequency_short": "D",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2023-04-17 06:03:03-05",
+      "popularity": 4,
+      "notes": "Yield to maturity on accrued principal.\nTreasury Inflation-Protected Securities, or TIPS, are securities whose principal is tied to the Consumer Price Index (CPI). The principal increases with inflation and decreases with deflation. When the security matures, the U.S. Treasury pays the original or adjusted principal, whichever is greater.\nCopyright, 2016, Haver Analytics. Reprinted with permission."
+    }
+  ]
+}

@@ -1,0 +1,893 @@
+metadata:
+  category_id: 32440
+  created_at: '2025-09-13'
+  description: Delinquencies and Delinquency Rates 数据
+  name: Delinquencies and Delinquency Rates
+  parent_category: Major_Category
+  total_series: 99
+series:
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, All Commercial
+    Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers,
+    All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLCACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers,
+    Credit Cards, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLCCACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers,
+    Credit Cards, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLCCOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers,
+    Credit Cards, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLCCT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Commercial
+    and Industrial, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLCIACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Commercial
+    and Industrial, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLCIOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Commercial
+    and Industrial, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLCIT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers,
+    Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLCOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers,
+    Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLCT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Finance
+    Agricultural Production, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLFAPGACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Finance
+    Agricultural Production, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLFAPGOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Finance
+    Agricultural Production, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLFAPGT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Lease Financing
+    Receivables, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLLFRACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Lease Financing
+    Receivables, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLLFROBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Lease Financing
+    Receivables, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLLFRT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Banks Not
+    Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers,
+    Other, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLOCACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers,
+    Other, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLOCOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers,
+    Other, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLOCT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSREACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Commercial Real Estate Loans (Excluding Farmland), Booked in Domestic
+    Offices, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSRECRELEXFACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Commercial Real Estate Loans (Excluding Farmland), Booked in Domestic
+    Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSRECRELEXFOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Commercial Real Estate Loans (Excluding Farmland), Booked in Domestic
+    Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSRECRELEXFT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Farmland, Booked in Domestic Offices, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSREFACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Farmland, Booked in Domestic Offices, Banks Not Among the 100 Largest
+    in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSREFOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Farmland, Booked in Domestic Offices, Banks Ranked 1st to 100th Largest
+    in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSREFT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSREOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Single-Family Residential Mortgages, Booked in Domestic Offices,
+    All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSRESFRMACBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Single-Family Residential Mortgages, Booked in Domestic Offices,
+    Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSRESFRMOBEP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Single-Family Residential Mortgages, Booked in Domestic Offices,
+    Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSRESFRMT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Secured by
+    Real Estate, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLSRET100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Delinquencies on All Loans and Leases, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DALLT100EP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Millions of Dollars
+- alias: Delinquency Rate on All Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRALACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on All Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRALACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on All Loans, Banks Not Among the 100 Largest in Size by
+    Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRALOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on All Loans, Banks Not Among the 100 Largest in Size by
+    Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRALOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on All Loans, Banks Ranked 1st to 100th Largest in Size
+    by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRALT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on All Loans, Banks Ranked 1st to 100th Largest in Size
+    by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRALT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Business Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRBLACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Business Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRBLACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Business Loans, Banks Not Among the 100 Largest in Size
+    by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRBLOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Business Loans, Banks Not Among the 100 Largest in Size
+    by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRBLOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Business Loans, Banks Ranked 1st to 100th Largest in
+    Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRBLT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Business Loans, Banks Ranked 1st to 100th Largest in
+    Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRBLT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Credit Card Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCCLACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Credit Card Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCCLACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Credit Card Loans, Banks Not Among the 100 Largest in
+    Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCCLOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Credit Card Loans, Banks Not Among the 100 Largest in
+    Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCCLOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Credit Card Loans, Banks Ranked 1st to 100th Largest
+    in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCCLT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Credit Card Loans, Banks Ranked 1st to 100th Largest
+    in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCCLT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Consumer Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCLACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Consumer Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCLACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Consumer Loans, Banks Not Among the 100 Largest in Size
+    by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCLOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Consumer Loans, Banks Not Among the 100 Largest in Size
+    by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCLOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Consumer Loans, Banks Ranked 1st to 100th Largest in
+    Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCLT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Consumer Loans, Banks Ranked 1st to 100th Largest in
+    Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCLT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCRELEXFACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCRELEXFACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCRELEXFOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCRELEXFOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCRELEXFT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRCRELEXFT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans to Finance Agricultural Production, All Commercial
+    Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFAPGACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans to Finance Agricultural Production, All Commercial
+    Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFAPGACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans to Finance Agricultural Production, Banks Not Among
+    the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFAPGOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans to Finance Agricultural Production, Banks Not Among
+    the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFAPGOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans to Finance Agricultural Production, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFAPGT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans to Finance Agricultural Production, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFAPGT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Farmland Loans, Booked in Domestic Offices, All Commercial
+    Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFLACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Farmland Loans, Booked in Domestic Offices, All Commercial
+    Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFLACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Farmland Loans, Booked in Domestic Offices, Banks Not
+    Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFLOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Farmland Loans, Booked in Domestic Offices, Banks Not
+    Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFLOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Farmland Loans, Booked in Domestic Offices, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFLT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Farmland Loans, Booked in Domestic Offices, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRFLT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Lease Financing Receivables, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRLFRACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Lease Financing Receivables, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRLFRACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Lease Financing Receivables, Banks Not Among the 100
+    Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRLFROBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Lease Financing Receivables, Banks Not Among the 100
+    Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRLFROBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Lease Financing Receivables, Banks Ranked 1st to 100th
+    Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRLFRT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Lease Financing Receivables, Banks Ranked 1st to 100th
+    Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRLFRT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Other Consumer Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DROCLACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Other Consumer Loans, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DROCLACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Other Consumer Loans, Banks Not Among the 100 Largest
+    in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DROCLOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Other Consumer Loans, Banks Not Among the 100 Largest
+    in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DROCLOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Other Consumer Loans, Banks Ranked 1st to 100th Largest
+    in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DROCLT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Other Consumer Loans, Banks Ranked 1st to 100th Largest
+    in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DROCLT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Single-Family Residential Mortgages, Booked in Domestic
+    Offices, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSFRMACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Single-Family Residential Mortgages, Booked in Domestic
+    Offices, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSFRMACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Single-Family Residential Mortgages, Booked in Domestic
+    Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSFRMOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Single-Family Residential Mortgages, Booked in Domestic
+    Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSFRMOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Single-Family Residential Mortgages, Booked in Domestic
+    Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSFRMT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Single-Family Residential Mortgages, Booked in Domestic
+    Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSFRMT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans Secured by Real Estate, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSREACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans Secured by Real Estate, All Commercial Banks
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSREACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans Secured by Real Estate, Banks Not Among the 100
+    Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSREOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans Secured by Real Estate, Banks Not Among the 100
+    Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSREOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans Secured by Real Estate, Banks Ranked 1st to 100th
+    Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSRET100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent
+- alias: Delinquency Rate on Loans Secured by Real Estate, Banks Ranked 1st to 100th
+    Largest in Size by Assets
+  category_id: 32440
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: DRSRET100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Delinquencies_and_Delinquency_Rates
+  units: Percent

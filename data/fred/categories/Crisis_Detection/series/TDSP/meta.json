@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-10",
+  "realtime_end": "2025-09-10",
+  "seriess": [
+    {
+      "id": "TDSP",
+      "realtime_start": "2025-09-10",
+      "realtime_end": "2025-09-10",
+      "title": "Household Debt Service Payments as a Percent of Disposable Personal Income",
+      "observation_start": "1980-01-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Seasonally Adjusted",
+      "seasonal_adjustment_short": "SA",
+      "last_updated": "2025-06-26 12:39:44-05",
+      "popularity": 74,
+      "notes": "Household Debt Service Ratio (DSR) (https://fred.stlouisfed.org/series/TDSP) is the ratio of total required household debt payments to total disposable income.\n\nThe DSR is divided into two parts. The Mortgage DSR (MDSP) (https://fred.stlouisfed.org/series/MDSP) is total quarterly required mortgage payments divided by total quarterly disposable personal income. The Consumer DSR (CDSP) (https://fred.stlouisfed.org/series/CDSP) is total quarterly scheduled consumer debt payments divided by total quarterly disposable personal income. The Mortgage DSR and the Consumer DSR sum to the DSR.\n\nFor questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/housedebt/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

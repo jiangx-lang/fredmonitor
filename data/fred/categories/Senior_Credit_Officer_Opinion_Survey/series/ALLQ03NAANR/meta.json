@@ -1,0 +1,22 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "ALLQ03NAANR",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "3) To What Extent Have Changes in the Practices of Central Counterparties, Including Margin Requirements and Haircuts, Influenced the Credit Terms Your Institution Applies to Clients on Bilateral Transactions Which Are Not Cleared?| Answer Type: Not at All",
+      "observation_start": "2011-07-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Number of Respondents",
+      "units_short": "Number of Respondents",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-03-27 13:22:26-05",
+      "popularity": 1
+    }
+  ]
+}

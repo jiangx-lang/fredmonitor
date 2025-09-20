@@ -1,0 +1,64 @@
+metadata:
+  category_id: 34003
+  created_at: '2025-09-13'
+  description: SONIA Rates 数据
+  name: SONIA Rates
+  parent_category: Major_Category
+  total_series: 7
+series:
+- alias: Daily Sterling Overnight Index Average (SONIA) Rate
+  category_id: 34003
+  frequency: Daily
+  freshness_days: 7
+  id: IUDSOIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: SONIA_Rates
+  units: Percent
+- alias: 'Daily Sterling Overnight Index Average (SONIA) Rate: 10th percentile'
+  category_id: 34003
+  frequency: Daily
+  freshness_days: 7
+  id: IUDZLS6
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: SONIA_Rates
+  units: Percent
+- alias: 'Daily Sterling Overnight Index Average (SONIA) Rate: 25th percentile'
+  category_id: 34003
+  frequency: Daily
+  freshness_days: 7
+  id: IUDZLS7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: SONIA_Rates
+  units: Percent
+- alias: 'Daily Sterling Overnight Index Average (SONIA) Rate: 75th percentile'
+  category_id: 34003
+  frequency: Daily
+  freshness_days: 7
+  id: IUDZLS8
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: SONIA_Rates
+  units: Percent
+- alias: 'Daily Sterling Overnight Index Average (SONIA) Rate: 90th percentile'
+  category_id: 34003
+  frequency: Daily
+  freshness_days: 7
+  id: IUDZLS9
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: SONIA_Rates
+  units: Percent
+- alias: Daily Sterling Overnight Index Average (SONIA) Rate Total Nominal Value
+  category_id: 34003
+  frequency: Daily
+  freshness_days: 7
+  id: IUDZLT2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: SONIA_Rates
+  units: Millions of Pounds
+- alias: SONIA Compounded Index
+  category_id: 34003
+  frequency: Daily
+  freshness_days: 7
+  id: IUDZOS2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: SONIA_Rates
+  units: Index

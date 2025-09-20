@@ -1,0 +1,264 @@
+metadata:
+  category_id: 32299
+  created_at: '2025-09-13'
+  description: Interest Rate Swaps 数据
+  name: Interest Rate Swaps
+  parent_category: Major_Category
+  total_series: 32
+series:
+- alias: 1-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Daily
+  freshness_days: 7
+  id: DSWP1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 10-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Daily
+  freshness_days: 7
+  id: DSWP10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 2-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Daily
+  freshness_days: 7
+  id: DSWP2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 3-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Daily
+  freshness_days: 7
+  id: DSWP3
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 30-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Daily
+  freshness_days: 7
+  id: DSWP30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 4-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Daily
+  freshness_days: 7
+  id: DSWP4
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 5-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Daily
+  freshness_days: 7
+  id: DSWP5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 7-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Daily
+  freshness_days: 7
+  id: DSWP7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 1-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Monthly
+  freshness_days: 7
+  id: MSWP1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 10-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Monthly
+  freshness_days: 7
+  id: MSWP10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 2-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Monthly
+  freshness_days: 7
+  id: MSWP2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 3-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Monthly
+  freshness_days: 7
+  id: MSWP3
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 30-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Monthly
+  freshness_days: 7
+  id: MSWP30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 4-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Monthly
+  freshness_days: 7
+  id: MSWP4
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 5-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Monthly
+  freshness_days: 7
+  id: MSWP5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 7-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Monthly
+  freshness_days: 7
+  id: MSWP7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 1-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLDIY01NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 2-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLDIY02NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 3-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLDIY03NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 4-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLDIY04NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 5-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLDIY05NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 7-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLDIY07NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 10-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLDIY10NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 30-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLDIY30NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 1-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WSWP1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 10-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WSWP10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 2-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WSWP2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 3-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WSWP3
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 30-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WSWP30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 4-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WSWP4
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 5-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WSWP5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent
+- alias: 7-Year Swap Rate (DISCONTINUED)
+  category_id: 32299
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WSWP7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Rate_Swaps
+  units: Percent

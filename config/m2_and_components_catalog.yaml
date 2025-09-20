@@ -1,0 +1,409 @@
+metadata:
+  category_id: 29
+  created_at: '2025-09-13'
+  description: M2 and Components 数据
+  name: M2 and Components
+  parent_category: Major_Category
+  total_series: 50
+series:
+- alias: M2 Plus Institutional Type Money Market Mutual Funds
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: ALLMON
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: M2 (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: M2
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: M2A Money Supply (M1ASL plus Time Deposits at Commercial Banks other than
+    Large CDs) (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: M2ASL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: M2
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: M2NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: M2 Own Rate (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: M2OWN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Percent
+- alias: Real M2 Money Stock
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: M2REAL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of 1982-84 Dollars
+- alias: M2
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: M2SL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Time Deposits Adjusted at all Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: M2TDASL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: M2 (preferred)'
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIM2
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: M2 (alternative)'
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIM2A
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: M2 (DISCONTINUED)'
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIM2DS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Total Non-M1 M2 (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: NOM1M2
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Total Non-M1 M2 (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: NOM1M2N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Total Non-M1 M2 (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: NONM1
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Real User Cost Index of MSI-M2 (alternative)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: OCM2A
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Percent
+- alias: Real User Cost Index of MSI-M2 (preferred)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: OCM2P
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Percent
+- alias: Retail Money Market Funds
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: RMFNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Retail Money Market Funds
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: RMFSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Savings Deposits: Total (DISCONTINUED)'
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SAVINGNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Savings Deposits: Total (DISCONTINUED)'
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: SAVINGS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Savings Deposits: Total (DISCONTINUED)'
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SAVINGSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Small-Denomination Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: STDCBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Small-Denomination Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: STDCBSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Small-Denomination Time Deposits: Total'
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: STDNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Small-Denomination Time Deposits: Total'
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: STDSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Small-Denomination Time Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: STDTI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Small-Denomination Time Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: STDTNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SVGCBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SVGCBSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SVGTI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SVGTNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings and Small Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SVSTCBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings and Small Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SVSTCBSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings and Small Time Deposits - Total (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SVSTNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings and Small Time Deposits - Total (DISCONTINUED)
+  category_id: 29
+  frequency: Monthly
+  freshness_days: 7
+  id: SVSTSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: M2
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WM2NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Total Non-M1 M2 (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WNONM1NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Retail Money Market Funds
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WRMFNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Retail Money Market Funds (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WRMFSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSAVCBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSAVCBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Savings Deposits: Total (DISCONTINUED)'
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSAVNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSAVTNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Savings Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSAVTSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Small-Denomination Time Deposits: Total (DISCONTINUED)'
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSMTIME
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: 'Small-Denomination Time Deposits: Total'
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSMTMNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Small-Denomination Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSTCBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Small-Denomination Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSTCBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Small-Denomination Time Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSTTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars
+- alias: Small-Denomination Time Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 29
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WSTTS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_and_Components
+  units: Billions of Dollars

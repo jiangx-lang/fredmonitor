@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "STTMINWGDC",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "State Minimum Wage Rate for District of Columbia",
+      "observation_start": "1968-01-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Annual",
+      "frequency_short": "A",
+      "units": "Dollars per Hour",
+      "units_short": "$ per Hour",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-01-01 13:48:03-06",
+      "popularity": 28,
+      "notes": "For more information, visit https://www.dol.gov/whd/state/stateMinWageHis.htm"
+    }
+  ]
+}

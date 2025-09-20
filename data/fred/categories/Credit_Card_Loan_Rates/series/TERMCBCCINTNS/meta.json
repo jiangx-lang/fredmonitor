@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-11",
+  "realtime_end": "2025-09-11",
+  "seriess": [
+    {
+      "id": "TERMCBCCINTNS",
+      "realtime_start": "2025-09-11",
+      "realtime_end": "2025-09-11",
+      "title": "Commercial Bank Interest Rate on Credit Card Plans, Accounts Assessed Interest",
+      "observation_start": "1994-11-01",
+      "observation_end": "2025-05-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-07-08 14:01:22-05",
+      "popularity": 46,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/g19/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

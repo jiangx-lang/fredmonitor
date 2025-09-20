@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "EMELPSA",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Monthly Transition Rate of Prime-Age U.S. Workers From Employment to Non-Employment Due to a Layoff",
+      "observation_start": "1978-01-01",
+      "observation_end": "2025-07-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Seasonally Adjusted",
+      "seasonal_adjustment_short": "SA",
+      "last_updated": "2025-08-13 13:33:42-05",
+      "popularity": 20,
+      "notes": "Ellieroth and Michaud (EM) Employment-to-Layoff Transition Rate tracks the probability at which U.S. prime-age (25-55 years) workers transition from employment to non-employment following a layoff in a given month. Expressed as the share (percentage) of all prime-age employed workers in the previous month. Non-employment includes both unemployment and not in the labor force."
+    }
+  ]
+}

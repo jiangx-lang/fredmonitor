@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "WTB1YA",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "12-Month Auction High Bill Rate by Issue Date (DISCONTINUED)",
+      "observation_start": "1959-04-03",
+      "observation_end": "2000-06-02",
+      "frequency": "Weekly, Ending Friday",
+      "frequency_short": "W",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2022-06-06 14:42:34-05",
+      "popularity": 5,
+      "notes": "Averages of business days, discount basis."
+    }
+  ]
+}

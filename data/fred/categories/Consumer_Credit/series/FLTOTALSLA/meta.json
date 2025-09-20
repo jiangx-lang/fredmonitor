@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "FLTOTALSLA",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Total Consumer Credit Owned and Securitized, Flow (DISCONTINUED)",
+      "observation_start": "1943-02-01",
+      "observation_end": "2024-11-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Billions of Dollars, Annual Rate",
+      "units_short": "Bil. of $, Annual Rate",
+      "seasonal_adjustment": "Seasonally Adjusted",
+      "seasonal_adjustment_short": "SA",
+      "last_updated": "2025-01-08 14:04:57-06",
+      "popularity": 2,
+      "notes": "For further information, please refer to the Board of Governors of the Federal Reserve System's G.19 release, online at http://www.federalreserve.gov/releases/g19/."
+    }
+  ]
+}

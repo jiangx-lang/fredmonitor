@@ -1,0 +1,7 @@
+# Money Velocity (3 series)
+subcategory:
+  name: "Money_Velocity"
+  description: "Money Velocity (3 series)"
+  keywords: ['VELOCITY', 'VELOCITYM1', 'VELOCITYM2']
+  parent_category: "Monetary_Data"
+  created_at: "C:\Users\admin\上网"

@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "GDBFRM",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "U.S. Government Deposits: General Account Balance at Federal Reserve (DISCONTINUED)",
+      "observation_start": "1959-01-01",
+      "observation_end": "2021-01-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Billions of Dollars",
+      "units_short": "Bil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2021-02-11 15:33:06-06",
+      "popularity": 2,
+      "notes": "announcements (https://www.federalreserve.gov/feeds/h6.html) provided by the source.\n\nFor questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h6/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+metadata:
+  category_id: 32240
+  created_at: '2025-09-13'
+  description: Weekly Initial Claims 数据
+  name: Weekly Initial Claims
+  parent_category: Major_Category
+  total_series: 23
+series:
+- alias: 4-Week Moving Average of Continued Claims (Insured Unemployment)
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: CC4WSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Continued Claims (Insured Unemployment)
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: CCNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Continued Claims (Insured Unemployment)
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: CCSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Covered Employment
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: COVEMP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: 4-Week Moving Average of Initial Claims
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: IC4WSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Initial Claims
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: ICNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Initial Claims
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: ICSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Insured Unemployment Rate
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: IURNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Percent
+- alias: Insured Unemployment Rate
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: IURSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Percent
+- alias: Pandemic Emergency Unemployment Compensation Continued Claims in Puerto Rico
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PEUCCCPR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Pandemic Emergency Unemployment Compensation Continued Claims in the U.S.
+    Virgin Islands
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PEUCCCVI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Continued Claims (Insured Unemployment) in Puerto Rico
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PRICCLAIMS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Covered Employment in Puerto Rico
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PRICEMPLOY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Initial Claims in Puerto Rico
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PRIICLAIMS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Insured Unemployment Rate in Puerto Rico
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PRIINSUREDUR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Percent
+- alias: Pandemic Unemployment Assistance Continued Claims in Puerto Rico
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PUACCPR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Pandemic Unemployment Assistance Continued Claims in the U.S. Virgin Islands
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PUACCVI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Pandemic Unemployment Assistance Initial Claims in Puerto Rico
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PUAICPR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Pandemic Unemployment Assistance Initial Claims in the U.S. Virgin Islands
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: PUAICVI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Continued Claims (Insured Unemployment) in the U.S. Virgin Islands
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: VIRCCLAIMS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Covered Employment in the U.S. Virgin Islands
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: VIRCEMPLOY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Initial Claims in the U.S. Virgin Islands
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: VIRICLAIMS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Number
+- alias: Insured Unemployment Rate in the U.S. Virgin Islands
+  category_id: 32240
+  frequency: Weekly, Ending Saturday
+  freshness_days: 7
+  id: VIRINSUREDUR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Weekly_Initial_Claims
+  units: Percent

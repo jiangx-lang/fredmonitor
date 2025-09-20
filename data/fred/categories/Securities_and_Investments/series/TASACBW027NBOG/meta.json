@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "TASACBW027NBOG",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Treasury and Agency Securities, All Commercial Banks",
+      "observation_start": "1973-01-03",
+      "observation_end": "2025-09-03",
+      "frequency": "Weekly, Ending Wednesday",
+      "frequency_short": "W",
+      "units": "Billions of U.S. Dollars",
+      "units_short": "Bil. of U.S. $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-12 15:24:30-05",
+      "popularity": 7,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h8/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

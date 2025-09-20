@@ -1,0 +1,227 @@
+metadata:
+  category_id: 124
+  created_at: '2025-09-13'
+  description: Monetary Base 数据
+  name: Monetary Base
+  parent_category: Major_Category
+  total_series: 27
+series:
+- alias: Reserve Adjustment Magnitude (RAM) (DISCONTINUED)
+  category_id: 124
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: ADJRAM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Source Base (DISCONTINUED)
+  category_id: 124
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: ADJSBASE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Monetary Base (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: AMBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Monetary Base (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: AMBSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: Real St. Louis Adjusted Monetary Base (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: AMBSLREAL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of 1982-84 Dollars
+- alias: St. Louis Adjusted Monetary Base (DISCONTINUED)
+  category_id: 124
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: BASE
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Monetary Base (DISCONTINUED)
+  category_id: 124
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: BASENS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: Board of Governors Monetary Base, Adjusted for Changes in Reserve Requirements
+    (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: BOGAMBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: Board of Governors Monetary Base, Adjusted for Changes in Reserve Requirements
+    (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: BOGAMBSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: 'Monetary Base: Total'
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: BOGMBASE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: Monetary Base; Total (DISCONTINUED)
+  category_id: 124
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: BOGMBASEW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Millions of Dollars
+- alias: 'Monetary Base: Reserve Balances'
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: BOGMBBM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: Monetary Base; Total Balances Maintained (DISCONTINUED)
+  category_id: 124
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: BOGMBBMW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Millions of Dollars
+- alias: Board of Governors Monetary Base, Not Adjusted for Changes in Reserve Requirements
+    (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: BOGUMBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Monetary Base (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: DISAMBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Monetary Base (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: DISAMBSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Monetary Base (DISCONTINUED)
+  category_id: 124
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: DISBASE
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: Reserve Adjustment Magnitude (RAM) (DISCONTINUED)
+  category_id: 124
+  frequency: Not Applicable
+  freshness_days: 7
+  id: DISBWRAM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: Reserve Adjustment Magnitude (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: DISRAM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Source Base (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: DSBASEN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Monetary Base (DISCONTINUED)
+  category_id: 124
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: DSBASENS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: 'Monetary Base: Currency in Circulation'
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: MBCURRCIR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: Monetary Base; Currency in Circulation (DISCONTINUED)
+  category_id: 124
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: MBCURRCIRW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Millions of Dollars
+- alias: Reserve Adjustment Magnitude (RAM) (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: RAM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: St. Louis Source Base (DISCONTINUED)
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: SBASENS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars
+- alias: Swiss Monetary Base Aggregate
+  category_id: 124
+  frequency: Monthly
+  freshness_days: 7
+  id: SNBMONTBASE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: CHF Millions
+- alias: St. Louis Source Base (DISCONTINUED)
+  category_id: 124
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: WSBASE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Base
+  units: Billions of Dollars

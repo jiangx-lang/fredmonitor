@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-12",
+  "realtime_end": "2025-09-12",
+  "seriess": [
+    {
+      "id": "YC001176Q",
+      "realtime_start": "2025-09-12",
+      "realtime_end": "2025-09-12",
+      "title": "Personal Consumption Expenditures Excluding Food, Energy, and Housing (Chain-Type Price Index)",
+      "observation_start": "1960-01-01",
+      "observation_end": "2025-04-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Percent Change from Quarter One Year Ago",
+      "units_short": "% Chg. from Qtr.  1 Yr. Ago",
+      "seasonal_adjustment": "Seasonally Adjusted",
+      "seasonal_adjustment_short": "SA",
+      "last_updated": "2025-07-30 07:53:04-05",
+      "popularity": 6,
+      "notes": "BEA Account Code: YC001176\r\n\r\nFor more information about this series, please see please visit the GDP release page (https://www.bea.gov/data/gdp/gross-domestic-product)."
+    }
+  ]
+}

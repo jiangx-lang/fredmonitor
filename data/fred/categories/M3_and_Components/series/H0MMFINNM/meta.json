@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "H0MMFINNM",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "M3 Institutional Money Funds (DISCONTINUED)",
+      "observation_start": "1959-01-01",
+      "observation_end": "2006-02-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Billions of Dollars",
+      "units_short": "Bil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2022-02-07 13:45:09-06",
+      "popularity": 1,
+      "notes": "announcement (https://www.federalreserve.gov/releases/h6/discm3.htm) provided by the source.\n\nFor questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h6/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

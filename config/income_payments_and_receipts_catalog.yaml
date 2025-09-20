@@ -1,0 +1,584 @@
+metadata:
+  category_id: 3000
+  created_at: '2025-09-13'
+  description: Income Payments and Receipts 数据
+  name: Income Payments and Receipts
+  parent_category: Major_Category
+  total_series: 72
+series:
+- alias: U.S. Government Grants Excluding Military (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPGG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Grants Excluding Military (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPGGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Grants Excluding Military (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPGGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Pensions and Other Transfers (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPGP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Pensions and Other Transfers (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPGPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Pensions and Other Transfers (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPGPN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Private Remittances and Other Transfers (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPGR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Private Remittances and Other Transfers (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPGRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Private Remittances and Other Transfers (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPGRN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments - Compensation of Employees (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments - Compensation of Employees (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments - Compensation of Employees (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMCN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments on Foreign Direct Investment in U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMD
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments on Foreign Direct Investment in U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMDA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments on Foreign Direct Investment in U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMDN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Income Payments on Foreign Assets in U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Income Payments on Foreign Assets in U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Income Payments on Foreign Assets in U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments on Foreign Assets in the U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments on Foreign Assets in the U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments on Foreign Assets in the U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMIT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMITA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Payments (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMITN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Other Private Income Payments on Foreign Assets in U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Other Private Income Payments on Foreign Assets in U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Other Private Income Payments on Foreign Assets in U.S. (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMPN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts - Compensation of Employees (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts - Compensation of Employees (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts - Compensation of Employees (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXCN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts on U.S. Direct Investment Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXMD
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts on U.S. Direct Investment Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXMDA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts on U.S. Direct Investment Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXMDN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Income Receipts on Assets Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Income Receipts on Assets Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXMGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: U.S. Government Income Receipts on Assets Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXMGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Other Private Income Receipts on U.S. Assets Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXMP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Other Private Income Receipts on U.S. Assets Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXMPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Other Private Income Receipts on U.S. Assets Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXMPN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts on U.S. Assets Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts on U.S. Assets Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts on U.S. Assets Abroad (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXRN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXRT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts (DISCONTINUED)
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXRTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Income Receipts (DISCONTINUED)
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXRTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Primary income receipts
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: Primary income receipts
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Compensation of employees'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXIC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Compensation of employees'
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXICA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Compensation of employees'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXICN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Direct investment income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXID
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Direct investment income'
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXIDA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Direct investment income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXIDN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXII
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income'
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXIIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXIIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: Primary income receipts
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Other investment income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXIO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Other investment income'
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXIOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Other investment income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXION
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Portfolio investment income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXIP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Portfolio investment income'
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXIPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Portfolio investment income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXIPN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Reserve asset income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXIR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Reserve asset income'
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXIRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Primary Income Receipts: Investment income: Reserve asset income'
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXIRN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: Secondary income (current transfer) receipts
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXSIR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: Secondary income (current transfer) receipts
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXSIRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: Secondary income (current transfer) receipts
+  category_id: 3000
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXSIRN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Millions of Dollars
+- alias: 'Secondary income receipts: Statistical differences, ITA vs. NIPA'
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: LA0000331A027NBEA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: 'Secondary income receipts: Adjustment for U.S. territories and Puerto Rico'
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: LA0000341A027NBEA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars
+- alias: Secondary income receipts, International Transactions Accounts
+  category_id: 3000
+  frequency: Annual
+  freshness_days: 7
+  id: LA0000421A027NBEA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Payments_and_Receipts
+  units: Billions of Dollars

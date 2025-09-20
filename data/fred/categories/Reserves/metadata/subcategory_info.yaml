@@ -1,0 +1,7 @@
+# Reserves
+subcategory:
+  name: "Reserves"
+  description: "Reserves"
+  category_id: 123
+  parent_category: "Alternative_Measures"
+  created_at: "C:\Users\admin\上网"

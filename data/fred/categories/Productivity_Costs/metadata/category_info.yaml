@@ -1,0 +1,11 @@
+category_id: 26
+category_name: Productivity_Costs
+series_count: 5
+series_list:
+- IRAMMF
+- GDBFRW
+- IRA
+- IRADI
+- GDTCBW
+description: 'FRED Category 26: Productivity_Costs'
+created_at: 1757737218.1293538

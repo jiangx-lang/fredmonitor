@@ -1,0 +1,43 @@
+metadata:
+  category_id: 33058
+  created_at: '2025-09-13'
+  description: Automobile Loan Rates 数据
+  name: Automobile Loan Rates
+  parent_category: Major_Category
+  total_series: 4
+series:
+- alias: Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos
+    60 Month Loan
+  category_id: 33058
+  frequency: Monthly
+  freshness_days: 7
+  id: RIFLPBCIANM60NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Automobile_Loan_Rates
+  units: Percent
+- alias: Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos
+    72 Month Loan
+  category_id: 33058
+  frequency: Monthly
+  freshness_days: 7
+  id: RIFLPBCIANM72NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Automobile_Loan_Rates
+  units: Percent
+- alias: New Car Average Finance Rate at Auto Finance Companies (DISCONTINUED)
+  category_id: 33058
+  frequency: Monthly
+  freshness_days: 7
+  id: TERMAFCNCNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Automobile_Loan_Rates
+  units: Percent
+- alias: Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos
+    48 Month Loan
+  category_id: 33058
+  frequency: Monthly
+  freshness_days: 7
+  id: TERMCBAUTO48NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Automobile_Loan_Rates
+  units: Percent

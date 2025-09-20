@@ -1,0 +1,489 @@
+metadata:
+  category_id: 28
+  created_at: '2025-09-13'
+  description: M3 and Components 数据
+  name: M3 and Components
+  parent_category: Major_Category
+  total_series: 60
+series:
+- alias: Eurodollars (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: EURONS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Non-M2 M3 (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0M3M2M
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Non-M2 M3 (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0M3M2NM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Non-M2 M3 (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0M3M2NWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Non-M2 M3 (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0M3M2WM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0M3NWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0M3WM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large-Denomination Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MDTLBNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large-Denomination Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MDTLBWM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large-Denomination Time Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0MDTLTNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large-Denomination Time Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MDTLTNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large-Denomination Time Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MDTLTWM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Eurodollars (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0MEUM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Eurodollars (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MEUNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Eurodollars (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MEUWM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 Institutional Money Funds (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0MMFINM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 Institutional Money Funds (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0MMFINNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 Institutional Money Funds (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MMFINNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 Institutional Money Funds (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MMFINWM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Repurchase Agreements at Commercial Banks (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0MRPABNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Repurchase Agreements at Commercial Banks (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MRPABNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Repurchase Agreements (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0MRPM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: 'Repurchase Agreements: Total (DISCONTINUED)'
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0MRPNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: 'Repurchase Agreements: Total (DISCONTINUED)'
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MRPNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Repurchase Agreements at Thrift Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: H0MRPTNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Repurchase Agreements at Thrift Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MRPTNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Repurchase Agreements (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: H0MRPWM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Institutional Money Market Funds (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: IMFNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Institutional Money Market Funds (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: IMFSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large-Denomination Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: LGTDCBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large-Denomination Time Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: LGTDCBSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large-Denomination Time Deposits at Thrift Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: LGTDTI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Liquid Assets (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: LQDASSNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Liquid Assets (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: LQDASSSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large Time Deposits - Total (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: LTDNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large Time Deposits - Total (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: LTDSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 Money Stock (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: M3
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: M3NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: M3SL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Time and Savings Deposits Due to Foreign Banks and Official Institutions
+    (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: MDNBDNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: ALL Assets (alternative)'
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIALLA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: ALL Assets (preferred)'
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIALLP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: M3 (alternative) (DISCONTINUED)'
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIM3A
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: M3 (preferred) (DISCONTINUED)'
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIM3P
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Real User Cost Index of MSI-ALL Assets (alternative)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: OCALLA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Percent
+- alias: Real User Cost Index of MSI-ALL Assets (preferred)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: OCALLP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Percent
+- alias: Real User Cost Index of MSI-M3 (alternative) (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: OCM3A
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Percent
+- alias: Real User Cost Index of MSI-M3 (preferred) (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: OCM3P
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Percent
+- alias: Overnight and Term RPs (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: RPNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Time and Savings Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: TOTTCBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Time and Savings Deposits at Commercial Banks (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: TOTTCBSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Time and Savings Deposits at All Depository Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: TOTTDP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Time and Savings Deposits at all Depository Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Monthly
+  freshness_days: 7
+  id: TOTTDPNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Time and Savings Deposits at All Depository Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: TOTTIME
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Institutional Money Market Funds (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WIMFNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Institutional Money Market Funds (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WIMFSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large Time Deposits - Total (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WLGTIME
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Large Time Deposits - Total (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WLGTMNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: M3 Money Stock (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WM3NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars
+- alias: Total Time and Savings Deposits at all Depository Institutions (DISCONTINUED)
+  category_id: 28
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: WTOTTMNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_and_Components
+  units: Billions of Dollars

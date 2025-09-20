@@ -1,0 +1,16 @@
+category_id: 31
+category_name: Business_Cycle_Expansions_Contractions
+series_count: 10
+series_list:
+- PCUARETTRARETTR
+- PCUATTDSVATTDSV
+- PCUASTDSVASTDSV
+- PCUOMFGOMFG
+- PCUATRNWRATRNWR
+- PCUAWHLTRAWHLTR
+- PCUAMUMAMUM
+- PCUATRADEATRADE
+- PPIACO
+- PCUOMINOMIN
+description: 'FRED Category 31: Business_Cycle_Expansions_Contractions'
+created_at: 1757737218.1293538

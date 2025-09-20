@@ -1,0 +1,1196 @@
+metadata:
+  category_id: 34111
+  created_at: '2025-09-13'
+  description: Senior Credit Officer Opinion Survey 数据
+  name: Senior Credit Officer Opinion Survey
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: '1) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Dealers and
+    Other Financial Intermediaries (Such as Large Banking Institutions) Changed?|
+    Answer Type: Decreased Considerably'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ01DCNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '1) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Dealers and
+    Other Financial Intermediaries (Such as Large Banking Institutions) Changed?|
+    Answer Type: Decreased Somewhat'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ01DSNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '1) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Dealers and
+    Other Financial Intermediaries (Such as Large Banking Institutions) Changed?|
+    Answer Type: Increased Considerably'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ01ICNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '1) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Dealers and
+    Other Financial Intermediaries (Such as Large Banking Institutions) Changed?|
+    Answer Type: Increased Somewhat'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ01ISNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '1) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Dealers and
+    Other Financial Intermediaries (Such as Large Banking Institutions) Changed?|
+    Answer Type: Remained Basically Unchanged'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ01RBUNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '2) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Central Counterparties
+    and Other Financial Utilities Changed?| Answer Type: Decreased Considerably'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ02DCNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '2) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Central Counterparties
+    and Other Financial Utilities Changed?| Answer Type: Decreased Somewhat'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ02DSNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '2) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Central Counterparties
+    and Other Financial Utilities Changed?| Answer Type: Increased Considerably'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ02ICNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '2) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Central Counterparties
+    and Other Financial Utilities Changed?| Answer Type: Increased Somewhat'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ02ISNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '2) Over the Past Three Months, How Has the Amount of Resources and Attention
+    Your Firm Devotes to Management of Concentrated Credit Exposure to Central Counterparties
+    and Other Financial Utilities Changed?| Answer Type: Remained Basically Unchanged'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ02RBUNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '3) To What Extent Have Changes in the Practices of Central Counterparties,
+    Including Margin Requirements and Haircuts, Influenced the Credit Terms Your Institution
+    Applies to Clients on Bilateral Transactions Which Are Not Cleared?| Answer Type:
+    Not at All'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ03NAANR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '3) To What Extent Have Changes in the Practices of Central Counterparties,
+    Including Margin Requirements and Haircuts, Influenced the Credit Terms Your Institution
+    Applies to Clients on Bilateral Transactions Which Are Not Cleared?| Answer Type:
+    to a Considerable Extent'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ03TACENR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '3) To What Extent Have Changes in the Practices of Central Counterparties,
+    Including Margin Requirements and Haircuts, Influenced the Credit Terms Your Institution
+    Applies to Clients on Bilateral Transactions Which Are Not Cleared?| Answer Type:
+    to a Minimal Extent'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ03TAMENR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '3) To What Extent Have Changes in the Practices of Central Counterparties,
+    Including Margin Requirements and Haircuts, Influenced the Credit Terms Your Institution
+    Applies to Clients on Bilateral Transactions Which Are Not Cleared?| Answer Type:
+    to Some Extent'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ03TSENR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '4) Over the Past Three Months, How Have the Price Terms (for Example, Financing
+    Rates) Offered to Hedge Funds as Reflected Across the Entire Spectrum of Securities
+    Financing and Otc Derivatives Transaction Types Changed, Regardless of Nonprice
+    Terms?| Answer Type: Eased Considerably'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ04ECNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '4) Over the Past Three Months, How Have the Price Terms (for Example, Financing
+    Rates) Offered to Hedge Funds as Reflected Across the Entire Spectrum of Securities
+    Financing and Otc Derivatives Transaction Types Changed, Regardless of Nonprice
+    Terms?| Answer Type: Eased Somewhat'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ04ESNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '4) Over the Past Three Months, How Have the Price Terms (for Example, Financing
+    Rates) Offered to Hedge Funds as Reflected Across the Entire Spectrum of Securities
+    Financing and Otc Derivatives Transaction Types Changed, Regardless of Nonprice
+    Terms?| Answer Type: Remained Basically Unchanged'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ04RBUNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '4) Over the Past Three Months, How Have the Price Terms (for Example, Financing
+    Rates) Offered to Hedge Funds as Reflected Across the Entire Spectrum of Securities
+    Financing and Otc Derivatives Transaction Types Changed, Regardless of Nonprice
+    Terms?| Answer Type: Tightened Considerably'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ04TCNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '4) Over the Past Three Months, How Have the Price Terms (for Example, Financing
+    Rates) Offered to Hedge Funds as Reflected Across the Entire Spectrum of Securities
+    Financing and Otc Derivatives Transaction Types Changed, Regardless of Nonprice
+    Terms?| Answer Type: Tightened Somewhat'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ04TSNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '5) Over the Past Three Months, How Has Your Use of Nonprice Terms (for Example,
+    Haircuts, Maximum Maturity, Covenants, Cure Periods, Cross-Default Provisions,
+    or Other Documentation Features) with Respect to Hedge Funds Across the Entire
+    Spectrum of Securities Financing and Otc Derivatives Transaction Types Changed,
+    Regardless of Price Terms?| Answer Type: Eased Considerably'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ05ECNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '5) Over the Past Three Months, How Has Your Use of Nonprice Terms (for Example,
+    Haircuts, Maximum Maturity, Covenants, Cure Periods, Cross-Default Provisions,
+    or Other Documentation Features) with Respect to Hedge Funds Across the Entire
+    Spectrum of Securities Financing and Otc Derivatives Transaction Types Changed,
+    Regardless of Price Terms?| Answer Type: Eased Somewhat'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ05ESNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '5) Over the Past Three Months, How Has Your Use of Nonprice Terms (for Example,
+    Haircuts, Maximum Maturity, Covenants, Cure Periods, Cross-Default Provisions,
+    or Other Documentation Features) with Respect to Hedge Funds Across the Entire
+    Spectrum of Securities Financing and Otc Derivatives Transaction Types Changed,
+    Regardless of Price Terms?| Answer Type: Remained Basically Unchanged'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ05RBUNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '5) Over the Past Three Months, How Has Your Use of Nonprice Terms (for Example,
+    Haircuts, Maximum Maturity, Covenants, Cure Periods, Cross-Default Provisions,
+    or Other Documentation Features) with Respect to Hedge Funds Across the Entire
+    Spectrum of Securities Financing and Otc Derivatives Transaction Types Changed,
+    Regardless of Price Terms?| Answer Type: Tightened Considerably'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ05TCNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '5) Over the Past Three Months, How Has Your Use of Nonprice Terms (for Example,
+    Haircuts, Maximum Maturity, Covenants, Cure Periods, Cross-Default Provisions,
+    or Other Documentation Features) with Respect to Hedge Funds Across the Entire
+    Spectrum of Securities Financing and Otc Derivatives Transaction Types Changed,
+    Regardless of Price Terms?| Answer Type: Tightened Somewhat'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ05TSNR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 1. Deterioration in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A12MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 1. Deterioration in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A13MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 1. Deterioration in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A1MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 1. Deterioration in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A1NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 1. Deterioration in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A1SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 1. Deterioration in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A1VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 2. Reduced Willingness of Your Institution to
+    Take on Risk. | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A22MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 2. Reduced Willingness of Your Institution to
+    Take on Risk. | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A23MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 2. Reduced Willingness of Your Institution to
+    Take on Risk. | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A2MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 2. Reduced Willingness of Your Institution to
+    Take on Risk. | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A2NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 2. Reduced Willingness of Your Institution to
+    Take on Risk. | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A2SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 2. Reduced Willingness of Your Institution to
+    Take on Risk. | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A2VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 3. Adoption of More-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: 2nd
+    Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A32MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 3. Adoption of More-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: 3rd
+    Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A33MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 3. Adoption of More-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: First
+    in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A3MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 3. Adoption of More-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: Not
+    Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A3NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 3. Adoption of More-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: Somewhat
+    Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A3SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 3. Adoption of More-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: Very
+    Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A3VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 4. Higher Internal Treasury Charges for Funding.
+    | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A42MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 4. Higher Internal Treasury Charges for Funding.
+    | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A43MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 4. Higher Internal Treasury Charges for Funding.
+    | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A4MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 4. Higher Internal Treasury Charges for Funding.
+    | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A4NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 4. Higher Internal Treasury Charges for Funding.
+    | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A4SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 4. Higher Internal Treasury Charges for Funding.
+    | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A4VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 5. Diminished Availability of Balance Sheet
+    or Capital at Your Institution. | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A52MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 5. Diminished Availability of Balance Sheet
+    or Capital at Your Institution. | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A53MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 5. Diminished Availability of Balance Sheet
+    or Capital at Your Institution. | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A5MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 5. Diminished Availability of Balance Sheet
+    or Capital at Your Institution. | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A5NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 5. Diminished Availability of Balance Sheet
+    or Capital at Your Institution. | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A5SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 5. Diminished Availability of Balance Sheet
+    or Capital at Your Institution. | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A5VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 6. Worsening in General Market Liquidity and
+    Functioning. | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A62MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 6. Worsening in General Market Liquidity and
+    Functioning. | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A63MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 6. Worsening in General Market Liquidity and
+    Functioning. | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A6MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 6. Worsening in General Market Liquidity and
+    Functioning. | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A6NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 6. Worsening in General Market Liquidity and
+    Functioning. | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A6SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 6. Worsening in General Market Liquidity and
+    Functioning. | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A6VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 7. Less-Aggressive Competition from Other Institutions.
+    | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A72MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 7. Less-Aggressive Competition from Other Institutions.
+    | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A73MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 7. Less-Aggressive Competition from Other Institutions.
+    | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A7MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 7. Less-Aggressive Competition from Other Institutions.
+    | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A7NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 7. Less-Aggressive Competition from Other Institutions.
+    | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A7SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A.
+    Possible Reasons for Tightening | 7. Less-Aggressive Competition from Other Institutions.
+    | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06A7VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 1. Improvement in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B12MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 1. Improvement in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B13MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 1. Improvement in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B1MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 1. Improvement in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B1NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 1. Improvement in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B1SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 1. Improvement in Current or Expected Financial
+    Strength of Counterparties. | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B1VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 2. Increased Willingness of Your Institution to
+    Take on Risk. | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B22MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 2. Increased Willingness of Your Institution to
+    Take on Risk. | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B23MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 2. Increased Willingness of Your Institution to
+    Take on Risk. | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B2MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 2. Increased Willingness of Your Institution to
+    Take on Risk. | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B2NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 2. Increased Willingness of Your Institution to
+    Take on Risk. | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B2SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 2. Increased Willingness of Your Institution to
+    Take on Risk. | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B2VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 3. Adoption of Less-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: 2nd
+    Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B32MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 3. Adoption of Less-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: 3rd
+    Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B33MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 3. Adoption of Less-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: First
+    in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B3MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 3. Adoption of Less-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: Not
+    Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B3NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 3. Adoption of Less-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: Somewhat
+    Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B3SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 3. Adoption of Less-Stringent Market Conventions
+    (That is, Collateral Terms and Agreements, Isda Protocols). | Answer Type: Very
+    Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B3VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 4. Lower Internal Treasury Charges for Funding.
+    | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B42MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 4. Lower Internal Treasury Charges for Funding.
+    | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B43MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 4. Lower Internal Treasury Charges for Funding.
+    | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B4MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 4. Lower Internal Treasury Charges for Funding.
+    | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B4NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 4. Lower Internal Treasury Charges for Funding.
+    | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B4SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 4. Lower Internal Treasury Charges for Funding.
+    | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B4VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 5. Increased Availability of Balance Sheet or Capital
+    at Your Institution. | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B52MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 5. Increased Availability of Balance Sheet or Capital
+    at Your Institution. | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B53MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 5. Increased Availability of Balance Sheet or Capital
+    at Your Institution. | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B5MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 5. Increased Availability of Balance Sheet or Capital
+    at Your Institution. | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B5NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 5. Increased Availability of Balance Sheet or Capital
+    at Your Institution. | Answer Type: Somewhat Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B5SINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 5. Increased Availability of Balance Sheet or Capital
+    at Your Institution. | Answer Type: Very Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B5VINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 6. Improvement in General Market Liquidity and Functioning.
+    | Answer Type: 2nd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B62MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 6. Improvement in General Market Liquidity and Functioning.
+    | Answer Type: 3rd Most Important'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B63MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 6. Improvement in General Market Liquidity and Functioning.
+    | Answer Type: First in Importance'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B6MINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents
+- alias: '6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds
+    Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses
+    to Questions 4 and 5), What Are the Most Important Reasons for the Change?| B.
+    Possible Reasons for Easing | 6. Improvement in General Market Liquidity and Functioning.
+    | Answer Type: Not Important (DISCONTINUED)'
+  category_id: 34111
+  frequency: Quarterly
+  freshness_days: 7
+  id: ALLQ06B6NINR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Senior_Credit_Officer_Opinion_Survey
+  units: Number of Respondents

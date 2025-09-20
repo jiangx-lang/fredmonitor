@@ -1,0 +1,21 @@
+{
+  "id": "IMPMANUS",
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "title": "Imports of Goods: Manufactured Commodities for United States",
+  "observation_start": "2008-01-01",
+  "observation_end": "2025-07-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-09-04 09:33:01-05",
+  "popularity": 18,
+  "notes": "Imports of manufactured commodities based on destination.\n\nIncludes NAICS-Based Product Codes 31-33.",
+  "sync_timestamp": "2025-09-13T13:16:21.791432",
+  "alias": "Imports_of_Goods_Manufactured_Commodities_for_Unit",
+  "category_id": 17,
+  "next_release": "N/A"
+}

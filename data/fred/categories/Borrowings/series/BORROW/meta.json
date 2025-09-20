@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "BORROW",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Total Borrowings from the Federal Reserve",
+      "observation_start": "1919-01-01",
+      "observation_end": "2025-07-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Millions of Dollars",
+      "units_short": "Mil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-08-26 12:01:43-05",
+      "popularity": 48,
+      "notes": "H.6 Technical Q&As (https://www.federalreserve.gov/releases/h6/h6_technical_qa.htm).\n\nTotal borrowings from the Federal Reserve are borrowings from the discount window's primary, secondary, and seasonal credit programs and other borrowings from emergency lending facilities. For borrowings included, see \"Loans\" in table 1 of the Federal Reserve Board's H.4.1 statistical release \"Factors Affecting Reserve Balances of Depository Institutions and Condition Statement of Federal Reserve Banks.\"\n\nFor questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h6/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

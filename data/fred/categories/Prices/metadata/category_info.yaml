@@ -1,0 +1,26 @@
+category_id: 16
+category_name: Prices
+series_count: 20
+series_list:
+- IEAX
+- ITXFISM133S
+- IEAXGG
+- BOPTEXP
+- EXPCH
+- EXPJP
+- BOPGEXP
+- EXPMANUS
+- EXPMX
+- EXPCA
+- IEAXGS
+- BOPSEXP
+- EXPTOTUS
+- ITXTAEM133S
+- EXPGE
+- EXPKR
+- EXPTOTPR
+- EXPUK
+- EXPFR
+- ITXTCIM133S
+description: 'FRED Category 16: Prices'
+created_at: 1757737218.1293538

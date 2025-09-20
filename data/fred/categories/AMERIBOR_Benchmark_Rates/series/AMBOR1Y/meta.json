@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "AMBOR1Y",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "1-Year AMERIBOR Term Structure of Interest Rates (DISCONTINUED)",
+      "observation_start": "2021-06-20",
+      "observation_end": "2023-12-27",
+      "frequency": "Daily",
+      "frequency_short": "D",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2023-12-28 07:03:06-06",
+      "popularity": 12,
+      "notes": "AMERIBOR® (American Interbank Offered Rate) is a benchmark interest rate based on overnight unsecured loans transacted on the American Financial Exchange (AFX). AMERIBOR® is calculated as the transaction volume weighted average interest rate of the daily transactions in the AMERIBOR® overnight unsecured loan market on the AFX. The arbitrage free AMERIBOR® Term Structure of Interest Rates is derived from the Overnight Unsecured AMERIBOR® Interest Rate (AMERIBOR (https://fred.stlouisfed.org/series/AMERIBOR)) and the implied AMERIBOR® forward rates from the AMERIBOR® futures prices. More details about AMERIBOR® methodology can be found on the source's website (https://ameribor.net), under the Resources section.\n\nAMERIBOR® is a registered trademark of the American Financial Exchange (AFX). © Copyright, American Financial Exchange (AFX). All Rights Reserved."
+    }
+  ]
+}

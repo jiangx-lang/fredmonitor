@@ -1,0 +1,851 @@
+metadata:
+  category_id: 32348
+  created_at: '2025-09-13'
+  description: Corporate Bonds 数据
+  name: Corporate Bonds
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: Moody's Seasoned Aaa Corporate Bond Yield
+  category_id: 32348
+  frequency: Monthly
+  freshness_days: 7
+  id: AAA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: Moody's Seasoned Baa Corporate Bond Yield
+  category_id: 32348
+  frequency: Monthly
+  freshness_days: 7
+  id: BAA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A0CM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A0CMEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A0CMSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AAA US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A1CAAA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AAA US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A1CAAAEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AAA US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A1CAAASYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AA US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A2CAA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AA US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A2CAAEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AA US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A2CAASYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Single-A US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A3CA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Single-A US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A3CAEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Single-A US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A3CASYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BBB US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A4CBBB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BBB US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A4CBBBEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BBB US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC0A4CBBBSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 1-3 Year US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC1A0C13Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 1-3 Year US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC1A0C13YEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 1-3 Year US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC1A0C13YSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 3-5 Year US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC2A0C35Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 3-5 Year US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC2A0C35YEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 3-5 Year US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC2A0C35YSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 5-7 Year US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC3A0C57Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 5-7 Year US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC3A0C57YEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 5-7 Year US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC3A0C57YSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 7-10 Year US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC4A0C710Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 7-10 Year US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC4A0C710YEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 7-10 Year US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC4A0C710YSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 10-15 Year US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC7A0C1015Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 10-15 Year US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC7A0C1015YEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 10-15 Year US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC7A0C1015YSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 15+ Year US Corporate Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC8A0C15PY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 15+ Year US Corporate Index Effective Yield
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC8A0C15PYEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA 15+ Year US Corporate Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLC8A0C15PYSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AAA-A Emerging Markets Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM1BRRAAA2ACRPIEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AAA-A Emerging Markets Corporate Plus Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM1BRRAAA2ACRPIOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AAA-A Emerging Markets Corporate Plus Index Semi-Annual Yield to
+    Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEM1BRRAAA2ACRPISYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AAA-A US Emerging Markets Liquid Corporate Plus Index Effective
+    Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM1RAAA2ALCRPIUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AAA-A US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM1RAAA2ALCRPIUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA AAA-A US Emerging Markets Liquid Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEM1RAAA2ALCRPIUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BBB Emerging Markets Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM2BRRBBBCRPIEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BBB Emerging Markets Corporate Plus Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM2BRRBBBCRPIOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BBB Emerging Markets Corporate Plus Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEM2BRRBBBCRPISYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BBB US Emerging Markets Liquid Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM2RBBBLCRPIUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BBB US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM2RBBBLCRPIUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BBB US Emerging Markets Liquid Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEM2RBBBLCRPIUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BB Emerging Markets Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM3BRRBBCRPIEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BB Emerging Markets Corporate Plus Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM3BRRBBCRPIOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BB Emerging Markets Corporate Plus Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEM3BRRBBCRPISYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BB US Emerging Markets Liquid Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM3RBBLCRPIUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BB US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM3RBBLCRPIUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA BB US Emerging Markets Liquid Corporate Plus Index Semi-Annual Yield
+    to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEM3RBBLCRPIUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA B & Lower Emerging Markets Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM4BRRBLCRPIEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA B & Lower Emerging Markets Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM4BRRBLCRPIOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA B & Lower Emerging Markets Corporate Plus Index Semi-Annual Yield
+    to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEM4BRRBLCRPISYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA B & Lower US Emerging Markets Liquid Corporate Plus Index Effective
+    Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM4RBLLCRPIUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA B & Lower US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM4RBLLCRPIUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA B & Lower US Emerging Markets Liquid Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEM4RBLLCRPIUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Crossover Emerging Markets Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM5BCOCRPIEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Crossover Emerging Markets Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEM5BCOCRPIOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Crossover Emerging Markets Corporate Plus Index Semi-Annual Yield
+    to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEM5BCOCRPISYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Asia US Emerging Markets Liquid Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMALLCRPIASIAUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Asia US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMALLCRPIASIAUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Asia US Emerging Markets Liquid Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMALLCRPIASIAUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Emerging Markets Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMCBPIEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Emerging Markets Corporate Plus Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMCBPIOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Emerging Markets Corporate Plus Index Semi-Annual Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMCBPISYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA US Emerging Markets Liquid Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMCLLCRPIUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMCLLCRPIUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA US Emerging Markets Liquid Corporate Plus Index Semi-Annual Yield
+    to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMCLLCRPIUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Euro Emerging Markets Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMEBCRPIEEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Euro Emerging Markets Corporate Plus Index Option-Adjusted Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMEBCRPIEOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Euro Emerging Markets Corporate Plus Index Semi-Annual Yield to
+    Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMEBCRPIESYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA EMEA US Emerging Markets Liquid Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMELLCRPIEMEAUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA EMEA US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMELLCRPIEMEAUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA EMEA US Emerging Markets Liquid Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMELLCRPIEMEAUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Financial US Emerging Markets Liquid Corporate Plus Index Effective
+    Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMFLFLCRPIUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Financial US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMFLFLCRPIUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Financial US Emerging Markets Liquid Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMFLFLCRPIUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Private Sector Financial Emerging Markets Corporate Plus Index Effective
+    Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMFSFCRPIEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Private Sector Financial Emerging Markets Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMFSFCRPIOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Private Sector Financial Emerging Markets Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMFSFCRPISYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Yield Emerging Markets Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMHBHYCRPIEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Yield Emerging Markets Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMHBHYCRPIOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Yield Emerging Markets Corporate Plus Index Semi-Annual Yield
+    to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMHBHYCRPISYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Grade US Emerging Markets Liquid Corporate Plus Index Effective
+    Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMHGHGLCRPIUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Grade US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMHGHGLCRPIUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Grade US Emerging Markets Liquid Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMHGHGLCRPIUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Yield US Emerging Markets Liquid Corporate Plus Index Effective
+    Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMHYHYLCRPIUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Yield US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMHYHYLCRPIUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Yield US Emerging Markets Liquid Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMHYHYLCRPIUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Grade Emerging Markets Corporate Plus Index Effective Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMIBHGCRPIEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Grade Emerging Markets Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMIBHGCRPIOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA High Grade Emerging Markets Corporate Plus Index Semi-Annual Yield
+    to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMIBHGCRPISYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Latin America US Emerging Markets Liquid Corporate Plus Index Effective
+    Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMLLLCRPILAUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Latin America US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMLLLCRPILAUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Latin America US Emerging Markets Liquid Corporate Plus Index Semi-Annual
+    Yield to Worst
+  category_id: 32348
+  frequency: Daily, Close
+  freshness_days: 7
+  id: BAMLEMLLLCRPILAUSSYTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Non-Financial US Emerging Markets Liquid Corporate Plus Index Effective
+    Yield
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMNFNFLCRPIUSEY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent
+- alias: ICE BofA Non-Financial US Emerging Markets Liquid Corporate Plus Index Option-Adjusted
+    Spread
+  category_id: 32348
+  frequency: Daily
+  freshness_days: 7
+  id: BAMLEMNFNFLCRPIUSOAS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Corporate_Bonds
+  units: Percent

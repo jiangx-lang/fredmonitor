@@ -1,0 +1,104 @@
+metadata:
+  category_id: 32298
+  created_at: '2025-09-13'
+  description: Eurodollar Deposits 数据
+  name: Eurodollar Deposits
+  parent_category: Major_Category
+  total_series: 12
+series:
+- alias: 'U.S. Short-Term Interest Rates: Daily 1-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Daily
+  freshness_days: 7
+  id: DED1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 3-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Daily
+  freshness_days: 7
+  id: DED3
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 6-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Daily
+  freshness_days: 7
+  id: DED6
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 1-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Monthly
+  freshness_days: 7
+  id: MED1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 3-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Monthly
+  freshness_days: 7
+  id: MED3
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 6-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Monthly
+  freshness_days: 7
+  id: MED6
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 1-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Annual
+  freshness_days: 7
+  id: RILSPDEPM01NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 3-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Annual
+  freshness_days: 7
+  id: RILSPDEPM03NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 6-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Annual
+  freshness_days: 7
+  id: RILSPDEPM06NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 1-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WED1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 3-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WED3
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent
+- alias: 'U.S. Short-Term Interest Rates: Daily 6-Month Eurodollar Deposit Rate (DISCONTINUED)'
+  category_id: 32298
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WED6
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Eurodollar_Deposits
+  units: Percent

@@ -1,0 +1,21 @@
+{
+  "id": "ITXINSM133S",
+  "realtime_start": "2025-09-07",
+  "realtime_end": "2025-09-07",
+  "title": "U.S. Exports of Services: Insurance Services",
+  "observation_start": "1999-01-01",
+  "observation_end": "2025-07-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Seasonally Adjusted",
+  "seasonal_adjustment_short": "SA",
+  "last_updated": "2025-09-04 13:22:38-05",
+  "popularity": 5,
+  "notes": "Further information related to the international trade data can be found at https://www.census.gov/foreign-trade/data/index.html \nMethodology details can be found at https://www.census.gov/foreign-trade/Press-Release/current_press_release/explain.pdf",
+  "sync_timestamp": "2025-09-13T13:18:34.828311",
+  "alias": "U_S_Exports_of_Services_Insurance_Services",
+  "category_id": 16,
+  "next_release": "N/A"
+}

@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "LNU05026645",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Not in Labor Force - Want a Job Now, Marginally Attached, Discouraged Workers",
+      "observation_start": "1994-01-01",
+      "observation_end": "2025-08-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Thousands of Persons",
+      "units_short": "Thous. of Persons",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-05 07:50:07-05",
+      "popularity": 34,
+      "notes": "The series comes from the 'Current Population Survey (Household Survey)'\n\nThe source code is: LNU05026645"
+    }
+  ]
+}

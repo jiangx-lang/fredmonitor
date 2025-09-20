@@ -1,0 +1,866 @@
+metadata:
+  category_id: 33001
+  created_at: '2025-09-13'
+  description: Income Distribution 数据
+  name: Income Distribution
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: '12-Month Moving Average of Weighted Median Hourly Wage Growth: Weighted
+    1997: Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMAWMHWG97O
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Weighted Median Hourly Wage Growth: Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMAWMHWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Age: 55
+    Years and Over'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWG55O
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Age: 16-24
+    Years'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGA1644Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Age: 25-54
+    Years'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGA2554Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Education:
+    Bachelors Degree or Higher'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGBDH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Education:
+    Associates Degree'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGEAD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Education:
+    High School'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGEHS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 12-Month Moving Average of Unweighted Median Hourly Wage Growth for the East
+    North Central Census Division
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGENCCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 12-Month Moving Average of Unweighted Median Hourly Wage Growth for the East
+    South Central Census Division
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGESCCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Hours:
+    Usually Full-Time'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGHUFT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Hours:
+    Usually Part-Time'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGHUPT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Industry:
+    Construction and Mining'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGICM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Industry:
+    Education and Health'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGIEH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Industry:
+    Finance and Business Services'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGIFBS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Industry:
+    Leisure and Hospitality and Other Services'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGILH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Industry:
+    Manufacturing'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGIM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Industry:
+    Public Administration'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGIPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Industry:
+    Trade and Transportation'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGITT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Job Stayer'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGJST
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Job Switcher'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGJSW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 12-Month Moving Average of Unweighted Median Hourly Wage Growth for the Middle
+    Atlantic Census Division
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGMACD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 12-Month Moving Average of Unweighted Median Hourly Wage Growth for the Mountain
+    Census Division
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGMCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: MSA Area'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGMSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 12-Month Moving Average of Unweighted Median Hourly Wage Growth for the New
+    England Census Division
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGNECD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Non-MSA
+    Area'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGNMSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Occupation
+    Skill Category: OPTICS'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGOSCOPTC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Occupation
+    Skill Category: Professional and Management'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGOSCPM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Occupation
+    Skill Category: Service'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGOSCS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 12-Month Moving Average of Unweighted Median Hourly Wage Growth for the Pacific
+    Census Division
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGPCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Race: Non-White'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGRNW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Race: White'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGRW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 12-Month Moving Average of Unweighted Median Hourly Wage Growth for the South
+    Atlantic Census Division
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGSACD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Sex: Female'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGSF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Sex: Male'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGSM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Type of
+    Pay: Not Paid Hourly'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGTPNPH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Type of
+    Pay: Paid Hourly'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGTPPH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Wage Distribution:
+    1st to 25th Wage Percentile'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGWD1WP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Wage Distribution:
+    26th to 50th Wage Percentile'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGWD26WP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Wage Distribution:
+    51st to 75th Wage Percentile'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGWD51WP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Wage Distribution:
+    76th to 100th Wage Percentile'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGWD76WP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Wage Distribution:
+    1st to 50th Wage Percentile'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGWDLHWP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '12-Month Moving Average of Unweighted Median Hourly Wage Growth: Wage Distribution:
+    51st to 100th Wage Percentile'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGWDUPWP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 12-Month Moving Average of Unweighted Median Hourly Wage Growth for the West
+    North Central Census Division
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGWNCCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 12-Month Moving Average of Unweighted Median Hourly Wage Growth for the West
+    South Central Census Division
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT12MMUMHWGWSCCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted 25%/20% Trimmed Mean Hourly Wage Growth:
+    Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAU2520TMHWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted 25th Percentile Hourly Wage Growth:
+    Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAU25PHWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted 75th Percentile Hourly Wage Growth:
+    Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAU75PHWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Mean Hourly Wage Growth: Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMEANHWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Wage Distribution:
+    1st to 50th Wage Percentile'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHGWD1WP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth (1983): Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWG83O
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Age: 25-54
+    Years'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGA2554Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Educational
+    Attainment: College Degree'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGEACD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Job Movement:
+    Job Stayer'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGJMJST
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Job Movement:
+    Job Switcher'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGJMJSW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Sex: Female'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGSF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Sex: Male'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGSM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Services
+    Sector'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGSS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Type of
+    Pay: Paid Hourly'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGTOPPH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Wage Distribution:
+    51st to 100th Wage Percentile'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGWD51WP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Hourly Wage Growth: Work Status:
+    Full-Time'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMHWGWSFT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Median Weekly Wage Growth: Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUMWWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Unweighted Unchanged Hourly Wage Growth: Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAUUHWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Weighted Median Hourly Wage Growth: Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAWMHWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: '3-Month Moving Average of Weighted Median Hourly Wage Growth: Weighted 1997
+    Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGT3MMAWMHWGW97O
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 'Unweighted Median Hourly Wage Growth (1983): Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGTUMHWG83O
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: 'Unweighted Median Hourly Wage Growth: Overall'
+  category_id: 33001
+  frequency: Monthly
+  freshness_days: 7
+  id: FRBATLWGTUMHWGO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Percent Change from Year Ago
+- alias: Income Gini Ratio of Families by Race of Householder, Asian Alone
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIAAF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, Asian Alone
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIAAH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, Asian Alone or in Combination
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIAAOICF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, Asian Alone or in
+    Combination
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIAAOICH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, All Races
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIALLRF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, All Races
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIALLRH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, Black Alone
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIBAF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, Black Alone
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIBAH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, Black Alone or in Combination
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIBAOICF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, Black Alone or in
+    Combination
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIBAOICH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, Black (DISCONTINUED)
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIBF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, Black (DISCONTINUED)
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIBH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, Hispanic Origin (Any
+    Race)
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIHARF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, Hispanic Origin
+    (Any Race)
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIHARH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, White Alone
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIWAF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, White Alone
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIWAH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, White Alone Not Hispanic
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIWANHF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, White Alone Not
+    Hispanic
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIWANHH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, White Alone or in
+    Combination (DISCONTINUED)
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIWAOICH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, White (DISCONTINUED)
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIWF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, White (DISCONTINUED)
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIWH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio of Families by Race of Householder, White Not Hispanic
+    (DISCONTINUED)
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIWNHF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Income Gini Ratio for Households by Race of Householder, White Not Hispanic
+    (DISCONTINUED)
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: GINIWNHH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Ratio
+- alias: Mean Family Income in the United States
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: MAFAINUSA646N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Current Dollars
+- alias: Real Mean Family Income in the United States
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: MAFAINUSA672N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: 2023 CPI-U-RS Adjusted Dollars
+- alias: Mean Family Income in Midwest Census Region
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: MAFAINUSMWA646N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Current Dollars
+- alias: Real Mean Family Income in Midwest Census Region
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: MAFAINUSMWA672N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: 2023 CPI-U-RS Adjusted Dollars
+- alias: Mean Family Income in Northeast Census Region
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: MAFAINUSNEA646N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Current Dollars
+- alias: Real Mean Family Income in Northeast Census Region
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: MAFAINUSNEA672N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: 2023 CPI-U-RS Adjusted Dollars
+- alias: Mean Family Income in South Census Region
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: MAFAINUSSOA646N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: Current Dollars
+- alias: Real Mean Family Income in South Census Region
+  category_id: 33001
+  frequency: Annual
+  freshness_days: 7
+  id: MAFAINUSSOA672N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Income_Distribution
+  units: 2023 CPI-U-RS Adjusted Dollars

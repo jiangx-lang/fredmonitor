@@ -1,0 +1,510 @@
+metadata:
+  category_id: 123
+  created_at: '2025-09-13'
+  description: Reserves 数据
+  name: Reserves
+  parent_category: Major_Category
+  total_series: 61
+series:
+- alias: St. Louis Adjusted Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: ADJRES
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: ADJRESN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: ADJRESNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: ADJRESSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Non-Borrowed Reserves of Depository Institutions (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: BOGNONBR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: DADJRESN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: DADJRESS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: 'Book Value of U.S. Mint Held Gold Deep Storage: Denver, CO'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: DNVCOGBV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: U.S. Dollars
+- alias: 'U.S. Mint Held Gold Deep Storage: Denver, CO'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: DNVCOGTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Fine Troy Ounces
+- alias: St. Louis Adjusted Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: DSADJREN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: St. Louis Adjusted Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: DSADJRES
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Excess Reserves of Depository Institutions (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: EXCRESNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Excess Reserves of Depository Institutions (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: EXCSRESNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Excess Reserves of Depository Institutions (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: EXCSRESNW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: 'Book Value of U.S. Mint Held Gold Deep Storage: Fort Knox, KY'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FKKYGBV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: U.S. Dollars
+- alias: 'U.S. Mint Held Gold Deep Storage: Fort Knox, KY'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FKKYGTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Fine Troy Ounces
+- alias: 'Federal Reserve Bank Held Gold Bullion: On Display'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FRDGBSAM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Fine Troy Ounces
+- alias: 'Book Value of Federal Reserve Bank Held Gold Bullion: On Display'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FRDGBSV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: U.S. Dollars
+- alias: Federal Reserve Bank Held Gold Coins On Display
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FRDGCSAM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Fine Troy Ounces
+- alias: Book Value of Federal Reserve Bank Held Gold Coins On Display
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FRDGCSV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: U.S. Dollars
+- alias: 'Federal Reserve Bank Held Gold Bullion: NY Vault'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FRVGBSAM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Fine Troy Ounces
+- alias: 'Book Value of Federal Reserve Bank Held Gold Bullion: NY Vault'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FRVGBSV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: U.S. Dollars
+- alias: 'Federal Reserve Bank Held Gold Coins: NY Vault'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FRVGCSAM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Fine Troy Ounces
+- alias: 'Book Value of Federal Reserve Bank Held Gold Coins: NY Vault'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: FRVGCSV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: U.S. Dollars
+- alias: Interest Rate Paid on Excess Reserve Balances (Institutions with 1-Week Maintenance
+    Period) (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: INTEXC1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Percent
+- alias: Interest Rate Paid on Excess Reserve Balances (Institutions with 2-Week Maintenance
+    Period) (DISCONTINUED)
+  category_id: 123
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: INTEXC2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Percent
+- alias: Interest Rate Paid on Required Reserve Balances (Institutions with 1-Week
+    Maintenance Period) (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: INTREQ1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Percent
+- alias: Interest Rate Paid on Required Reserve Balances (Institutions with 2-Week
+    Maintenance Period) (DISCONTINUED)
+  category_id: 123
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: INTREQ2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Percent
+- alias: 'U.S. Mint Held Treasury Gold Working Stock: All Locations: Coins, Blanks,
+    Miscellaneous'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: MHTGWSALQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Fine Troy Ounces
+- alias: 'Book Value of U.S. Mint Held Treasury Gold Working Stock: All Locations:
+    Coins, Blanks, Miscellaneous'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: MHTGWSALV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: U.S. Dollars
+- alias: Net Free or Borrowed Reserves of Depository Institutions (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: NFORBRES
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: 'Reserves of Depository Institutions: Nonborrowed'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: NONBORRES
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Reserves of Depository Institutions, Nonborrowed (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: NONBORRESW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Non-Borrowed Reserves of Depository Institutions Plus Term Auction Credit
+    (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: NONBORTAF
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Reserve Balances Maintained; Balances Maintained That Exceed the Top of the
+    Penalty-Free Band (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: RBMTETPFB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Reserve Balances Maintained; Balances Maintained That Exceed the Top of the
+    Penalty-Free Band (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RBMTETPFBW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Reserve Balances Maintained; Balances Maintained to Satisfy Reserve Balance
+    Requirements (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: RBMTSRBR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Reserve Balances Maintained; Balances Maintained to Satisfy Reserve Balance
+    Requirements (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RBMTSRBRW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Required Reserves of Depository Institutions (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: REQRESNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Reserves of Depository Institutions, Required (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: REQRESNSW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Total Reserve Balances Maintained with Federal Reserve Banks (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: RESBALNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Total Reserve Balances Maintained with Federal Reserve Banks (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESBALNSW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Reserve Balances Required; Reserve Balance Requirements (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: RESBALREQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Reserve Balances Required; Reserve Balance Requirements (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESBALREQW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Reserve Balances Required; Bottom of Penalty-Free Band (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: RESBRQBPF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Reserve Balances Required; Bottom of Penalty-Free Band (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESBRQBPFW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Reserve Balances Required; Top of Penalty-Free Band (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: RESBRQTPF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Reserve Balances Required; Top of Penalty-Free Band (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESBRQTPFW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Vault Cash, Total (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: TLVAULT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Vault Cash, Total (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TLVAULTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: 'Reserves of Depository Institutions: Total'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: TOTRESNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Reserves of Depository Institutions, Total (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TOTRESNSW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Board of Governors Total Reserves, Adjusted for Changes in Reserve Requirements
+    (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: TRARR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Vault Cash Used to Satisfy Required Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: VAULT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars
+- alias: Vault Cash, Surplus (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: VAULTSUR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Vault Cash, Surplus (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: VAULTSURW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: Vault Cash, Used to Satisfy Required Reserves (DISCONTINUED)
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: VAULTW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Millions of Dollars
+- alias: 'Book Value of U.S. Mint Held Gold Deep Storage: West Point, NY'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: WPNYGBV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: U.S. Dollars
+- alias: 'U.S. Mint Held Gold Deep Storage: West Point, NY'
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: WPNYGTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Fine Troy Ounces
+- alias: 'Liabilities and Capital: Other Factors Draining Reserve Balances: Reserve
+    Balances with Federal Reserve Banks: Week Average'
+  category_id: 123
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: WRESBAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of U.S. Dollars
+- alias: Excess Reserves Plus Required Clearing Balance Contracts of Depository Institutions
+    (DISCONTINUED)
+  category_id: 123
+  frequency: Monthly
+  freshness_days: 7
+  id: XRCB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Reserves
+  units: Billions of Dollars

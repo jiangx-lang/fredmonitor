@@ -1,0 +1,320 @@
+metadata:
+  category_id: 95
+  created_at: '2025-09-13'
+  description: Monthly Rates 数据
+  name: Monthly Rates
+  parent_category: Major_Category
+  total_series: 39
+series:
+- alias: Austria / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXAUUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Austrian Schillings to One U.S. Dollar
+- alias: Belgium / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXBEUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Belgian Francs to One U.S. Dollar
+- alias: Brazilian Reals to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXBZUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Brazilian Reals to One U.S. Dollar
+- alias: Canadian Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXCAUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Canadian Dollars to One U.S. Dollar
+- alias: Chinese Yuan Renminbi to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXCHUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Chinese Yuan Renminbi to One U.S. Dollar
+- alias: Danish Kroner to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXDNUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Danish Kroner to One U.S. Dollar
+- alias: Finland / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXFNUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Finnish Markkas to One U.S. Dollar
+- alias: France / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXFRUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: French Franc to One U.S. Dollar
+- alias: Germany / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXGEUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: German Deutsche Marks to One U.S. Dollar
+- alias: Greece / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXGRUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Greek Drachmas to One U.S. Dollar
+- alias: Hong Kong Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXHKUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Hong Kong Dollars to One U.S. Dollar
+- alias: Indian Rupees to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXINUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Indian Rupees to One U.S. Dollar
+- alias: Italy / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXITUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Italian Lire to One U.S. Dollar
+- alias: Japanese Yen to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXJPUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Japanese Yen to One U.S. Dollar
+- alias: South Korean Won to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXKOUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: South Korean Won to One U.S. Dollar
+- alias: Malaysian Ringgit to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXMAUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Malaysian Ringgit to One U.S. Dollar
+- alias: Mexican Pesos to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXMXUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Mexican Pesos to One U.S. Dollar
+- alias: Netherlands / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXNEUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Dutch Guilder to One U.S. Dollar
+- alias: Norwegian Kroner to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXNOUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Norwegian Kroner to One U.S. Dollar
+- alias: Portugal / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPOUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Portuguese Escudos to One U.S. Dollar
+- alias: Swedish Kronor to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXSDUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Swedish Kronor to One U.S. Dollar
+- alias: South African Rand to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXSFUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: South African Rand to One U.S. Dollar
+- alias: Singapore Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXSIUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Singapore Dollars to One U.S. Dollar
+- alias: Sri Lankan Rupees to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXSLUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Sri Lankan Rupees to One U.S. Dollar
+- alias: Spain / U.S. Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXSPUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Spanish Pesetas to One U.S. Dollar
+- alias: Swiss Francs to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXSZUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Swiss Francs to One U.S. Dollar
+- alias: Taiwan Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXTAUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Taiwan Dollars to One U.S. Dollar
+- alias: Thai Baht to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXTHUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Thai Baht to One U.S. Dollar
+- alias: U.S. Dollars to Australian Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXUSAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: U.S. Dollars to One Australian Dollar
+- alias: 'Foreign Exchange Rate: Euro Community (DISCONTINUED)'
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXUSEC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: U.S. Dollars to One Euro Community Unit
+- alias: U.S. Dollars to Euro Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXUSEU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: U.S. Dollars to One Euro
+- alias: U.S. / Ireland Foreign Exchange Rate (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXUSIR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: U.S. Dollars to One Irish Pound
+- alias: U.S. Dollars to New Zealand Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXUSNZ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: U.S. Dollars to One New Zealand Dollar
+- alias: U.S. Dollars to U.K. Pound Sterling Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXUSUK
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: U.S. Dollars to One U.K. Pound Sterling
+- alias: Venezuelan Bolivares to U.S. Dollar Spot Exchange Rate
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: EXVZUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Venezuelan Bolivares to One U.S. Dollar
+- alias: Nominal Broad U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXBMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Index Jan 1997=100
+- alias: Nominal Major Currencies U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXMMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Index Mar 1973=100
+- alias: Trade-Weighted Exchange Value of U.S. Dollar vs G-10 Countries (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXMTHY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Index Mar 1973=100
+- alias: Nominal Other Important Trading Partners U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 95
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXOMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monthly_Rates
+  units: Index Jan 1997=100

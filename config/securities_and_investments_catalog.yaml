@@ -1,0 +1,820 @@
+metadata:
+  category_id: 99
+  created_at: '2025-09-13'
+  description: Securities and Investments 数据
+  name: Securities and Investments
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: Securities in Bank Credit, All Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: INVEST
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, All Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: INVESTNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, All Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBACBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, All Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBACBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, All Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBACBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, All Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBACBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Domestically Chartered Commercial
+    Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBDCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Domestically Chartered Commercial
+    Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBDCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Domestically Chartered Commercial
+    Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBDCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Domestically Chartered Commercial
+    Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBDCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Foreign-Related Institutions'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBFRIM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Foreign-Related Institutions'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBFRIM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Foreign-Related Institutions'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBFRIW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Foreign-Related Institutions'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBFRIW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Large Domestically Chartered
+    Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBLCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Large Domestically Chartered
+    Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBLCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Large Domestically Chartered
+    Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBLCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Large Domestically Chartered
+    Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBLCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Small Domestically Chartered
+    Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBSCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Small Domestically Chartered
+    Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OMBSCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Small Domestically Chartered
+    Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBSCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Mortgage-Backed Securities, Small Domestically Chartered
+    Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OMBSCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, All Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMACBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, All Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMACBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, All Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMACBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, All Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMACBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMDCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMDCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMDCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMDCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Foreign-Related Institutions'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMFRIM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Foreign-Related Institutions'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMFRIM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Foreign-Related Institutions'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMFRIW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Foreign-Related Institutions'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMFRIW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Large Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMLCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Large Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMLCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Large Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMLCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Large Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMLCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Small Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMSCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Small Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: ONMSCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Small Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMSCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: 'Other Securities: Non-MBS, Small Domestically Chartered Commercial Banks'
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: ONMSCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, All Commercial Banks
+  category_id: 99
+  frequency: Quarterly
+  freshness_days: 7
+  id: OSEACBQ158SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Percent Change at Annual Rate
+- alias: Other Securities, All Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSEACBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, All Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSEACBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OSEDCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OSEDCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSEDCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSEDCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Foreign-Related Institutions
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OSEFRIM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Foreign-Related Institutions
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OSEFRIM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Foreign-Related Institutions
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSEFRIW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Foreign-Related Institutions
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSEFRIW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OSELCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OSELCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSELCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSELCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OSESCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OSESCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSESCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: OSESCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, All Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OTHSEC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Other Securities, All Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: OTHSECNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, All Commercial Banks
+  category_id: 99
+  frequency: Quarterly
+  freshness_days: 7
+  id: SBCACBQ158SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Percent Change at Annual Rate
+- alias: Securities in Bank Credit, All Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCACBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, All Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCACBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: SBCDCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: SBCDCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCDCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCDCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Foreign-Related Institutions
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: SBCFRIM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Foreign-Related Institutions
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: SBCFRIM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Foreign-Related Institutions
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCFRIW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Foreign-Related Institutions
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCFRIW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: SBCLCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: SBCLCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCLCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCLCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: SBCSCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: SBCSCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCSCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Securities in Bank Credit, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: SBCSCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, All Commercial Banks
+  category_id: 99
+  frequency: Quarterly
+  freshness_days: 7
+  id: TASACBQ158SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Percent Change at Annual Rate
+- alias: Treasury and Agency Securities, All Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TASACBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, All Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TASACBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: TASDCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: TASDCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TASDCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TASDCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Foreign-Related Institutions
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: TASFRIM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Foreign-Related Institutions
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: TASFRIM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Foreign-Related Institutions
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TASFRIW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Foreign-Related Institutions
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TASFRIW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: TASLCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: TASLCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TASLCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Large Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TASLCBW027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: TASSCBM027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Monthly
+  freshness_days: 7
+  id: TASSCBM027SBOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars
+- alias: Treasury and Agency Securities, Small Domestically Chartered Commercial Banks
+  category_id: 99
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: TASSCBW027NBOG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_and_Investments
+  units: Billions of U.S. Dollars

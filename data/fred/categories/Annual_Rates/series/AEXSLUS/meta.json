@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "AEXSLUS",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Sri Lankan Rupees to U.S. Dollar Spot Exchange Rate",
+      "observation_start": "1973-01-01",
+      "observation_end": "2024-01-01",
+      "frequency": "Annual",
+      "frequency_short": "A",
+      "units": "Sri Lankan Rupees to One U.S. Dollar",
+      "units_short": "Sri Lankan Rupees to  1 U.S. $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-01-03 13:42:44-06",
+      "popularity": 4,
+      "notes": "Averages of daily figures. Noon buying rates in New York City for cable transfers payable in foreign currencies."
+    }
+  ]
+}

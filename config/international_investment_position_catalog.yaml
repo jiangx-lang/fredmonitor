@@ -1,0 +1,268 @@
+metadata:
+  category_id: 33705
+  created_at: '2025-09-13'
+  description: International Investment Position 数据
+  name: International Investment Position
+  parent_category: Major_Category
+  total_series: 32
+series:
+- alias: U.S. Assets Excluding Financial Derivatives
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPASSEA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Assets Excluding Financial Derivatives
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPASSEQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Direct Investment at Market Value'
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPDIREAMVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Direct Investment at Market Value'
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPDIREAMVQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Liabilities: Direct Investment at Market Value'
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPDIRELMVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Liabilities: Direct Investment at Market Value'
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPDIRELMVQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Financial Derivatives Other Than Reserves, Gross Positive Fair
+    Value'
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPFINAAGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Financial Derivatives Other Than Reserves, Gross Positive Fair
+    Value'
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPFINAAGQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Liabilities: Financial Derivatives Other Than Reserves, Gross Negative
+    Fair Value'
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPFINALGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Liabilities: Financial Derivatives Other Than Reserves, Gross Negative
+    Fair Value'
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPFINALGQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Financial Derivatives Other Than Reserves, Net
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPFINANCNA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Financial Derivatives Other Than Reserves, Net
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPFINANCNQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Liabilities Excluding Financial Derivatives
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPLIABA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Liabilities Excluding Financial Derivatives
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPLIABQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Net International Investment Position Excluding Financial Derivatives
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPNETINA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Net International Investment Position Excluding Financial Derivatives
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPNETINQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Other Investment'
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPOTHEAA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Other Investment'
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPOTHEAQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Liabilities: Other Investment'
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPOTHELA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Liabilities: Other Investment'
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPOTHELQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Portfolio Investment'
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPPORTAA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Portfolio Investment'
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPPORTAQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Liabilities: Portfolio Investment'
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPPORTLA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Liabilities: Portfolio Investment'
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPPORTLQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Reserve Assets'
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPRESEA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: 'U.S. Assets: Reserve Assets'
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPRESEQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Assets
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPUSASSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Assets
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPUSASSQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Liabilities
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPUSLIAA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Liabilities
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPUSLIAQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Net International Investment Position
+  category_id: 33705
+  frequency: Annual, End of Period
+  freshness_days: 7
+  id: IIPUSNETIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars
+- alias: U.S. Net International Investment Position
+  category_id: 33705
+  frequency: Quarterly, End of Period
+  freshness_days: 7
+  id: IIPUSNETIQ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: International_Investment_Position
+  units: Millions of Dollars

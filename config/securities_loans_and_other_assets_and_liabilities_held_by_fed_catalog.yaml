@@ -1,0 +1,928 @@
+metadata:
+  category_id: 32218
+  created_at: '2025-09-13'
+  description: Securities Loans and Other Assets and Liabilities Held by Fed 数据
+  name: Securities Loans and Other Assets and Liabilities Held by Fed
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: 'Asset-backed securities held by TALF LLC (Face value): Maturing in over
+    10 years (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: ABS10Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Asset-backed securities held by TALF LLC (Face value): within 15 days (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: ABS15
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Asset-backed securities held by TALF LLC (Face value): within 16 to 90 days
+    (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: ABS1690
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Asset-backed securities held by TALF LLC (Face value): Maturing in over
+    1 year to 5 years (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: ABS1T5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Asset-backed securities held by TALF LLC (Face value): Maturing in over
+    5 years to 10 years (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: ABS5T10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Asset-backed securities held by TALF LLC holdings (Face value): Maturing
+    in 91 days to 1 year (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: ABS911Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Asset-backed securities held by TALF LLC (Face value): All Maturities (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: ABST
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: Commercial paper held by Commercial Paper Funding Facility LLC, within 15
+    days (DISCONTINUED)
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: CPFAC15
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: Commercial paper held by Commercial Paper Funding Facility LLC, Maturing
+    in 16 days to 90 days (DISCONTINUED)
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: CPFAC1690
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: Commercial paper held by Commercial Paper Funding Facility LLC, Maturing
+    in 91 days to 1 year (DISCONTINUED)
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: CPFAC911Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Commercial paper holdings, face value: All Maturities (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: CPFACT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Assets: Securities Held Outright: Federal Agency Debt Securities: Maturing
+    in over 10 Years: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: FEDD10Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Federal Agency Debt Securities: Maturing
+    Within 15 Days: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: FEDD15
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Federal Agency Debt Securities: Maturing
+    in 16 Days to 90 Days: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: FEDD1690
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Federal Agency Debt Securities: Maturing
+    in over 1 Year to 5 Years: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: FEDD1T5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Federal Agency Debt Securities: Maturing
+    in over 5 Years to 10 Years: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: FEDD5T10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Federal Agency Debt Securities: Maturing
+    in 91 Days to 1 Year: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: FEDD911Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Federal Agency Debt Securities: All: Wednesday
+    Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: FEDDT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Federal Agency Securities: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESH4CANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Federal Agency Securities: Week Average
+    (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4CAXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Federal Agency Securities: Change in
+    Week Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4CAXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Federal Agency Securities: Change in
+    Week Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4CAXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: U.S. Treasury Securities: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESH4CGNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: U.S. Treasury Securities: Week Average
+    (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4CGXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: U.S. Treasury Securities: Change in
+    Week Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4CGXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: U.S. Treasury Securities: Change in
+    Week Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4CGXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Total (Marketable Securities Held in
+    Custody for Foreign Official and International Accounts): Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESH4CNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Total (Marketable Securities Held in
+    Custody for Foreign Official and International Accounts): Week Average (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4CXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Total (Marketable Securities Held in
+    Custody for Foreign Official and International Accounts): Change in Week Average
+    from Previous Week Average (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4CXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Total (Marketable Securities Held in
+    Custody for Foreign Official and International Accounts): Change in Week Average
+    from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4CXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Term Facility: Wednesday Level
+    (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESH4DTNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Term Facility: Week Average
+    (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4DTXAWNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Term Facility: Change in Week
+    Average from Previous Week Average (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4DTXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Term Facility: Change in Week
+    Average from Year Ago Week Average (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RESH4DTXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Options on Term Facility Loans
+    Outstanding: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: H0RESH4TNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Amount of Commerical Paper Funding Facility II LLC Asset Purchases:
+    Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAABHANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Commerical Paper Funding Facility II LLC Treasury Contributions and Other Assets:
+    Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAABHCNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Amount of Corporate Credit Facilities LLC Asset Purchases: Wednesday
+    Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAC2HANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Corporate Credit Facilities LLC Treasury Contributions and Other Assets: Wednesday
+    Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAC2HCNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Commercial Paper Held by Commercial
+    Paper Funding Facility LLC, Book Value, Maturing Within 15 Days (Effective 2020-06-10,
+    Through 2022-06-29): Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAC2MBD15NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Commercial Paper Held by Commercial
+    Paper Funding Facility LLC, Book Value, Maturing Within 16 Days to 90 Days (Effective
+    2020-06-10, Through 2022-06-29): Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAC2MBD16T90NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Commercial Paper Held by Commercial
+    Paper Funding Facility LLC, Book Value (Effective 2020-06-10, Through 2022-06-29):
+    Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAC2MBNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Commercial Paper Held by Commercial
+    Paper Funding Facility LLC, Book Value, Maturing Within 91 Days to 1 Year (Effective
+    2020-06-10, Through 2022-06-29): Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAC2MBY01NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Commercial Paper Held by Commercial
+    Paper Funding Facility LLC, Face Value, Maturing Within 15 Days: Wednesday Level
+    (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAC2MCD15NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Commercial Paper Held by Commercial
+    Paper Funding Facility LLC, Face Value, Maturing Within 16 Days to 90 Days: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAC2MCD16T90NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Commercial Paper Held by Commercial
+    Paper Funding Facility LLC, Face Value, Maturing Within 91 Days to 1 Year: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAC2MCY01NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Amount of Municipal Liquidity Facility LLC Asset Purchases: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAADHANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Municipal Liquidity Facility LLC Treasury Contributions and Other Assets: Wednesday
+    Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAADHCNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Municipal Notes Held by Municipal
+    Liquidity Facility LLC, Maturing Within 15 Days: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAADHUD15NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Municipal Notes Held by Municipal
+    Liquidity Facility LLC, Maturing Within 16 Days to 90 Days: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAADHUD16T90NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Municipal Notes Held by Municipal
+    Liquidity Facility LLC, Book Value: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAADHUNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Municipal Notes Held by Municipal
+    Liquidity Facility LLC, Maturing Within 91 Days to 1 Year: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAADHUY01NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Municipal Notes Held by Municipal
+    Liquidity Facility LLC, Maturing over 1 Year to 5 Years: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAADHUY01T05NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Amount of MS Facilities 2020 LLC (Main Street Lending Program), Asset
+    Purchases: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAEHANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    MS Facilities 2020 LLC (Main Street Lending Program), Treasury Contributions and
+    Other Assets: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAEHCNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loan Participations Held by MS
+    Facilities 2020 LLC (Main Street Lending Program), Maturing Within 15 Days: Wednesday
+    Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAELD15NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loan Participations Held by MS
+    Facilities 2020 LLC (Main Street Lending Program), Maturing Within 16 Days to
+    90 Days: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAELD16T90NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loan Participations Held by MS
+    Facilities 2020 LLC (Main Street Lending Program), Book Value: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAELNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loan Participations Held by MS
+    Facilities 2020 LLC (Main Street Lending Program), Maturing Within 91 Days to
+    1 Year: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAELY01NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loan Participations Held by MS
+    Facilities 2020 LLC (Main Street Lending Program), Maturing over 1 Year to 5 Years:
+    Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAAELY01T05NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Amount of TALF II LLC Asset Purchases: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAATAL2HANWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    TALF II LLC Treasury Contributions and Other Assets: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAATAL2HCNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans Held by TALF II LLC (Book
+    Value), Maturing Within 15 Days: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAATAL2LD15NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans Held by TALF II LLC (Book
+    Value), Maturing Within 16 Days to 90 Days: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAATAL2LD16T90NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans Held by TALF II LLC (Book
+    Value),: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAATAL2LNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans Held by TALF II LLC (Book
+    Value), Maturing Within 91 Days to 1 Year: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAATAL2LY01NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans Held by TALF II LLC (Book
+    Value), Maturing over 1 Year to 5 Years: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPAATAL2LY01T05NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Principal Amount of Loan Extended to the Commercial Paper Funding
+    Facility II LLC: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPALDOBNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Principal Amount of Loan Extended to the Corporate Credit Facilities
+    LLC: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPALDOC2NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Principal Amount of Loan Extended to the Municipal Liquidity Facility
+    LLC: Wednesday Level (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPALDODNWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Principal Amount of Loan Extended to the MS Facilities 2020 LLC (Main
+    Street Lending Program): Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPALDOENWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Supplementary Information: Supplemental Information on 2020 Credit Facilities:
+    Outstanding Principal Amount of Loan Extended to the TALF II LLC: Wednesday Level
+    (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPALDOTAL2NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Liabilities and Capital: Liabilities: Deposits with F.R. Banks, Other Than
+    Reserve Balances: Deposits Held by Depository Institutions: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly
+  freshness_days: 7
+  id: H41RESPPLLDENWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Mortgage-Backed Securities: Maturing in
+    over 10 Years: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: MBS10Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Mortgage-Backed Securities: Maturing Within
+    15 Days: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: MBS15
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Mortgage-Backed Securities: Maturing in
+    16 Days to 90 Days: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: MBS1690
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Mortgage-Backed Securities: Maturing in
+    over 1 Year to 5 Years: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: MBS1T5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Mortgage-Backed Securities: Maturing in
+    over 5 Years to 10 Years: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: MBS5T10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Securities Held Outright: Mortgage-Backed Securities: Maturing in
+    91 Days to 1 Year: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: MBS911Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Mortgage-backed securities held by the Federal Reserve: All Maturities (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: MBST
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Maturing Within 15 Days:
+    Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: OTHL15
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Maturing in 16 Days to 90
+    Days: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: OTHL1690
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Maturing in over 1 Year
+    to 5 Years: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: OTHL1T5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Maturing in over 5 Years
+    to 10 Years: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: OTHL5T10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Liquidity and Credit Facilities: Loans: Maturing in 91 Days to 1
+    Year: Wednesday Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: OTHL91T1Y
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Other loans held by the Federal Reserve: All Maturities (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: OTHLT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Assets: Other: Repurchase Agreements: Maturing Within 15 Days: Wednesday
+    Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: REP15
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Assets: Other: Repurchase Agreements: Maturing in 16 Days to 90 Days: Wednesday
+    Level'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: REP1690
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Repurchase agreements held by the Federal Reserve: All Maturities (DISCONTINUED)'
+  category_id: 32218
+  frequency: Weekly, As of Wednesday
+  freshness_days: 7
+  id: REPT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Overnight Facility, Federal
+    Agency Debt Securities: Change in Week Average from Previous Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4DOFXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Overnight Facility, Federal
+    Agency Debt Securities: Change in Week Average from Year Ago Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4DOFXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Overnight Facility, U.S. Treasury
+    Securities: Change in Week Average from Previous Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4DOTXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Overnight Facility, U.S. Treasury
+    Securities: Change in Week Average from Year Ago Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4DOTXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Overnight Facility: Change
+    in Week Average from Previous Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4DOXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Overnight Facility: Change
+    in Week Average from Year Ago Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4DOXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Securities Lent to Dealers:
+    Change in Week Average from Previous Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4DXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Securities Lent to Dealers: Securities Lent to Dealers:
+    Change in Week Average from Year Ago Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4DXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Federal Agency Debt and Mortgage-Backed
+    Securities: Change in Week Average from Previous Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4FAXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Federal Agency Debt and Mortgage-Backed
+    Securities: Change in Week Average from Year Ago Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4FAXAWXCH52NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars
+- alias: 'Memorandum Items: Custody Holdings: Marketable U.S. Treasury Securities:
+    Change in Week Average from Previous Week Average'
+  category_id: 32218
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: RESH4FGXAWXCH1NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Securities_Loans_and_Other_Assets_and_Liabilities_Held_by_Fed
+  units: Millions of U.S. Dollars

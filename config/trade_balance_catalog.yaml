@@ -1,0 +1,384 @@
+metadata:
+  category_id: 125
+  created_at: '2025-09-13'
+  description: Trade Balance 数据
+  name: Trade Balance
+  parent_category: Major_Category
+  total_series: 47
+series:
+- alias: 'Advance U.S. International Trade in Goods: Balance'
+  category_id: 125
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGCBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Balance'
+  category_id: 125
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGCBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on Current Account (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBCA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Current Account (DISCONTINUED)
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: BOPBCAA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Current Account (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBCAN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Goods and Services (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBGS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Goods and Services (DISCONTINUED)
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: BOPBGSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Goods and Services (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBGSN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Investment Income (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBII
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Investment Income (DISCONTINUED)
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: BOPBIIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Investment Income (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBIIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Merchandise Trade (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Merchandise Trade (DISCONTINUED)
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: BOPBMA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Merchandise Trade (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBMN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Services (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBSV
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Services (DISCONTINUED)
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: BOPBSVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Balance on Services (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPBSVN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Capital Account Transactions, Net (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPCAT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Capital Account Transactions, Net (DISCONTINUED)
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: BOPCATA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Capital Account Transactions, Net (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPCATN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Unilateral Transfers, Net (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Unilateral Transfers, Net (DISCONTINUED)
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: BOPGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: Unilateral Transfers, Net (DISCONTINUED)
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Billions of Dollars
+- alias: 'Trade Balance: Goods and Services, Balance of Payments Basis'
+  category_id: 125
+  frequency: Monthly
+  freshness_days: 7
+  id: BOPGSTB
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: 'Trade Balance: Goods, Balance of Payments Basis'
+  category_id: 125
+  frequency: Monthly
+  freshness_days: 7
+  id: BOPGTB
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: 'Trade Balance: Services, Balance of Payments Basis'
+  category_id: 125
+  frequency: Monthly
+  freshness_days: 7
+  id: BOPSTB
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on current account
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on current account
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: IEABCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on goods
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on goods
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: IEABCGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on goods
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on goods and services
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCGS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on goods and services
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: IEABCGSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on goods and services
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCGSN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on current account
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on capital account
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on capital account
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: IEABCPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on primary income
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCPI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on primary income
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: IEABCPIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on primary income
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCPIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on capital account
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCPN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on services
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on services
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: IEABCSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on secondary income
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCSI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on secondary income
+  category_id: 125
+  frequency: Annual
+  freshness_days: 7
+  id: IEABCSIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on secondary income
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCSIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars
+- alias: Balance on services
+  category_id: 125
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEABCSN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Trade_Balance
+  units: Millions of Dollars

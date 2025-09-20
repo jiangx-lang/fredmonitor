@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "AMERIBOR",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Overnight Unsecured AMERIBOR Benchmark Interest Rate",
+      "observation_start": "2015-12-11",
+      "observation_end": "2025-09-11",
+      "frequency": "Daily",
+      "frequency_short": "D",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-12 07:03:33-05",
+      "popularity": 54,
+      "notes": "Data prior to June 17, 2019 is only available from Monday to Friday (excluding trading holidays).\r\n\r\nAMERIBOR® (American Interbank Offered Rate) is a benchmark interest rate based on overnight unsecured loans transacted on the American Financial Exchange (AFX). AMERIBOR® is calculated as the transaction volume weighted average interest rate of the daily transactions in the AMERIBOR® overnight unsecured loan market on the AFX. More details about AMERIBOR® methodology can be found on the source's website (https://ameribor.net), under the Resources section.\r\n\r\nAMERIBOR® is a registered trademark of the American Financial Exchange (AFX). © Copyright, American Financial Exchange (AFX). All Rights Reserved."
+    }
+  ]
+}

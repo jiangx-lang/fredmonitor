@@ -1,0 +1,22 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "ALLQ05TCNR",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "5) Over the Past Three Months, How Has Your Use of Nonprice Terms (for Example, Haircuts, Maximum Maturity, Covenants, Cure Periods, Cross-Default Provisions, or Other Documentation Features) with Respect to Hedge Funds Across the Entire Spectrum of Securities Financing and Otc Derivatives Transaction Types Changed, Regardless of Price Terms?| Answer Type: Tightened Considerably",
+      "observation_start": "2011-07-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Number of Respondents",
+      "units_short": "Number of Respondents",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-03-27 13:23:43-05",
+      "popularity": 5
+    }
+  ]
+}

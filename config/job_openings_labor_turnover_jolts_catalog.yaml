@@ -1,0 +1,56 @@
+metadata:
+  category_id: 32241
+  created_at: '2025-09-13'
+  description: Job Openings Labor Turnover JOLTS 数据
+  name: Job Openings Labor Turnover JOLTS
+  parent_category: Population_Employment_Labor_Markets
+  total_series: 6
+series:
+- alias: 'Other Separations: Total Private'
+  category_id: 32241
+  frequency: Monthly
+  freshness_days: 7
+  id: JTS1000OSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Job_Openings_Labor_Turnover_JOLTS
+  units: Level in Thousands
+- alias: 'Other Separations: Total Private'
+  category_id: 32241
+  frequency: Monthly
+  freshness_days: 7
+  id: JTS1000OSR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Job_Openings_Labor_Turnover_JOLTS
+  units: Rate
+- alias: 'Other Separations: Government'
+  category_id: 32241
+  frequency: Monthly
+  freshness_days: 7
+  id: JTS9000OSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Job_Openings_Labor_Turnover_JOLTS
+  units: Level in Thousands
+- alias: 'Other Separations: Government'
+  category_id: 32241
+  frequency: Monthly
+  freshness_days: 7
+  id: JTS9000OSR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Job_Openings_Labor_Turnover_JOLTS
+  units: Rate
+- alias: 'Other Separations: Total Nonfarm'
+  category_id: 32241
+  frequency: Monthly
+  freshness_days: 7
+  id: JTSOSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Job_Openings_Labor_Turnover_JOLTS
+  units: Level in Thousands
+- alias: 'Other Separations: Total Nonfarm'
+  category_id: 32241
+  frequency: Monthly
+  freshness_days: 7
+  id: JTSOSR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Job_Openings_Labor_Turnover_JOLTS
+  units: Rate

@@ -1,0 +1,810 @@
+metadata:
+  category_id: 17
+  created_at: '2025-09-13'
+  description: Imports 数据
+  name: Imports
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: 'Advance U.S. International Trade in Goods: Imports: Automotive Vehicles,
+    etc.'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIAN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Automotive Vehicles,
+    etc.'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIAS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Capital Goods'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGICN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Capital Goods'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGICS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Foods, Feeds, & Beverages'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIFN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Foods, Feeds, & Beverages'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIFS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Consumer Goods'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Consumer Goods'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIGS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Industrial Supplies'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Industrial Supplies'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIIS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Other Goods'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGION
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports: Other Goods'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIOS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIXN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Imports'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGIXS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'U.S. Imports of Services: U.S. Government Miscellaneous Services (DISCONTINUED)'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: BOMVGMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: U.S. Imports of Services - Direct Defense Expenditures (DISCONTINUED)
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: BOMVJMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: U.S. Imports of Services - Other Private Services (DISCONTINUED)
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: BOMVOMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Million of Dollars
+- alias: U.S. Imports of Services - Royalties and License Fees (DISCONTINUED)
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: BOMVRMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: U.S. Imports of Services - Other Transportation (DISCONTINUED)
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: BOMVSMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: Balance of Payments Basis'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: BOPGIMP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Imports of Goods, Services, and Income (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Goods, Services, and Income (DISCONTINUED)
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Goods and Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMGS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Goods and Services (DISCONTINUED)
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMGSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Goods and Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMGSN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Merchandise: Adjusted, Excluding Military (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Merchandise: Adjusted, Excluding Military (DISCONTINUED)'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMMA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Merchandise: Adjusted, Excluding Military (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMMN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Goods, Services, and Income (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSV
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Services (DISCONTINUED)
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMSVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of U.S. Government Miscellaneous Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of U.S. Government Miscellaneous Services (DISCONTINUED)
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMSVGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of U.S. Government Miscellaneous Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Direct Defense Expenditures (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVMT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Direct Defense Expenditures (DISCONTINUED)'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMSVMTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Direct Defense Expenditures (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVMTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Other Private Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Other Private Services (DISCONTINUED)
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMSVOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Other Private Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Other Transportation Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVOT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Other Transportation Services (DISCONTINUED)
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMSVOTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Other Transportation Services (DISCONTINUED)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVOTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Passenger Fares (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Passenger Fares (DISCONTINUED)'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMSVPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Passenger Fares (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVPN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Royalties and Licensing Fees (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Royalties and Licensing Fees (DISCONTINUED)'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMSVRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Royalties and Licensing Fees (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVRN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Travel (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Travel (DISCONTINUED)'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: BOPMSVTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: 'Imports of Services: Travel (DISCONTINUED)'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPMSVTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Billions of Dollars
+- alias: Imports of Services, Balance of Payments Basis
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: BOPSIMP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods and Services: Balance of Payments Basis'
+  category_id: 17
+  frequency: Monthly
+  freshness_days: 7
+  id: BOPTIMP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Imports of goods and services and income receipts (debits)
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Imports of goods and services and income receipts (debits)
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Imports of Goods
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Imports of Goods
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Automotive vehicles, parts, and engines'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGAV
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Automotive vehicles, parts, and engines'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGAVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Automotive vehicles, parts, and engines'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGAVN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Capital goods except automotive'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Capital goods except automotive'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Consumer goods except food and automotive'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGCG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Consumer goods except food and automotive'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGCGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Consumer goods except food and automotive'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGCGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Capital goods except automotive'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGCN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Foods, feeds, and beverages'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGF
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Foods, feeds, and beverages'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGFA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Foods, feeds, and beverages'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGFN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: Nonmonetary gold'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: Nonmonetary gold'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: Nonmonetary gold'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Industrial supplies and materials'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Industrial supplies and materials'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Industrial supplies and materials'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General merchandise'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General merchandise'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGMA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General merchandise'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGMN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Imports of Goods
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Other general merchandise'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Other general merchandise'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Imports of Goods: General Merchandise: Other general merchandise'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Imports of goods and services
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Imports of goods and services
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMGSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Imports of goods and services
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMGSN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Primary income payments
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Primary income payments
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Compensation of employees'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMIC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Compensation of employees'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMICA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Compensation of employees'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMICN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Investment income: Direct investment income'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMID
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Investment income: Direct investment income'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMIDA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Investment income: Direct investment income'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMIDN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Investment income'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMII
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Investment income'
+  category_id: 17
+  frequency: Annual
+  freshness_days: 7
+  id: IEAMIIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Investment income'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMIIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: Primary income payments
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars
+- alias: 'Primary income payments: Investment income: Other investment income'
+  category_id: 17
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAMIO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Imports
+  units: Millions of Dollars

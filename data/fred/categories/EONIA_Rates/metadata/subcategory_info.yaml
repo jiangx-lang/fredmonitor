@@ -1,0 +1,7 @@
+# EONIA Rates
+subcategory:
+  name: "EONIA_Rates"
+  description: "EONIA Rates"
+  category_id: 34005
+  parent_category: "Academic_Data"
+  created_at: "C:\Users\admin\上网"

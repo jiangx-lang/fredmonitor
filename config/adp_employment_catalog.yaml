@@ -1,0 +1,754 @@
+metadata:
+  category_id: 32250
+  created_at: '2025-09-13'
+  description: ADP Employment 数据
+  name: ADP Employment
+  parent_category: Major_Category
+  total_series: 93
+series:
+- alias: Nonfarm Private Employment in Small Establishments with 1 to 19 Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES1T19ENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Small Establishments with 1 to 19 Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES1T19ENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Small Establishments with 20 to 49 Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES20T49ENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Small Establishments with 20 to 49 Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES20T49ENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Medium Establishments with 250 to 499 Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES250T499ENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Medium Establishments with 250 to 499 Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES250T499ENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Large Establishments with 500+ Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES500PENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Large Establishments with 500+ Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES500PENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Medium Establishments with 50 to 249 Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES50T249ENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Medium Establishments with 50 to 249 Employees
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMES50T249ENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Construction
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDCONNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Construction
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDCONNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Education and Health Services
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDEDHLTNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Education and Health Services
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDEDHLTNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Financial Activities
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDFINNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Financial Activities
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDFINNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Information
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDINFONERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Information
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDINFONERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Leisure and Hospitality
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDLSHPNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Leisure and Hospitality
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDLSHPNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Manufacturing
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDMANNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Manufacturing
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDMANNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Natural Resources and Mining
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDNRMINNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Natural Resources and Mining
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDNRMINNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Other Services
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDOTHSRVNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Other Services
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDOTHSRVNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Professional and Business Services
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDPROBUSNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Professional and Business Services
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDPROBUSNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Trade, Transportation, and Utilities
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDTTUNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Trade, Transportation, and Utilities
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMINDTTUNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Total Nonfarm Private Payroll Employment
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMNUSNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Total Nonfarm Private Payroll Employment
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: ADPMNUSNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Small Establishments with 1 to 19 Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES1T19ENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Small Establishments with 1 to 19 Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES1T19ENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Small Establishments with 20 to 49 Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES20T49ENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Small Establishments with 20 to 49 Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES20T49ENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Medium Establishments with 250 to 499 Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES250T499ENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Medium Establishments with 250 to 499 Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES250T499ENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Large Establishments with 500+ Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES500PENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Large Establishments with 500+ Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES500PENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Medium Establishments with 50 to 249 Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES50T249ENERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Employment in Medium Establishments with 50 to 249 Employees
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWES50T249ENERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Construction
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDCONNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Construction
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDCONNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Education and Health Services
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDEDHLTNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Education and Health Services
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDEDHLTNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Financial Activities
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDFINNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Financial Activities
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDFINNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Information
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDINFONERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Information
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDINFONERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Leisure and Hospitality
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDLSHPNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Leisure and Hospitality
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDLSHPNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Manufacturing
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDMANNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Manufacturing
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDMANNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Natural Resources and Mining
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDNRMINNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Natural Resources and Mining
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDNRMINNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Other Services
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDOTHSRVNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Other Services
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDOTHSRVNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Professional and Business Services
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDPROBUSNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Professional and Business Services
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDPROBUSNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Trade, Transportation, and Utilities
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDTTUNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Payroll Employment for Trade, Transportation, and Utilities
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWINDTTUNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Total Nonfarm Private Payroll Employment
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWNUSNERNSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Total Nonfarm Private Payroll Employment
+  category_id: 32250
+  frequency: Weekly
+  freshness_days: 7
+  id: ADPWNUSNERSA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Persons
+- alias: Nonfarm Private Professional and Business Payroll Employment (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPBUS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Construction Payroll Employment (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPCON
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Financial Activities Payroll Employment (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPFIN
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Goods - Producing Large Payroll Employment (> 499) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPGPL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Goods - Producing Large Payroll Employment (500 - 999) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPGPL1
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Goods - Producing Large Payroll Employment (1000+) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPGPL2
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Goods - Producing Medium Payroll Employment (50 - 499) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPGPM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Goods - Producing Small Payroll Employment (1 - 49) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPGPS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Goods - Producing Small Payroll Employment (1 - 19) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPGPS1
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Goods - Producing Small Payroll Employment (20 - 49) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPGPS2
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Goods - Producing Payroll Employment (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPGPT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Manufacturing Payroll Employment (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPMNF
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Service - Providing Large Payroll Employment (> 499) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPSPL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Service - Providing Large Payroll Employment (500 - 999)
+    (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPSPL1
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Service - Providing Large Payroll Employment (1000+) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPSPL2
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Service - Providing Medium Payroll Employment (50 - 499)
+    (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPSPM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Service - Providing Small Payroll Employment (1 - 49) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPSPS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Service - Providing Small Payroll Employment (1 - 19) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPSPS1
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Service - Providing Small Payroll Employment (20 - 49) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPSPS2
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Service - Providing Payroll Employment (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPSPT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Large Payroll Employment (> 499) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPTL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Large Payroll Employment (500 - 999) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPTL1
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Large Payroll Employment (1000+) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPTL2
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Medium Payroll Employment (50 - 499) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPTM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Small Payroll Employment (1 - 49) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPTS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Small Payroll Employment (1 - 19) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPTS1
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Small Payroll Employment (20 - 49) (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPTS2
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Total Nonfarm Private Payroll Employment (DISCONTINUED)
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPTTL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands
+- alias: Nonfarm Private Trade, Transportation, and Utilities Payroll Employment (DISCONTINUED)"
+  category_id: 32250
+  frequency: Monthly
+  freshness_days: 7
+  id: NPPTTU
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: ADP_Employment
+  units: Thousands

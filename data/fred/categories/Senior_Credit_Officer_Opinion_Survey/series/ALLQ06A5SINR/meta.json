@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "ALLQ06A5SINR",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A. Possible Reasons for Tightening | 5. Diminished Availability of Balance Sheet or Capital at Your Institution. | Answer Type: Somewhat Important (DISCONTINUED)",
+      "observation_start": "2011-07-01",
+      "observation_end": "2011-10-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Number of Respondents",
+      "units_short": "Number of Respondents",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2023-02-22 14:58:21-06",
+      "popularity": 1,
+      "notes": "The source has discontinued this series, and as such, will no longer be updated in FRED. \n\n DISCLAIMER: This series should not be viewed in isolation. For full context, please view the release table for this survey question. (http://www.federalreserve.gov/data/scoos.htm) \n\n For further informatio, please refer to the Board of Governors of the Federal Reserve System's Senior Credit Officer Opinion Survey on Bank Lending Practices release, online at the Board of Governors website.  (http://www.federalreserve.gov/data/scoos.htm)\""
+    }
+  ]
+}

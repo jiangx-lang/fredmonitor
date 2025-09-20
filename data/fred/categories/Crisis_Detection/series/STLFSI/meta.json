@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-12",
+  "realtime_end": "2025-09-12",
+  "seriess": [
+    {
+      "id": "STLFSI",
+      "realtime_start": "2025-09-12",
+      "realtime_end": "2025-09-12",
+      "title": "St. Louis Fed Financial Stress Index (DISCONTINUED)",
+      "observation_start": "1993-12-31",
+      "observation_end": "2020-03-13",
+      "frequency": "Weekly, Ending Friday",
+      "frequency_short": "W",
+      "units": "Index",
+      "units_short": "Index",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2020-03-19 09:00:02-05",
+      "popularity": 30,
+      "notes": "The methodology for the St. Louis Fed's Financial Stress Index was revised and this series is discontinued. The new version, STLFSI3, can be found here (https://fred.stlouisfed.org/series/STLFSI3).\n\nThe STLFSI measures the degree of financial stress in the markets and is constructed from 18 weekly data series: seven interest rate series, six yield spreads and five other indicators. Each of these variables captures some aspect of financial stress. Accordingly, as the level of financial stress in the economy changes, the data series are likely to move together.\n\nHow to Interpret the Index:\nThe average value of the index, which begins in late 1993, is designed to be zero. Thus, zero is viewed as representing normal financial market conditions. Values below zero suggest below-average financial market stress, while values above zero suggest above-average financial market stress.\n\nMore information:\nFor additional information on the STLFSI and its construction, see \"Measuring Financial Market Stress\" (https://files.stlouisfed.org/research/publications/es/10/ES1002.pdf) and the related appendix (https://files.stlouisfed.org/files/htdocs/publications/net/NETJan2010Appendix.pdf).\n\nSee this list (https://www.stlouisfed.org/news-releases/st-louis-fed-financial-stress-index/stlfsi-key) of the components that are used to construct the STLFSI.\n\nAs of 07/15/2010 the Vanguard Financial Exchange-Traded Fund series has been replaced with the S&P 500 Financials Index. This change was made to facilitate a more timely and automated updating of the FSI. Switching from the Vanguard series to the S&P series produced no meaningful change in the index.\n\nCopyright, 2016, Federal Reserve Bank of St. Louis."
+    }
+  ]
+}

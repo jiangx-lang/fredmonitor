@@ -1,0 +1,16 @@
+category_id: 28
+category_name: Federal_Government_Debt
+series_count: 10
+series_list:
+- MSIALLP
+- IMFSL
+- MSIM3P
+- MSIALLA
+- WIMFSL
+- WIMFNS
+- M3
+- EURONS
+- WM3NS
+- H0MEUWM
+description: 'FRED Category 28: Federal_Government_Debt'
+created_at: 1757737218.1293538

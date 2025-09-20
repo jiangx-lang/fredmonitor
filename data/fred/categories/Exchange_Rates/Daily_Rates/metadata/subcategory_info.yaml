@@ -1,0 +1,7 @@
+# Daily Rates
+subcategory:
+  name: "Daily_Rates"
+  description: "Daily Rates"
+  keywords: ['DEX', 'DAILY']
+  parent_category: "Exchange_Rates"
+  created_at: "C:\Users\admin\上网"

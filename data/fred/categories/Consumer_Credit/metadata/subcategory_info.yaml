@@ -1,0 +1,7 @@
+# Consumer Credit
+subcategory:
+  name: "Consumer_Credit"
+  description: "Consumer Credit"
+  category_id: 101
+  parent_category: "US_Regional_Data"
+  created_at: "C:\Users\admin\上网"

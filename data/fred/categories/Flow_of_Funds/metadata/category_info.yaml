@@ -1,0 +1,10 @@
+category_id: 30
+category_name: Flow_of_Funds
+series_count: 4
+series_list:
+- MSIMZMP
+- MZMSL
+- MZMNS
+- MZM
+description: 'FRED Category 30: Flow_of_Funds'
+created_at: 1757737218.1293538

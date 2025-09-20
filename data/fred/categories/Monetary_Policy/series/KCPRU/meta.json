@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "KCPRU",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Kansas City Fed's Measure of Policy Rate Uncertainty (KCPRU)",
+      "observation_start": "1989-04-03",
+      "observation_end": "2025-09-11",
+      "frequency": "Daily",
+      "frequency_short": "D",
+      "units": "Percentage Points",
+      "units_short": "Percentage Points",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-12 09:48:31-05",
+      "popularity": 37,
+      "notes": "The Kansas City Fed's Measure of Policy Rate Uncertainty is a daily measure of market-based uncertainty regarding where short-term U.S. interest rates will be one year in the future. Prior to 2023, the KC PRU was calculated using options on Eurodollar futures, which settled based on the unsecured London Interbank Offered Rate (LIBOR). From 2023 onward, it is calculated using options on Secured Overnight Financing Rate (SOFR) futures. For questions on the data or methodology, please contact the data source (https://www.kansascityfed.org/data-and-trends/kansas-city-fed-policy-rate-uncertainty/)."
+    }
+  ]
+}

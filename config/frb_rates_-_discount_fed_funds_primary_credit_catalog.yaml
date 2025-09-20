@@ -1,0 +1,609 @@
+metadata:
+  category_id: 118
+  created_at: '2025-09-13'
+  description: FRB Rates - discount fed funds primary credit 数据
+  name: FRB Rates - discount fed funds primary credit
+  parent_category: Major_Category
+  total_series: 73
+series:
+- alias: Rate for Credit Under the Century Date Change Special Liquidity Facility
+    (DISCONTINUED)
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: CDC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Rate (DISCONTINUED)
+  category_id: 118
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: DDISCRT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Federal Funds Target Rate (DISCONTINUED)
+  category_id: 118
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: DFEDTAR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Federal Funds Target Range - Lower Limit
+  category_id: 118
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: DFEDTARL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Federal Funds Target Range - Upper Limit
+  category_id: 118
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: DFEDTARU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Federal Funds Effective Rate
+  category_id: 118
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: DFF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Federal Reserve Bank of St. Louis Basic Discount Rate (DISCONTINUED)
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: DISCNTD8
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Discount Rate Changes: Historical Dates of Changes and Rates (DISCONTINUED)'
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: DISCOUNT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Window Primary Credit Rate
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: DPCREDIT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Effective Federal Funds Rate
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: EFFR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Effective Federal Funds Rate: 1st Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: EFFR1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Effective Federal Funds Rate: 25th Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: EFFR25
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Effective Federal Funds Rate: 75th Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: EFFR75
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Effective Federal Funds Rate: 99th Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: EFFR99
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Effective Federal Funds Rate: Intraday High (DISCONTINUED)'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: EFFRH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Effective Federal Funds Rate: Intraday Low (DISCONTINUED)'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: EFFRL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Effective Federal Funds Rate: Standard Deviation (DISCONTINUED)'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: EFFRSD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Effective Federal Funds Volume
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: EFFRVOL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Billions of U.S. Dollars
+- alias: Federal Funds Effective Rate
+  category_id: 118
+  frequency: Monthly
+  freshness_days: 7
+  id: FEDFUNDS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: FOMC Summary of Economic Projections for the Fed Funds Rate, Central Tendency,
+    High
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: FEDTARCTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Longer Run FOMC Summary of Economic Projections for the Fed Funds Rate, Central
+    Tendency, High
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: FEDTARCTHLR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: FOMC Summary of Economic Projections for the Fed Funds Rate, Central Tendency,
+    Low
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: FEDTARCTL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Longer Run FOMC Summary of Economic Projections for the Fed Funds Rate, Central
+    Tendency, Low
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: FEDTARCTLLR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: FOMC Summary of Economic Projections for the Fed Funds Rate, Central Tendency,
+    Midpoint
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: FEDTARCTM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Longer Run FOMC Summary of Economic Projections for the Fed Funds Rate, Central
+    Tendency, Midpoint
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: FEDTARCTMLR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: FOMC Summary of Economic Projections for the Fed Funds Rate, Median
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: FEDTARMD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Longer Run FOMC Summary of Economic Projections for the Fed Funds Rate, Median
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: FEDTARMDLR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: FOMC Summary of Economic Projections for the Fed Funds Rate, Range, High
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: FEDTARRH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Longer Run FOMC Summary of Economic Projections for the Fed Funds Rate, Range,
+    High
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: FEDTARRHLR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: FOMC Summary of Economic Projections for the Fed Funds Rate, Range, Low
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: FEDTARRL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Longer Run FOMC Summary of Economic Projections for the Fed Funds Rate, Range,
+    Low
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: FEDTARRLLR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: FOMC Summary of Economic Projections for the Fed Funds Rate, Range, Midpoint
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: FEDTARRM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Longer Run FOMC Summary of Economic Projections for the Fed Funds Rate, Range,
+    Midpoint
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: FEDTARRMLR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Federal Funds Effective Rate
+  category_id: 118
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: FF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Flexible Rate on Seasonal Credit in Federal Reserve District 8: St. Louis'
+  category_id: 118
+  frequency: Biweekly, Beg. of Period
+  freshness_days: 7
+  id: FLEXSC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Rate (DISCONTINUED)
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFSRDF02NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Rate (DISCONTINUED)
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: H0RIFSRDF02NB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Rate (DISCONTINUED)
+  category_id: 118
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: H0RIFSRDF02NWW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Interest Rate Paid on Excess Reserve Balances (Institutions with 1-Week Maintenance
+    Period) (DISCONTINUED)
+  category_id: 118
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: INTEXC1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Interest Rate Paid on Excess Reserve Balances (Institutions with 2-Week Maintenance
+    Period) (DISCONTINUED)
+  category_id: 118
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: INTEXC2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Interest Rate Paid on Required Reserve Balances (Institutions with 1-Week
+    Maintenance Period) (DISCONTINUED)
+  category_id: 118
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: INTREQ1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Interest Rate Paid on Required Reserve Balances (Institutions with 2-Week
+    Maintenance Period) (DISCONTINUED)
+  category_id: 118
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: INTREQ2
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Interest Rate Paid on Balances Maintained That Exceed the Top of the Penalty-Free
+    Band (DISCONTINUED)
+  category_id: 118
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: INTRESEXCW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Interest Rate Paid on Balances Maintained to Satisfy Reserve Balance Requirements
+    (DISCONTINUED)
+  category_id: 118
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: INTRESREQW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Interest Rate on Excess Reserves (IOER Rate) (DISCONTINUED)
+  category_id: 118
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IOER
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Interest Rate on Reserve Balances (IORB Rate)
+  category_id: 118
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IORB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Interest Rate on Required Reserves (IORR Rate) (DISCONTINUED)
+  category_id: 118
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: IORR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Rate (DISCONTINUED)
+  category_id: 118
+  frequency: Monthly
+  freshness_days: 7
+  id: MDISCRT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Window Primary Credit Rate
+  category_id: 118
+  frequency: Monthly
+  freshness_days: 7
+  id: MPCREDIT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Overnight Bank Funding Rate
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: OBFR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Overnight Bank Funding Rate: 1st Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: OBFR1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Overnight Bank Funding Rate: 25th Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: OBFR25
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Overnight Bank Funding Rate: 75th Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: OBFR75
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Overnight Bank Funding Rate: 99th Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: OBFR99
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Overnight Bank Funding Volume
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: OBFRVOL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Billions of U.S. Dollars
+- alias: 'Primary Credit Rate - Historical Dates of Changes and Rates for Federal
+    Reserve District 8: St. Louis'
+  category_id: 118
+  frequency: Not Applicable
+  freshness_days: 7
+  id: PCREDIT8
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Federal Funds Effective Rate
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSPFFNA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Federal Funds Effective Rate
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: RIFSPFFNB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Federal Funds Effective Rate
+  category_id: 118
+  frequency: Biweekly, Ending Wednesday
+  freshness_days: 7
+  id: RIFSPFFNBWAW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Window Primary Credit Rate
+  category_id: 118
+  frequency: Annual
+  freshness_days: 7
+  id: RIFSRPF02NA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Window Primary Credit Rate
+  category_id: 118
+  frequency: Daily, 7-Day
+  freshness_days: 7
+  id: RIFSRPF02ND
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Secured Overnight Financing Rate
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Secured Overnight Financing Rate: 1st Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFR1
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 180-Day Average SOFR
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFR180DAYAVG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Secured Overnight Financing Rate: 25th Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFR25
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 30-Day Average SOFR
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFR30DAYAVG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Secured Overnight Financing Rate: 75th Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFR75
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 90-Day Average SOFR
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFR90DAYAVG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: 'Secured Overnight Financing Rate: 99th Percentile'
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFR99
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: SOFR Index
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFRINDEX
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Index Apr 2, 2018 = 1
+- alias: Secured Overnight Financing Volume
+  category_id: 118
+  frequency: Daily
+  freshness_days: 7
+  id: SOFRVOL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Billions of U.S. Dollars
+- alias: Discount Rate (DISCONTINUED)
+  category_id: 118
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: WDISCRT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent
+- alias: Discount Window Primary Credit Rate
+  category_id: 118
+  frequency: Weekly, Ending Wednesday
+  freshness_days: 7
+  id: WPCREDIT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: FRB_Rates_-_discount_fed_funds_primary_credit
+  units: Percent

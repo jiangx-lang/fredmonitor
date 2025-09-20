@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "AEXBZUS",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Brazilian Reals to U.S. Dollar Spot Exchange Rate",
+      "observation_start": "1995-01-01",
+      "observation_end": "2024-01-01",
+      "frequency": "Annual",
+      "frequency_short": "A",
+      "units": "Brazilian Reals to One U.S. Dollar",
+      "units_short": "Brazilian Reals to  1 U.S. $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-01-03 13:42:38-06",
+      "popularity": 28,
+      "notes": "Averages of daily figures. Noon buying rates in New York City for cable transfers payable in foreign currencies."
+    }
+  ]
+}

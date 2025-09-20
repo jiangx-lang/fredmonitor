@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "SUBLPDCIREESNQ",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Number of Domestic Banks That Eased and Reported That Reduced Concerns About the Effects of Legislative Changes, Supervisory Actions, or Changes in Accounting Standards Was a Somewhat Important Reason",
+      "observation_start": "2010-10-01",
+      "observation_end": "2025-07-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Number of Respondents",
+      "units_short": "Number of Respondents",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-08-04 13:02:06-05",
+      "popularity": 1,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/data/SLOOS%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

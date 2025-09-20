@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "CURRVALALL",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Value of Currency in Circulation: Total",
+      "observation_start": "1993-01-01",
+      "observation_end": "2024-01-01",
+      "frequency": "Annual, End of Period",
+      "frequency_short": "A",
+      "units": "Billions of Dollars",
+      "units_short": "Bil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-05-05 08:48:02-05",
+      "popularity": 18,
+      "notes": "Includes Federal Reserve notes, U.S. notes, and currency no longer issued."
+    }
+  ]
+}

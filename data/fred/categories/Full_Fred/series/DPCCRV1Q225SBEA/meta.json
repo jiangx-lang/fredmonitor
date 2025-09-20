@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "DPCCRV1Q225SBEA",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Personal Consumption Expenditures (PCE) Excluding Food and Energy (Chain-Type Price Index)",
+      "observation_start": "1959-04-01",
+      "observation_end": "2025-04-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Percent Change from Preceding Period",
+      "units_short": "% Chg. from Preceding Period",
+      "seasonal_adjustment": "Seasonally Adjusted Annual Rate",
+      "seasonal_adjustment_short": "SAAR",
+      "last_updated": "2025-07-30 07:55:22-05",
+      "popularity": 73,
+      "notes": "BEA Account Code: DPCCRV\n\nFor more information about this series, please see http://www.bea.gov/national/."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+metadata:
+  category_id: 33056
+  created_at: '2025-09-13'
+  description: Interest Checking Accounts 数据
+  name: Interest Checking Accounts
+  parent_category: Major_Category
+  total_series: 2
+series:
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): Interest Checking
+    (DISCONTINUED)'
+  category_id: 33056
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: ICNRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Checking_Accounts
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): Interest Checking (DISCONTINUED)'
+  category_id: 33056
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: ICRCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Interest_Checking_Accounts
+  units: Percent

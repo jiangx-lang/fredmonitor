@@ -1,0 +1,967 @@
+series:
+- id: BOPTEXP
+  alias: Exports_of_Goods_and_Services_Balance_of_Payments_
+  freshness_days: 60
+  category_id: 16
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPCH
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Mainland_Ch
+  freshness_days: 60
+  category_id: 16
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPJP
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Japan
+  freshness_days: 60
+  category_id: 16
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPGEXP
+  alias: Exports_of_Goods_Balance_of_Payments_Basis
+  freshness_days: 60
+  category_id: 16
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPCH
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_China
+  freshness_days: 60
+  category_id: 17
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPTIMP
+  alias: Imports_of_Goods_and_Services_Balance_of_Payments_
+  freshness_days: 60
+  category_id: 17
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPTOTUS
+  alias: Imports_of_Goods_for_United_States
+  freshness_days: 60
+  category_id: 17
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPMX
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_Mexico
+  freshness_days: 60
+  category_id: 17
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPGIMP
+  alias: Imports_of_Goods_Balance_of_Payments_Basis
+  freshness_days: 60
+  category_id: 17
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPCA
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_Canada
+  freshness_days: 60
+  category_id: 17
+  priority_score: 80.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: NROU
+  alias: Noncyclical_Rate_of_Unemployment
+  freshness_days: 120
+  category_id: 10
+  priority_score: 76.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: NROUST
+  alias: Natural_Rate_of_Unemployment_Short_Term_DISCONTINU
+  freshness_days: 120
+  category_id: 10
+  priority_score: 76.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPJP
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_Japan
+  freshness_days: 60
+  category_id: 17
+  priority_score: 76.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXGS
+  alias: Exports_of_goods_and_services
+  freshness_days: 120
+  category_id: 16
+  priority_score: 75.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGSN
+  alias: Imports_of_goods_and_services
+  freshness_days: 120
+  category_id: 17
+  priority_score: 75.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGS
+  alias: Imports_of_goods_and_services
+  freshness_days: 120
+  category_id: 17
+  priority_score: 73.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPMANUS
+  alias: Exports_of_Goods_Manufactured_Commodities_for_Unit
+  freshness_days: 60
+  category_id: 16
+  priority_score: 72.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPMX
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Mexico
+  freshness_days: 60
+  category_id: 16
+  priority_score: 66.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPMANUS
+  alias: Imports_of_Goods_Manufactured_Commodities_for_Unit
+  freshness_days: 60
+  category_id: 17
+  priority_score: 66.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPCA
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Canada
+  freshness_days: 60
+  category_id: 16
+  priority_score: 64.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMG
+  alias: Imports_of_Goods
+  freshness_days: 120
+  category_id: 17
+  priority_score: 63.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPSEXP
+  alias: Exports_of_Services_Balance_of_Payments_Basis
+  freshness_days: 60
+  category_id: 16
+  priority_score: 58.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPTOTUS
+  alias: Exports_of_Goods_for_United_States
+  freshness_days: 60
+  category_id: 16
+  priority_score: 56.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPGE
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_Germany
+  freshness_days: 60
+  category_id: 17
+  priority_score: 56.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPKR
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_South_K
+  freshness_days: 60
+  category_id: 17
+  priority_score: 54.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPTOTPR
+  alias: Imports_of_Goods_for_Puerto_Rico
+  freshness_days: 60
+  category_id: 17
+  priority_score: 54.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITXTAEM133S
+  alias: U_S_Exports_of_Services_Travel_for_All_Purposes_In
+  freshness_days: 60
+  category_id: 16
+  priority_score: 52.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGGN
+  alias: Imports_of_Goods_Nonmonetary_gold
+  freshness_days: 120
+  category_id: 17
+  priority_score: 52.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPSIMP
+  alias: Imports_of_Services_Balance_of_Payments_Basis
+  freshness_days: 60
+  category_id: 17
+  priority_score: 52.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITMTCIM133S
+  alias: U_S_Imports_of_Services_Telecommunications_Compute
+  freshness_days: 60
+  category_id: 17
+  priority_score: 52.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPGE
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_Germany
+  freshness_days: 60
+  category_id: 16
+  priority_score: 50.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITXFISM133S
+  alias: U_S_Exports_of_Services_Financial_Services
+  freshness_days: 60
+  category_id: 16
+  priority_score: 49.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGG
+  alias: Imports_of_Goods_Nonmonetary_gold
+  freshness_days: 120
+  category_id: 17
+  priority_score: 46.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPKR
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_South_Korea
+  freshness_days: 60
+  category_id: 16
+  priority_score: 44.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXG
+  alias: Exports_of_Goods
+  freshness_days: 120
+  category_id: 16
+  priority_score: 43.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPTOTPR
+  alias: Exports_of_Goods_for_Puerto_Rico
+  freshness_days: 60
+  category_id: 16
+  priority_score: 42.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPUK
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_the_United_
+  freshness_days: 60
+  category_id: 16
+  priority_score: 40.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPUK
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_the_Uni
+  freshness_days: 60
+  category_id: 17
+  priority_score: 40.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITMTAEM133S
+  alias: U_S_Imports_of_Services_Travel_for_All_Purposes_In
+  freshness_days: 60
+  category_id: 17
+  priority_score: 40.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAX
+  alias: Exports_of_goods_and_services_and_income_receipts_
+  freshness_days: 120
+  category_id: 16
+  priority_score: 39.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXSTC
+  alias: Exports_of_Services_Telecommunications_computer_an
+  freshness_days: 120
+  category_id: 16
+  priority_score: 39.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXGG
+  alias: Exports_of_Goods_Nonmonetary_gold
+  freshness_days: 120
+  category_id: 16
+  priority_score: 38.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPFR
+  alias: U_S_Exports_of_Goods_by_F_A_S_Basis_to_France
+  freshness_days: 60
+  category_id: 16
+  priority_score: 38.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITXTCIM133S
+  alias: U_S_Exports_of_Services_Telecommunications_Compute
+  freshness_days: 60
+  category_id: 16
+  priority_score: 38.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IMPFR
+  alias: U_S_Imports_of_Goods_by_Customs_Basis_from_France
+  freshness_days: 60
+  category_id: 17
+  priority_score: 38.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXGSN
+  alias: Exports_of_goods_and_services
+  freshness_days: 120
+  category_id: 16
+  priority_score: 37.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITXINSM133S
+  alias: U_S_Exports_of_Services_Insurance_Services
+  freshness_days: 60
+  category_id: 16
+  priority_score: 36.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: ITXOBSM133S
+  alias: U_S_Exports_of_Services_Other_Business_Services
+  freshness_days: 60
+  category_id: 16
+  priority_score: 36.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: EXPMANPR
+  alias: Exports_of_Goods_Manufactured_Commodities_for_Puer
+  freshness_days: 60
+  category_id: 16
+  priority_score: 36.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 12
+      scale: 100
+    mom:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMI
+  alias: Primary_income_payments
+  freshness_days: 120
+  category_id: 17
+  priority_score: 35.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMII
+  alias: Primary_income_payments_Investment_income
+  freshness_days: 120
+  category_id: 17
+  priority_score: 33.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMSIR
+  alias: Secondary_income_current_transfer_payments
+  freshness_days: 120
+  category_id: 17
+  priority_score: 33.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGI
+  alias: Imports_of_Goods_General_Merchandise_Industrial_su
+  freshness_days: 120
+  category_id: 17
+  priority_score: 33.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXS
+  alias: Exports_of_Services
+  freshness_days: 120
+  category_id: 16
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXSTV
+  alias: Exports_of_Services_Travel_for_all_purposes_includ
+  freshness_days: 120
+  category_id: 16
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXGNX
+  alias: Exports_of_Goods_Net_exports_of_goods_under_mercha
+  freshness_days: 120
+  category_id: 16
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: BOPXGS
+  alias: Exports_of_Goods_and_Services_DISCONTINUED
+  freshness_days: 120
+  category_id: 16
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXGAV
+  alias: Exports_of_Goods_General_Merchandise_Automotive_ve
+  freshness_days: 120
+  category_id: 16
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAXSI
+  alias: Exports_of_Services_Insurance_services
+  freshness_days: 120
+  category_id: 16
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGAV
+  alias: Imports_of_Goods_General_Merchandise_Automotive_ve
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMID
+  alias: Primary_income_payments_Investment_income_Direct_i
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMSIP
+  alias: Imports_of_Services_Charges_for_the_use_of_intelle
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGN
+  alias: Imports_of_Goods
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGF
+  alias: Imports_of_Goods_General_Merchandise_Foods_feeds_a
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGIN
+  alias: Imports_of_Goods_General_Merchandise_Industrial_su
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMS
+  alias: Imports_of_Services
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAM
+  alias: Imports_of_goods_and_services_and_income_receipts_
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMGO
+  alias: Imports_of_Goods_General_Merchandise_Other_general
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100
+- id: IEAMSTC
+  alias: Imports_of_Services_Telecommunications_computer_an
+  freshness_days: 120
+  category_id: 17
+  priority_score: 31.0
+  calc:
+    yoy:
+      op: pct_change
+      shift: 4
+      scale: 100
+    qoq:
+      op: pct_change
+      shift: 1
+      scale: 100

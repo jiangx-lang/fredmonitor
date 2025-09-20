@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "DTCNLNHDXDFBANM",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Nonrevolving Consumer Credit Securitized by Depository Institutions, Flow",
+      "observation_start": "1989-02-01",
+      "observation_end": "2025-07-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Millions of U.S. Dollars, Monthly Rate",
+      "units_short": "Mil. of U.S. $, Monthly Rate",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-11 16:42:39-05",
+      "popularity": 1,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/g19/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

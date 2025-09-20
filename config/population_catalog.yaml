@@ -1,0 +1,475 @@
+metadata:
+  category_id: 104
+  created_at: '2025-09-13'
+  description: Population 数据
+  name: Population
+  parent_category: Major_Category
+  total_series: 58
+series:
+- alias: Population
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: B230RC0A052NBEA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Population
+  category_id: 104
+  frequency: Quarterly
+  freshness_days: 7
+  id: B230RC0Q173SBEA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Population Level
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: CNP16OV
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Family Households with Married Couples
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: FHHWMC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Total Families with Children under 18 Years Old with Married Couple
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: FMLWCUMC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Population Level - Men
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000001
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Women
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000002
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - White
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000003
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Black or African American
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000006
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Hispanic or Latino
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000009
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - 16-19 Yrs.
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000012
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - 20 Yrs. & over, Men
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000025
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - 20 Yrs. & over, Women
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000026
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - 20-24 Yrs.
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000036
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - 25-54 Yrs.
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00000060
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - 55 Yrs. & over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00024230
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Asian
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00032183
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Total Veterans, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00049526
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Men, Total Veterans, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00049527
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Women, Total Veterans, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00049528
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Veterans, Other Service Periods, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00049586
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Men, Veterans, Other Service Periods, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00049587
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Women, Veterans, Other Service Periods, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00049588
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Nonveterans, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00049601
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Men, Nonveterans, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00049602
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Women, Nonveterans, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00049603
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Veterans, Gulf War Era II, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00066408
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Men, Veterans, Gulf War Era II, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00066413
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Women, Veterans, Gulf War Era II, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00066414
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Veterans, Gulf War Era I, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00066415
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Men, Veterans, Gulf War Era I, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00066420
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Women, Veterans, Gulf War Era I, 18 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00066421
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Foreign Born
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00073395
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Foreign Born, Men
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00073396
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Foreign Born, Women
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00073397
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Native Born
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00073413
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Native Born, Men
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00073414
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Native Born, Women
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00073415
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Veterans, Vietnam-Era and Earlier Wartime Periods, 18
+    Years and over, Men
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00073765
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Veterans, Vietnam-Era and Earlier Wartime Periods, 18
+    Years and over, Women
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00073766
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population - With No Disability, 16 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00074593
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population - With a Disability, 16 Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00074597
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Population Level - Veterans, Vietnam-Era and Earlier Wartime Periods, 18
+    Years and over
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: LNU00077884
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands of Persons
+- alias: Nonfamily Households with Female Householder
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: NFHHFH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Nonfamily Households with Male Householder
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: NFHHMH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Family Households with Female Householder
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: OFHHFH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Family Households with Male Householder
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: OFHHMH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Total One Parent Families with Children under 18 Years Old with Father
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: OPFWCUFO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Total One Parent Families with Children under 18 Years Old with Mother
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: OPFWCUMO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: 'Total Population: All Ages including Armed Forces Overseas'
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: POP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: National Population
+  category_id: 104
+  frequency: Annual, As of July 1
+  freshness_days: 7
+  id: POPH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Persons
+- alias: Population
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: POPTHM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Total Family Households
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: TTLFHH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Total Families with Children under 18 Years Old
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: TTLFMCU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Total Households
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: TTLHH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Household Estimates
+  category_id: 104
+  frequency: Monthly
+  freshness_days: 7
+  id: TTLHHM156N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Total Nonfamily Households
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: TTLNHH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands
+- alias: Total One Parent Families with Children under 18 Years Old
+  category_id: 104
+  frequency: Annual
+  freshness_days: 7
+  id: TTLOPFWCU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Population
+  units: Thousands

@@ -1,0 +1,823 @@
+metadata:
+  category_id: 82
+  created_at: '2025-09-13'
+  description: Treasury Inflation-Indexed Securities 数据
+  name: Treasury Inflation-Indexed Securities
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DFII10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DFII20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DFII30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DFII5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DFII7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Treasury Long-Term Average (25 Years and Above) (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DLTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Treasury Long-Term Average (Over 10 Years), Inflation-Indexed
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DLTIIT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 3-3/8% Treasury Inflation-Indexed Note, Due 1/15/2007 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J07
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 3-5/8% Treasury Inflation-Indexed Note, Due 1/15/2008 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J08
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 3-7/8% Treasury Inflation-Indexed Note, Due 1/15/2009 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J09
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 4-1/4% Treasury Inflation-Indexed Note, Due 1/15/2010 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 3-1/2% Treasury Inflation-Indexed Note, Due 1/15/2011 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J11
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 3-3/8% Treasury Inflation-Indexed Note, Due 1/15/2012 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J12
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 2% Treasury Inflation-Indexed Note, Due 1/15/2014 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J14
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 1-5/8% Treasury Inflation-Indexed Note, Due 1/15/2015 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J15
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 2% Treasury Inflation-Indexed Note, Due 1/15/2016 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J16
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 2-3/8% Treasury Inflation-Indexed Note, Due 1/15/2017 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J17
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 1-5/8% Treasury Inflation-Indexed Note, Due 1/15/2018 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J18
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 2-1/8% Treasury Inflation-Indexed Note, Due 1/15/2019 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J19
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 1-3/8% Treasury Inflation-Indexed Note, Due 1/15/2020 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 1-1/8% Treasury Inflation-Indexed Note, Due 1/15/2021 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J21
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0-1/8% Treasury Inflation-Indexed Note, Due 1/15/2022 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J22
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0-1/8% Treasury Inflation-Indexed Note, Due 1/15/2023 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J23
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0-5/8% Treasury Inflation-Indexed Note, Due 1/15/2024 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J24
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0-1/4% Treasury Inflation-Indexed Note, Due 1/15/2025 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J25
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0.625% Treasury Inflation-Indexed Note, Due 1/15/2026
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J26
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0.375 Treasury Inflation-Indexed Note, Due 1/15/2027
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J27
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0.5% Treasury Inflation-Indexed Note, Due 1/15/2028
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J28
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0.875% Treasury Inflation-Indexed Note, Due 1/15/2029
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J29
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0.125% Treasury Inflation-Indexed Bond, Due 01/15/2030
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10J30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 3% Treasury Inflation-Indexed Note, Due 7/15/2012 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L12
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 1-7/8% Treasury Inflation-Indexed Note, Due 7/15/2013 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L13
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 2% Treasury Inflation-Indexed Note, Due 7/15/2014 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L14
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 1-7/8% Treasury Inflation-Indexed Note, Due 7/15/2015 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L15
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 2-1/2% Treasury Inflation-Indexed Note, Due 7/15/2016 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L16
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 2-5/8% Treasury Inflation-Indexed Note, Due 7/15/2017 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L17
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 1-3/8% Treasury Inflation-Indexed Note, Due 7/15/2018 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L18
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 1-7/8% Treasury Inflation-Indexed Note, Due 7/15/2019 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L19
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 1-1/4% Treasury Inflation-Indexed Note, Due 7/15/2020 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0-5/8% Treasury Inflation-Indexed Note, Due 7/15/2021 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L21
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0-1/8% Treasury Inflation-Indexed Note, Due 7/15/2022 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L22
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0-3/8% Treasury Inflation-Indexed Note, Due 7/15/2023 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L23
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0-1/8% Treasury Inflation-Indexed Note, Due 7/15/2024 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L24
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0.375% Treasury Inflation-Indexed Note, Due 07/15/2025 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L25
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0-1/8% Treasury Inflation-Indexed Note, Due 7/15/2026
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L26
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0.375% Treasury Inflation-Indexed Note, Due 7/15/2027
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L27
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0.75% Treasury Inflation-Indexed Note, Due 7/15/2028
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L28
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 0.25% Treasury Inflation-Indexed Note, Due 7/15/2029
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP10L29
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 20-Year 2-3/8% Treasury Inflation-Indexed Bond, Due 1/15/2025 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP20J25
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 20-Year 2% Treasury Inflation-Indexed Bond, Due 1/15/2026
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP20J26
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 20-Year 2-3/8% Treasury Inflation-Indexed Bond, Due 1/15/2027
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP20J27
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 20-Year 1-3/4% Treasury Inflation-Indexed Bond, Due 1/15/2028
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP20J28
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 20-Year 2-1/2% Treasury Inflation-Indexed Bond, Due 1/15/2029
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP20J29
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 3-5/8% Treasury Inflation-Indexed Bond, Due 4/15/2028
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30A28
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 3-7/8% Treasury Inflation-Indexed Bond, Due 4/15/2029
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30A29
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 2-1/8% Treasury Inflation-Indexed Bond, Due 2/15/2040
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F40
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 2-1/8% Treasury Inflation-Indexed Bond, Due 2/15/2041
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F41
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 0-3/4% Treasury Inflation-Indexed Bond, Due 2/15/2042
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F42
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 0-5/8% Treasury Inflation-Indexed Bond, Due 2/15/2043
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F43
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 1-3/8% Treasury Inflation-Indexed Note, Due 2/15/2044
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F44
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 0-3/4% Treasury Inflation-Indexed Bond, Due 2/15/2045
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F45
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 1.0% Treasury Inflation-Indexed Bond, Due 2/15/2046
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F46
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 0.875% Treasury Inflation-Indexed Bond, Due 2/15/2047
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F47
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 1.0% Treasury Inflation-Indexed Bond, Due 2/15/2048
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F48
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 1.0% Treasury Inflation-Indexed Bond, Due 2/15/2049
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F49
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-Year 0.250% Treasury Inflation-Indexed Bond, Due 02/15/2050
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP30F50
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 30-1/2-Year 3-3/8% Treasury Inflation-Indexed Bond, Due 4/15/2032
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP3HA32
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year Treasury Inflation-Indexed Note, Due 4/15/2010 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 2-3/8% Treasury Inflation-Indexed Note, Due 4/15/2011 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A11
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 2% Treasury Inflation-Indexed Note, Due 4/15/2012 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A12
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 5/8% Treasury Inflation-Indexed Note, Due 4/15/2013 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A13
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 1-1/4% Treasury Inflation-Indexed Note, Due 4/15/2014 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A14
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0-1/2% Treasury Inflation-Indexed Note, Due 4/15/2015 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A15
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0-1/8% Treasury Inflation-Indexed Note, Due 4/15/2016 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A16
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0-1/8% Treasury Inflation-Indexed Note, Due 4/15/2017 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A17
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0-1/8% Treasury Inflation-Indexed Note, Due 4/15/2018 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A18
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0-1/8% Treasury Inflation-Indexed Note, Due 4/15/2019 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A19
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0-1/8% Treasury Inflation-Indexed Note, Due 4/15/2020 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year Treasury Inflation-Indexed Note, Due 4/15/2021 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A21
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0-1/8% Treasury Inflation-Indexed Note, Due 4/15/2022 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A22
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0.625% Treasury Inflation-Indexed Note, Due 4/15/2023 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A23
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0.500% Treasury Inflation-Indexed Note, Due 4/15/2024 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A24
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0.125% Treasury Inflation-Indexed Bond, Due 4/15/2025 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5A25
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year 0.125% Treasury Inflation-Indexed Bond, Due 10/15/2024 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5C24
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 5-Year Treasury Inflation-Indexed Note, Due 7/15/2002 (DISCONTINUED)
+  category_id: 82
+  frequency: Daily
+  freshness_days: 7
+  id: DTP5L02
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Monthly
+  freshness_days: 7
+  id: FII10
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Monthly
+  freshness_days: 7
+  id: FII20
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Monthly
+  freshness_days: 7
+  id: FII30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Monthly
+  freshness_days: 7
+  id: FII5
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Monthly
+  freshness_days: 7
+  id: FII7
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Treasury Long-Term Average (25 Years and Above) (DISCONTINUED)
+  category_id: 82
+  frequency: Annual
+  freshness_days: 7
+  id: H0RIFLGFLNA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Treasury Long-Term Average (25 Years and Above) (DISCONTINUED)
+  category_id: 82
+  frequency: Monthly
+  freshness_days: 7
+  id: LTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Treasury Long-Term Average (Over 10 Years), Inflation-Indexed
+  category_id: 82
+  frequency: Monthly
+  freshness_days: 7
+  id: LTIIT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 5-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY05XIINA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 7-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY07XIINA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY10XIINA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 20-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY20XIINA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Market Yield on U.S. Treasury Securities at 30-Year Constant Maturity, Quoted
+    on an Investment Basis, Inflation-Indexed
+  category_id: 82
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFCY30XIINA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: Treasury Long-Term Average (Over 10 Years), Inflation-Indexed
+  category_id: 82
+  frequency: Annual
+  freshness_days: 7
+  id: RIFLGFLXIINA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent
+- alias: 10-Year 3-3/8% Treasury Inflation-Indexed Note, Due 1/15/2007 (DISCONTINUED)
+  category_id: 82
+  frequency: Monthly
+  freshness_days: 7
+  id: TP10J07
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Treasury_Inflation-Indexed_Securities
+  units: Percent

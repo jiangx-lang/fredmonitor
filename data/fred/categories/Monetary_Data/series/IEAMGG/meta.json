@@ -1,0 +1,20 @@
+{
+  "id": "IEAMGG",
+  "realtime_start": "2025-09-07",
+  "realtime_end": "2025-09-07",
+  "title": "Imports of Goods: Nonmonetary gold",
+  "observation_start": "1999-01-01",
+  "observation_end": "2025-01-01",
+  "frequency": "Quarterly",
+  "frequency_short": "Q",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Seasonally Adjusted",
+  "seasonal_adjustment_short": "SA",
+  "last_updated": "2025-06-24 08:51:13-05",
+  "popularity": 7,
+  "sync_timestamp": "2025-09-13T13:17:35.754294",
+  "alias": "Imports_of_Goods_Nonmonetary_gold",
+  "category_id": 17,
+  "next_release": "N/A"
+}

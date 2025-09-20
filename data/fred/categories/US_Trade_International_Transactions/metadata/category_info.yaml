@@ -1,0 +1,21 @@
+category_id: 29
+category_name: US_Trade_International_Transactions
+series_count: 15
+series_list:
+- RMFSL
+- WRMFNS
+- RMFNS
+- WRMFSL
+- ALLMON
+- MSIM2
+- MSIM2A
+- M2REAL
+- M2OWN
+- OCM2P
+- OCM2A
+- M2SL
+- M2NS
+- WM2NS
+- STDSL
+description: 'FRED Category 29: US_Trade_International_Transactions'
+created_at: 1757737218.1293538

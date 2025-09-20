@@ -1,0 +1,893 @@
+metadata:
+  category_id: 32439
+  created_at: '2025-09-13'
+  description: Net Charge-Offs and Charge-Off Rates 数据
+  name: Net Charge-Offs and Charge-Off Rates
+  parent_category: Major_Category
+  total_series: 99
+series:
+- alias: Charge-Off Rate on All Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORALACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on All Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORALACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on All Loans, Banks Not Among the 100 Largest in Size by
+    Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORALOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on All Loans, Banks Not Among the 100 Largest in Size by
+    Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORALOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on All Loans, Banks Ranked 1st to 100th Largest in Size by
+    Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORALT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on All Loans, Banks Ranked 1st to 100th Largest in Size by
+    Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORALT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Business Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORBLACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Business Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORBLACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Business Loans, Banks Not Among the 100 Largest in Size
+    by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORBLOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Business Loans, Banks Not Among the 100 Largest in Size
+    by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORBLOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Business Loans, Banks Ranked 1st to 100th Largest in Size
+    by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORBLT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Business Loans, Banks Ranked 1st to 100th Largest in Size
+    by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORBLT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Consumer Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Consumer Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Credit Card Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCCACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Credit Card Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCCACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Credit Card Loans, Banks Not Among the 100 Largest in
+    Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCCOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Credit Card Loans, Banks Not Among the 100 Largest in
+    Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCCOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Credit Card Loans, Banks Ranked 1st to 100th Largest in
+    Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCCT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Credit Card Loans, Banks Ranked 1st to 100th Largest in
+    Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCCT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Consumer Loans, Banks Not Among the 100 Largest in Size
+    by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Consumer Loans, Banks Not Among the 100 Largest in Size
+    by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCREXFACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCREXFACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCREXFOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCREXFOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCREXFT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Commercial Real Estate Loans (Excluding Farmland), Booked
+    in Domestic Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCREXFT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Consumer Loans, Banks Ranked 1st to 100th Largest in Size
+    by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Consumer Loans, Banks Ranked 1st to 100th Largest in Size
+    by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORCT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Farmland Loans, Booked in Domestic Offices, All Commercial
+    Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORFLACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Farmland Loans, Booked in Domestic Offices, All Commercial
+    Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORFLACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Farmland Loans, Booked in Domestic Offices, Banks Not
+    Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORFLOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Farmland Loans, Booked in Domestic Offices, Banks Not
+    Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORFLOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Farmland Loans, Booked in Domestic Offices, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORFLT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Farmland Loans, Booked in Domestic Offices, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORFLT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans to Finance Agricultural Production, All Commercial
+    Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLAGACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans to Finance Agricultural Production, All Commercial
+    Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLAGACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans to Finance Agricultural Production, Banks Not Among
+    the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLAGOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans to Finance Agricultural Production, Banks Not Among
+    the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLAGOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans to Finance Agricultural Production, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLAGT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans to Finance Agricultural Production, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLAGT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Lease Financing Receivables, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLFRACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Lease Financing Receivables, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLFRACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Lease Financing Receivables, Banks Not Among the 100 Largest
+    in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLFROBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Lease Financing Receivables, Banks Not Among the 100 Largest
+    in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLFROBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Lease Financing Receivables, Banks Ranked 1st to 100th
+    Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLFRT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Lease Financing Receivables, Banks Ranked 1st to 100th
+    Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORLFRT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Other Consumer Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: COROCLACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Other Consumer Loans, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: COROCLACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Other Consumer Loans, Banks Not Among the 100 Largest
+    in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: COROCLOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Other Consumer Loans, Banks Not Among the 100 Largest
+    in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: COROCLOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Other Consumer Loans, Banks Ranked 1st to 100th Largest
+    in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: COROCLT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Other Consumer Loans, Banks Ranked 1st to 100th Largest
+    in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: COROCLT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Single Family Residential Mortgages, Booked in Domestic
+    Offices, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSFRMACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Single Family Residential Mortgages, Booked in Domestic
+    Offices, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSFRMACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Single Family Residential Mortgages, Booked in Domestic
+    Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSFRMOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Single Family Residential Mortgages, Booked in Domestic
+    Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSFRMOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Single Family Residential Mortgages, Booked in Domestic
+    Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSFRMT100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Single Family Residential Mortgages, Booked in Domestic
+    Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSFRMT100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans Secured by Real Estate, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSREACBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans Secured by Real Estate, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSREACBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans Secured by Real Estate, Banks Not Among the 100
+    Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSREOBN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans Secured by Real Estate, Banks Not Among the 100
+    Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSREOBS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans Secured by Real Estate, Banks Ranked 1st to 100th
+    Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSRET100N
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Charge-Off Rate on Loans Secured by Real Estate, Banks Ranked 1st to 100th
+    Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: CORSRET100S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Percent
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, All Commercial
+    Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Finance
+    Agricultural Production, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLAGACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Finance
+    Agricultural Production, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLAGOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Finance
+    Agricultural Production, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLAGT100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Consumers,
+    All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Consumers,
+    Credit Cards, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCCACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Consumers,
+    Credit Cards, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCCOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Consumers,
+    Credit Cards, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCCT100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Commercial
+    and Industrial, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCIACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Commercial
+    and Industrial, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCIOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Commercial
+    and Industrial, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCIT100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Consumers,
+    Other, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCOACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Consumers,
+    Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Consumers,
+    Other, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCOOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Consumers,
+    Other, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCOT100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, To Consumers,
+    Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLCT100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Lease Financing
+    Receivables, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLLFRACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Lease Financing
+    Receivables, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLLFROB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Lease Financing
+    Receivables, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLLFRT100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Banks Not
+    Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Commercial Real Estate Loans (Excluding Farmland), Booked in Domestic
+    Offices, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSCRELEXFACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Commercial Real Estate Loans (Excluding Farmland), Booked in Domestic
+    Offices, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSCRELEXFOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Commercial Real Estate Loans (Excluding Farmland), Booked in Domestic
+    Offices, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSCRELEXFT100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Farmland, Booked in Domestic Offices, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSFREACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Farmland, Booked in Domestic Offices, Banks Not Among the 100
+    Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSFREOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Farmland, Booked in Domestic Offices, Banks Ranked 1st to 100th
+    Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSFRET100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Single Family Residential Mortgages, Booked in Domestic Offices,
+    All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSRE1FRMACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Single Family Residential Mortgages, Booked in Domestic Offices,
+    Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSRE1FRMOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Single Family Residential Mortgages, Booked in Domestic Offices,
+    Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSRE1FRMT100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, All Commercial Banks
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSREACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Banks Not Among the 100 Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSREOB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Secured
+    by Real Estate, Banks Ranked 1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLSRET100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars
+- alias: Asset Quality Measures, Net Charge-Offs on All Loans and Leases, Banks Ranked
+    1st to 100th Largest in Size by Assets
+  category_id: 32439
+  frequency: Quarterly
+  freshness_days: 7
+  id: NCOALLT100B
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Net_Charge-Offs_and_Charge-Off_Rates
+  units: Millions of Dollars

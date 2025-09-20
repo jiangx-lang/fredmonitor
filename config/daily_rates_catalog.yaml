@@ -1,0 +1,288 @@
+metadata:
+  category_id: 94
+  created_at: '2025-09-13'
+  description: Daily Rates 数据
+  name: Daily Rates
+  parent_category: Major_Category
+  total_series: 35
+series:
+- alias: Brazilian Reals to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXBZUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Brazilian Reals to One U.S. Dollar
+- alias: Canadian Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXCAUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Canadian Dollars to One U.S. Dollar
+- alias: Chinese Yuan Renminbi to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXCHUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Chinese Yuan Renminbi to One U.S. Dollar
+- alias: Danish Kroner to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXDNUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Danish Kroner to One U.S. Dollar
+- alias: Hong Kong Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXHKUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Hong Kong Dollars to One U.S. Dollar
+- alias: Indian Rupees to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXINUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Indian Rupees to One U.S. Dollar
+- alias: Japanese Yen to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXJPUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Japanese Yen to One U.S. Dollar
+- alias: South Korean Won to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXKOUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: South Korean Won to One U.S. Dollar
+- alias: Malaysian Ringgit to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXMAUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Malaysian Ringgit to One U.S. Dollar
+- alias: Mexican Pesos to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXMXUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Mexican Pesos to One U.S. Dollar
+- alias: Norwegian Kroner to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXNOUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Norwegian Kroner to One U.S. Dollar
+- alias: Swedish Kronor to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXSDUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Swedish Kronor to One U.S. Dollar
+- alias: South African Rand to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXSFUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: South African Rand to One U.S. Dollar
+- alias: Singapore Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXSIUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Singapore Dollars to One U.S. Dollar
+- alias: Sri Lankan Rupees to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXSLUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Sri Lankan Rupees to One U.S. Dollar
+- alias: Swiss Francs to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXSZUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Swiss Francs to One U.S. Dollar
+- alias: Taiwan Dollars to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXTAUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Taiwan Dollars to One U.S. Dollar
+- alias: Thai Baht to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXTHUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Thai Baht to One U.S. Dollar
+- alias: U.S. Dollars to Australian Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXUSAL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: U.S. Dollars to One Australian Dollar
+- alias: U.S. Dollars to Euro Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXUSEU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: U.S. Dollars to One Euro
+- alias: U.S. Dollars to New Zealand Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXUSNZ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: U.S. Dollars to One New Zealand Dollar
+- alias: U.S. Dollars to U.K. Pound Sterling Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXUSUK
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: U.S. Dollars to One U.K. Pound Sterling
+- alias: Venezuelan Bolivares to U.S. Dollar Spot Exchange Rate
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DEXVZUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Venezuelan Bolivares to One U.S. Dollar
+- alias: Nominal Advanced Foreign Economies U.S. Dollar Index
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXAFEGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index Jan 2006=100
+- alias: Nominal Broad U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index Jan 1997=100
+- alias: Nominal Broad U.S. Dollar Index
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXBGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index Jan 2006=100
+- alias: Nominal Emerging Market Economies U.S. Dollar Index
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXEMEGS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index Jan 2006=100
+- alias: Nominal Major Currencies U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index Mar 1973=100
+- alias: Nominal Other Important Trading Partners U.S. Dollar Index (Goods Only) (DISCONTINUED)
+  category_id: 94
+  frequency: Daily
+  freshness_days: 7
+  id: DTWEXO
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index Jan 1997=100
+- alias: Nominal Advanced Foreign Economies U.S. Dollar Index
+  category_id: 94
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXAFEGSANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index 2006=100
+- alias: Nominal Advanced Foreign Economies U.S. Dollar Index
+  category_id: 94
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXAFEGSMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index Jan 2006=100
+- alias: Nominal Broad U.S. Dollar Index
+  category_id: 94
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXBGSANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index 2006=100
+- alias: Nominal Broad U.S. Dollar Index
+  category_id: 94
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXBGSMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index Jan 2006=100
+- alias: Nominal Emerging Market Economies U.S. Dollar Index
+  category_id: 94
+  frequency: Annual
+  freshness_days: 7
+  id: TWEXEMEGSANL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index 2006=100
+- alias: Nominal Emerging Market Economies U.S. Dollar Index
+  category_id: 94
+  frequency: Monthly
+  freshness_days: 7
+  id: TWEXEMEGSMTH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Daily_Rates
+  units: Index Jan 2006=100

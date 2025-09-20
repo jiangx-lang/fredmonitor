@@ -1,0 +1,197 @@
+metadata:
+  category_id: 26
+  created_at: '2025-09-13'
+  description: Memorandum Items 数据
+  name: Memorandum Items
+  parent_category: Major_Category
+  total_series: 23
+series:
+- alias: Demand Deposits at Banks Due to Foreign Commercial Banks (DISCONTINUED)
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: DDDFCBNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: Demand Deposits at Banks Due to Foreign Official Institutions (DISCONTINUED)
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: DDDFOINS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: General Account Balance at Federal Reserve (DISCONTINUED)'
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: GDBFRM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: General Account Balance at Federal Reserve (DISCONTINUED)'
+  category_id: 26
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: GDBFRW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Demand Deposits at Commercial Banks (DISCONTINUED)'
+  category_id: 26
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: GDDDCBW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Total Cash Balance (DISCONTINUED)'
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: GDTCBM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Total Cash Balance (DISCONTINUED)'
+  category_id: 26
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: GDTCBW
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Time and Savings Deposits at Commercial Banks
+    (DISCONTINUED)'
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: GDTSDCBM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'IRA and Keogh Accounts: Total'
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: IRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: IRA and Keogh Accounts at Commercial Banks (DISCONTINUED)
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: IRACB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: IRA and Keogh Accounts at Depository Institutions
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: IRADI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: IRA and Keogh Accounts at Money Market Funds
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: IRAMMF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: IRA and Keogh Accounts at Thrift Institutions (DISCONTINUED)
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: IRATI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: Demand Deposits at Banks Due to Foreign Official Institutions (DISCONTINUED)
+  category_id: 26
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: MDDBDN020NWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: Demand Deposits at Banks Due to Foreign Commercial Banks (DISCONTINUED)
+  category_id: 26
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: MDDBDN03NWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Time and Savings Deposits at Commercial Banks
+    (DISCONTINUED)'
+  category_id: 26
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: MDTADSADNBNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Note Balances at Depository Institutions (DISCONTINUED)'
+  category_id: 26
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: MTBBTNNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Supplementary Financing Account Balance at Federal
+    Reserve (DISCONTINUED)'
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: MTBFRSNM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Supplementary Financing Account Balance at Federal
+    Reserve (DISCONTINUED)'
+  category_id: 26
+  frequency: Weekly, Ending Monday
+  freshness_days: 7
+  id: MTBFRSNWM
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Note Balances at Depository Institutions (DISCONTINUED)'
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: NBCB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: Time and Savings Deposits Due to Foreign Banks and Official Institutions
+    (DISCONTINUED)
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: TSDFBOI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: 'U.S. Government Deposits: Demand Deposits at Commercial Banks (DISCONTINUED)'
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: USGDCB
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars
+- alias: U.S. Government Demand Deposits and Note Balances - Total (DISCONTINUED)
+  category_id: 26
+  frequency: Monthly
+  freshness_days: 7
+  id: USGVDDNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Memorandum_Items
+  units: Billions of Dollars

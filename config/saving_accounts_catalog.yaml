@@ -1,0 +1,448 @@
+metadata:
+  category_id: 33491
+  created_at: '2025-09-13'
+  description: Saving Accounts 数据
+  name: Saving Accounts
+  parent_category: Major_Category
+  total_series: 55
+series:
+- alias: 'National Rate: Interest Checking'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: ICNDR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: Interest Checking'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: ICNDRRCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: Interest Checking'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: ICNRC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Interest Checking'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: ICTY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: Interest Checking'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: ICTYRCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: Money Market <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: MMNDR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: Money Market <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: MMNDRRCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: Money Market <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: MMNRC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Money Market <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: MMTY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: Money Market <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: MMTYRCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: 12 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDR12MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: 1 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDR1MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: 24 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDR24MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: 36 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDR36MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: 3 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDR3MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: 48 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDR48MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: 60 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDR60MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: 6 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDR6MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: 12 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDRRCA12MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: 1 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDRRCA1MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: 24 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDRRCA24MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: 36 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDRRCA36MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: 60 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDRRCA60MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: 6 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDRRCA6MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: 3 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDRRCACD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: 48 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NDRRCP48MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: 12 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NRC12MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: 1 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NRC1MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: 24 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NRC24MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: 36 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NRC26MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: 3 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NRC3MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: 48 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NRC48MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: 60 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NRC60MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: 6 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: NRC6MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate on Non-Jumbo Deposits (less than $100,000): Savings (DISCONTINUED)'
+  category_id: 33491
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: SAVNRNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Rate Cap on Non-Jumbo Deposits (less than $100,000): Savings (DISCONTINUED)'
+  category_id: 33491
+  frequency: Weekly, As of Monday
+  freshness_days: 7
+  id: SAVRCNJ
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate: Savings'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: SNDR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Plus 75 Bps: Savings'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: SNDRRCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'National Rate Cap: Savings'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: SNRC
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Savings'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: STY
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: Savings'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: STYRCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: 12 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TY12MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: 1 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TY1MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: 24 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TY24MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: 36 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TY36MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: 3 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TY3MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: 60 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TY60MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: 6 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TY6MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: 12 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TYRCA12MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: 1 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TYRCA1MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: 24 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TYRCA24MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: 36 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TYRCA36MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: 3 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TYRCA3MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: 60 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TYRCA60MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent
+- alias: 'Treasury Yield: Rate Cap Adjusted: 6 Month CD <100M'
+  category_id: 33491
+  frequency: Monthly
+  freshness_days: 7
+  id: TYRCA6MCD
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Saving_Accounts
+  units: Percent

@@ -1,0 +1,282 @@
+metadata:
+  category_id: 114
+  created_at: '2025-09-13'
+  description: Mortgage Rates 数据
+  name: Mortgage Rates
+  parent_category: Major_Category
+  total_series: 32
+series:
+- alias: '30-Year FHA Mortgage Rate: Secondary Market (DISCONTINUED)'
+  category_id: 114
+  frequency: Monthly
+  freshness_days: 7
+  id: FHA30
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Contract Rate on 30-Year, Fixed-Rate Conventional Home Mortgage Commitments
+    (DISCONTINUED)
+  category_id: 114
+  frequency: Monthly
+  freshness_days: 7
+  id: MORTG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 15-Year Fixed Rate Mortgage Average in the United States
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTGAGE15US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 1-Year Adjustable Rate Mortgage Average in the United States (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTGAGE1US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 30-Year Fixed Rate Mortgage Average in the United States
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTGAGE30US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 5/1-Year Adjustable Rate Mortgage Average in the United States (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTGAGE5US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Margin for 1-Year Adjustable Rate Mortgage in the United States (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTMRGN1US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Margin for 5/1-Year Adjustable Rate Mortgage in the United States (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTMRGN5US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Origination Fees and Discount Points for 15-Year Fixed Rate Mortgage in the
+    United States (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTPTS15US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Origination Fees and Discount Points for 1-Year Adjustable Rate Mortgage
+    in the United States (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTPTS1US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Origination Fees and Discount Points for 30-Year Fixed Rate Mortgage in the
+    United States (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTPTS30US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Origination Fees and Discount Points for 5/1-Year Adjustable Rate Mortgage
+    in the United States (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: MORTPTS5US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 15-Year Fixed Rate Conforming Mortgage Index
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC15YF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 30-Year Fixed Rate Conforming Mortgage Index
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Greater Than
+    80, FICO Score Between 680 and 699'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVGT80FB680A699
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Greater Than
+    80, FICO Score Between 700 and 719'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVGT80FB700A719
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Greater Than
+    80, FICO Score Between 720 and 739'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVGT80FB720A739
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Greater Than
+    80, FICO Score Greater Than 740'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVGT80FGE740
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Greater Than
+    80, FICO Score Less Than 680'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVGT80FLT680
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Less Than or
+    Equal to 80, FICO Score Between 680 and 699'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVLE80FB680A699
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Less Than or
+    Equal to 80, FICO Score Between 700 and 719'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVLE80FB700A719
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Less Than or
+    Equal to 80, FICO Score Between 720 and 739'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVLE80FB720A739
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Less Than or
+    Equal to 80, FICO Score Greater Than 740'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVLE80FGE740
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: '30-Year Fixed Rate Conforming Mortgage Index: Loan-to-Value Less Than or
+    Equal to 80, FICO Score Less Than 680'
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFLVLE80FLT680
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 30-Year Fixed Rate Conforming Non-Adjusted Mortgage Index
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIC30YFNA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 30-Year Fixed Rate FHA Mortgage Index
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIFHA30YF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 30-Year Fixed Rate Jumbo Mortgage Index
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIJUMBO30YF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 30-Year Fixed Rate USDA Mortgage Index
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIUSDA30YF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: 30-Year Fixed Rate Veterans Affairs Mortgage Index
+  category_id: 114
+  frequency: Daily
+  freshness_days: 7
+  id: OBMMIVA30YF
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Contract Rate on 30-Year, Fixed-Rate Conventional Home Mortgage Commitments
+    (DISCONTINUED)
+  category_id: 114
+  frequency: Annual
+  freshness_days: 7
+  id: RMMPCCFCNA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Contract Rate on 30-Year, Fixed-Rate Conventional Home Mortgage Commitments
+    (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Friday
+  freshness_days: 7
+  id: WMORTG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent
+- alias: Contract Rate on 30-Year, Fixed-Rate Conventional Home Mortgage Commitments
+    (DISCONTINUED)
+  category_id: 114
+  frequency: Weekly, Ending Thursday
+  freshness_days: 7
+  id: WRMORTG
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Mortgage_Rates
+  units: Percent

@@ -1,0 +1,21 @@
+{
+  "id": "IMPCA",
+  "realtime_start": "2025-09-11",
+  "realtime_end": "2025-09-11",
+  "title": "U.S. Imports of Goods by Customs Basis from Canada",
+  "observation_start": "1985-01-01",
+  "observation_end": "2025-07-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-09-04 13:23:03-05",
+  "popularity": 30,
+  "notes": "Further information related to the international trade data can be found at https://www.census.gov/foreign-trade/data/index.html \nMethodology details can be found at https://www.census.gov/foreign-trade/Press-Release/current_press_release/explain.pdf",
+  "sync_timestamp": "2025-09-13T13:15:43.083429",
+  "alias": "U_S_Imports_of_Goods_by_Customs_Basis_from_Canada",
+  "category_id": 17,
+  "next_release": "N/A"
+}

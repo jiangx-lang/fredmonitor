@@ -1,0 +1,22 @@
+{
+  "realtime_start": "2025-09-12",
+  "realtime_end": "2025-09-12",
+  "seriess": [
+    {
+      "id": "JTSOSL",
+      "realtime_start": "2025-09-12",
+      "realtime_end": "2025-09-12",
+      "title": "Other Separations: Total Nonfarm",
+      "observation_start": "2000-12-01",
+      "observation_end": "2025-07-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Level in Thousands",
+      "units_short": "Level in Thous.",
+      "seasonal_adjustment": "Seasonally Adjusted",
+      "seasonal_adjustment_short": "SA",
+      "last_updated": "2025-09-03 09:09:03-05",
+      "popularity": 46
+    }
+  ]
+}

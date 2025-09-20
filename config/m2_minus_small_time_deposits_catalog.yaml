@@ -1,0 +1,64 @@
+metadata:
+  category_id: 96
+  created_at: '2025-09-13'
+  description: M2 Minus Small Time Deposits 数据
+  name: M2 Minus Small Time Deposits
+  parent_category: Major_Category
+  total_series: 7
+series:
+- alias: M2 Less Small Time Deposits
+  category_id: 96
+  frequency: Monthly
+  freshness_days: 7
+  id: M2MNS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_Minus_Small_Time_Deposits
+  units: Billions of Dollars
+- alias: M2 Minus Own Rate (DISCONTINUED)
+  category_id: 96
+  frequency: Monthly
+  freshness_days: 7
+  id: M2MOWN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_Minus_Small_Time_Deposits
+  units: Percent
+- alias: M2 Less Small Time Deposits
+  category_id: 96
+  frequency: Monthly
+  freshness_days: 7
+  id: M2MSL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_Minus_Small_Time_Deposits
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: M2M (alternative)'
+  category_id: 96
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIM2MA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_Minus_Small_Time_Deposits
+  units: Billions of Dollars
+- alias: 'Monetary Services Index: M2M (preferred)'
+  category_id: 96
+  frequency: Monthly
+  freshness_days: 7
+  id: MSIM2MP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M2_Minus_Small_Time_Deposits
+  units: Billions of Dollars
+- alias: Real User Cost Index of MSI-M2M (alternative)
+  category_id: 96
+  frequency: Monthly
+  freshness_days: 7
+  id: OCM2MA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_Minus_Small_Time_Deposits
+  units: Percent
+- alias: Real User Cost Index of MSI-M2M (preferred)
+  category_id: 96
+  frequency: Monthly
+  freshness_days: 7
+  id: OCM2MP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M2_Minus_Small_Time_Deposits
+  units: Percent

@@ -1,0 +1,811 @@
+metadata:
+  category_id: 16
+  created_at: '2025-09-13'
+  description: Exports 数据
+  name: Exports
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: 'Advance U.S. International Trade in Goods: Exports: Automotive Vehicles,
+    etc.'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEAN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Automotive Vehicles,
+    etc.'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEAS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Capital Goods'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGECN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Capital Goods'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGECS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Foods, Feeds, & Beverages'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEFN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Foods, Feeds, & Beverages'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEFS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Consumer Goods'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Consumer Goods'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEGS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Industrial Supplies'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Industrial Supplies'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEIS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Other Goods'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports: Other Goods'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEOS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEXN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Advance U.S. International Trade in Goods: Exports'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: AITGEXS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Goods, Balance of Payments Basis
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOPGEXP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Services, Balance of Payments Basis
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOPSEXP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Goods and Services, Balance of Payments Basis
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOPTEXP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Goods, Services and Income (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPX
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Goods, Services and Income (DISCONTINUED)
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Goods and Services (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXGS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Goods and Services (DISCONTINUED)
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXGSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Goods and Services (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXGSN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Merchandise: Adjusted, Excluding Military (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Merchandise: Adjusted, Excluding Military (DISCONTINUED)'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXMA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Merchandise: Adjusted, Excluding Military (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXMN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Goods, Services and Income (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Services (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSV
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Services (DISCONTINUED)
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXSVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: U.S. Government Miscellaneous (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: U.S. Government Miscellaneous (DISCONTINUED)'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXSVGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: U.S. Government Miscellaneous (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Transfers Under U.S. Military Agency Contracts (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVMT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Transfers Under U.S. Military Agency Contracts (DISCONTINUED)'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXSVMTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Transfers Under U.S. Military Agency Contracts (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVMTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Services (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Other Private Services (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Other Private Services (DISCONTINUED)
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXSVOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Other Private Services (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Other Transportation Services (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVOT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Other Transportation Services (DISCONTINUED)
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXSVOTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: Exports of Other Transportation Services (DISCONTINUED)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVOTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Passenger Fares (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Passenger Fares (DISCONTINUED)'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXSVPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Passenger Fares (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVPN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Royalties and Licensing Fees (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Royalties and Licensing Fees (DISCONTINUED)'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXSVRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Royalties and Licensing Fees (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVRN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Travel (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Travel (DISCONTINUED)'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: BOPXSVTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: 'Exports of Services: Travel (DISCONTINUED)'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPXSVTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Billions of Dollars
+- alias: U.S. Exports of Services - Travel
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOXTVLM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'U.S. Exports of Services: U.S. Government Miscellaneous Services (DISCONTINUED)'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOXVGMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Services - Transfers Under U.S. Military Sales Contracts
+    (DISCONTINUED)
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOXVJMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Services - Passenger Fares
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOXVMPM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Services - Other Private Services (DISCONTINUED)
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOXVOMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Million of Dollars
+- alias: U.S. Exports of Services - Royalties and License Fees (DISCONTINUED)
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOXVRMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Million of Dollars
+- alias: U.S. Exports of Services - Other Transportation (DISCONTINUED)
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: BOXVSMM133S
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Million of Dollars
+- alias: U.S. Exports of Goods by F.A.S. Basis to Canada
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Goods by F.A.S. Basis to Mainland China
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPCH
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Goods by F.A.S. Basis to France
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPFR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Goods by F.A.S. Basis to Germany
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPGE
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Goods by F.A.S. Basis to Japan
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPJP
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Goods by F.A.S. Basis to South Korea
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPKR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: Manufactured Commodities for Puerto Rico'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPMANPR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: Manufactured Commodities for United States'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPMANUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: Manufactured Commodities for U.S. Virgin Islands'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPMANVI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Goods by F.A.S. Basis to Mexico
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPMX
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: Non-Manufactured Commodities for Puerto Rico'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPNONPR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: Non-Manufactured Commodities for United States'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPNONUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: Non-Manufactured Commodities for U.S. Virgin Islands'
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPNONVI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Goods for Puerto Rico
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPTOTPR
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Goods for United States
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPTOTUS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Goods for U.S. Virgin Islands
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPTOTVI
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: U.S. Exports of Goods by F.A.S. Basis to the United Kingdom
+  category_id: 16
+  frequency: Monthly
+  freshness_days: 7
+  id: EXPUK
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of goods and services and income receipts (credits)
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAX
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of goods and services and income receipts (credits)
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Goods
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Goods
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Automotive vehicles, parts, and engines'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGAV
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Automotive vehicles, parts, and engines'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXGAVA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Automotive vehicles, parts, and engines'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGAVN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Capital goods except automotive'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Capital goods except automotive'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXGCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Consumer goods except food and automotive'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGCG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Consumer goods except food and automotive'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXGCGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Consumer goods except food and automotive'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGCGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Capital goods except automotive'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGCN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Foods, feeds, and beverages'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGF
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Foods, feeds, and beverages'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXGFA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Foods, feeds, and beverages'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGFN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: Nonmonetary gold'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: Nonmonetary gold'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXGGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: Nonmonetary gold'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Industrial supplies and materials'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Industrial supplies and materials'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXGIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General Merchandise: Industrial supplies and materials'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General merchandise'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGM
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General merchandise'
+  category_id: 16
+  frequency: Annual
+  freshness_days: 7
+  id: IEAXGMA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: 'Exports of Goods: General merchandise'
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGMN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars
+- alias: Exports of Goods
+  category_id: 16
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAXGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Exports
+  units: Millions of Dollars

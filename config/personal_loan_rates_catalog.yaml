@@ -1,0 +1,16 @@
+metadata:
+  category_id: 33057
+  created_at: '2025-09-13'
+  description: Personal Loan Rates 数据
+  name: Personal Loan Rates
+  parent_category: Major_Category
+  total_series: 1
+series:
+- alias: Finance Rate on Personal Loans at Commercial Banks, 24 Month Loan
+  category_id: 33057
+  frequency: Monthly
+  freshness_days: 7
+  id: TERMCBPER24NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Personal_Loan_Rates
+  units: Percent

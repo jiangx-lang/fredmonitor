@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-10",
+  "realtime_end": "2025-09-10",
+  "seriess": [
+    {
+      "id": "TOTRESNS",
+      "realtime_start": "2025-09-10",
+      "realtime_end": "2025-09-10",
+      "title": "Reserves of Depository Institutions: Total",
+      "observation_start": "1959-01-01",
+      "observation_end": "2025-07-01",
+      "frequency": "Monthly",
+      "frequency_short": "M",
+      "units": "Billions of Dollars",
+      "units_short": "Bil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-08-26 12:01:49-05",
+      "popularity": 72,
+      "notes": "H.6 Technical Q&As (https://www.federalreserve.gov/releases/h6/h6_technical_qa.htm) posted on August 20, 2020.\n\nTotal reserves equal reserve balances plus, before April 2020, vault cash used to satisfy reserve requirements.\n\nFor questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h6/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

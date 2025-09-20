@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-12",
+  "realtime_end": "2025-09-12",
+  "seriess": [
+    {
+      "id": "PRIINSUREDUR",
+      "realtime_start": "2025-09-12",
+      "realtime_end": "2025-09-12",
+      "title": "Insured Unemployment Rate in Puerto Rico",
+      "observation_start": "1986-02-08",
+      "observation_end": "2025-08-30",
+      "frequency": "Weekly, Ending Saturday",
+      "frequency_short": "W",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-09-12 07:36:06-05",
+      "popularity": 5,
+      "notes": "The insured unemployment rate (% of covered employment) is Continued Claims (also called insured unemployment) divided by Covered Employment."
+    }
+  ]
+}

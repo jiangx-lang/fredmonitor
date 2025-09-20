@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "DALLCACBEP",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Asset Quality Measures, Delinquencies on All Loans and Leases, To Consumers, All Commercial Banks",
+      "observation_start": "1987-01-01",
+      "observation_end": "2025-04-01",
+      "frequency": "Quarterly, End of Period",
+      "frequency_short": "Q",
+      "units": "Millions of Dollars",
+      "units_short": "Mil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-08-18 14:45:19-05",
+      "popularity": 23,
+      "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/chargeoff/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>"
+    }
+  ]
+}

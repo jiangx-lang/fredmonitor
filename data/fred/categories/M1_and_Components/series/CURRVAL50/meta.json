@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "CURRVAL50",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Value of Currency in Circulation: $50",
+      "observation_start": "1993-01-01",
+      "observation_end": "2024-01-01",
+      "frequency": "Annual, End of Period",
+      "frequency_short": "A",
+      "units": "Billions of Dollars",
+      "units_short": "Bil. of $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-05-05 08:48:06-05",
+      "popularity": 1,
+      "notes": "Includes Federal Reserve notes, U.S. notes, and currency no longer issued."
+    }
+  ]
+}

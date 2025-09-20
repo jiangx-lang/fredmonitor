@@ -1,0 +1,7 @@
+# Monthly Rates
+subcategory:
+  name: "Monthly_Rates"
+  description: "Monthly Rates"
+  keywords: ['MEX', 'MONTHLY']
+  parent_category: "Exchange_Rates"
+  created_at: "C:\Users\admin\上网"

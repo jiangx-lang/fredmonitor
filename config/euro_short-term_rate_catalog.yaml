@@ -1,0 +1,64 @@
+metadata:
+  category_id: 34007
+  created_at: '2025-09-13'
+  description: Euro Short-Term Rate 数据
+  name: Euro Short-Term Rate
+  parent_category: Major_Category
+  total_series: 7
+series:
+- alias: 'Euro Short-Term Rate: Number of Active Banks'
+  category_id: 34007
+  frequency: Daily
+  freshness_days: 7
+  id: ECBESTRNUMACTBANKS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Euro_Short-Term_Rate
+  units: Number
+- alias: 'Euro Short-Term Rate: Number of Transactions'
+  category_id: 34007
+  frequency: Daily
+  freshness_days: 7
+  id: ECBESTRNUMTRANS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Euro_Short-Term_Rate
+  units: Number
+- alias: 'Euro Short-Term Rate: Rate at 25th Percentile of Volume'
+  category_id: 34007
+  frequency: Daily
+  freshness_days: 7
+  id: ECBESTRRT25THPCTVOL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Euro_Short-Term_Rate
+  units: Percent
+- alias: 'Euro Short-Term Rate: Rate at 75th Percentile of Volume'
+  category_id: 34007
+  frequency: Daily
+  freshness_days: 7
+  id: ECBESTRRT75THPCTVOL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Euro_Short-Term_Rate
+  units: Percent
+- alias: 'Euro Short-Term Rate: Share of Volume of the 5 Largest Active Banks'
+  category_id: 34007
+  frequency: Daily
+  freshness_days: 7
+  id: ECBESTRSHRVOL5LRGACTBNK
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Euro_Short-Term_Rate
+  units: Percent
+- alias: 'Euro Short-Term Rate: Total Volume'
+  category_id: 34007
+  frequency: Daily
+  freshness_days: 7
+  id: ECBESTRTOTVOL
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Euro_Short-Term_Rate
+  units: Millions of Euro
+- alias: 'Euro Short-Term Rate: Volume-Weighted Trimmed Mean Rate'
+  category_id: 34007
+  frequency: Daily
+  freshness_days: 7
+  id: ECBESTRVOLWGTTRMDMNRT
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Euro_Short-Term_Rate
+  units: Percent

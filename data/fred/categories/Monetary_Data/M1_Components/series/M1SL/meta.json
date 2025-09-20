@@ -1,0 +1,22 @@
+{
+  "id": "M1SL",
+  "realtime_start": "2025-09-04",
+  "realtime_end": "2025-09-04",
+  "title": "M1",
+  "observation_start": "1959-01-01",
+  "observation_end": "2025-07-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Billions of Dollars",
+  "units_short": "Bil. of $",
+  "seasonal_adjustment": "Seasonally Adjusted",
+  "seasonal_adjustment_short": "SA",
+  "last_updated": "2025-08-26 12:01:50-05",
+  "popularity": 84,
+  "notes": "announcements (https://www.federalreserve.gov/feeds/h6.html) and Technical Q&As (https://www.federalreserve.gov/releases/h6/h6_technical_qa.htm) posted on December 17, 2020.\n\nFor questions on the data, please contact the data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h6/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>",
+  "sync_timestamp": "2025-09-13T13:43:14.025815",
+  "alias": "M1 Money Stock (Seasonally Adjusted)",
+  "category_id": 17,
+  "subcategory": "M1_Components",
+  "next_release": "N/A"
+}

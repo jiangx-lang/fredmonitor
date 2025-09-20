@@ -1,0 +1,16 @@
+metadata:
+  category_id: 34242
+  created_at: '2025-09-13'
+  description: Monetary Policy 数据
+  name: Monetary Policy
+  parent_category: Major_Category
+  total_series: 1
+series:
+- alias: Kansas City Fed's Measure of Policy Rate Uncertainty (KCPRU)
+  category_id: 34242
+  frequency: Daily
+  freshness_days: 7
+  id: KCPRU
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Monetary_Policy
+  units: Percentage Points

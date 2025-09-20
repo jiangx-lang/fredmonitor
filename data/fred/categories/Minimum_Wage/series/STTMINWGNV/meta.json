@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "STTMINWGNV",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "State Minimum Wage Rate for Nevada",
+      "observation_start": "1968-01-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Annual",
+      "frequency_short": "A",
+      "units": "Dollars per Hour",
+      "units_short": "$ per Hour",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-01-01 13:48:08-06",
+      "popularity": 27,
+      "notes": "State minimum wage applies only if employer provides healthcare benefits. State minimum wage is changed annually based on changes in the CPI and a cost of living formula.\n\nFor the years 1976-1978, the displayed wage represents the largest minimum wage paid. Some individuals newly covered under state law received a lower wage.\n\nFor more information, visit https://www.dol.gov/whd/state/stateMinWageHis.htm"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "RCCCBNCOPCT",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Large Bank Consumer Credit Card Balances: Net Charge-Off Rate",
+      "observation_start": "2012-07-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Quarterly, End of Quarter",
+      "frequency_short": "Q",
+      "units": "Percent",
+      "units_short": "%",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-07-18 15:08:29-05",
+      "popularity": 11,
+      "notes": "The annualized net charge-off rate for all credit card accounts. Net charge-offs refer to the three-month sum of gross charge-offs less recoveries. The annualized net charge-off rate is calculated as four times the total quarterly net charge-offs divided by the three-month average for total outstanding credit card balances. \n\nFor more detail see the methodology (https://sc103-philfed-prod-cm.sitecore-prod-ase4.appserviceenvironment.net/surveys-and-data/y14-methodology)."
+    }
+  ]
+}

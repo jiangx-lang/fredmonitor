@@ -1,0 +1,21 @@
+{
+  "id": "EXPTOTUS",
+  "realtime_start": "2025-09-07",
+  "realtime_end": "2025-09-07",
+  "title": "Exports of Goods for United States",
+  "observation_start": "1995-08-01",
+  "observation_end": "2025-07-01",
+  "frequency": "Monthly",
+  "frequency_short": "M",
+  "units": "Millions of Dollars",
+  "units_short": "Mil. of $",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-09-04 09:32:03-05",
+  "popularity": 20,
+  "notes": "Exports of manufactured and non-manufactured commodities based on origin of movement.\n\nAll NAICS-Based Product Codes.",
+  "sync_timestamp": "2025-09-13T13:16:41.032696",
+  "alias": "Exports_of_Goods_for_United_States",
+  "category_id": 16,
+  "next_release": "N/A"
+}

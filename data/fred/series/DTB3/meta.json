@@ -1,0 +1,21 @@
+{
+  "id": "DTB3",
+  "realtime_start": "2025-09-10",
+  "realtime_end": "2025-09-10",
+  "title": "3-Month Treasury Bill Secondary Market Rate, Discount Basis",
+  "observation_start": "1954-01-04",
+  "observation_end": "2025-09-08",
+  "frequency": "Daily",
+  "frequency_short": "D",
+  "units": "Percent",
+  "units_short": "%",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-09-09 15:16:54-05",
+  "popularity": 76,
+  "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/h15/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>",
+  "sync_timestamp": "2025-09-10T22:05:06.741287",
+  "alias": "UST3M",
+  "freshness_days": 7,
+  "next_release": "N/A"
+}

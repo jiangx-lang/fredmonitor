@@ -1,0 +1,22 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "H41RESPPAADHANWW",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "Supplementary Information: Supplemental Information on 2020 Credit Facilities: Outstanding Amount of Municipal Liquidity Facility LLC Asset Purchases: Wednesday Level (DISCONTINUED)",
+      "observation_start": "2002-12-18",
+      "observation_end": "2025-02-26",
+      "frequency": "Weekly",
+      "frequency_short": "W",
+      "units": "Millions of U.S. Dollars",
+      "units_short": "Mil. of U.S. $",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-04-10 16:56:36-05",
+      "popularity": 1
+    }
+  ]
+}

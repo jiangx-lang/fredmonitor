@@ -1,0 +1,817 @@
+metadata:
+  category_id: 127
+  created_at: '2025-09-13'
+  description: U.S. International Finance 数据
+  name: U.S. International Finance
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: Statistical Discrepancy (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPERR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Statistical Discrepancy (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPERRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Statistical Discrepancy (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPERRN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Assets in the U.S.: Net, Capital Inflow {+} (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPI
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Foreign-owned assets in the United States, excluding financial derivatives
+    (increase/financial inflow (+)) (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Foreign-owned assets in the United States, excluding financial derivatives
+    (increase/financial inflow (+)) (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets in the U.S.: Net (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets in the U.S.: Net (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets in U.S.: U.S. Government Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets in U.S.: U.S. Government Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIOGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets in U.S.: U.S. Government Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets: Other U.S. Government Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOGO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets: Other U.S. Government Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIOGOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets: Other U.S. Government Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOGON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets in U.S.: Treasury Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOGT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets in U.S.: Treasury Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIOGTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets in U.S.: Treasury Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOGTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets: Other U.S. Government Liabilities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets: Other U.S. Government Liabilities (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIOLA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets: Other U.S. Government Liabilities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOLN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets in the U.S.: Net (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPION
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Other Foreign Official Assets (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Other Foreign Official Assets (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIOOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Other Foreign Official Assets (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets: U.S. Liabilities Reported by U.S. Banks, nie (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOU
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets: U.S. Liabilities Reported by U.S. Banks, nie (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIOUA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Foreign Official Assets: U.S. Liabilities Reported by U.S. Banks, nie (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIOUN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Other Foreign Assets in the U.S., Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Other Foreign Assets in the U.S., Net (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Financial Derivatives, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Financial Derivatives, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIPCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Financial Derivatives, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPCN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in the U.S., Net: Direct Investment (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPD
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in the U.S., Net: Direct Investment (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIPDA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in the U.S., Net: Direct Investment (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPDN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Liabilities to Unaffiliated Foreigners Reported by U.S. Nonbanks (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPF
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Liabilities to Unaffiliated Foreigners Reported by U.S. Nonbanks (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIPFA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Liabilities to Unaffiliated Foreigners Reported by U.S. Nonbanks (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPFN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in U.S., Net: Government Non-Treasury Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in U.S., Net: Government Non-Treasury Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIPGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in U.S., Net: Government Non-Treasury Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Other Foreign Assets in the U.S., Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in U.S.: U.S. Liabilities Reported by U.S. Banks, nie
+    (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in U.S.: U.S. Liabilities Reported by U.S. Banks, nie
+    (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIPOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in U.S.: U.S. Liabilities Reported by U.S. Banks, nie
+    (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in the U.S., Net: U.S. Treasury Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPT
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in the U.S., Net: U.S. Treasury Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIPTA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in the U.S., Net: U.S. Treasury Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPTN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in U.S., Net: U.S. Currency (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPU
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in U.S., Net: U.S. Currency (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPIPUA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'Other Foreign Assets in U.S., Net: U.S. Currency (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPIPUN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Assets Abroad, Net: Outflow (-) (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. owned assets abroad, excluding financial derivatives (increase/financial
+    outflow (-)) (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Reserves of Foreign Currencies (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOF
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Reserves of Foreign Currencies (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOFA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Reserves of Foreign Currencies (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOFN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Government Assets Abroad, Excluding Official Reserves, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOG
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Government Assets Abroad, Excluding Official Reserves, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOGA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Government Assets Abroad, Net: Credits and Other Long-Term Assets (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOGC
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Government Assets Abroad, Net: Credits and Other Long-Term Assets (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOGCA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Government Assets Abroad, Net: Credits and Other Long-Term Assets (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOGCN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Repayments on U.S. Credits and Other Long-Term Assets Abroad (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOGCR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Repayments on U.S. Credits and Other Long-Term Assets Abroad (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOGCRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Repayments on U.S. Credits and Other Long-Term Assets Abroad (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOGCRN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Foreign Currency Holdings and Other Short-Term Assets, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOGF
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Foreign Currency Holdings and Other Short-Term Assets, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOGFA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Foreign Currency Holdings and Other Short-Term Assets, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOGFN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Reserve Assets Abroad: Gold (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOGLD
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Reserve Assets Abroad: Gold (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOGLDA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Reserve Assets Abroad: Gold (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOGLDN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Government Assets Abroad, Excluding Official Reserves, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOGN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Reserve Position in the IMF (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOIMF
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Reserve Position in the IMF (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOIMFA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Reserve Position in the IMF (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOIMFN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. owned assets abroad, excluding financial derivatives (increase/financial
+    outflow (-)) (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Official Reserve Assets Abroad, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Official Reserve Assets Abroad, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Official Reserve Assets Abroad, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Private Assets Abroad, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOP
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Private Assets Abroad, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOPA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Private Direct Investment Abroad (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOPD
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Private Direct Investment Abroad (DISCONTINUED)
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOPDA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Private Direct Investment Abroad (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOPDN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Private Assets: Claims on Foreigners Reported by Nonbanks (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOPF
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Private Assets: Claims on Foreigners Reported by Nonbanks (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOPFA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Private Assets: Claims on Foreigners Reported by Nonbanks (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOPFN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: U.S. Private Assets Abroad, Net (DISCONTINUED)
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOPN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Private Assets: Claims Reported by U.S. Banks, nie (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOPO
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Private Assets: Claims Reported by U.S. Banks, nie (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOPOA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Private Assets: Claims Reported by U.S. Banks, nie (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOPON
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Private Assets: Foreign Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOPS
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Private Assets: Foreign Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOPSA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Private Assets: Foreign Securities (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOPSN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Reserve Assets Abroad: Special Drawing Rights (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOSDR
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Reserve Assets Abroad: Special Drawing Rights (DISCONTINUED)'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: BOPOSDRA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: 'U.S. Reserve Assets Abroad: Special Drawing Rights (DISCONTINUED)'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: BOPOSDRN
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Billions of Dollars
+- alias: Net U.S. acquisition of financial assets excluding financial derivatives
+    (net increase in assets / financial outflow (+))
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAA
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Millions of Dollars
+- alias: Net U.S. acquisition of financial assets excluding financial derivatives
+    (net increase in assets / financial outflow (+))
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: IEAAA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Millions of Dollars
+- alias: 'US Acquisition of Other Reserve Assets: Currency and deposits'
+  category_id: 127
+  frequency: Quarterly
+  freshness_days: 7
+  id: IEAACD
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Millions of Dollars
+- alias: 'US Acquisition of Other Reserve Assets: Currency and deposits'
+  category_id: 127
+  frequency: Annual
+  freshness_days: 7
+  id: IEAACDA
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: U.S._International_Finance
+  units: Millions of Dollars

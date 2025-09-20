@@ -1,0 +1,835 @@
+metadata:
+  category_id: 33500
+  created_at: '2025-09-13'
+  description: Education 数据
+  name: Education
+  parent_category: Major_Category
+  total_series: 100
+series:
+- alias: People 25 Years and Over Who Have Completed High School (Includes Equivalency)
+    for the United States (DISCONTINUED)
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: GCT1501US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: People 25 Years and Over Who Have Completed a Bachelor's Degree for the United
+    States (DISCONTINUED)
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: GCT1502US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: People 25 Years and Over Who Have Completed an Advanced Degree for the United
+    States (DISCONTINUED)
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: GCT1503US
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Autauga County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601001
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Baldwin County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601003
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Barbour County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601005
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Bibb County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601007
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Blount County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601009
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Bullock County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601011
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Butler County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601013
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Calhoun County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601015
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Chambers County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601017
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Cherokee County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601019
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Chilton County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601021
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Choctaw County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601023
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Clarke County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601025
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Clay County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601027
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Cleburne County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601029
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Coffee County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601031
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Colbert County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601033
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Conecuh County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601035
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Coosa County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601037
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Covington County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601039
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Crenshaw County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601041
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Cullman County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601043
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Dale County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601045
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Dallas County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601047
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in DeKalb County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601049
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Elmore County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601051
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Escambia County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601053
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Etowah County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601055
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Fayette County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601057
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Franklin County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601059
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Geneva County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601061
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Greene County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601063
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Hale County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601065
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Henry County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601067
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Houston County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601069
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Jackson County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601071
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Jefferson County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601073
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Lamar County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601075
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Lauderdale County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601077
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Lawrence County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601079
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Lee County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601081
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Limestone County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601083
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Lowndes County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601085
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Macon County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601087
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Madison County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601089
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Marengo County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601091
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Marion County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601093
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Marshall County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601095
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Mobile County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601097
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Monroe County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601099
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Montgomery County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601101
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Morgan County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601103
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Perry County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601105
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Pickens County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601107
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Pike County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601109
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Randolph County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601111
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Russell County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601113
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in St. Clair County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601115
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Shelby County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601117
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Sumter County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601119
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Talladega County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601121
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Tallapoosa County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601123
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Tuscaloosa County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601125
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Walker County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601127
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Washington County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601129
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Wilcox County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601131
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Winston County, AL
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1601133
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Aleutians East Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602013
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Aleutians West Census
+    Area, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602016
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Anchorage Borough/municipality,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602020
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Bethel Census Area, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602050
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Bristol Bay Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602060
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Denali Borough, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602068
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Dillingham Census Area,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602070
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Fairbanks North Star
+    Borough, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602090
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Haines Borough, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602100
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Hoonah-Angoon Census
+    Area, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602105
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Juneau Borough/city,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602110
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Kenai Peninsula Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602122
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Ketchikan Gateway Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602130
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Kodiak Island Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602150
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Lake and Peninsula Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602164
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Matanuska-Susitna Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602170
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Nome Census Area, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602180
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in North Slope Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602185
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Northwest Arctic Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602188
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Petersburg Census Area,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602195
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Prince of Wales-Hyder
+    Census Area, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602198
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Sitka Borough/city, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602220
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Skagway Municipality,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602230
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Southeast Fairbanks Census
+    Area, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602240
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Valdez-Cordova Census
+    Area, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602261
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Wade Hampton Census Area,
+    AK (DISCONTINUED)
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602270
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Wrangell Borough/City,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602275
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Yakutat City and Borough,
+    AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602282
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Yukon-Koyukuk Census
+    Area, AK
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1602290
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent
+- alias: High School Graduate or Higher (5-year estimate) in Apache County, AZ
+  category_id: 33500
+  frequency: Annual
+  freshness_days: 7
+  id: HC01ESTVC1604001
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: Education
+  units: Percent

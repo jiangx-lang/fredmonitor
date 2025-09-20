@@ -1,0 +1,22 @@
+{
+  "realtime_start": "2025-09-13",
+  "realtime_end": "2025-09-13",
+  "seriess": [
+    {
+      "id": "ALLQ06A7MINR",
+      "realtime_start": "2025-09-13",
+      "realtime_end": "2025-09-13",
+      "title": "6) To the Extent That the Price or Nonprice Terms Applied to Hedge Funds Have Tightened or Eased over the Past Three Months (as Reflected in Your Responses to Questions 4 and 5), What Are the Most Important Reasons for the Change?| A. Possible Reasons for Tightening | 7. Less-Aggressive Competition from Other Institutions. | Answer Type: First in Importance",
+      "observation_start": "2012-01-01",
+      "observation_end": "2025-01-01",
+      "frequency": "Quarterly",
+      "frequency_short": "Q",
+      "units": "Number of Respondents",
+      "units_short": "Number of Respondents",
+      "seasonal_adjustment": "Not Seasonally Adjusted",
+      "seasonal_adjustment_short": "NSA",
+      "last_updated": "2025-03-27 13:26:15-05",
+      "popularity": 1
+    }
+  ]
+}

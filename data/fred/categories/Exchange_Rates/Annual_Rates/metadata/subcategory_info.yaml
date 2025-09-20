@@ -1,0 +1,7 @@
+# Annual Rates
+subcategory:
+  name: "Annual_Rates"
+  description: "Annual Rates"
+  keywords: ['AEX', 'ANNUAL']
+  parent_category: "Exchange_Rates"
+  created_at: "C:\Users\admin\上网"

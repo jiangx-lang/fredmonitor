@@ -1,0 +1,26 @@
+metadata:
+  category_id: 17
+  created_at: '2025-09-13'
+  description: M3 Components 数据
+  name: M3 Components
+  subcategory: M3_Components
+  total_series: 2
+series:
+- alias: M3 Money Stock (DISCONTINUED)
+  category_id: 17
+  description: M3货币供应量（已停止）
+  frequency: Monthly
+  freshness_days: 7
+  id: M3SL
+  seasonal_adjustment: Seasonally Adjusted
+  subcategory: M3_Components
+  units: Billions of Dollars
+- alias: M3 Money Stock (DISCONTINUED)
+  category_id: 17
+  description: M3货币供应量（已停止）
+  frequency: Monthly
+  freshness_days: 7
+  id: M3NS
+  seasonal_adjustment: Not Seasonally Adjusted
+  subcategory: M3_Components
+  units: Billions of Dollars

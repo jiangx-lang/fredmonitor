@@ -1,0 +1,7 @@
+# M2 Minus Small Time Deposits (7 series)
+subcategory:
+  name: "M2_Minus_Small_Time_Deposits"
+  description: "M2 Minus Small Time Deposits (7 series)"
+  keywords: ['M2MSL', 'M2MNS']
+  parent_category: "Monetary_Data"
+  created_at: "C:\Users\admin\上网"

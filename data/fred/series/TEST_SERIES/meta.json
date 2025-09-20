@@ -1,0 +1,15 @@
+{
+  "id": "TEST_SERIES",
+  "title": "Test Series",
+  "frequency": "Monthly",
+  "units": "Index",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "last_updated": "2024-01-01",
+  "observation_start": "2020-01-01",
+  "observation_end": "2024-01-01",
+  "notes": "Test notes",
+  "sync_timestamp": "2025-09-10T21:42:21.746990",
+  "alias": "test_series",
+  "freshness_days": 30,
+  "next_release": "2024-04-01"
+}
