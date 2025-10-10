@@ -1244,7 +1244,10 @@ class MacroLabGUI:
                         self.log_message("✅ 数据完整性检查完成!")
                         
                         # 显示检查结果摘要
-                        output_lines = result2.stdout.split('\n')
+                        if result2.stdout:
+                            output_lines = result2.stdout.split('\n')
+                        else:
+                            output_lines = []
                         for line in output_lines:
                             if '数据完整性:' in line or '需要处理' in line or '操作建议' in line:
                                 self.log_message(line)
