@@ -1,0 +1,21 @@
+{
+  "id": "DRTSCILM",
+  "realtime_start": "2025-10-06",
+  "realtime_end": "2025-10-06",
+  "title": "Net Percentage of Domestic Banks Tightening Standards for Commercial and Industrial Loans to Large and Middle-Market Firms",
+  "observation_start": "1990-04-01",
+  "observation_end": "2025-07-01",
+  "frequency": "Quarterly",
+  "frequency_short": "Q",
+  "units": "Percent",
+  "units_short": "%",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-08-04 13:01:56-05",
+  "popularity": 66,
+  "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/data/SLOOS%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>",
+  "sync_timestamp": "2025-10-10T21:38:10.013960",
+  "alias": "Senior_Loan_Officer_Survey_C_I_Large_Medium",
+  "freshness_days": 120,
+  "next_release": "N/A"
+}

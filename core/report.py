@@ -1,16 +1,13 @@
 """
 报告生成器
-
-生成Markdown格式的分析报告。
 """
 
 import os
+import json
 import pandas as pd
 from datetime import datetime
 from typing import Dict, Any, List
-import logging
-
-logger = logging.getLogger(__name__)
+from pathlib import Path
 
 
 class ReportGenerator:
@@ -21,207 +18,275 @@ class ReportGenerator:
         初始化报告生成器
         
         Args:
-            base_dir: 基础目录路径
+            base_dir: 基础目录
         """
-        self.base_dir = base_dir
-        self.reports_dir = os.path.join(base_dir, "outputs", "reports")
-        os.makedirs(self.reports_dir, exist_ok=True)
+        self.base_dir = Path(base_dir)
+        self.output_dir = self.base_dir / "outputs" / "daily_analysis"
+        self.output_dir.mkdir(parents=True, exist_ok=True)
     
-    def generate_daily_report(self, analysis_result: Dict[str, Any], 
-                            recent_scores: pd.DataFrame = None) -> str:
+    def generate_daily_report(self, result: Dict[str, Any], recent_scores: List[Dict[str, Any]]) -> str:
         """
         生成每日分析报告
         
         Args:
-            analysis_result: 分析结果
-            recent_scores: 最近评分数据
+            result: 分析结果
+            recent_scores: 最近评分历史
             
         Returns:
             报告文件路径
         """
-        date = analysis_result["date"]
-        date_str = date.strftime("%Y-%m-%d")
+        date_str = result['date'].strftime('%Y%m%d')
         
-        # 构建报告内容
-        content = self._build_report_content(analysis_result, recent_scores)
+        # 生成HTML报告
+        html_path = self.output_dir / f"daily_analysis_{date_str}.html"
+        self._generate_html_report(result, recent_scores, html_path)
         
-        # 保存报告
-        report_file = f"macro_analysis_{date_str}.md"
-        report_path = os.path.join(self.reports_dir, report_file)
+        # 生成JSON报告
+        json_path = self.output_dir / f"daily_analysis_{date_str}.json"
+        self._generate_json_report(result, recent_scores, json_path)
         
-        with open(report_path, 'w', encoding='utf-8') as f:
-            f.write(content)
-        
-        logger.info(f"生成报告: {report_path}")
-        return report_path
+        return str(html_path)
     
-    def _build_report_content(self, analysis_result: Dict[str, Any], 
-                            recent_scores: pd.DataFrame = None) -> str:
-        """
-        构建报告内容
+    def _generate_html_report(self, result: Dict[str, Any], recent_scores: List[Dict[str, Any]], output_path: Path):
+        """生成HTML报告"""
+        html_content = f"""
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日风险分析报告 - {result['date'].strftime('%Y-%m-%d')}</title>
+    <style>
+        body {{
+            font-family: 'Microsoft YaHei', 'SimHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }}
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }}
+        h1 {{
+            color: #d32f2f;
+            text-align: center;
+            border-bottom: 3px solid #d32f2f;
+            padding-bottom: 10px;
+        }}
+        .summary {{
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }}
+        .risk-level {{
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }}
+        .risk-low {{ background-color: #d4edda; color: #155724; }}
+        .risk-medium {{ background-color: #fff3cd; color: #856404; }}
+        .risk-high {{ background-color: #f8d7da; color: #721c24; }}
+        .risk-extreme {{ background-color: #d1ecf1; color: #0c5460; }}
+        .factor-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }}
+        .factor-card {{
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #f8f9fa;
+        }}
+        .factor-header {{
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #495057;
+        }}
+        .factor-score {{
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }}
+        .score-low {{ background-color: #d4edda; color: #155724; }}
+        .score-medium {{ background-color: #fff3cd; color: #856404; }}
+        .score-high {{ background-color: #f8d7da; color: #721c24; }}
+        .score-extreme {{ background-color: #d1ecf1; color: #0c5460; }}
+        .trend-chart {{
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }}
+        .footer {{
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>每日风险分析报告</h1>
         
-        Args:
-            analysis_result: 分析结果
-            recent_scores: 最近评分数据
-            
-        Returns:
-            报告内容
-        """
-        date = analysis_result["date"]
-        date_str = date.strftime("%Y年%m月%d日")
+        <div class="summary">
+            <h2>分析概览</h2>
+            <p><strong>分析日期:</strong> {result['date'].strftime('%Y-%m-%d')}</p>
+            <p><strong>综合风险评分:</strong> {result['total_score']:.2f}/100</p>
+            <p><strong>分析因子数量:</strong> {result['analysis_summary']['total_factors']}</p>
+            <p><strong>活跃因子数量:</strong> {result['analysis_summary']['active_factors']}</p>
+        </div>
         
-        factor_scores = analysis_result["factor_scores"]
-        factor_values = analysis_result["factor_values"]
-        total_score = analysis_result["total_score"]
-        risk_level = analysis_result["risk_level"]
+        <div class="risk-level risk-{self._get_risk_class(result['risk_level'])}">
+            风险等级: {result['risk_level']}
+        </div>
         
-        # 报告标题
-        content = f"# 宏观金融危机风险打分系统分析报告\n\n"
-        content += f"**分析日期**: {date_str}\n\n"
+        <h2>因子分析结果</h2>
+        <div class="factor-grid">
+"""
         
-        # 总体风险评分
-        content += f"## 总体风险评分\n\n"
-        content += f"**综合加权总分**: {total_score:.2f}\n\n"
-        content += f"**风险等级**: {risk_level}\n\n"
+        # 添加因子卡片
+        for factor_id, score in result['factor_scores'].items():
+            factor_details = result['factor_details'].get(factor_id, {})
+            if factor_details.get('status') == 'success':
+                metrics = factor_details.get('metrics', {})
+                current_value = metrics.get('current_value', 0)
+                
+                html_content += f"""
+            <div class="factor-card">
+                <div class="factor-header">{factor_id}</div>
+                <div class="factor-score score-{self._get_score_class(score)}">{score:.1f}</div>
+                <p><strong>当前值:</strong> {current_value:.4f}</p>
+                <p><strong>数据点数:</strong> {factor_details.get('data_points', 0)}</p>
+                <p><strong>最新日期:</strong> {factor_details.get('latest_date', 'N/A')}</p>
+            </div>
+"""
         
-        # 因子详细分析
-        content += "## 因子详细分析\n\n"
-        content += "| 因子名称 | 原始值 | 风险评分 | 权重 | 加权评分 |\n"
-        content += "|---------|--------|----------|------|----------|\n"
+        html_content += """
+        </div>
         
-        # 按权重排序显示因子
-        sorted_factors = sorted(factor_scores.items(), 
-                              key=lambda x: analysis_result.get("weights", {}).get(x[0], 0), 
-                              reverse=True)
+        <div class="trend-chart">
+            <h2>最近趋势</h2>
+            <p>最近5天的评分变化趋势将在这里显示</p>
+        </div>
         
-        for factor_id, score in sorted_factors:
-            value = factor_values.get(factor_id, "N/A")
-            weight = analysis_result.get("weights", {}).get(factor_id, 0)
-            weighted_score = score * weight
-            
-            if isinstance(value, float):
-                value_str = f"{value:.4f}"
-            else:
-                value_str = str(value)
-            
-            content += f"| {factor_id} | {value_str} | {score:.2f} | {weight:.2f} | {weighted_score:.2f} |\n"
+        <div class="footer">
+            <p>报告生成时间: """ + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + """</p>
+            <p>MacroLab 风险分析系统</p>
+        </div>
+    </div>
+</body>
+</html>
+"""
         
-        content += "\n"
-        
-        # 最近趋势
-        if recent_scores is not None and not recent_scores.empty:
-            content += "## 最近趋势\n\n"
-            content += "| 日期 | 总分 |\n"
-            content += "|------|------|\n"
-            
-            for _, row in recent_scores.iterrows():
-                row_date = row['date'].strftime("%Y-%m-%d")
-                content += f"| {row_date} | {row['total_score']:.2f} |\n"
-            
-            content += "\n"
-        
-        # 风险等级说明
-        content += "## 风险等级说明\n\n"
-        content += "- **低风险** (< 30): 市场风险较低，各项指标正常\n"
-        content += "- **中等风险** (30-50): 市场存在一定风险，需要关注\n"
-        content += "- **偏高风险** (50-70): 市场风险较高，建议谨慎\n"
-        content += "- **极高风险** (≥ 70): 市场风险极高，建议高度警惕\n\n"
-        
-        # 报告生成时间
-        content += f"---\n\n"
-        content += f"*报告生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*\n"
-        
-        return content
+        # 写入文件
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(html_content)
     
-    def generate_excel_summary(self, analysis_result: Dict[str, Any], 
-                             excel_path: str) -> None:
-        """
-        生成Excel汇总报告
+    def _generate_json_report(self, result: Dict[str, Any], recent_scores: List[Dict[str, Any]], output_path: Path):
+        """生成JSON报告"""
+        # 准备JSON数据
+        json_data = {
+            'report_info': {
+                'date': result['date'].strftime('%Y-%m-%d'),
+                'generated_at': datetime.now().isoformat(),
+                'total_score': result['total_score'],
+                'risk_level': result['risk_level']
+            },
+            'factor_scores': result['factor_scores'],
+            'factor_values': result['factor_values'],
+            'factor_details': result['factor_details'],
+            'analysis_summary': result['analysis_summary'],
+            'recent_scores': recent_scores
+        }
         
-        Args:
-            analysis_result: 分析结果
-            excel_path: Excel文件路径
-        """
+        # 写入文件
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(json_data, f, ensure_ascii=False, indent=2, default=str)
+    
+    def _get_risk_class(self, risk_level: str) -> str:
+        """获取风险等级CSS类"""
+        if '极低' in risk_level or '低' in risk_level:
+            return 'low'
+        elif '中' in risk_level:
+            return 'medium'
+        elif '高' in risk_level:
+            return 'high'
+        else:
+            return 'extreme'
+    
+    def _get_score_class(self, score: float) -> str:
+        """获取评分CSS类"""
+        if score >= 80:
+            return 'extreme'
+        elif score >= 60:
+            return 'high'
+        elif score >= 40:
+            return 'medium'
+        else:
+            return 'low'
+    
+    def generate_excel_summary(self, result: Dict[str, Any], excel_path: str):
+        """生成Excel汇总报告"""
         try:
-            from openpyxl import Workbook, load_workbook
-            from openpyxl.styles import Font, Alignment, PatternFill
-            
-            # 检查文件是否存在
-            if os.path.exists(excel_path):
-                wb = load_workbook(excel_path)
-            else:
-                wb = Workbook()
-                # 删除默认工作表
-                wb.remove(wb.active)
-            
-            # 创建工作表
-            ws_name = analysis_result["date"].strftime("%Y-%m-%d")
-            if ws_name in wb.sheetnames:
-                ws = wb[ws_name]
-            else:
-                ws = wb.create_sheet(ws_name)
-            
-            # 设置标题行
-            headers = [
-                "日期", "VIX", "VIX分数", "SOFR原值", "3M国债", "TED利差", "TED分数",
-                "高收益利差", "HY分数", "2Y-10Y利差", "Yield分数", "FCI", "FCI分数",
-                "SP500波动率", "SP500分数", "美元指数波动", "DXY分数",
-                "消费者信心", "消费者信心分数", "房价变化", "房价分数",
-                "新兴市场利差", "EM风险分数", "加权总分"
-            ]
-            
-            # 写入标题
-            for col, header in enumerate(headers, 1):
-                cell = ws.cell(row=1, column=col, value=header)
-                cell.font = Font(bold=True)
-                cell.alignment = Alignment(horizontal='center')
-                cell.fill = PatternFill(start_color='CCCCCC', end_color='CCCCCC', fill_type='solid')
-            
-            # 准备数据行
-            date = analysis_result["date"]
-            factor_scores = analysis_result["factor_scores"]
-            factor_values = analysis_result["factor_values"]
-            total_score = analysis_result["total_score"]
-            
-            # 映射因子ID到列位置
-            factor_mapping = {
-                "VIX": (1, 2),  # VIX, VIX分数
-                "TED": (3, 6),  # SOFR原值, 3M国债, TED利差, TED分数
-                "HY_Spread": (7, 8),  # 高收益利差, HY分数
-                "Yield_Spread": (9, 10),  # 2Y-10Y利差, Yield分数
-                "FCI": (11, 12),  # FCI, FCI分数
-                "SP500_Vol": (13, 14),  # SP500波动率, SP500分数
-                "DXY_Vol": (15, 16),  # 美元指数波动, DXY分数
-                "Consumer_Confidence": (17, 18),  # 消费者信心, 消费者信心分数
-                "Housing_Stress": (19, 20),  # 房价变化, 房价分数
-                "EM_Risk": (21, 22),  # 新兴市场利差, EM风险分数
-            }
-            
-            # 写入数据
-            row = 2
-            ws.cell(row=row, column=1, value=date.strftime("%Y-%m-%d"))
-            
-            for factor_id, (value_col, score_col) in factor_mapping.items():
-                value = factor_values.get(factor_id, "")
-                score = factor_scores.get(factor_id, 0)
+            # 准备数据
+            data = []
+            for factor_id, score in result['factor_scores'].items():
+                factor_details = result['factor_details'].get(factor_id, {})
+                metrics = factor_details.get('metrics', {})
                 
-                if isinstance(value, float):
-                    ws.cell(row=row, column=value_col, value=round(value, 4))
-                else:
-                    ws.cell(row=row, column=value_col, value=value)
+                data.append({
+                    '因子ID': factor_id,
+                    '风险评分': score,
+                    '当前值': metrics.get('current_value', 0),
+                    '20日均值': metrics.get('mean_20d', 0),
+                    '20日波动率': metrics.get('std_20d', 0),
+                    '百分位排名': metrics.get('percentile_rank', 0),
+                    '5日趋势': metrics.get('trend_5d', 0),
+                    '数据点数': factor_details.get('data_points', 0),
+                    '状态': factor_details.get('status', 'unknown')
+                })
+            
+            # 创建DataFrame
+            df = pd.DataFrame(data)
+            
+            # 写入Excel
+            with pd.ExcelWriter(excel_path, engine='openpyxl') as writer:
+                # 主要数据
+                df.to_excel(writer, sheet_name='因子分析', index=False)
                 
-                ws.cell(row=row, column=score_col, value=round(score, 2))
+                # 汇总信息
+                summary_data = {
+                    '项目': ['分析日期', '综合风险评分', '风险等级', '总因子数', '活跃因子数'],
+                    '值': [
+                        result['date'].strftime('%Y-%m-%d'),
+                        f"{result['total_score']:.2f}",
+                        result['risk_level'],
+                        result['analysis_summary']['total_factors'],
+                        result['analysis_summary']['active_factors']
+                    ]
+                }
+                summary_df = pd.DataFrame(summary_data)
+                summary_df.to_excel(writer, sheet_name='汇总信息', index=False)
             
-            # 写入总分
-            ws.cell(row=row, column=23, value=round(total_score, 2))
-            
-            # 调整列宽
-            for col in range(1, len(headers) + 1):
-                ws.column_dimensions[chr(64 + col)].width = 12
-            
-            # 保存文件
-            wb.save(excel_path)
-            logger.info(f"生成Excel报告: {excel_path}")
+            print(f"✅ Excel报告已生成: {excel_path}")
             
         except Exception as e:
-            logger.error(f"生成Excel报告失败: {e}")
+            print(f"❌ Excel报告生成失败: {e}")
+            raise

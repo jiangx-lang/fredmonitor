@@ -32,7 +32,7 @@ class MacroLabGUI:
     
     def __init__(self, root):
         self.root = root
-        self.root.title("MacroLab - 宏观分析系统")
+        self.root.title("FRED 风险监控系统 - 宏观危机监测 + 日度风险面板")
         self.root.geometry("1000x700")
         self.root.configure(bg='#f0f0f0')
         
@@ -68,9 +68,14 @@ class MacroLabGUI:
         main_frame.rowconfigure(2, weight=1)
         
         # 标题
-        title_label = ttk.Label(main_frame, text="MacroLab 宏观分析系统", 
+        title_label = ttk.Label(main_frame, text="🚨 FRED 风险监控系统", 
                                font=('Arial', 16, 'bold'))
         title_label.grid(row=0, column=0, columnspan=3, pady=(0, 20))
+        
+        # 副标题
+        subtitle_label = ttk.Label(main_frame, text="宏观危机监测 + 日度风险面板", 
+                                 font=('Arial', 12))
+        subtitle_label.grid(row=0, column=0, columnspan=3, pady=(25, 10))
         
         # 左侧控制面板
         control_frame = ttk.LabelFrame(main_frame, text="控制面板", padding="10")
@@ -87,6 +92,29 @@ class MacroLabGUI:
         button_frame = ttk.LabelFrame(control_frame, text="功能操作", padding="5")
         button_frame.pack(fill=tk.X, pady=(0, 10))
         
+        # 数据管理按钮 - 放在最前面
+        self.download_data_btn = ttk.Button(button_frame, text="📥 下载FRED数据", 
+                                          command=self.download_fred_data)
+        self.download_data_btn.pack(fill=tk.X, pady=2)
+        
+        self.check_data_btn = ttk.Button(button_frame, text="🔍 检查数据完整性", 
+                                       command=self.check_data_completeness)
+        self.check_data_btn.pack(fill=tk.X, pady=2)
+        
+        # 风险监控按钮
+        self.crisis_monitor_btn = ttk.Button(button_frame, text="🚨 宏观危机监测", 
+                                           command=self.run_crisis_monitor)
+        self.crisis_monitor_btn.pack(fill=tk.X, pady=2)
+        
+        self.risk_dashboard_btn = ttk.Button(button_frame, text="📊 日度风险面板", 
+                                           command=self.run_risk_dashboard)
+        self.risk_dashboard_btn.pack(fill=tk.X, pady=2)
+        
+        self.combined_report_btn = ttk.Button(button_frame, text="📈 综合风险报告", 
+                                            command=self.run_combined_report)
+        self.combined_report_btn.pack(fill=tk.X, pady=2)
+        
+        # 原有功能按钮
         self.run_daily_btn = ttk.Button(button_frame, text="运行每日分析", 
                                        command=self.run_daily_analysis)
         self.run_daily_btn.pack(fill=tk.X, pady=2)
@@ -176,6 +204,15 @@ class MacroLabGUI:
             try:
                 self.log_message("正在初始化系统...")
                 
+                # 重新加载环境变量以确保最新值
+                load_dotenv('macrolab.env', override=True)
+                
+                # 更新API密钥变量
+                env_api_key = os.getenv("FRED_API_KEY", "")
+                if env_api_key and not self.api_key_var.get():
+                    self.api_key_var.set(env_api_key)
+                    self.log_message(f"从环境变量加载FRED API密钥: {env_api_key[:8]}...")
+                
                 # 创建缓存管理器
                 self.cache_manager = CacheManager(self.base_dir_var.get())
                 
@@ -187,19 +224,43 @@ class MacroLabGUI:
                 else:
                     self.log_message("警告: 未设置FRED API密钥")
                 
-                # 加载配置
-                self.settings = load_yaml_config("config/settings.yaml")
-                self.registry = FactorRegistry("factors", "config/factor_registry.yaml")
+                # 加载配置 - 使用默认配置如果文件不存在
+                try:
+                    self.settings = load_yaml_config("config/settings.yaml")
+                except:
+                    self.settings = {"outputs": {"write_excel": True}}
+                    self.log_message("使用默认设置配置")
                 
-                # 创建聚合器
-                self.aggregator = DataAggregator(self.fred_client, self.cache_manager, 
-                                               self.registry, self.settings)
+                try:
+                    self.registry = FactorRegistry("factors", "config/factor_registry.yaml")
+                except:
+                    self.registry = None
+                    self.log_message("因子注册表不可用，跳过因子相关功能")
+                
+                # 创建聚合器 - 只有在有FRED客户端时才创建
+                if hasattr(self, 'fred_client') and self.fred_client:
+                    try:
+                        self.aggregator = DataAggregator(self.fred_client, self.cache_manager, 
+                                                       self.registry, self.settings)
+                    except:
+                        self.aggregator = None
+                        self.log_message("数据聚合器初始化失败，跳过聚合功能")
+                else:
+                    self.aggregator = None
                 
                 # 创建报告生成器
-                self.report_generator = ReportGenerator(self.base_dir_var.get())
+                try:
+                    self.report_generator = ReportGenerator(self.base_dir_var.get())
+                except:
+                    self.report_generator = None
+                    self.log_message("报告生成器初始化失败，跳过报告功能")
                 
-                # 加载因子列表到下拉框
-                self.load_factor_list()
+                # 加载因子列表到下拉框 - 只有在有注册表时才加载
+                if self.registry:
+                    try:
+                        self.load_factor_list()
+                    except:
+                        self.log_message("因子列表加载失败")
                 
                 self.status_label.config(text="系统就绪", foreground="green")
                 self.log_message("系统初始化完成！")
@@ -232,6 +293,11 @@ class MacroLabGUI:
                 
                 self.log_message("开始运行每日分析...")
                 
+                # 检查聚合器是否可用
+                if not hasattr(self, 'aggregator') or self.aggregator is None:
+                    self.log_message("❌ 数据聚合器不可用，请检查系统配置")
+                    return
+                
                 # 运行分析
                 result = self.aggregator.run_daily_analysis()
                 
@@ -252,16 +318,22 @@ class MacroLabGUI:
                     self.log_message(f"  {factor_id}: {score:.2f} (值: {value_str})")
                 
                 # 生成报告
-                recent_scores = self.aggregator.get_recent_scores(5)
-                report_path = self.report_generator.generate_daily_report(result, recent_scores)
-                self.log_message(f"")
-                self.log_message(f"报告已生成: {report_path}")
-                
-                # 生成Excel汇总
-                if self.settings.get("outputs", {}).get("write_excel", True):
-                    excel_path = os.getenv("MACROLAB_EXCEL_OUT", "D:\\标普\\backtest_results\\宏观金融危机风险打分系统.xlsx")
-                    self.report_generator.generate_excel_summary(result, excel_path)
-                    self.log_message(f"Excel报告已生成: {excel_path}")
+                if hasattr(self, 'report_generator') and self.report_generator:
+                    try:
+                        recent_scores = self.aggregator.get_recent_scores(5)
+                        report_path = self.report_generator.generate_daily_report(result, recent_scores)
+                        self.log_message(f"")
+                        self.log_message(f"报告已生成: {report_path}")
+                        
+                        # 生成Excel汇总
+                        if self.settings.get("outputs", {}).get("write_excel", True):
+                            excel_path = os.getenv("MACROLAB_EXCEL_OUT", "D:\\标普\\backtest_results\\宏观金融危机风险打分系统.xlsx")
+                            self.report_generator.generate_excel_summary(result, excel_path)
+                            self.log_message(f"Excel报告已生成: {excel_path}")
+                    except Exception as e:
+                        self.log_message(f"⚠️ 报告生成失败: {e}")
+                else:
+                    self.log_message("⚠️ 报告生成器不可用，跳过报告生成")
                 
                 self.log_message("每日分析完成！")
                 
@@ -695,6 +767,497 @@ class MacroLabGUI:
                 self.factor_history_btn.config(state='normal')
         
         threading.Thread(target=history_thread, daemon=True).start()
+    
+    def run_crisis_monitor(self):
+        """运行宏观危机监测系统"""
+        if self.is_running:
+            messagebox.showwarning("警告", "系统正在运行中，请稍候...")
+            return
+        
+        def monitor_thread():
+            try:
+                self.is_running = True
+                self.progress.start()
+                self.crisis_monitor_btn.config(state='disabled')
+                
+                self.log_message("🚨 启动宏观危机监测系统...")
+                self.log_message("=" * 50)
+                
+                # 运行危机监测系统
+                import subprocess
+                import sys
+                
+                crisis_monitor_path = os.path.join(os.path.dirname(__file__), "crisis_monitor.py")
+                
+                if os.path.exists(crisis_monitor_path):
+                    self.log_message("📊 正在运行宏观危机监测...")
+                    self.log_message("⏳ 预计等待时间: 3-5分钟...")
+                    
+                    # 使用实时输出显示进度
+                    process = subprocess.Popen([sys.executable, crisis_monitor_path],
+                                             stdout=subprocess.PIPE, 
+                                             stderr=subprocess.STDOUT,
+                                             text=True, 
+                                             bufsize=1,
+                                             universal_newlines=True,
+                                             encoding='utf-8',
+                                             errors='replace')
+                    
+                    # 实时显示输出
+                    while True:
+                        output = process.stdout.readline()
+                        if output == '' and process.poll() is not None:
+                            break
+                        if output and output.strip():
+                            line = output.strip()
+                            if line:
+                                # 显示关键进度信息
+                                if any(keyword in line for keyword in ['启动', '步骤', '完成', '生成', '保存', '报告']):
+                                    self.log_message(line)
+                    
+                    # 等待进程完成
+                    return_code = process.poll()
+                    
+                    if return_code == 0:
+                        self.log_message("✅ 宏观危机监测完成!")
+                        
+                        # 查找生成的报告文件
+                        outputs_dir = os.path.join(os.path.dirname(__file__), "outputs", "crisis_monitor")
+                        if os.path.exists(outputs_dir):
+                            import glob
+                            latest_files = glob.glob(os.path.join(outputs_dir, "crisis_report_*.html"))
+                            if latest_files:
+                                latest_file = max(latest_files, key=os.path.getctime)
+                                self.log_message(f"📄 报告已生成: {latest_file}")
+                            
+                            latest_images = glob.glob(os.path.join(outputs_dir, "crisis_report_long_*.png"))
+                            if latest_images:
+                                latest_image = max(latest_images, key=os.path.getctime)
+                                self.log_message(f"🖼️ 长图已生成: {latest_image}")
+                    else:
+                        self.log_message(f"⚠️ 宏观危机监测警告，返回码: {return_code}")
+                else:
+                    self.log_message(f"❌ 找不到危机监测程序: {crisis_monitor_path}")
+                
+            except Exception as e:
+                self.log_message(f"❌ 宏观危机监测失败: {e}")
+                messagebox.showerror("错误", f"宏观危机监测失败: {e}")
+            finally:
+                self.is_running = False
+                self.progress.stop()
+                self.crisis_monitor_btn.config(state='normal')
+        
+        threading.Thread(target=monitor_thread, daemon=True).start()
+    
+    def run_risk_dashboard(self):
+        """运行日度风险面板系统"""
+        if self.is_running:
+            messagebox.showwarning("警告", "系统正在运行中，请稍候...")
+            return
+        
+        def dashboard_thread():
+            try:
+                self.is_running = True
+                self.progress.start()
+                self.risk_dashboard_btn.config(state='disabled')
+                
+                self.log_message("📊 启动日度风险面板系统...")
+                self.log_message("=" * 50)
+                
+                # 运行风险面板系统
+                import subprocess
+                import sys
+                
+                risk_dashboard_path = os.path.join(os.path.dirname(__file__), "daily_risk_dashboard", "risk_dashboard.py")
+                
+                if os.path.exists(risk_dashboard_path):
+                    self.log_message("🚨 正在运行日度风险监控...")
+                    self.log_message("⏳ 预计等待时间: 1-2分钟...")
+                    
+                    # 使用实时输出显示进度
+                    process = subprocess.Popen([sys.executable, risk_dashboard_path],
+                                             stdout=subprocess.PIPE, 
+                                             stderr=subprocess.STDOUT,
+                                             text=True, 
+                                             bufsize=1,
+                                             universal_newlines=True,
+                                             encoding='utf-8',
+                                             errors='replace')
+                    
+                    # 实时显示输出
+                    while True:
+                        output = process.stdout.readline()
+                        if output == '' and process.poll() is not None:
+                            break
+                        if output and output.strip():
+                            line = output.strip()
+                            if line:
+                                # 显示关键进度信息
+                                if any(keyword in line for keyword in ['启动', '处理', '计算', '生成', '保存', '完成']):
+                                    self.log_message(line)
+                    
+                    # 等待进程完成
+                    return_code = process.poll()
+                    
+                    if return_code == 0:
+                        self.log_message("✅ 日度风险面板生成完成!")
+                        
+                        # 查找生成的报告文件
+                        outputs_dir = os.path.join(os.path.dirname(__file__), "daily_risk_dashboard", "outputs")
+                        if os.path.exists(outputs_dir):
+                            import glob
+                            latest_images = glob.glob(os.path.join(outputs_dir, "risk_dashboard_*.png"))
+                            if latest_images:
+                                latest_image = max(latest_images, key=os.path.getctime)
+                                self.log_message(f"🖼️ 风险面板已生成: {latest_image}")
+                            
+                            latest_json = glob.glob(os.path.join(outputs_dir, "risk_dashboard_*.json"))
+                            if latest_json:
+                                latest_data = max(latest_json, key=os.path.getctime)
+                                self.log_message(f"📊 数据文件已生成: {latest_data}")
+                    else:
+                        self.log_message(f"⚠️ 日度风险面板警告，返回码: {return_code}")
+                else:
+                    self.log_message(f"❌ 找不到风险面板程序: {risk_dashboard_path}")
+                
+            except Exception as e:
+                self.log_message(f"❌ 日度风险面板失败: {e}")
+                messagebox.showerror("错误", f"日度风险面板失败: {e}")
+            finally:
+                self.is_running = False
+                self.progress.stop()
+                self.risk_dashboard_btn.config(state='normal')
+        
+        threading.Thread(target=dashboard_thread, daemon=True).start()
+    
+    def run_combined_report(self):
+        """运行综合风险报告"""
+        if self.is_running:
+            messagebox.showwarning("警告", "系统正在运行中，请稍候...")
+            return
+        
+        def combined_thread():
+            try:
+                self.is_running = True
+                self.progress.start()
+                self.combined_report_btn.config(state='disabled')
+                
+                self.log_message("📈 启动综合风险报告生成...")
+                self.log_message("=" * 50)
+                
+                # 先运行宏观危机监测
+                self.log_message("1️⃣ 运行宏观危机监测...")
+                crisis_monitor_path = os.path.join(os.path.dirname(__file__), "crisis_monitor.py")
+                
+                if os.path.exists(crisis_monitor_path):
+                    import subprocess
+                    import sys
+                    
+                    # 使用实时输出显示进度
+                    process1 = subprocess.Popen([sys.executable, crisis_monitor_path],
+                                             stdout=subprocess.PIPE, 
+                                             stderr=subprocess.STDOUT,
+                                             text=True, 
+                                             bufsize=1,
+                                             universal_newlines=True,
+                                             encoding='utf-8',
+                                             errors='replace')
+                    
+                    # 实时显示输出
+                    while True:
+                        output = process1.stdout.readline()
+                        if output == '' and process1.poll() is not None:
+                            break
+                        if output and output.strip():
+                            line = output.strip()
+                            if line and any(keyword in line for keyword in ['启动', '步骤', '完成', '生成', '保存', '报告']):
+                                self.log_message(f"  {line}")
+                    
+                    return_code1 = process1.poll()
+                    
+                    if return_code1 == 0:
+                        self.log_message("✅ 宏观危机监测完成")
+                    else:
+                        self.log_message("⚠️ 宏观危机监测有警告")
+                
+                # 再运行日度风险面板
+                self.log_message("2️⃣ 运行日度风险面板...")
+                risk_dashboard_path = os.path.join(os.path.dirname(__file__), "daily_risk_dashboard", "risk_dashboard.py")
+                
+                if os.path.exists(risk_dashboard_path):
+                    # 使用实时输出显示进度
+                    process2 = subprocess.Popen([sys.executable, risk_dashboard_path],
+                                             stdout=subprocess.PIPE, 
+                                             stderr=subprocess.STDOUT,
+                                             text=True, 
+                                             bufsize=1,
+                                             universal_newlines=True,
+                                             encoding='utf-8',
+                                             errors='replace')
+                    
+                    # 实时显示输出
+                    while True:
+                        output = process2.stdout.readline()
+                        if output == '' and process2.poll() is not None:
+                            break
+                        if output and output.strip():
+                            line = output.strip()
+                            if line and any(keyword in line for keyword in ['启动', '处理', '计算', '生成', '保存', '完成']):
+                                self.log_message(f"  {line}")
+                    
+                    return_code2 = process2.poll()
+                    
+                    if return_code2 == 0:
+                        self.log_message("✅ 日度风险面板完成")
+                    else:
+                        self.log_message("⚠️ 日度风险面板有警告")
+                
+                # 生成综合报告
+                self.log_message("3️⃣ 生成综合风险报告...")
+                self.generate_combined_summary()
+                
+                self.log_message("🎉 综合风险报告生成完成!")
+                
+            except Exception as e:
+                self.log_message(f"❌ 综合风险报告失败: {e}")
+                messagebox.showerror("错误", f"综合风险报告失败: {e}")
+            finally:
+                self.is_running = False
+                self.progress.stop()
+                self.combined_report_btn.config(state='normal')
+        
+        threading.Thread(target=combined_thread, daemon=True).start()
+    
+    def generate_combined_summary(self):
+        """生成综合风险摘要"""
+        try:
+            import json
+            import glob
+            from datetime import datetime
+            
+            # 读取最新的危机监测数据
+            crisis_outputs = os.path.join(os.path.dirname(__file__), "outputs", "crisis_monitor")
+            risk_outputs = os.path.join(os.path.dirname(__file__), "daily_risk_dashboard", "outputs")
+            
+            crisis_data = None
+            risk_data = None
+            
+            # 读取危机监测JSON数据
+            if os.path.exists(crisis_outputs):
+                crisis_json_files = glob.glob(os.path.join(crisis_outputs, "crisis_report_*.json"))
+                if crisis_json_files:
+                    latest_crisis = max(crisis_json_files, key=os.path.getctime)
+                    with open(latest_crisis, 'r', encoding='utf-8') as f:
+                        crisis_data = json.load(f)
+            
+            # 读取风险面板JSON数据
+            if os.path.exists(risk_outputs):
+                risk_json_files = glob.glob(os.path.join(risk_outputs, "risk_dashboard_*.json"))
+                if risk_json_files:
+                    latest_risk = max(risk_json_files, key=os.path.getctime)
+                    with open(latest_risk, 'r', encoding='utf-8') as f:
+                        risk_data = json.load(f)
+            
+            # 生成综合摘要
+            self.log_message("")
+            self.log_message("📊 综合风险摘要")
+            self.log_message("=" * 50)
+            
+            if crisis_data:
+                crisis_score = crisis_data.get('total_score', 0)
+                crisis_level = crisis_data.get('risk_level', '未知')
+                self.log_message(f"🚨 宏观危机评分: {crisis_score:.1f}/100 ({crisis_level})")
+            
+            if risk_data:
+                risk_score = risk_data.get('total_score', 0)
+                risk_summary = risk_data.get('summary', {})
+                high_risk_count = risk_summary.get('high_risk_count', 0)
+                total_indicators = risk_summary.get('total_indicators', 0)
+                self.log_message(f"📊 日度风险评分: {risk_score:.1f}/100")
+                self.log_message(f"🔴 高风险指标: {high_risk_count}/{total_indicators}")
+            
+            # 综合建议
+            self.log_message("")
+            self.log_message("💡 综合建议:")
+            
+            if crisis_data and risk_data:
+                crisis_score = crisis_data.get('total_score', 0)
+                risk_score = risk_data.get('total_score', 0)
+                
+                if crisis_score >= 70 and risk_score >= 70:
+                    self.log_message("🚨 双重高风险警告！建议大幅减仓")
+                elif crisis_score >= 70 or risk_score >= 70:
+                    self.log_message("⚠️ 单一高风险，建议适度减仓")
+                elif crisis_score >= 50 or risk_score >= 50:
+                    self.log_message("🟡 中等风险，保持谨慎")
+                else:
+                    self.log_message("🟢 风险可控，可考虑适度加仓")
+            
+            self.log_message("")
+            self.log_message("📁 详细报告文件:")
+            
+            # 列出生成的文件
+            if os.path.exists(crisis_outputs):
+                crisis_files = glob.glob(os.path.join(crisis_outputs, "crisis_report_*.html"))
+                if crisis_files:
+                    latest_crisis = max(crisis_files, key=os.path.getctime)
+                    self.log_message(f"  📄 宏观危机报告: {latest_crisis}")
+            
+            if os.path.exists(risk_outputs):
+                risk_files = glob.glob(os.path.join(risk_outputs, "risk_dashboard_*.png"))
+                if risk_files:
+                    latest_risk = max(risk_files, key=os.path.getctime)
+                    self.log_message(f"  🖼️ 日度风险面板: {latest_risk}")
+            
+        except Exception as e:
+            self.log_message(f"⚠️ 生成综合摘要失败: {e}")
+    
+    def check_data_completeness(self):
+        """检查数据完整性"""
+        if self.is_running:
+            messagebox.showwarning("警告", "系统正在运行中，请稍候...")
+            return
+        
+        def check_thread():
+            try:
+                self.is_running = True
+                self.progress.start()
+                self.check_data_btn.config(state='disabled')
+                
+                self.log_message("🔍 开始检查数据完整性...")
+                self.log_message("=" * 50)
+                
+                # 运行数据完整性检查
+                import subprocess
+                import sys
+                
+                check_script_path = os.path.join(os.path.dirname(__file__), "check_data_completeness.py")
+                
+                if os.path.exists(check_script_path):
+                    # 使用实时输出显示进度
+                    process = subprocess.Popen([sys.executable, check_script_path],
+                                             stdout=subprocess.PIPE, 
+                                             stderr=subprocess.STDOUT,
+                                             text=True, 
+                                             bufsize=1,
+                                             universal_newlines=True,
+                                             encoding='utf-8',
+                                             errors='replace')
+                    
+                    # 实时显示输出
+                    while True:
+                        output = process.stdout.readline()
+                        if output == '' and process.poll() is not None:
+                            break
+                        if output and output.strip():
+                            line = output.strip()
+                            if line:
+                                self.log_message(line)
+                    
+                    # 等待进程完成
+                    return_code = process.poll()
+                    
+                    if return_code == 0:
+                        self.log_message("✅ 数据完整性检查完成!")
+                    else:
+                        self.log_message(f"⚠️ 数据检查警告，返回码: {return_code}")
+                else:
+                    self.log_message(f"❌ 找不到数据检查脚本: {check_script_path}")
+                
+            except Exception as e:
+                self.log_message(f"❌ 数据完整性检查失败: {e}")
+                messagebox.showerror("错误", f"数据完整性检查失败: {e}")
+            finally:
+                self.is_running = False
+                self.progress.stop()
+                self.check_data_btn.config(state='normal')
+        
+        threading.Thread(target=check_thread, daemon=True).start()
+    
+    def download_fred_data(self):
+        """下载FRED数据"""
+        if self.is_running:
+            messagebox.showwarning("警告", "系统正在运行中，请稍候...")
+            return
+        
+        def download_thread():
+            try:
+                self.is_running = True
+                self.progress.start()
+                self.download_data_btn.config(state='disabled')
+                
+                self.log_message("📥 开始下载FRED数据...")
+                self.log_message("=" * 50)
+                self.log_message("⏳ 预计等待时间: 5-10分钟...")
+                
+                # 运行FRED数据下载
+                import subprocess
+                import sys
+                
+                download_script_path = os.path.join(os.path.dirname(__file__), "scripts", "sync_fred_http.py")
+                
+                if os.path.exists(download_script_path):
+                    # 使用实时输出显示进度
+                    process = subprocess.Popen([sys.executable, download_script_path],
+                                             stdout=subprocess.PIPE, 
+                                             stderr=subprocess.STDOUT,
+                                             text=True, 
+                                             bufsize=1,
+                                             universal_newlines=True,
+                                             encoding='utf-8',
+                                             errors='replace')
+                    
+                    # 实时显示输出
+                    while True:
+                        output = process.stdout.readline()
+                        if output == '' and process.poll() is not None:
+                            break
+                        if output and output.strip():
+                            # 过滤和格式化输出
+                            line = output.strip()
+                            if line:
+                                # 显示关键进度信息
+                                if any(keyword in line for keyword in ['开始同步', '同步完成', '处理进度', 'FRED数据同步完成', '计算', '完成']):
+                                    self.log_message(line)
+                                elif '✓' in line or '✗' in line:
+                                    self.log_message(line)
+                    
+                    # 等待进程完成
+                    return_code = process.poll()
+                    
+                    if return_code == 0:
+                        self.log_message("✅ FRED数据下载完成!")
+                    else:
+                        self.log_message(f"⚠️ 数据下载警告，返回码: {return_code}")
+                else:
+                    self.log_message(f"❌ 找不到数据下载脚本: {download_script_path}")
+                
+                # 下载完成后自动检查数据完整性
+                self.log_message("\n🔍 下载完成，自动检查数据完整性...")
+                check_script_path = os.path.join(os.path.dirname(__file__), "check_data_completeness.py")
+                
+                if os.path.exists(check_script_path):
+                    result2 = subprocess.run([sys.executable, check_script_path],
+                                           capture_output=True, text=True, timeout=60)
+                    
+                    if result2.returncode == 0:
+                        self.log_message("✅ 数据完整性检查完成!")
+                        
+                        # 显示检查结果摘要
+                        output_lines = result2.stdout.split('\n')
+                        for line in output_lines:
+                            if '数据完整性:' in line or '需要处理' in line or '操作建议' in line:
+                                self.log_message(line)
+                
+            except Exception as e:
+                self.log_message(f"❌ FRED数据下载失败: {e}")
+                messagebox.showerror("错误", f"FRED数据下载失败: {e}")
+            finally:
+                self.is_running = False
+                self.progress.stop()
+                self.download_data_btn.config(state='normal')
+        
+        threading.Thread(target=download_thread, daemon=True).start()
 
 
 class BackfillDialog:

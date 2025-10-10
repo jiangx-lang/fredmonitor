@@ -1,55 +1,45 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""简单图表测试"""
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.dates import DateFormatter
-import pathlib
+"""
+简单测试Playwright HTML转图片
+"""
 
-def test_matplotlib():
-    """测试matplotlib基本功能"""
-    print("测试matplotlib基本功能...")
+import os
+from playwright.sync_api import sync_playwright
+
+def simple_test():
+    html_file = "outputs/crisis_monitor/crisis_report_20250929_201536.html"
+    output_file = "simple_test.png"
     
-    # 创建测试数据
-    dates = pd.date_range('2020-01-01', periods=50, freq='M')
-    values = np.random.randn(50).cumsum() + 100
+    print("开始测试...")
     
-    # 创建图表
-    fig, ax = plt.subplots(figsize=(10, 6), dpi=150)
-    ax.plot(dates, values, linewidth=1.5, label='Test Data')
-    ax.set_title('Test Chart', fontsize=12)
-    ax.set_ylabel('Value', fontsize=10)
-    ax.xaxis.set_major_formatter(DateFormatter("%Y-%m"))
-    fig.autofmt_xdate()
-    ax.grid(True, alpha=0.25)
-    ax.legend(loc="best", fontsize=8)
-    
-    # 保存图表
-    out_path = pathlib.Path("simple_test.png")
-    plt.tight_layout()
-    fig.savefig(out_path, bbox_inches="tight")
-    plt.close(fig)
-    
-    # 检查文件
-    if out_path.exists():
-        file_size = out_path.stat().st_size
-        print(f"✅ 图表已保存: {out_path}")
-        print(f"📊 文件大小: {file_size:,} bytes")
-        
-        if file_size > 10000:
-            print("✅ 图表文件大小正常")
-            return True
-        else:
-            print("❌ 图表文件过小")
-            return False
-    else:
-        print("❌ 图表文件未生成")
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            
+            html_path = os.path.abspath(html_file)
+            print(f"打开文件: {html_path}")
+            
+            page.goto(f'file:///{html_path}')
+            print("页面加载完成")
+            
+            page.screenshot(path=output_file, full_page=True)
+            print("截图完成")
+            
+            browser.close()
+            
+            if os.path.exists(output_file):
+                size = os.path.getsize(output_file) / 1024
+                print(f"成功！文件大小: {size:.1f} KB")
+                return True
+            else:
+                print("失败：文件未生成")
+                return False
+                
+    except Exception as e:
+        print(f"错误: {e}")
         return False
 
 if __name__ == "__main__":
-    success = test_matplotlib()
-    if success:
-        print("\n🎉 matplotlib测试成功！")
-    else:
-        print("\n❌ matplotlib测试失败！")
+    simple_test()

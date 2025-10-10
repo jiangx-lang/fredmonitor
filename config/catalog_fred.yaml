@@ -231,4 +231,43 @@ series:
 
   - id: NCBDBIQ027S
     alias: Corporate_Debt_to_GDP_Ratio
+    calc:
+      ratio: {op: divide, by: GDP, scale: 100}
     freshness_days: 120
+
+  # === 新增学术指标 (Academic Indicators) ===
+  - id: DRTSCILM
+    alias: Senior_Loan_Officer_Survey_C_I_Large_Medium
+    calc:
+      level: {op: level}
+    freshness_days: 120
+
+  - id: IC4WSA
+    alias: Initial_Claims_4_Week_Average
+    calc:
+      level: {op: level}
+    freshness_days: 14
+
+  - id: NEWORDER
+    alias: New_Orders_Nondefense_Capital_Goods_Ex_Aircraft
+    calc:
+      yoy: {op: pct_change, shift: 12, scale: 100}
+    freshness_days: 60
+
+  - id: PERMIT
+    alias: Building_Permits_Total_New_Private_Housing
+    calc:
+      yoy: {op: pct_change, shift: 12, scale: 100}
+    freshness_days: 60
+
+  - id: AWHMAN
+    alias: Average_Weekly_Hours_Manufacturing
+    calc:
+      level: {op: level}
+    freshness_days: 60
+
+  - id: THREEFYTP10
+    alias: Term_Premium_10Y_Kim_Wright_Proxy
+    calc:
+      level: {op: level}
+    freshness_days: 7

@@ -1,7 +1,7 @@
 {
   "id": "MIUR",
-  "realtime_start": "2025-09-19",
-  "realtime_end": "2025-09-19",
+  "realtime_start": "2025-10-10",
+  "realtime_end": "2025-10-10",
   "title": "Unemployment Rate in Michigan",
   "observation_start": "1976-01-01",
   "observation_end": "2025-08-01",
@@ -12,8 +12,8 @@
   "seasonal_adjustment": "Seasonally Adjusted",
   "seasonal_adjustment_short": "SA",
   "last_updated": "2025-09-19 09:53:05-05",
-  "popularity": 40,
-  "sync_timestamp": "2025-09-20T10:48:08.273149",
+  "popularity": 45,
+  "sync_timestamp": "2025-10-10T21:37:32.870811",
   "alias": "Michigan_Unemployment_Rate",
   "freshness_days": 30,
   "next_release": "N/A"

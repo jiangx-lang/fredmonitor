@@ -1,7 +1,7 @@
 {
   "id": "INDPRO",
-  "realtime_start": "2025-09-16",
-  "realtime_end": "2025-09-16",
+  "realtime_start": "2025-09-24",
+  "realtime_end": "2025-09-24",
   "title": "Industrial Production: Total Index",
   "observation_start": "1919-01-01",
   "observation_end": "2025-08-01",
@@ -14,7 +14,7 @@
   "last_updated": "2025-09-16 08:24:55-05",
   "popularity": 81,
   "notes": "explanatory notes (https://www.federalreserve.gov/releases/g17/About.htm) issued by the Board of Governors. For recent updates, see the  announcements (https://www.federalreserve.gov/feeds/g17.html) issued by the Board of Governors.</p>",
-  "sync_timestamp": "2025-09-20T10:47:00.116893",
+  "sync_timestamp": "2025-10-10T21:36:15.114564",
   "alias": "Industrial_Production",
   "freshness_days": 30,
   "next_release": "N/A"

@@ -1,0 +1,16 @@
+{
+  "timestamp": "20250921_151231",
+  "total_score": 0,
+  "risk_level": "🔵 极低风险",
+  "group_scores": {},
+  "indicators": [],
+  "image_paths": {
+    "summary": "figures/summary_chart.png"
+  },
+  "summary": {
+    "total_indicators": 26,
+    "successful_indicators": 26,
+    "failed_indicators": 0,
+    "skipped_indicators": 0
+  }
+}

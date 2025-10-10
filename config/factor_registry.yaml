@@ -1,0 +1,171 @@
+# 因子注册表配置
+factors:
+  # 新因子系统
+  - id: VIX_RISK
+    name: VIX波动率风险
+    module: factors.vix_risk
+    class: VIXRiskFactor
+    series_id: VIXCLS
+    description: "VIX波动率指数，衡量市场恐慌情绪"
+    group: "市场情绪"
+    weight: 0.15
+    bands: [20, 30, 40]
+    higher_is_risk: true
+    
+  - id: YIELD_CURVE
+    name: 收益率曲线倒挂
+    module: factors.yield_curve
+    class: YieldCurveFactor
+    series_id: T10Y2Y
+    description: "10年期-2年期国债利差，预测经济衰退"
+    group: "宏观经济"
+    weight: 0.20
+    bands: [0, -0.5, -1.0, "reverse"]
+    higher_is_risk: false
+    
+  - id: CREDIT_SPREAD
+    name: 信用利差
+    module: factors.credit_spread
+    class: CreditSpreadFactor
+    series_id: BAMLH0A0HYM2
+    description: "高收益债券风险溢价"
+    group: "信用风险"
+    weight: 0.15
+    bands: [400, 600, 800]
+    higher_is_risk: true
+    
+  # 旧因子系统（保持兼容）
+  - id: VIX
+    name: VIX波动率
+    module: factors.vix
+    class: VIX
+    series_id: VIXCLS
+    description: "VIX波动率指数"
+    group: "市场情绪"
+    weight: 0.10
+    bands: [20, 30, 40]
+    higher_is_risk: true
+    
+  - id: DXY_VOL
+    name: 美元指数波动率
+    module: factors.dxy_vol
+    class: DXY_VOL
+    series_id: DTWEXBGS
+    description: "美元指数波动率"
+    group: "汇率"
+    weight: 0.05
+    bands: [100, 110, 120]
+    higher_is_risk: true
+    
+  - id: EM_SPREAD
+    name: 新兴市场利差
+    module: factors.em_spread
+    class: EM_SPREAD
+    series_id: BAMLHE00EHYIEY
+    description: "新兴市场高收益债利差"
+    group: "信用风险"
+    weight: 0.08
+    bands: [400, 600, 800]
+    higher_is_risk: true
+    
+  - id: HOUSING_STRESS
+    name: 房地产压力
+    module: factors.housing_stress
+    class: HOUSING_STRESS
+    series_id: HOUST
+    description: "新屋开工数量"
+    group: "房地产"
+    weight: 0.08
+    bands: [1000, 1500, 2000]
+    higher_is_risk: false
+    
+  - id: HY_SPREAD
+    name: 高收益债利差
+    module: factors.hy_spread
+    class: HY_SPREAD
+    series_id: BAMLH0A0HYM2
+    description: "高收益债券利差"
+    group: "信用风险"
+    weight: 0.10
+    bands: [400, 600, 800]
+    higher_is_risk: true
+    
+  - id: NFCI
+    name: 金融状况指数
+    module: factors.nfci
+    class: NFCI
+    series_id: NFCI
+    description: "芝加哥金融状况指数"
+    group: "金融状况"
+    weight: 0.08
+    bands: [-0.5, 0, 0.5]
+    higher_is_risk: true
+    
+  - id: SPX_VOL
+    name: 标普500波动率
+    module: factors.spx_vol
+    class: SPX_VOL
+    series_id: VIXCLS
+    description: "标普500波动率"
+    group: "市场情绪"
+    weight: 0.08
+    bands: [20, 30, 40]
+    higher_is_risk: true
+    
+  - id: TED_SPREAD
+    name: TED利差
+    module: factors.ted_spread
+    class: TED_SPREAD
+    series_id: TEDRATE
+    description: "TED利差"
+    group: "流动性"
+    weight: 0.10
+    bands: [0.5, 1.0, 2.0]
+    higher_is_risk: true
+    
+  - id: UMICH_CONF
+    name: 密歇根消费者信心
+    module: factors.umich_conf
+    class: UMICH_CONF
+    series_id: UMCSENT
+    description: "密歇根消费者信心指数"
+    group: "消费"
+    weight: 0.08
+    bands: [80, 90, 100]
+    higher_is_risk: false
+
+# 分组配置
+groups:
+  market_sentiment:
+    name: "市场情绪"
+    weight: 0.25
+    description: "市场恐慌和情绪指标"
+    
+  macro_economy:
+    name: "宏观经济"
+    weight: 0.30
+    description: "经济增长和周期指标"
+    
+  credit_risk:
+    name: "信用风险"
+    weight: 0.20
+    description: "信用市场和债务风险"
+    
+  policy:
+    name: "政策环境"
+    weight: 0.15
+    description: "货币和财政政策"
+    
+  external:
+    name: "外部环境"
+    weight: 0.10
+    description: "国际和汇率环境"
+
+# 评分配置
+scoring:
+  method: "percentile"
+  lookback_days: 252
+  risk_thresholds:
+    low: 30
+    medium: 60
+    high: 80

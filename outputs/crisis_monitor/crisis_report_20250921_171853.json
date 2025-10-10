@@ -1,0 +1,469 @@
+{
+  "timestamp": "20250921_171853",
+  "total_score": 37.480863657142855,
+  "risk_level": "🔵 极低风险",
+  "group_scores": {
+    "core_warning": {
+      "score": 44.45948571428572,
+      "weight": 32.0,
+      "count": 7
+    },
+    "real_economy": {
+      "score": 27.11111111111111,
+      "weight": 24.0,
+      "count": 9
+    },
+    "monetary_policy": {
+      "score": 41.37857142857143,
+      "weight": 16.0,
+      "count": 7
+    },
+    "banking": {
+      "score": 32.04118833333333,
+      "weight": 16.0,
+      "count": 6
+    },
+    "consumers_leverage": {
+      "score": 100.0,
+      "weight": 5.0,
+      "count": 3
+    },
+    "monitoring": {
+      "score": 24.887333333333334,
+      "weight": 0.0,
+      "count": 3
+    }
+  },
+  "indicators": [
+    {
+      "name": "收益率曲线倒挂: 10年期-3个月",
+      "series_id": "T10Y3M",
+      "group": "core_warning",
+      "current_value": 0.11,
+      "benchmark_value": 0.58,
+      "risk_score": 54.7,
+      "last_date": "2025-09-19 00:00:00",
+      "global_weight": 0.08,
+      "higher_is_risk": false,
+      "compare_to": "noncrisis_p25"
+    },
+    {
+      "name": "收益率曲线倒挂: 10年期-2年期",
+      "series_id": "T10Y2Y",
+      "group": "core_warning",
+      "current_value": 0.57,
+      "benchmark_value": 0.18,
+      "risk_score": 46.1,
+      "last_date": "2025-09-19 00:00:00",
+      "global_weight": 0.06,
+      "higher_is_risk": false,
+      "compare_to": "noncrisis_p25"
+    },
+    {
+      "name": "高收益债风险溢价",
+      "series_id": "BAMLH0A0HYM2",
+      "group": "core_warning",
+      "current_value": 2.71,
+      "benchmark_value": 4.575,
+      "risk_score": 31.349999999999998,
+      "last_date": "2025-09-18 00:00:00",
+      "global_weight": 0.05,
+      "higher_is_risk": true,
+      "compare_to": "crisis_median"
+    },
+    {
+      "name": "投资级信用利差: Baa-10Y国债",
+      "series_id": "BAA10YM",
+      "group": "core_warning",
+      "current_value": 1.74,
+      "benchmark_value": 1.85,
+      "risk_score": 48.9,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.03,
+      "higher_is_risk": true,
+      "compare_to": "crisis_median"
+    },
+    {
+      "name": "TED利差",
+      "series_id": "TEDRATE",
+      "group": "core_warning",
+      "current_value": 0.09,
+      "benchmark_value": 0.42,
+      "risk_score": 46.7,
+      "last_date": "2022-01-21 00:00:00",
+      "global_weight": 0.03,
+      "higher_is_risk": true,
+      "compare_to": "crisis_median"
+    },
+    {
+      "name": "芝加哥金融状况指数",
+      "series_id": "NFCI",
+      "group": "core_warning",
+      "current_value": -0.56378,
+      "benchmark_value": 0.16258,
+      "risk_score": 42.7364,
+      "last_date": "2025-09-12 00:00:00",
+      "global_weight": 0.05,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "期限溢价-10年期Kim-Wright代理",
+      "series_id": "THREEFYTP10",
+      "group": "core_warning",
+      "current_value": 0.4291,
+      "benchmark_value": 1.3561,
+      "risk_score": 40.730000000000004,
+      "last_date": "2025-09-12 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "非农就业人数 YoY",
+      "series_id": "PAYEMS",
+      "group": "real_economy",
+      "current_value": 159540.0,
+      "benchmark_value": 54137.25,
+      "risk_score": 0,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.05,
+      "higher_is_risk": false,
+      "compare_to": "crisis_p25"
+    },
+    {
+      "name": "制造业就业 YoY",
+      "series_id": "MANEMP",
+      "group": "real_economy",
+      "current_value": 12722.0,
+      "benchmark_value": 13284.75,
+      "risk_score": 100,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.01,
+      "higher_is_risk": false,
+      "compare_to": "crisis_p25"
+    },
+    {
+      "name": "工业生产 YoY",
+      "series_id": "INDPRO",
+      "group": "real_economy",
+      "current_value": 103.9203,
+      "benchmark_value": 13.80325,
+      "risk_score": 0,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.04,
+      "higher_is_risk": false,
+      "compare_to": "crisis_p25"
+    },
+    {
+      "name": "GDP YoY",
+      "series_id": "GDP",
+      "group": "real_economy",
+      "current_value": 30353.902,
+      "benchmark_value": 823.0540000000001,
+      "risk_score": 0,
+      "last_date": "2025-04-01 00:00:00",
+      "global_weight": 0.04,
+      "higher_is_risk": false,
+      "compare_to": "crisis_p25"
+    },
+    {
+      "name": "制造业新订单-非国防资本货不含飞机 YoY",
+      "series_id": "NEWORDER",
+      "group": "real_economy",
+      "current_value": 76463.0,
+      "benchmark_value": 52442.75,
+      "risk_score": 0,
+      "last_date": "2025-07-01 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": false,
+      "compare_to": "crisis_p25"
+    },
+    {
+      "name": "制造业平均周工时",
+      "series_id": "AWHMAN",
+      "group": "real_economy",
+      "current_value": 40.9,
+      "benchmark_value": 40.3,
+      "risk_score": 43.999999999999986,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.01,
+      "higher_is_risk": false,
+      "compare_to": "crisis_p25"
+    },
+    {
+      "name": "房价指数: Case-Shiller 20城 YoY",
+      "series_id": "CSUSHPINSA",
+      "group": "real_economy",
+      "current_value": 331.515,
+      "benchmark_value": 268.4158000000001,
+      "risk_score": 100,
+      "last_date": "2025-06-01 00:00:00",
+      "global_weight": 0.03,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p90"
+    },
+    {
+      "name": "新屋开工 年化",
+      "series_id": "HOUST",
+      "group": "real_economy",
+      "current_value": 1307.0,
+      "benchmark_value": 1211.5,
+      "risk_score": 0,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": false,
+      "compare_to": "crisis_p25"
+    },
+    {
+      "name": "住宅建筑许可 YoY",
+      "series_id": "PERMIT",
+      "group": "real_economy",
+      "current_value": 1312.0,
+      "benchmark_value": 1131.5,
+      "risk_score": 0,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": false,
+      "compare_to": "crisis_p25"
+    },
+    {
+      "name": "联邦基金利率",
+      "series_id": "FEDFUNDS",
+      "group": "monetary_policy",
+      "current_value": 4.33,
+      "benchmark_value": 6.137499999999999,
+      "risk_score": 31.925000000000008,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.03,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "10年期国债利率",
+      "series_id": "DGS10",
+      "group": "monetary_policy",
+      "current_value": 4.11,
+      "benchmark_value": 7.56,
+      "risk_score": 15.500000000000007,
+      "last_date": "2025-09-18 00:00:00",
+      "global_weight": 0.025,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "30年期按揭利率",
+      "series_id": "MORTGAGE30US",
+      "group": "monetary_policy",
+      "current_value": 6.26,
+      "benchmark_value": 9.285,
+      "risk_score": 19.749999999999996,
+      "last_date": "2025-09-18 00:00:00",
+      "global_weight": 0.025,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "SOFR",
+      "series_id": "SOFR",
+      "group": "monetary_policy",
+      "current_value": 4.14,
+      "benchmark_value": 4.55,
+      "risk_score": 45.9,
+      "last_date": "2025-09-18 00:00:00",
+      "global_weight": 0.025,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "3个月国债利率",
+      "series_id": "DTB3",
+      "group": "monetary_policy",
+      "current_value": 3.89,
+      "benchmark_value": 5.67,
+      "risk_score": 32.2,
+      "last_date": "2025-09-18 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "3个月商业票据利率",
+      "series_id": "CPN3M",
+      "group": "monetary_policy",
+      "current_value": 4.2,
+      "benchmark_value": 4.762499999999999,
+      "risk_score": 44.37500000000001,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.015,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "美联储总资产 YoY",
+      "series_id": "WALCL",
+      "group": "monetary_policy",
+      "current_value": 6608597.0,
+      "benchmark_value": 3927074.5,
+      "risk_score": 100,
+      "last_date": "2025-09-17 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": true,
+      "compare_to": "crisis_median"
+    },
+    {
+      "name": "总贷款和租赁 YoY",
+      "series_id": "TOTLL",
+      "group": "banking",
+      "current_value": 13052.655,
+      "benchmark_value": 6888.7605,
+      "risk_score": 100,
+      "last_date": "2025-09-10 00:00:00",
+      "global_weight": 0.03,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "消费者信贷 YoY",
+      "series_id": "TOTALSA",
+      "group": "banking",
+      "current_value": 16.492,
+      "benchmark_value": 16.91,
+      "risk_score": 45.82000000000001,
+      "last_date": "2025-08-01 00:00:00",
+      "global_weight": 0.03,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "银行贷款标准-大中企C&I收紧净比例",
+      "series_id": "DRTSCILM",
+      "group": "banking",
+      "current_value": 9.5,
+      "benchmark_value": 18.575000000000003,
+      "risk_score": 0,
+      "last_date": "2025-07-01 00:00:00",
+      "global_weight": 0.03,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "家庭债务偿付比率",
+      "series_id": "TDSP",
+      "group": "banking",
+      "current_value": 11.249194,
+      "benchmark_value": 11.606480999999999,
+      "risk_score": 46.427130000000005,
+      "last_date": "2025-04-01 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": true,
+      "compare_to": "crisis_median"
+    },
+    {
+      "name": "银行准备金（规模或同比）",
+      "series_id": "TOTRESNS",
+      "group": "banking",
+      "current_value": 3340.3,
+      "benchmark_value": 34.849999999999994,
+      "risk_score": 0,
+      "last_date": "2025-07-01 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": false,
+      "compare_to": "noncrisis_p25"
+    },
+    {
+      "name": "初请失业金4周均值",
+      "series_id": "IC4WSA",
+      "group": "banking",
+      "current_value": 240000.0,
+      "benchmark_value": 397250.0,
+      "risk_score": 0,
+      "last_date": "2025-09-13 00:00:00",
+      "global_weight": 0.03,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "密歇根消费者信心",
+      "series_id": "UMCSENT",
+      "group": "consumers_leverage",
+      "current_value": 61.7,
+      "benchmark_value": 80.67,
+      "risk_score": 100,
+      "last_date": "2025-07-01 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": false,
+      "compare_to": "noncrisis_p35"
+    },
+    {
+      "name": "企业债/GDP（新）",
+      "series_id": "NCBDBIQ027S",
+      "group": "consumers_leverage",
+      "current_value": 8653843.0,
+      "benchmark_value": 2395716.0,
+      "risk_score": 100,
+      "last_date": "2025-04-01 00:00:00",
+      "global_weight": 0.02,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p65"
+    },
+    {
+      "name": "贸易加权美元 YoY",
+      "series_id": "DTWEXBGS",
+      "group": "consumers_leverage",
+      "current_value": 120.4905,
+      "benchmark_value": 108.3901,
+      "risk_score": 100,
+      "last_date": "2025-09-12 00:00:00",
+      "global_weight": 0.01,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_median"
+    },
+    {
+      "name": "VIX 波动率",
+      "series_id": "VIXCLS",
+      "group": "monitoring",
+      "current_value": 15.7,
+      "benchmark_value": 28.651999999999997,
+      "risk_score": 0,
+      "last_date": "2025-09-18 00:00:00",
+      "global_weight": 0.0,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p90"
+    },
+    {
+      "name": "圣路易斯金融压力",
+      "series_id": "STLFSI3",
+      "group": "monitoring",
+      "current_value": -1.7057,
+      "benchmark_value": 0.2731,
+      "risk_score": 30.212,
+      "last_date": "2022-10-28 00:00:00",
+      "global_weight": 0.0,
+      "higher_is_risk": true,
+      "compare_to": "noncrisis_p75"
+    },
+    {
+      "name": "房贷违约率",
+      "series_id": "DRSFRMACBS",
+      "group": "monitoring",
+      "current_value": 1.79,
+      "benchmark_value": 2.3449999999999998,
+      "risk_score": 44.45,
+      "last_date": "2025-04-01 00:00:00",
+      "global_weight": 0.0,
+      "higher_is_risk": true,
+      "compare_to": "crisis_median"
+    }
+  ],
+  "image_paths": {
+    "summary": "figures/summary_chart.png",
+    "main_indicators": "figures/T10Y3M_latest.png"
+  },
+  "summary": {
+    "total_indicators": 26,
+    "successful_indicators": 26,
+    "failed_indicators": 0,
+    "skipped_indicators": 0
+  }
+}

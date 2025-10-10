@@ -1,0 +1,923 @@
+{
+  "total_indicators": 52,
+  "completeness": 67.3076923076923,
+  "fresh_count": 7,
+  "stale_count": 6,
+  "outdated_count": 22,
+  "missing_count": 17,
+  "corrupted_count": 0,
+  "problem_indicators": [
+    {
+      "series_id": "AWHMAN",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 1040,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.016872406005859375,
+      "status": "outdated"
+    },
+    {
+      "series_id": "BAA10Y",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "BAA10YM",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 308,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.004971504211425781,
+      "status": "outdated"
+    },
+    {
+      "series_id": "BAMLC0A0CM",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "CORPDEBT_GDP_PCT",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "CPN3M",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 336,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.005414009094238281,
+      "status": "outdated"
+    },
+    {
+      "series_id": "CP_MINUS_DTB3",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "CSUSHPINSA",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 463,
+      "latest_date": "2025-07-01 00:00:00",
+      "days_old": 101,
+      "file_size_mb": 0.00914764404296875,
+      "status": "outdated"
+    },
+    {
+      "series_id": "DCOILWTICO",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "DRSFRMACBS",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 138,
+      "latest_date": "2025-04-01 00:00:00",
+      "days_old": 192,
+      "file_size_mb": 0.00225067138671875,
+      "status": "outdated"
+    },
+    {
+      "series_id": "DRTSCILM",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 142,
+      "latest_date": "2025-07-01 00:00:00",
+      "days_old": 101,
+      "file_size_mb": 0.0023202896118164062,
+      "status": "outdated"
+    },
+    {
+      "series_id": "DTB3",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 17912,
+      "latest_date": "2025-09-08 00:00:00",
+      "days_old": 32,
+      "file_size_mb": 0.28926753997802734,
+      "status": "outdated"
+    },
+    {
+      "series_id": "FEDFUNDS",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 855,
+      "latest_date": "2025-09-01 00:00:00",
+      "days_old": 39,
+      "file_size_mb": 0.013825416564941406,
+      "status": "outdated"
+    },
+    {
+      "series_id": "GDP",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 314,
+      "latest_date": "2025-04-01 00:00:00",
+      "days_old": 192,
+      "file_size_mb": 0.006262779235839844,
+      "status": "outdated"
+    },
+    {
+      "series_id": "GOLDAMGBD228NLBM",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "HOUST",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 800,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.014417648315429688,
+      "status": "outdated"
+    },
+    {
+      "series_id": "INDPRO",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 1280,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.02416706085205078,
+      "status": "outdated"
+    },
+    {
+      "series_id": "IORB_EFFR_SPRD",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "MANEMP",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 1040,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.019830703735351562,
+      "status": "outdated"
+    },
+    {
+      "series_id": "MOVE_PROXY",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "NCBDBIQ027S",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 301,
+      "latest_date": "2025-04-01 00:00:00",
+      "days_old": 192,
+      "file_size_mb": 0.006122589111328125,
+      "status": "outdated"
+    },
+    {
+      "series_id": "NEWORDER",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 403,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.00769805908203125,
+      "status": "outdated"
+    },
+    {
+      "series_id": "PAYEMS",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 1040,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.018309593200683594,
+      "status": "outdated"
+    },
+    {
+      "series_id": "PERMIT",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 788,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.014168739318847656,
+      "status": "outdated"
+    },
+    {
+      "series_id": "RESERVES_ASSETS_PCT",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "RESERVES_DEPOSITS_PCT",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "RRPONTSYD",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "SKEW",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "SOFR20DMA_MINUS_DTB3",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "SPX_UTIL_RATIO",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "STLFSI2",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "STLFSI3",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 1505,
+      "latest_date": "2022-10-28 00:00:00",
+      "days_old": 1078,
+      "file_size_mb": 0.02801799774169922,
+      "status": "outdated"
+    },
+    {
+      "series_id": "TDSP",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 182,
+      "latest_date": "2025-04-01 00:00:00",
+      "days_old": 192,
+      "file_size_mb": 0.0038042068481445312,
+      "status": "outdated"
+    },
+    {
+      "series_id": "TEDRATE",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 8853,
+      "latest_date": "2022-01-21 00:00:00",
+      "days_old": 1358,
+      "file_size_mb": 0.14265155792236328,
+      "status": "outdated"
+    },
+    {
+      "series_id": "TOTALSA",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 308,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.005565643310546875,
+      "status": "outdated"
+    },
+    {
+      "series_id": "TOTRESNS",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 799,
+      "latest_date": "2025-07-01 00:00:00",
+      "days_old": 101,
+      "file_size_mb": 0.013342857360839844,
+      "status": "outdated"
+    },
+    {
+      "series_id": "UMCSENT",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 664,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.010834693908691406,
+      "status": "outdated"
+    },
+    {
+      "series_id": "WSHOMCB",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "WTREGEN",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    }
+  ],
+  "results": [
+    {
+      "series_id": "AWHMAN",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 1040,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.016872406005859375,
+      "status": "outdated"
+    },
+    {
+      "series_id": "BAA10Y",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "BAA10YM",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 308,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.004971504211425781,
+      "status": "outdated"
+    },
+    {
+      "series_id": "BAMLC0A0CM",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "BAMLH0A0HYM2",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 7512,
+      "latest_date": "2025-10-08 00:00:00",
+      "days_old": 2,
+      "file_size_mb": 0.12137985229492188,
+      "status": "fresh"
+    },
+    {
+      "series_id": "CORPDEBT_GDP_PCT",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "CPN3M",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 336,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.005414009094238281,
+      "status": "outdated"
+    },
+    {
+      "series_id": "CP_MINUS_DTB3",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "CSUSHPINSA",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 463,
+      "latest_date": "2025-07-01 00:00:00",
+      "days_old": 101,
+      "file_size_mb": 0.00914764404296875,
+      "status": "outdated"
+    },
+    {
+      "series_id": "DCOILWTICO",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "DGS10",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 15928,
+      "latest_date": "2025-10-08 00:00:00",
+      "days_old": 2,
+      "file_size_mb": 0.25806522369384766,
+      "status": "fresh"
+    },
+    {
+      "series_id": "DRSFRMACBS",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 138,
+      "latest_date": "2025-04-01 00:00:00",
+      "days_old": 192,
+      "file_size_mb": 0.00225067138671875,
+      "status": "outdated"
+    },
+    {
+      "series_id": "DRTSCILM",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 142,
+      "latest_date": "2025-07-01 00:00:00",
+      "days_old": 101,
+      "file_size_mb": 0.0023202896118164062,
+      "status": "outdated"
+    },
+    {
+      "series_id": "DTB3",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 17912,
+      "latest_date": "2025-09-08 00:00:00",
+      "days_old": 32,
+      "file_size_mb": 0.28926753997802734,
+      "status": "outdated"
+    },
+    {
+      "series_id": "DTWEXBGS",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 4954,
+      "latest_date": "2025-10-03 00:00:00",
+      "days_old": 7,
+      "file_size_mb": 0.09669971466064453,
+      "status": "fresh"
+    },
+    {
+      "series_id": "FEDFUNDS",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 855,
+      "latest_date": "2025-09-01 00:00:00",
+      "days_old": 39,
+      "file_size_mb": 0.013825416564941406,
+      "status": "outdated"
+    },
+    {
+      "series_id": "GDP",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 314,
+      "latest_date": "2025-04-01 00:00:00",
+      "days_old": 192,
+      "file_size_mb": 0.006262779235839844,
+      "status": "outdated"
+    },
+    {
+      "series_id": "GOLDAMGBD228NLBM",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "HOUST",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 800,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.014417648315429688,
+      "status": "outdated"
+    },
+    {
+      "series_id": "IC4WSA",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 3061,
+      "latest_date": "2025-09-20 00:00:00",
+      "days_old": 20,
+      "file_size_mb": 0.0554962158203125,
+      "status": "stale"
+    },
+    {
+      "series_id": "INDPRO",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 1280,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.02416706085205078,
+      "status": "outdated"
+    },
+    {
+      "series_id": "IORB_EFFR_SPRD",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "MANEMP",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 1040,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.019830703735351562,
+      "status": "outdated"
+    },
+    {
+      "series_id": "MORTGAGE30US",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 1342,
+      "latest_date": "2025-09-18 00:00:00",
+      "days_old": 22,
+      "file_size_mb": 0.02164745330810547,
+      "status": "stale"
+    },
+    {
+      "series_id": "MOVE_PROXY",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "NCBDBIQ027S",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 301,
+      "latest_date": "2025-04-01 00:00:00",
+      "days_old": 192,
+      "file_size_mb": 0.006122589111328125,
+      "status": "outdated"
+    },
+    {
+      "series_id": "NEWORDER",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 403,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.00769805908203125,
+      "status": "outdated"
+    },
+    {
+      "series_id": "NFCI",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 2857,
+      "latest_date": "2025-10-03 00:00:00",
+      "days_old": 7,
+      "file_size_mb": 0.056118011474609375,
+      "status": "fresh"
+    },
+    {
+      "series_id": "PAYEMS",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 1040,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.018309593200683594,
+      "status": "outdated"
+    },
+    {
+      "series_id": "PERMIT",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 788,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.014168739318847656,
+      "status": "outdated"
+    },
+    {
+      "series_id": "RESERVES_ASSETS_PCT",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "RESERVES_DEPOSITS_PCT",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "RRPONTSYD",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "SKEW",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "SOFR",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 1880,
+      "latest_date": "2025-10-09 00:00:00",
+      "days_old": 1,
+      "file_size_mb": 0.030248641967773438,
+      "status": "fresh"
+    },
+    {
+      "series_id": "SOFR20DMA_MINUS_DTB3",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "SPX_UTIL_RATIO",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "STLFSI2",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "STLFSI3",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 1505,
+      "latest_date": "2022-10-28 00:00:00",
+      "days_old": 1078,
+      "file_size_mb": 0.02801799774169922,
+      "status": "outdated"
+    },
+    {
+      "series_id": "T10Y2Y",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 6433,
+      "latest_date": "2025-09-19 00:00:00",
+      "days_old": 21,
+      "file_size_mb": 0.10469245910644531,
+      "status": "stale"
+    },
+    {
+      "series_id": "T10Y3M",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 6433,
+      "latest_date": "2025-09-19 00:00:00",
+      "days_old": 21,
+      "file_size_mb": 0.10478496551513672,
+      "status": "stale"
+    },
+    {
+      "series_id": "TDSP",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 182,
+      "latest_date": "2025-04-01 00:00:00",
+      "days_old": 192,
+      "file_size_mb": 0.0038042068481445312,
+      "status": "outdated"
+    },
+    {
+      "series_id": "TEDRATE",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 8853,
+      "latest_date": "2022-01-21 00:00:00",
+      "days_old": 1358,
+      "file_size_mb": 0.14265155792236328,
+      "status": "outdated"
+    },
+    {
+      "series_id": "THREEFYTP10",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 8926,
+      "latest_date": "2025-10-03 00:00:00",
+      "days_old": 7,
+      "file_size_mb": 0.16191768646240234,
+      "status": "fresh"
+    },
+    {
+      "series_id": "TOTALSA",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 308,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.005565643310546875,
+      "status": "outdated"
+    },
+    {
+      "series_id": "TOTLL",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 1341,
+      "latest_date": "2025-09-10 00:00:00",
+      "days_old": 30,
+      "file_size_mb": 0.028298377990722656,
+      "status": "stale"
+    },
+    {
+      "series_id": "TOTRESNS",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 799,
+      "latest_date": "2025-07-01 00:00:00",
+      "days_old": 101,
+      "file_size_mb": 0.013342857360839844,
+      "status": "outdated"
+    },
+    {
+      "series_id": "UMCSENT",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 664,
+      "latest_date": "2025-08-01 00:00:00",
+      "days_old": 70,
+      "file_size_mb": 0.010834693908691406,
+      "status": "outdated"
+    },
+    {
+      "series_id": "VIXCLS",
+      "has_raw_data": true,
+      "has_metadata": true,
+      "data_points": 9033,
+      "latest_date": "2025-10-08 00:00:00",
+      "days_old": 2,
+      "file_size_mb": 0.15416908264160156,
+      "status": "fresh"
+    },
+    {
+      "series_id": "WALCL",
+      "has_raw_data": true,
+      "has_metadata": false,
+      "data_points": 1188,
+      "latest_date": "2025-09-17 00:00:00",
+      "days_old": 23,
+      "file_size_mb": 0.024649620056152344,
+      "status": "stale"
+    },
+    {
+      "series_id": "WSHOMCB",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    },
+    {
+      "series_id": "WTREGEN",
+      "has_raw_data": false,
+      "has_metadata": false,
+      "data_points": 0,
+      "latest_date": null,
+      "days_old": null,
+      "file_size_mb": 0,
+      "status": "missing"
+    }
+  ]
+}

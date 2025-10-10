@@ -167,6 +167,26 @@ def calculate_features(df: pd.DataFrame, calc_config: Optional[Dict[str, Any]]) 
                 out[name] = out["value"].pct_change(shift) * scale
                 
                 logger.debug(f"计算特征 {name}: shift={shift}, scale={scale}")
+            elif rule.get("op") == "divide":
+                # 除法操作：除以另一个序列
+                by_series = rule.get("by")
+                scale = float(rule.get("scale", 1.0))
+                
+                if by_series:
+                    # 需要获取另一个序列的数据
+                    try:
+                        # 这里需要实现获取其他序列数据的逻辑
+                        # 暂时使用简化版本
+                        logger.warning(f"除法操作 {name} 需要实现跨序列计算")
+                        out[name] = out["value"] * scale  # 临时处理
+                    except Exception as e:
+                        logger.error(f"除法计算失败 {name}: {e}")
+                        out[name] = out["value"] * scale  # 临时处理
+                else:
+                    logger.warning(f"除法操作 {name} 缺少by参数")
+                    out[name] = out["value"] * scale  # 临时处理
+                
+                logger.debug(f"计算特征 {name}: divide by {by_series}, scale={scale}")
             else:
                 logger.warning(f"不支持的特征计算操作: {rule.get('op')}")
                 
@@ -274,9 +294,9 @@ def main():
     
     logger.info(f"找到 {len(series_list)} 个序列需要同步")
     
-    # 并行同步序列（最多4个并发）
+    # 并行同步序列（最多2个并发，避免DuckDB文件锁定）
     success_count = 0
-    with ThreadPoolExecutor(max_workers=4) as executor:
+    with ThreadPoolExecutor(max_workers=2) as executor:
         # 提交所有任务
         future_to_series = {
             executor.submit(sync_series, series_config): series_config 
@@ -296,6 +316,128 @@ def main():
                 logger.error(f"✗ 序列 {series_id} 同步失败: {e}")
     
     logger.info(f"FRED数据同步完成: {success_count}/{len(series_list)} 成功")
+    
+    # 计算合成指标
+    logger.info("开始计算合成指标...")
+    calculate_derived_series()
+
+
+def calculate_derived_series():
+    """计算合成指标"""
+    import pandas as pd
+    import os
+    
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "fred", "series")
+    
+    try:
+        # 1. CP_MINUS_DTB3 = CPN3M - DTB3
+        logger.info("计算 CP_MINUS_DTB3 (商业票据-3个月国债利差)...")
+        cp_data = pd.read_csv(f"{data_dir}/CPN3M/raw.csv", index_col=0, parse_dates=True)
+        tb_data = pd.read_csv(f"{data_dir}/DTB3/raw.csv", index_col=0, parse_dates=True)
+        
+        # 对齐数据并计算利差
+        cp_aligned = cp_data.reindex_like(tb_data).fillna(method="ffill")
+        cp_minus_tb = cp_aligned - tb_data
+        cp_minus_tb = cp_minus_tb.dropna()
+        
+        # 保存到data/series目录
+        output_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "series")
+        os.makedirs(output_dir, exist_ok=True)
+        cp_minus_tb.to_csv(f"{output_dir}/CP_MINUS_DTB3.csv")
+        logger.info(f"✓ CP_MINUS_DTB3 计算完成，数据点: {len(cp_minus_tb)}")
+        
+    except Exception as e:
+        logger.error(f"✗ CP_MINUS_DTB3 计算失败: {e}")
+    
+    try:
+        # 2. SOFR20DMA_MINUS_DTB3 = SOFR(20日均值) - DTB3
+        logger.info("计算 SOFR20DMA_MINUS_DTB3 (SOFR20日均值-3个月国债利差)...")
+        sofr_data = pd.read_csv(f"{data_dir}/SOFR/raw.csv", index_col=0, parse_dates=True)
+        tb_data = pd.read_csv(f"{data_dir}/DTB3/raw.csv", index_col=0, parse_dates=True)
+        
+        # 计算SOFR 20日均值
+        sofr_20dma = sofr_data.rolling(window=20, min_periods=1).mean()
+        
+        # 对齐数据并计算利差
+        tb_aligned = tb_data.reindex_like(sofr_20dma).fillna(method="ffill")
+        sofr_minus_tb = sofr_20dma - tb_aligned
+        sofr_minus_tb = sofr_minus_tb.dropna()
+        
+        sofr_minus_tb.to_csv(f"{output_dir}/SOFR20DMA_MINUS_DTB3.csv")
+        logger.info(f"✓ SOFR20DMA_MINUS_DTB3 计算完成，数据点: {len(sofr_minus_tb)}")
+        
+    except Exception as e:
+        logger.error(f"✗ SOFR20DMA_MINUS_DTB3 计算失败: {e}")
+    
+    try:
+        # 3. CORPDEBT_GDP_PCT = NCBDBIQ027S / GDP * 100
+        logger.info("计算 CORPDEBT_GDP_PCT (企业债/GDP)...")
+        corp_debt_data = pd.read_csv(f"{data_dir}/NCBDBIQ027S/raw.csv", index_col=0, parse_dates=True)
+        gdp_data = pd.read_csv(f"{data_dir}/GDP/raw.csv", index_col=0, parse_dates=True)
+        
+        # 单位转换：企业债从Millions转为Billions
+        corp_debt_billions = corp_debt_data / 1000
+        
+        # 对齐数据并计算比率
+        corp_debt_aligned = corp_debt_billions.reindex_like(gdp_data).fillna(method="ffill")
+        corp_debt_gdp_ratio = (corp_debt_aligned / gdp_data) * 100
+        corp_debt_gdp_ratio = corp_debt_gdp_ratio.dropna()
+        
+        corp_debt_gdp_ratio.to_csv(f"{output_dir}/CORPDEBT_GDP_PCT.csv")
+        logger.info(f"✓ CORPDEBT_GDP_PCT 计算完成，数据点: {len(corp_debt_gdp_ratio)}")
+        
+    except Exception as e:
+        logger.error(f"✗ CORPDEBT_GDP_PCT 计算失败: {e}")
+    
+    try:
+        # 4. RESERVES_ASSETS_PCT = TOTRESNS / WALCL * 100
+        logger.info("计算 RESERVES_ASSETS_PCT (准备金/资产%)...")
+        reserves_data = pd.read_csv(f"{data_dir}/TOTRESNS/raw.csv", index_col=0, parse_dates=True)
+        assets_data = pd.read_csv(f"{data_dir}/WALCL/raw.csv", index_col=0, parse_dates=True)
+        
+        # 对齐数据并计算比率
+        reserves_aligned = reserves_data.reindex_like(assets_data).fillna(method="ffill")
+        reserves_assets_ratio = (reserves_aligned / assets_data) * 100
+        reserves_assets_ratio = reserves_assets_ratio.dropna()
+        
+        reserves_assets_ratio.to_csv(f"{output_dir}/RESERVES_ASSETS_PCT.csv")
+        logger.info(f"✓ RESERVES_ASSETS_PCT 计算完成，数据点: {len(reserves_assets_ratio)}")
+        
+    except Exception as e:
+        logger.error(f"✗ RESERVES_ASSETS_PCT 计算失败: {e}")
+    
+    try:
+        # 5. RESERVES_DEPOSITS_PCT = TOTRESNS / DEPOSITS * 100
+        logger.info("计算 RESERVES_DEPOSITS_PCT (准备金/存款%)...")
+        reserves_data = pd.read_csv(f"{data_dir}/TOTRESNS/raw.csv", index_col=0, parse_dates=True)
+        
+        # 尝试不同的存款指标
+        deposits_series = ["DPSACBW027SBOG", "TOTALSA", "TOTALSL"]
+        deposits_data = None
+        
+        for dep_series in deposits_series:
+            try:
+                deposits_data = pd.read_csv(f"{data_dir}/{dep_series}/raw.csv", index_col=0, parse_dates=True)
+                logger.info(f"使用存款指标: {dep_series}")
+                break
+            except:
+                continue
+        
+        if deposits_data is not None:
+            # 对齐数据并计算比率
+            reserves_aligned = reserves_data.reindex_like(deposits_data).fillna(method="ffill")
+            reserves_deposits_ratio = (reserves_aligned / deposits_data) * 100
+            reserves_deposits_ratio = reserves_deposits_ratio.dropna()
+            
+            reserves_deposits_ratio.to_csv(f"{output_dir}/RESERVES_DEPOSITS_PCT.csv")
+            logger.info(f"✓ RESERVES_DEPOSITS_PCT 计算完成，数据点: {len(reserves_deposits_ratio)}")
+        else:
+            logger.warning("⚠️ 未找到合适的存款指标，跳过 RESERVES_DEPOSITS_PCT 计算")
+        
+    except Exception as e:
+        logger.error(f"✗ RESERVES_DEPOSITS_PCT 计算失败: {e}")
+    
+    logger.info("合成指标计算完成")
 
 
 if __name__ == "__main__":

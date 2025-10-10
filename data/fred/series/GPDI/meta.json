@@ -1,7 +1,7 @@
 {
   "id": "GPDI",
-  "realtime_start": "2025-09-05",
-  "realtime_end": "2025-09-05",
+  "realtime_start": "2025-09-25",
+  "realtime_end": "2025-09-25",
   "title": "Gross Private Domestic Investment",
   "observation_start": "1947-01-01",
   "observation_end": "2025-04-01",
@@ -11,10 +11,10 @@
   "units_short": "Bil. of $",
   "seasonal_adjustment": "Seasonally Adjusted Annual Rate",
   "seasonal_adjustment_short": "SAAR",
-  "last_updated": "2025-08-28 07:55:13-05",
-  "popularity": 65,
+  "last_updated": "2025-09-25 07:48:08-05",
+  "popularity": 67,
   "notes": "BEA Account Code: A006RC\n\nA Guide to the National Income and Product Accounts of the United States (http://www.bea.gov/national/pdf/nipaguid.pdf) (NIPA)",
-  "sync_timestamp": "2025-09-20T10:46:03.800095",
+  "sync_timestamp": "2025-10-10T21:35:17.067258",
   "alias": "Gross_Private_Domestic_Investment",
   "freshness_days": 120,
   "next_release": "N/A"

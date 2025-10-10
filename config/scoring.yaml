@@ -1,0 +1,16 @@
+method: quantile_tail
+
+quantile_tail:
+  anchors:
+    - [0.10, 20]
+    - [0.25, 35]
+    - [0.50, 50]
+    - [0.75, 65]
+    - [0.90, 80]
+    - [0.95, 90]
+    - [0.99, 96]
+    - [0.995, 98]
+    - [0.999, 99.5]
+bounds: [0, 100]
+thresholds: { low: 40, mid: 60, high: 80 }
+staleness_penalty: { daily_days: 7, weekly_days: 14, monthly_days: 60, quarterly_days: 120, factor: 0.95 }

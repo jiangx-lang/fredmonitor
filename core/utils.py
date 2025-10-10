@@ -1,65 +1,80 @@
 """
-工具函数
-
-提供通用的工具函数。
+工具模块
 """
 
-import os
 import yaml
-from typing import Dict, Any, Optional
-import logging
+import os
+from pathlib import Path
+from typing import Dict, Any
 
-logger = logging.getLogger(__name__)
 
-
-def load_yaml_config(file_path: str) -> Dict[str, Any]:
+def load_yaml_config(config_path: str) -> Dict[str, Any]:
     """
     加载YAML配置文件
     
     Args:
-        file_path: 配置文件路径
+        config_path: 配置文件路径
         
     Returns:
         配置字典
     """
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            config = yaml.safe_load(f)
-        logger.info(f"加载配置文件成功: {file_path}")
-        return config
+        config_file = Path(config_path)
+        if config_file.exists():
+            with open(config_file, 'r', encoding='utf-8') as f:
+                return yaml.safe_load(f)
+        else:
+            print(f"⚠️ 配置文件不存在: {config_path}")
+            return {}
     except Exception as e:
-        logger.error(f"加载配置文件失败 {file_path}: {e}")
+        print(f"❌ 加载配置文件失败 {config_path}: {e}")
         return {}
 
 
-def ensure_dir_exists(dir_path: str) -> None:
+def save_yaml_config(config: Dict[str, Any], config_path: str):
+    """
+    保存YAML配置文件
+    
+    Args:
+        config: 配置字典
+        config_path: 配置文件路径
+    """
+    try:
+        config_file = Path(config_path)
+        config_file.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(config_file, 'w', encoding='utf-8') as f:
+            yaml.dump(config, f, default_flow_style=False, allow_unicode=True)
+        
+        print(f"✅ 配置文件已保存: {config_path}")
+    except Exception as e:
+        print(f"❌ 保存配置文件失败 {config_path}: {e}")
+
+
+def ensure_directory(path: str):
     """
     确保目录存在
     
     Args:
-        dir_path: 目录路径
+        path: 目录路径
     """
     try:
-        os.makedirs(dir_path, exist_ok=True)
+        Path(path).mkdir(parents=True, exist_ok=True)
     except Exception as e:
-        logger.error(f"创建目录失败 {dir_path}: {e}")
+        print(f"❌ 创建目录失败 {path}: {e}")
 
 
-def get_env_var(key: str, default: str = None) -> Optional[str]:
+def get_project_root() -> Path:
     """
-    获取环境变量
+    获取项目根目录
     
-    Args:
-        key: 环境变量名
-        default: 默认值
-        
     Returns:
-        环境变量值
+        项目根目录路径
     """
-    return os.getenv(key, default)
+    return Path(__file__).parent.parent
 
 
-def format_number(value: float, decimals: int = 4) -> str:
+def format_number(value: float, decimals: int = 2) -> str:
     """
     格式化数字
     
@@ -75,25 +90,25 @@ def format_number(value: float, decimals: int = 4) -> str:
     
     try:
         return f"{value:.{decimals}f}"
-    except (ValueError, TypeError):
+    except:
         return str(value)
 
 
-def safe_divide(numerator: float, denominator: float, default: float = 0.0) -> float:
+def format_percentage(value: float, decimals: int = 1) -> str:
     """
-    安全除法
+    格式化百分比
     
     Args:
-        numerator: 分子
-        denominator: 分母
-        default: 默认值
+        value: 数值
+        decimals: 小数位数
         
     Returns:
-        除法结果
+        格式化后的百分比字符串
     """
+    if value is None:
+        return "N/A"
+    
     try:
-        if denominator == 0:
-            return default
-        return numerator / denominator
-    except (TypeError, ValueError):
-        return default
+        return f"{value:.{decimals}f}%"
+    except:
+        return str(value)

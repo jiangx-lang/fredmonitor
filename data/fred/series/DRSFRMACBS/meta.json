@@ -1,7 +1,7 @@
 {
   "id": "DRSFRMACBS",
-  "realtime_start": "2025-09-17",
-  "realtime_end": "2025-09-17",
+  "realtime_start": "2025-10-02",
+  "realtime_end": "2025-10-02",
   "title": "Delinquency Rate on Single-Family Residential Mortgages, Booked in Domestic Offices, All Commercial Banks",
   "observation_start": "1991-01-01",
   "observation_end": "2025-04-01",
@@ -14,7 +14,7 @@
   "last_updated": "2025-08-18 14:45:32-05",
   "popularity": 81,
   "notes": "data source (https://www.federalreserve.gov/apps/ContactUs/feedback.aspx?refurl=/releases/chargeoff/%). For questions on FRED functionality, please contact us here (https://fred.stlouisfed.org/contactus/).</p>",
-  "sync_timestamp": "2025-09-20T10:48:26.089464",
+  "sync_timestamp": "2025-10-10T21:37:55.232603",
   "alias": "Mortgage_Delinquency_Rate",
   "freshness_days": 120,
   "next_release": "N/A"

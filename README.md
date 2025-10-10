@@ -1,269 +1,247 @@
-# MacroLab - Local FRED + AI 宏观分析系统
+# FRED 金融危机预警监控系统
 
-MacroLab是一个模块化的宏观经济分析系统，能够从FRED API同步数据到本地，计算衍生特征，生成FRED风格的事实表，并提供AI辅助的宏观分析。
+## 项目概述
 
-## 功能特性
+本项目是一个基于FRED（Federal Reserve Economic Data）数据的美国金融危机预警检测框架。通过监控26个关键宏观经济指标，将当前值与历史危机期间基准值比较，生成风险评分和可视化报告。
 
-- 🔄 **FRED数据同步**: 自动从FRED API同步历史数据和元数据
-- 📊 **特征计算**: 自动计算YoY、MoM等衍生指标
-- 💾 **本地存储**: 数据存储在Parquet和DuckDB中，支持快速查询
-- 📋 **事实表生成**: 生成FRED风格的数据说明页面
-- 🤖 **AI分析**: 基于最新数据生成宏观状态分析报告
-- 🔧 **模块化设计**: 易于扩展和维护
+## 开发时间线
 
-## 项目结构
+**2025年9月14日-21日** - 完整开发周期
+- 数据下载与同步
+- 危机预警框架设计
+- 数据处理与清洗
+- 风险评分算法
+- 可视化报告生成
+- HTML/PNG长图输出
+
+## 核心功能
+
+### 1. 数据获取与同步
+- **FRED API集成**: 自动获取宏观经济数据
+- **本地数据缓存**: 优先使用本地数据，减少API调用
+- **断点续传**: 支持网络中断后的数据恢复
+- **数据清洗**: 处理缺失值、异常值和格式问题
+
+### 2. 危机预警算法
+- **26个关键指标**: 涵盖利率、信用利差、实体经济、房地产、消费、银行业等
+- **历史基准对比**: 使用危机期和非危机期分位数作为基准
+- **分组加权评分**: 按指标重要性分组，计算综合风险评分
+- **实时监控**: 自动更新最新数据并重新计算风险等级
+
+### 3. 可视化报告
+- **Markdown报告**: 包含详细指标分析和图表
+- **HTML自包含报告**: 嵌入Base64图片，适合移动端查看
+- **PNG长图**: HTML转图片，便于分享和存档
+- **中文支持**: 完整的中文字体和编码支持
+
+## 目录结构
 
 ```
-MacroLab/
-├── config/                 # 配置文件
-│   ├── catalog_fred.yaml  # FRED序列目录
-│   └── settings.yaml      # 全局设置
-├── data/                  # 数据存储
-│   ├── fred/             # FRED数据
-│   │   └── series/       # 各序列数据
-│   └── lake/             # DuckDB数据湖
-├── scripts/              # 核心脚本
-│   ├── sync_fred.py      # FRED数据同步
-│   ├── render_fact_sheets.py # 事实表渲染
-│   ├── ai_assess.py      # AI分析
-│   └── run_daily.bat     # 每日运行脚本
-├── templates/            # 模板文件
-│   ├── fact_sheet.md.j2  # 事实表模板
-│   └── ai_prompt_status.md # AI提示词模板
-├── outputs/              # 输出文件
-│   └── macro_status/     # 宏观状态报告
-└── tests/                # 测试文件
+fred_crisis_monitor/
+├── crisis_monitor.py              # 主程序 - 危机监控系统
+├── config/
+│   ├── crisis_indicators.yaml     # 指标配置文件
+│   └── crisis_periods.yaml        # 历史危机期间定义
+├── scripts/
+│   ├── fred_http.py               # FRED API客户端
+│   ├── clean_utils.py             # 数据清洗工具
+│   ├── sync_fred_data.py          # 单序列数据同步
+│   ├── sync_fred_http.py          # HTTP数据同步器
+│   ├── html2longpng.py            # HTML转PNG工具
+│   ├── plot_one.py                # 单指标图表测试
+│   └── viz.py                     # 可视化模块（已合并到主程序）
+├── data/
+│   └── fred/
+│       ├── series/                # 按序列ID存储的原始数据
+│       └── categories/             # 按分类存储的数据
+├── outputs/
+│   └── crisis_monitor/
+│       ├── figures/               # 指标图表PNG文件
+│       ├── *.md                   # Markdown报告
+│       ├── *.html                 # HTML自包含报告
+│       ├── *.png                  # HTML转PNG长图
+│       ├── *.json                 # JSON数据文件
+│       ├── latest.md              # 最新Markdown报告
+│       └── latest.html            # 最新HTML报告
+├── factors/                       # 因子计算模块
+├── examples/                      # 使用示例
+├── tests/                         # 测试文件
+└── templates/                     # 报告模板
 ```
 
-## 快速开始
+## 核心文件详解
 
-### 1. 安装依赖
+### 1. crisis_monitor.py (主程序)
+**功能**: 危机监控系统核心程序
+**主要特性**:
+- 加载26个FRED指标配置
+- 计算历史危机基准值
+- 生成风险评分和等级
+- 创建可视化图表
+- 输出多种格式报告
+- 支持中文显示和移动端优化
 
+**关键函数**:
+- `calculate_real_fred_scores()`: 计算真实FRED数据评分
+- `process_single_indicator_real()`: 处理单个指标
+- `calculate_crisis_stats()`: 计算危机期统计
+- `generate_indicator_chart()`: 生成指标图表
+- `render_html_report()`: 渲染HTML报告
+- `generate_long_image()`: 生成长图
+
+### 2. scripts/fred_http.py
+**功能**: FRED API客户端
+**主要特性**:
+- HTTP请求封装
+- 重试机制和错误处理
+- 速率限制
+- 数据格式转换
+
+**关键函数**:
+- `series_observations()`: 获取序列观测数据
+- `series_info()`: 获取序列信息
+- `series_search()`: 搜索替代序列
+
+### 3. scripts/clean_utils.py
+**功能**: 数据清洗工具
+**主要特性**:
+- 数值解析和转换
+- 异常值处理
+- 频率标准化
+
+**关键函数**:
+- `parse_numeric_series()`: 解析数值序列
+- `clean_value()`: 清洗单个数值
+
+### 4. config/crisis_indicators.yaml
+**功能**: 指标配置文件
+**内容**:
+- 26个关键指标定义
+- 分组和权重设置
+- 基准分位配置
+- 变换方法定义
+
+**指标分组**:
+- `rates_curve`: 收益率曲线 (15%)
+- `rates_level`: 利率水平 (15%)
+- `credit_spreads`: 信用利差 (15%)
+- `fin_cond_vol`: 金融状况/波动 (10%)
+- `real_economy`: 实体经济 (15%)
+- `housing`: 房地产 (10%)
+- `consumers`: 消费 (8%)
+- `banking`: 银行业 (7%)
+- `external`: 外部环境 (5%)
+
+## 技术栈
+
+### 核心库
+- **pandas**: 数据处理和分析
+- **numpy**: 数值计算
+- **matplotlib**: 图表生成
+- **yaml**: 配置文件解析
+- **requests**: HTTP请求
+- **tenacity**: 重试机制
+
+### 渲染库
+- **markdown**: Markdown转HTML
+- **mistune**: 备选Markdown渲染器
+- **wkhtmltoimage**: HTML转PNG
+
+### 工具库
+- **pathlib**: 路径处理
+- **dotenv**: 环境变量
+- **base64**: 图片编码
+- **subprocess**: 外部命令调用
+
+## 使用方法
+
+### 1. 环境设置
 ```bash
-pip install -e .
+# 安装依赖
+pip install pandas numpy matplotlib pyyaml requests tenacity markdown
+
+# 设置FRED API密钥
+export FRED_API_KEY="your_api_key_here"
 ```
 
-### 2. 配置环境
-
-复制环境配置文件：
-
+### 2. 运行监控系统
 ```bash
-copy env.example .env
+python crisis_monitor.py
 ```
 
-编辑 `.env` 文件，填入您的API密钥：
+### 3. 输出文件
+- `latest.html`: 最新HTML报告（推荐移动端查看）
+- `latest.md`: 最新Markdown报告
+- `figures/`: 所有指标图表
+- `crisis_report_long_*.png`: HTML转PNG长图
 
-```
-BASE_DIR=D:\MacroLab
-FRED_API_KEY=your_fred_api_key_here
-AI_PROVIDER=openai
-AI_API_KEY=your_openai_api_key_here
-AI_MODEL=gpt-4o-mini
-```
+## 风险评分系统
 
-### 3. 运行分析
+### 评分范围
+- **0-39**: 🔵 极低风险
+- **40-59**: 🟢 低风险  
+- **60-79**: 🟡 中风险
+- **80-100**: 🔴 高风险
 
-#### 手动运行
+### 基准分位类型
+- `crisis_median`: 危机期中位数
+- `crisis_p25`: 危机期25%分位数
+- `noncrisis_p75`: 非危机期75%分位数
+- `noncrisis_p90`: 非危机期90%分位数
 
-```bash
-# 同步FRED数据
-python scripts/sync_fred.py
+### 历史危机期间
+- 2008年金融危机
+- 欧债危机
+- 缩减恐慌
+- 中国股市崩盘
+- 英国脱欧
+- 贸易战
+- 疫情初期
+- 通胀飙升
 
-# 渲染事实表
-python scripts/render_fact_sheets.py
+## 数据来源
 
-# AI宏观分析
-python scripts/ai_assess.py
-```
+所有数据来源于FRED (Federal Reserve Economic Data):
+- **官网**: https://fred.stlouisfed.org/
+- **API文档**: https://fred.stlouisfed.org/docs/api/
+- **数据更新**: 实时同步最新数据
 
-#### 一键运行
+## 注意事项
 
-```bash
-# Windows
-scripts\run_daily.bat
+### 数据质量
+- 部分指标可能存在数据延迟
+- 季频数据更新较慢
+- 过期数据会被标记并降权
 
-# 或直接运行Python脚本
-python scripts/run_daily.py
-```
+### 免责声明
+- 本系统仅供参考，不构成投资建议
+- 历史数据不保证未来表现
+- 请结合其他信息源进行决策
 
-## 配置说明
+## 开发团队
 
-### FRED序列配置 (`config/catalog_fred.yaml`)
+**主要开发者**: AI Assistant (Claude)
+**项目时间**: 2025年9月14日-21日
+**联系方式**: jiangx@gmail.com
 
-```yaml
-series:
-  - id: CPIAUCSL         # FRED序列ID
-    alias: CPI_headline  # 别名
-    calc:                # 特征计算规则
-      yoy: {op: pct_change, shift: 12, scale: 100}
-      mom: {op: pct_change, shift: 1,  scale: 100}
-    freshness_days: 60   # 数据新鲜度要求（天）
-```
+## 更新日志
 
-### 全局设置 (`config/settings.yaml`)
+### v1.0 (2025-09-21)
+- ✅ 完成26个指标的数据获取和清洗
+- ✅ 实现危机预警算法和评分系统
+- ✅ 生成多格式可视化报告
+- ✅ 支持中文显示和移动端优化
+- ✅ 实现HTML转PNG长图功能
+- ✅ 优化Markdown表格渲染
 
-```yaml
-# 评分区间配置
-bands:
-  CPI_yoy: [2.0, 4.0]    # 风险评分区间
-  VIX: [12, 30]
+### 待优化项目
+- [ ] 添加更多国际指标
+- [ ] 实现实时数据推送
+- [ ] 增加机器学习预测模型
+- [ ] 支持多国数据对比
 
-# 因子权重
-weights:
-  CPI_yoy: 0.15
-  VIX: 0.15
+---
 
-# AI配置
-ai:
-  enable: true
-  language: zh-CN
-  temperature: 0.4
-```
-
-## 添加新序列
-
-要添加新的FRED序列，只需在 `config/catalog_fred.yaml` 中添加配置：
-
-```yaml
-series:
-  - id: NEW_SERIES_ID
-    alias: new_series
-    calc:
-      yoy: {op: pct_change, shift: 12, scale: 100}
-    freshness_days: 30
-```
-
-然后重新运行同步脚本：
-
-```bash
-python scripts/sync_fred.py
-```
-
-## 手动笔记和附件
-
-每个序列都有独立的笔记目录：
-
-```
-data/fred/series/SERIES_ID/
-├── notes/
-│   ├── custom_notes.md      # 手动笔记
-│   └── attachments/         # 附件目录
-│       ├── chart1.png
-│       └── data.csv
-```
-
-- 在 `custom_notes.md` 中添加您的研究笔记
-- 在 `attachments/` 目录中放置图表和数据文件
-- 这些内容会自动包含在生成的事实表中
-
-## DuckDB查询示例
-
-系统使用DuckDB作为数据湖，支持SQL查询：
-
-```sql
--- 查看所有可用的表
-SHOW TABLES FROM fred;
-
--- 查询CPI数据
-SELECT * FROM fred.CPIAUCSL 
-WHERE date >= '2024-01-01' 
-ORDER BY date DESC 
-LIMIT 10;
-
--- 计算期限利差
-SELECT 
-    y10.date,
-    y10.value as yield_10y,
-    y2.value as yield_2y,
-    (y10.value - y2.value) as term_spread
-FROM fred.DGS10 y10
-JOIN fred.DGS2 y2 ON y10.date = y2.date
-ORDER BY y10.date DESC
-LIMIT 10;
-
--- 查询最新数据快照
-WITH latest_data AS (
-    SELECT 'CPI' as indicator, date, yoy as value FROM fred.CPIAUCSL ORDER BY date DESC LIMIT 1
-    UNION ALL
-    SELECT 'VIX' as indicator, date, value FROM fred.VIXCLS ORDER BY date DESC LIMIT 1
-    UNION ALL
-    SELECT 'NFCI' as indicator, date, value FROM fred.NFCI ORDER BY date DESC LIMIT 1
-)
-SELECT * FROM latest_data;
-```
-
-## 输出文件
-
-### 事实表 (`data/fred/series/SERIES_ID/fact_sheet.md`)
-
-每个序列都会生成一个FRED风格的事实表，包含：
-- 序列基本信息
-- 最新数据值
-- 衍生指标（YoY、MoM等）
-- 官方说明
-- 您的手动笔记
-- 附件列表
-
-### 宏观状态报告 (`outputs/macro_status/YYYY-MM-DD.md`)
-
-每日AI分析报告，包含：
-- 执行摘要
-- 重点关注指标
-- 近期风险提示
-
-## 测试
-
-运行测试套件：
-
-```bash
-# 运行所有测试
-python -m pytest tests/ -v
-
-# 运行特定测试
-python -m pytest tests/test_sync.py -v
-python -m pytest tests/test_render.py -v
-```
-
-## 故障排除
-
-### 常见问题
-
-1. **FRED API错误**: 检查API密钥是否正确设置
-2. **数据同步失败**: 检查网络连接和API限制
-3. **AI分析失败**: 检查OpenAI API密钥和网络连接
-4. **文件权限错误**: 确保对数据目录有写入权限
-
-### 调试模式
-
-设置环境变量启用调试模式：
-
-```bash
-set DEBUG=1
-python scripts/sync_fred.py
-```
-
-## 开发
-
-### 添加新的特征计算
-
-在 `scripts/sync_fred.py` 的 `compute_features` 函数中添加新的计算规则：
-
-```python
-def compute_features(df: pd.DataFrame, calc_spec: Dict[str, Any]) -> pd.DataFrame:
-    # 添加新的计算规则
-    if rule["op"] == "moving_average":
-        window = rule.get("window", 5)
-        out[name] = out["value"].rolling(window=window).mean()
-```
-
-### 自定义AI提示词
-
-编辑 `templates/ai_prompt_status.md` 来自定义AI分析的提示词模板。
-
-## 许可证
-
-MIT License
-
-## 贡献
-
-欢迎提交Issue和Pull Request来改进这个项目！
+**最后更新**: 2025年9月21日
+**版本**: v1.0
+**状态**: 生产就绪

@@ -1,0 +1,21 @@
+{
+  "id": "THREEFYTP10",
+  "realtime_start": "2025-10-08",
+  "realtime_end": "2025-10-08",
+  "title": "Term Premium on a 10 Year Zero Coupon Bond",
+  "observation_start": "1990-01-02",
+  "observation_end": "2025-10-03",
+  "frequency": "Daily",
+  "frequency_short": "D",
+  "units": "Percent",
+  "units_short": "%",
+  "seasonal_adjustment": "Not Seasonally Adjusted",
+  "seasonal_adjustment_short": "NSA",
+  "last_updated": "2025-10-07 14:03:34-05",
+  "popularity": 70,
+  "notes": "Kim and Wright (2005) produced this data by fitting a simple three-factor arbitrage-free term structure model to U.S. Treasury yields since 1990, in order to evaluate the behavior of long-term yields, distant-horizon forward rates, and term premiums. For the full paper, please go to http://www.federalreserve.gov/pubs/feds/2005/200533/200533abs.html",
+  "sync_timestamp": "2025-10-10T21:33:00.651170",
+  "alias": "Term_Premium_10Y_Kim_Wright_Proxy",
+  "freshness_days": 7,
+  "next_release": "N/A"
+}

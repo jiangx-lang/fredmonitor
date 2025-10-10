@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>宏观金融危机监察报告</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Microsoft YaHei','PingFang SC',sans-serif;line-height:1.6;padding:16px;max-width:1000px;margin:auto;background:#f5f5f5}
+  article{background:#fff;padding:24px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+  h1,h2,h3{line-height:1.25}
+  img{max-width:100%;height:auto;display:block;margin:8px 0}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
+  th,td{border:1px solid #e5e7eb;padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f8fafc;font-weight:600}
+  code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+</style>
+</head>
+<body>
+<article>
+<h1>🚨 FRED 宏观金融危机预警监控报告</h1>
+<p><strong>生成时间</strong>: 2025年09月21日 18:39:43</p>
+<h2>📋 报告说明</h2>
+<p>本报告基于FRED宏观指标，将当前值与历史危机期间基准值比较，以评估风险。</p>
+<p>【数据由人采集和处理，请批判看待这些数据，欢迎email jiangx@gmail.com 任何问题讨论】</p>
+<p>风险评分范围 0-100：50 为中性，越高越危险（除非指标设定为'越低越危险'）。</p>
+<p>采用分组加权评分：先计算各组平均分，再按权重合成总分。</p>
+<p>总分 = ∑(分组平均分 × 分组权重)，分组权重归一处理后合成。</p>
+<p>过期数据处理：月频数据&gt;60天、季频数据&gt;120天标记⚠️，过期数据权重×0.9。</p>
+<p>颜色分段：0–39 🔵 极低，40–59 🟢 低，60–79 🟡 中，80–100 🔴 高；50 为中性。</p>
+<h2>📊 执行摘要</h2>
+<ul>
+<li><strong>总指标数</strong>: 35</li>
+<li><strong>高风险指标</strong>: 8 个</li>
+<li><strong>中风险指标</strong>: 6 个</li>
+<li><strong>低风险指标</strong>: 21 个</li>
+</ul>
+<h3>🎯 风险等级说明</h3>
+<ul>
+<li>🔴 <strong>高风险</strong> (70-100分): 当前值显著偏离历史危机水平</li>
+<li>🟡 <strong>中风险</strong> (40-69分): 当前值略高于历史危机水平</li>
+<li>🟢 <strong>低风险</strong> (0-39分): 当前值接近或低于历史危机水平</li>
+</ul>
+<h2>📈 详细指标分析</h2>
+<h3>🔴 高风险指标</h3>
+<h4>1. 非农就业人数 YoY (PAYEMS)</h4>
+<ul>
+<li><strong>当前值</strong>: 0.9274</li>
+<li><strong>基准值</strong>: 0.7025 (crisis_p25)</li>
+<li><strong>风险评分</strong>: 99.5 (🔴 高风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="PAYEMS" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/PAYEMS_latest.png"></p>
+<h4>2. 工业生产 YoY (INDPRO)</h4>
+<ul>
+<li><strong>当前值</strong>: 0.8743</li>
+<li><strong>基准值</strong>: -0.4999 (crisis_p25)</li>
+<li><strong>风险评分</strong>: 99.5 (🔴 高风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="INDPRO" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/INDPRO_latest.png"></p>
+<h4>3. GDP YoY (GDP)</h4>
+<ul>
+<li><strong>当前值</strong>: 4.6083</li>
+<li><strong>基准值</strong>: 4.4834 (crisis_p25)</li>
+<li><strong>风险评分</strong>: 99.5 (🔴 高风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="GDP" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/GDP_latest.png"></p>
+<h4>4. 制造业新订单-非国防资本货不含飞机 YoY (NEWORDER)</h4>
+<ul>
+<li><strong>当前值</strong>: 4.1305</li>
+<li><strong>基准值</strong>: -2.2552 (crisis_p25)</li>
+<li><strong>风险评分</strong>: 99.5 (🔴 高风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="NEWORDER" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/NEWORDER_latest.png"></p>
+<h4>5. 房价指数: Case-Shiller 20城 YoY (CSUSHPINSA)</h4>
+<ul>
+<li><strong>当前值</strong>: 1.8880</li>
+<li><strong>基准值</strong>: 10.8520 (noncrisis_p90)</li>
+<li><strong>风险评分</strong>: 99.5 (🔴 高风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="CSUSHPINSA" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/CSUSHPINSA_latest.png"></p>
+<h4>6. 总贷款和租赁 YoY (TOTLL)</h4>
+<ul>
+<li><strong>当前值</strong>: 13052.6550</li>
+<li><strong>基准值</strong>: 6888.7605 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 99.5 (🔴 高风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="TOTLL" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/TOTLL_latest.png"></p>
+<h4>7. 消费者信贷 YoY (TOTALSA)</h4>
+<ul>
+<li><strong>当前值</strong>: 5.4611</li>
+<li><strong>基准值</strong>: 8.0372 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 99.5 (🔴 高风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="TOTALSA" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/TOTALSA_latest.png"></p>
+<h4>8. 密歇根消费者信心 (UMCSENT)</h4>
+<ul>
+<li><strong>当前值</strong>: 61.7000</li>
+<li><strong>基准值</strong>: 80.6700 (noncrisis_p35)</li>
+<li><strong>风险评分</strong>: 89.1 (🔴 高风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="UMCSENT" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/UMCSENT_latest.png"></p>
+<h3>🟡 中风险指标</h3>
+<h4>1. 收益率曲线倒挂: 10年期-3个月 (T10Y3M)</h4>
+<ul>
+<li><strong>当前值</strong>: 0.1100</li>
+<li><strong>基准值</strong>: 0.5800 (noncrisis_p25)</li>
+<li><strong>风险评分</strong>: 76.3 (🟡 中风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="T10Y3M" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/T10Y3M_latest.png"></p>
+<h4>2. 制造业就业 YoY (MANEMP)</h4>
+<ul>
+<li><strong>当前值</strong>: 12722.0000</li>
+<li><strong>基准值</strong>: 13284.7500 (crisis_p25)</li>
+<li><strong>风险评分</strong>: 72.4 (🟡 中风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="MANEMP" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/MANEMP_latest.png"></p>
+<h4>3. 3个月商业票据利率 (CPN3M)</h4>
+<ul>
+<li><strong>当前值</strong>: 4.2000</li>
+<li><strong>基准值</strong>: 4.7625 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 61.2 (🟡 中风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="CPN3M" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/CPN3M_latest.png"></p>
+<h4>4. 美联储总资产 YoY (WALCL)</h4>
+<ul>
+<li><strong>当前值</strong>: 6608597.0000</li>
+<li><strong>基准值</strong>: 3927074.5000 (crisis_median)</li>
+<li><strong>风险评分</strong>: 66.6 (🟡 中风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="WALCL" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/WALCL_latest.png"></p>
+<h4>5. 银行贷款标准-大中企C&amp;I收紧净比例 (DRTSCILM)</h4>
+<ul>
+<li><strong>当前值</strong>: 9.5000</li>
+<li><strong>基准值</strong>: 18.5750 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 61.0 (🟡 中风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="DRTSCILM" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/DRTSCILM_latest.png"></p>
+<h4>6. 贸易加权美元 YoY (DTWEXBGS)</h4>
+<ul>
+<li><strong>当前值</strong>: 120.4905</li>
+<li><strong>基准值</strong>: 108.3901 (noncrisis_median)</li>
+<li><strong>风险评分</strong>: 75.6 (🟡 中风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="DTWEXBGS" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/DTWEXBGS_latest.png"></p>
+<h3>🟢 低风险指标</h3>
+<h4>1. 收益率曲线倒挂: 10年期-2年期 (T10Y2Y)</h4>
+<ul>
+<li><strong>当前值</strong>: 0.5700</li>
+<li><strong>基准值</strong>: 0.1800 (noncrisis_p25)</li>
+<li><strong>风险评分</strong>: 54.2 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="T10Y2Y" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/T10Y2Y_latest.png"></p>
+<h4>2. 投资级信用利差: Baa-10Y国债 (BAA10YM)</h4>
+<ul>
+<li><strong>当前值</strong>: 1.7400</li>
+<li><strong>基准值</strong>: 1.8500 (crisis_median)</li>
+<li><strong>风险评分</strong>: 46.7 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="BAA10YM" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/BAA10YM_latest.png"></p>
+<h4>3. 期限溢价-10年期Kim-Wright代理 (THREEFYTP10)</h4>
+<ul>
+<li><strong>当前值</strong>: 0.4291</li>
+<li><strong>基准值</strong>: 1.3561 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 40.7 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="THREEFYTP10" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/THREEFYTP10_latest.png"></p>
+<h4>4. 制造业平均周工时 (AWHMAN)</h4>
+<ul>
+<li><strong>当前值</strong>: 40.9000</li>
+<li><strong>基准值</strong>: 40.3000 (crisis_p25)</li>
+<li><strong>风险评分</strong>: 42.8 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="AWHMAN" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/AWHMAN_latest.png"></p>
+<h4>5. 新屋开工 年化 (HOUST)</h4>
+<ul>
+<li><strong>当前值</strong>: 1307.0000</li>
+<li><strong>基准值</strong>: 1211.5000 (crisis_p25)</li>
+<li><strong>风险评分</strong>: 59.7 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="HOUST" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/HOUST_latest.png"></p>
+<h4>6. 住宅建筑许可 YoY (PERMIT)</h4>
+<ul>
+<li><strong>当前值</strong>: 1312.0000</li>
+<li><strong>基准值</strong>: 1131.5000 (crisis_p25)</li>
+<li><strong>风险评分</strong>: 53.9 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="PERMIT" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/PERMIT_latest.png"></p>
+<h4>7. 联邦基金利率 (FEDFUNDS)</h4>
+<ul>
+<li><strong>当前值</strong>: 4.3300</li>
+<li><strong>基准值</strong>: 6.1375 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 50.5 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="FEDFUNDS" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/FEDFUNDS_latest.png"></p>
+<h4>8. 30年期按揭利率 (MORTGAGE30US)</h4>
+<ul>
+<li><strong>当前值</strong>: 6.2600</li>
+<li><strong>基准值</strong>: 9.2850 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 40.3 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="MORTGAGE30US" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/MORTGAGE30US_latest.png"></p>
+<h4>9. SOFR (SOFR)</h4>
+<ul>
+<li><strong>当前值</strong>: 4.1400</li>
+<li><strong>基准值</strong>: 4.5500 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 57.8 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="SOFR" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/SOFR_latest.png"></p>
+<h4>10. 3个月国债利率 (DTB3)</h4>
+<ul>
+<li><strong>当前值</strong>: 3.8900</li>
+<li><strong>基准值</strong>: 5.6700 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 48.4 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="DTB3" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/DTB3_latest.png"></p>
+<h4>11. VIX 波动率 (VIXCLS)</h4>
+<ul>
+<li><strong>当前值</strong>: 15.7000</li>
+<li><strong>基准值</strong>: 28.6520 (noncrisis_p90)</li>
+<li><strong>风险评分</strong>: 42.4 (🟢 低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="VIXCLS" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/VIXCLS_latest.png"></p>
+<h3>🔵 极低风险指标</h3>
+<h4>1. 高收益债风险溢价 (BAMLH0A0HYM2)</h4>
+<ul>
+<li><strong>当前值</strong>: 2.7100</li>
+<li><strong>基准值</strong>: 4.5750 (crisis_median)</li>
+<li><strong>风险评分</strong>: 20.0 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="BAMLH0A0HYM2" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/BAMLH0A0HYM2_latest.png"></p>
+<h4>2. TED利差 (TEDRATE)</h4>
+<ul>
+<li><strong>当前值</strong>: 0.0900</li>
+<li><strong>基准值</strong>: 0.4200 (crisis_median)</li>
+<li><strong>风险评分</strong>: 20.0 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="TEDRATE" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/TEDRATE_latest.png"></p>
+<h4>3. 芝加哥金融状况指数 (NFCI)</h4>
+<ul>
+<li><strong>当前值</strong>: -0.5638</li>
+<li><strong>基准值</strong>: 0.1626 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 38.3 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="NFCI" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/NFCI_latest.png"></p>
+<h4>4. 10年期国债利率 (DGS10)</h4>
+<ul>
+<li><strong>当前值</strong>: 4.1100</li>
+<li><strong>基准值</strong>: 7.5600 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 38.1 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="DGS10" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/DGS10_latest.png"></p>
+<h4>5. 家庭债务偿付比率 (TDSP)</h4>
+<ul>
+<li><strong>当前值</strong>: 11.2492</li>
+<li><strong>基准值</strong>: 11.6065 (crisis_median)</li>
+<li><strong>风险评分</strong>: 39.5 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="TDSP" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/TDSP_latest.png"></p>
+<h4>6. 银行准备金 YoY (TOTRESNS)</h4>
+<ul>
+<li><strong>当前值</strong>: 3340.3000</li>
+<li><strong>基准值</strong>: 34.8500 (noncrisis_p25)</li>
+<li><strong>风险评分</strong>: 20.0 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="TOTRESNS" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/TOTRESNS_latest.png"></p>
+<h4>7. 初请失业金4周均值 (IC4WSA)</h4>
+<ul>
+<li><strong>当前值</strong>: 240000.0000</li>
+<li><strong>基准值</strong>: 397250.0000 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 25.8 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="IC4WSA" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/IC4WSA_latest.png"></p>
+<h4>8. 企业债/GDP（新） (NCBDBIQ027S)</h4>
+<ul>
+<li><strong>当前值</strong>: 28.5098</li>
+<li><strong>基准值</strong>: 2395716.0000 (noncrisis_p65)</li>
+<li><strong>风险评分</strong>: 20.0 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="NCBDBIQ027S" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/NCBDBIQ027S_latest.png"></p>
+<h4>9. 圣路易斯金融压力 (STLFSI3)</h4>
+<ul>
+<li><strong>当前值</strong>: -1.7057</li>
+<li><strong>基准值</strong>: 0.2731 (noncrisis_p75)</li>
+<li><strong>风险评分</strong>: 20.0 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="STLFSI3" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/STLFSI3_latest.png"></p>
+<h4>10. 房贷违约率 (DRSFRMACBS)</h4>
+<ul>
+<li><strong>当前值</strong>: 1.7900</li>
+<li><strong>基准值</strong>: 2.3450 (crisis_median)</li>
+<li><strong>风险评分</strong>: 27.4 (🔵 极低风险)</li>
+<li><strong>解释</strong>: 无解释</li>
+</ul>
+<p><img alt="DRSFRMACBS" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/DRSFRMACBS_latest.png"></p>
+<h2>📊 总体风险概览</h2>
+<p><img alt="总体风险概览" src="D:/fred_crisis_monitor/outputs/crisis_monitor/figures/summary_chart.png"></p>
+<h3>📊 分组风险评分</h3>
+<ul>
+<li><strong>core_warning</strong>: 42.3/100 (权重: 32.0%, 指标数: 7)</li>
+<li><strong>real_economy</strong>: 80.7/100 (权重: 24.0%, 指标数: 9)</li>
+<li><strong>monetary_policy</strong>: 51.9/100 (权重: 14.000000000000002%, 指标数: 7)</li>
+<li><strong>banking</strong>: 57.5/100 (权重: 16.0%, 指标数: 6)</li>
+<li><strong>consumers_leverage</strong>: 61.6/100 (权重: 5.0%, 指标数: 3)</li>
+<li><strong>monitoring</strong>: 29.9/100 (权重: 0.0%, 指标数: 3)</li>
+</ul>
+<p><strong>总体风险等级</strong>: 🟢 低风险</p>
+<h2>📋 指标配置表</h2>
+<table>
+<thead>
+<tr>
+<th>指标名称</th>
+<th>分组</th>
+<th>基准分位</th>
+<th>基准理由</th>
+<th>变换方法</th>
+<th>权重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>收益率曲线倒挂: 10年期-3个月</td>
+<td>收益率曲线</td>
+<td>noncrisis_p25</td>
+<td>非危机期25%分位数作为警戒线</td>
+<td>level</td>
+<td>7.5%</td>
+</tr>
+<tr>
+<td>收益率曲线倒挂: 10年期-2年期</td>
+<td>收益率曲线</td>
+<td>noncrisis_p25</td>
+<td>非危机期25%分位数作为警戒线</td>
+<td>level</td>
+<td>7.5%</td>
+</tr>
+<tr>
+<td>联邦基金利率</td>
+<td>利率水平</td>
+<td>noncrisis_p75</td>
+<td>非危机期75%分位数作为警戒线</td>
+<td>level</td>
+<td>3.0%</td>
+</tr>
+<tr>
+<td>3个月国债利率</td>
+<td>利率水平</td>
+<td>noncrisis_p75</td>
+<td>非危机期75%分位数作为警戒线</td>
+<td>level</td>
+<td>3.0%</td>
+</tr>
+<tr>
+<td>10年期国债利率</td>
+<td>利率水平</td>
+<td>noncrisis_p75</td>
+<td>非危机期75%分位数作为警戒线</td>
+<td>level</td>
+<td>3.0%</td>
+</tr>
+<tr>
+<td>30年期抵押贷款利率</td>
+<td>利率水平</td>
+<td>noncrisis_p75</td>
+<td>非危机期75%分位数作为警戒线</td>
+<td>level</td>
+<td>3.0%</td>
+</tr>
+<tr>
+<td>SOFR隔夜利率</td>
+<td>利率水平</td>
+<td>noncrisis_p75</td>
+<td>非危机期75%分位数作为警戒线</td>
+<td>level</td>
+<td>3.0%</td>
+</tr>
+<tr>
+<td>高收益债风险溢价</td>
+<td>信用利差</td>
+<td>crisis_median</td>
+<td>危机期中位数作为警戒线</td>
+<td>level</td>
+<td>7.5%</td>
+</tr>
+<tr>
+<td>投资级信用利差: Baa-10Y国债</td>
+<td>信用利差</td>
+<td>crisis_median</td>
+<td>危机期中位数作为警戒线</td>
+<td>level</td>
+<td>7.5%</td>
+</tr>
+<tr>
+<td>芝加哥金融状况指数</td>
+<td>金融状况/波动</td>
+<td>noncrisis_p75</td>
+<td>非危机期75%分位数作为警戒线</td>
+<td>level</td>
+<td>5.0%</td>
+</tr>
+<tr>
+<td>VIX波动率指数</td>
+<td>金融状况/波动</td>
+<td>noncrisis_p90</td>
+<td>非危机期90%分位数作为警戒线</td>
+<td>level</td>
+<td>5.0%</td>
+</tr>
+<tr>
+<td>非农就业人数 YoY</td>
+<td>实体经济</td>
+<td>crisis_p25</td>
+<td>危机期25%分位数作为警戒线</td>
+<td>yoy_pct</td>
+<td>5.0%</td>
+</tr>
+<tr>
+<td>工业生产 YoY</td>
+<td>实体经济</td>
+<td>crisis_p25</td>
+<td>危机期25%分位数作为警戒线</td>
+<td>yoy_pct</td>
+<td>5.0%</td>
+</tr>
+<tr>
+<td>GDP YoY</td>
+<td>实体经济</td>
+<td>crisis_p25</td>
+<td>危机期25%分位数作为警戒线</td>
+<td>yoy_pct</td>
+<td>5.0%</td>
+</tr>
+<tr>
+<td>新屋开工（年化）</td>
+<td>房地产</td>
+<td>crisis_p25</td>
+<td>危机期25%分位数作为警戒线</td>
+<td>level</td>
+<td>3.0%</td>
+</tr>
+<tr>
+<td>房价指数: Case-Shiller 20城 YoY</td>
+<td>房地产</td>
+<td>noncrisis_p90</td>
+<td>非危机期90%分位数作为警戒线</td>
+<td>yoy_pct</td>
+<td>3.0%</td>
+</tr>
+<tr>
+<td>密歇根消费者信心</td>
+<td>消费</td>
+<td>noncrisis_p35</td>
+<td>非危机期35%分位数作为警戒线</td>
+<td>level</td>
+<td>4.0%</td>
+</tr>
+<tr>
+<td>消费者信贷 YoY</td>
+<td>消费</td>
+<td>noncrisis_p75</td>
+<td>非危机期75%分位数作为警戒线</td>
+<td>yoy_pct</td>
+<td>4.0%</td>
+</tr>
+<tr>
+<td>总贷款与租赁 YoY</td>
+<td>银行业</td>
+<td>noncrisis_p75</td>
+<td>非危机期75%分位数作为警戒线</td>
+<td>yoy_pct</td>
+<td>3.5%</td>
+</tr>
+<tr>
+<td>美联储总资产 YoY</td>
+<td>银行业</td>
+<td>crisis_median</td>
+<td>危机期中位数作为警戒线</td>
+<td>yoy_pct</td>
+<td>3.5%</td>
+</tr>
+<tr>
+<td>贸易加权美元指数 YoY</td>
+<td>外部环境</td>
+<td>noncrisis_median</td>
+<td>非危机期中位数作为警戒线</td>
+<td>yoy_pct</td>
+<td>5.0%</td>
+</tr>
+<tr>
+<td>企业债/GDP（名义，%）</td>
+<td>杠杆</td>
+<td>noncrisis_p65</td>
+<td>非危机期65%分位数作为警戒线</td>
+<td>level</td>
+<td>10.0%</td>
+</tr>
+<tr>
+<td>银行准备金/存款（%）</td>
+<td>银行业</td>
+<td>noncrisis_p25</td>
+<td>非危机期25%分位数作为警戒线</td>
+<td>level</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>银行准备金/总资产（%）</td>
+<td>银行业</td>
+<td>noncrisis_p25</td>
+<td>非危机期25%分位数作为警戒线</td>
+<td>level</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>家庭债务偿付比率</td>
+<td>消费</td>
+<td>crisis_median</td>
+<td>危机期中位数作为警戒线</td>
+<td>level</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>房贷违约率</td>
+<td>房地产</td>
+<td>crisis_median</td>
+<td>危机期中位数作为警戒线</td>
+<td>level</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<h2>📊 基准分位解释</h2>
+<ul>
+<li><strong>crisis_median</strong>: 危机期中位数</li>
+<li><strong>crisis_p25</strong>: 危机期25%分位数</li>
+<li><strong>crisis_p75</strong>: 危机期75%分位数</li>
+<li><strong>noncrisis_median</strong>: 非危机期中位数</li>
+<li><strong>noncrisis_p25</strong>: 非危机期25%分位数</li>
+<li><strong>noncrisis_p35</strong>: 非危机期35%分位数</li>
+<li><strong>noncrisis_p65</strong>: 非危机期65%分位数</li>
+<li><strong>noncrisis_p75</strong>: 非危机期75%分位数</li>
+<li><strong>noncrisis_p90</strong>: 非危机期90%分位数</li>
+</ul>
+<h2>📅 历史危机期间参考</h2>
+<p>本报告使用的历史危机期间包括：</p>
+<ul>
+<li><strong>大萧条</strong> (GD_1929): 1929-10-01 至 1933-03-31</li>
+<li><strong>商业票据危机/宾州中央铁路</strong> (CP_1970): 1970-05-01 至 1970-12-31</li>
+<li><strong>石油危机与滞胀</strong> (OIL_7374): 1973-10-01 至 1974-12-31</li>
+<li><strong>储贷危机</strong> (SANDL_8089): 1980-01-01 至 1989-12-31</li>
+<li><strong>黑色星期一</strong> (CRASH_1987): 1987-10-01 至 1988-03-31</li>
+<li><strong>信贷紧缩衰退</strong> (CREDIT_9091): 1990-07-01 至 1991-06-30</li>
+<li><strong>债券市场危机</strong> (BOND_1994): 1994-01-01 至 1994-12-31</li>
+<li><strong>LTCM/俄罗斯违约</strong> (LTCM_1998): 1998-08-01 至 1999-02-28</li>
+<li><strong>互联网泡沫破裂</strong> (DOTCOM_2000): 2000-03-01 至 2002-12-31</li>
+<li><strong>全球金融危机</strong> (GFC_2008): 2007-07-01 至 2009-06-30</li>
+<li><strong>欧债危机</strong> (EURO_2011): 2011-07-01 至 2012-01-31</li>
+<li><strong>美国回购市场危机</strong> (REPO_2019): 2019-09-01 至 2019-10-31</li>
+<li><strong>新冠疫情现金争夺</strong> (COVID_2020): 2020-02-15 至 2020-06-30</li>
+<li><strong>地区银行压力</strong> (REG_BANK_2023): 2023-03-01 至 2023-06-30</li>
+<li><strong>亚洲金融危机</strong> (ASIAN_1997): 1997-07-01 至 1998-12-31</li>
+<li><strong>俄罗斯金融危机</strong> (RUSSIAN_1998): 1998-08-01 至 1998-12-31</li>
+<li><strong>科技股崩盘</strong> (TECH_2000): 2000-03-01 至 2001-12-31</li>
+<li><strong>次贷危机</strong> (SUBPRIME_2007): 2007-02-01 至 2008-09-30</li>
+<li><strong>雷曼兄弟破产</strong> (LEHMAN_2008): 2008-09-01 至 2009-03-31</li>
+<li><strong>欧债危机初期</strong> (EUROZONE_2010): 2010-01-01 至 2011-06-30</li>
+<li><strong>缩减恐慌</strong> (TAPER_2013): 2013-05-01 至 2013-12-31</li>
+<li><strong>中国股市崩盘</strong> (CHINA_2015): 2015-06-01 至 2016-02-29</li>
+<li><strong>英国脱欧</strong> (BREXIT_2016): 2016-06-01 至 2016-12-31</li>
+<li><strong>贸易战</strong> (TRADE_WAR_2018): 2018-03-01 至 2019-12-31</li>
+<li><strong>疫情初期</strong> (PANDEMIC_2020): 2020-01-01 至 2020-04-30</li>
+<li><strong>通胀飙升</strong> (INFLATION_2022): 2022-01-01 至 2022-12-31</li>
+</ul>
+<h2>⚠️ 免责声明</h2>
+<p>本报告仅供参考，不构成投资建议。历史数据不保证未来表现。</p>
+<hr>
+<p><em>本报告基于FRED数据，仅供参考，不构成投资建议</em></p>
+</article>
+</body>
+</html>

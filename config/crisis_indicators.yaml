@@ -1,371 +1,395 @@
-# =========================
-# 宏观风控——统一权重&基准配置（严格配置即真相）
-# =========================
-
-meta:
-  version: 2025-09-18
-  note: 所有分组权重之和 = 100%，每组内各指标 indicator_weight 之和 = 1。
-        若存在 global_weight 字段，直接用它作为该指标的全局权重（不再用 组权重×组内权重 计算）。
-
-weights:
-  groups:
-    rates_curve: {weight: 0.15, title: "收益率曲线"}
-    rates_level: {weight: 0.15, title: "利率水平"}
-    credit_spreads: {weight: 0.15, title: "信用利差"}
-    fin_cond_vol: {weight: 0.10, title: "金融状况/波动"}
-    real_economy: {weight: 0.15, title: "实体经济"}
-    housing: {weight: 0.10, title: "房地产"}
-    consumers: {weight: 0.08, title: "消费"}
-    banking: {weight: 0.07, title: "银行业"}
-    external: {weight: 0.05, title: "外部环境"}
-    leverage: {weight: 0.10, title: "杠杆"}
-
-stale_policy:
-  # 过期扣权：单项得分算完后，最终有效权重 = global_weight × below_factor
-  # 月频/旬频/周频：>60天记为过期；季频：>120天过期
-  monthly_threshold_days: 60
-  quarterly_threshold_days: 120
-  below_factor: 0.90
-
-scoring:
-  # ——— 统一的风险评分函数（one-sided）———
-  # 记号：
-  #   B = 基准值（按 compare_to 取值）
-  #   d = +1 (higher_is_risk=true)；d = -1 (higher_is_risk=false)
-  #   IQR = noncrisis_p75 - noncrisis_p25（非危机样本四分位差）
-  #   dev = d * (current - B)
-  #   norm = clip( dev / max(IQR, eps), -iqr_clip, +iqr_clip )
-  #   score_single = clip( 50 + 10 * norm, 0, 100 )
-  #
-  # two_sided 模式（可选）：
-  #   dist = | current - mid | / max(IQR, eps)    （mid = 非危机中位）
-  #   score_single = clip( 50 + 10 * dist * sign, 0, 100 )
-  #   其中 sign = +1 表示"偏离越大越危险"。（适合既怕过热也怕骤冷的场景）
-  eps: 1.0e-6
-  iqr_clip: 5.0
-  default_risk_mode: one_sided   # 可选：one_sided / two_sided
-
-# 统一：figures 目录在写入前必须 os.makedirs(..., exist_ok=True)
+# config/crisis_indicators.yaml - 优化后的40个指标配置
+# 按照用户建议：解决高相关性、重复计算问题，权重总计100%
+# 新增学术指标：SLOOS、初请、新订单、建筑许可、工时、期限溢价
 
 indicators:
-  # —— 收益率曲线（15%）——
-  - name: "收益率曲线倒挂: 10年期-3个月"
-    series_id: T10Y3M
-    group: rates_curve
-    indicator_weight: 0.5
-    global_weight: 0.075           # 15% × 0.5
+  # ===== 核心预警指标 (40%) =====
+  
+  # 收益率曲线 (14%)
+  - id: T10Y3M
+    name: "收益率曲线倒挂: 10年期-3个月"
+    group: core_warning
     transform: level
-    compare_to: noncrisis_p25
-    higher_is_risk: false          # 越低越危险（趋近/跌破p25）
-    risk_mode: one_sided
-    baseline_reason: "收益率曲线倒挂越深越危险，使用非危机期间25%分位数作为警戒线"
-
-  - name: "收益率曲线倒挂: 10年期-2年期"
-    series_id: T10Y2Y
-    group: rates_curve
-    indicator_weight: 0.5
-    global_weight: 0.075
-    transform: level
-    compare_to: noncrisis_p25
     higher_is_risk: false
-    risk_mode: one_sided
-    baseline_reason: "收益率曲线倒挂越深越危险，使用非危机期间25%分位数作为警戒线"
+    compare_to: noncrisis_p25
+    weight: 0.08
+    freq: D
 
-  # —— 利率水平（15%）——
-  - name: 联邦基金利率
-    series_id: FEDFUNDS
-    group: rates_level
-    indicator_weight: 0.2
-    global_weight: 0.03             # 15% × 0.2
+  - id: T10Y2Y
+    name: "收益率曲线倒挂: 10年期-2年期"
+    group: core_warning
     transform: level
-    compare_to: noncrisis_p75
+    higher_is_risk: false
+    compare_to: noncrisis_p25
+    weight: 0.06
+    freq: D
+
+  # 信用利差簇 (18%) - 减少3%给EBP
+  - id: BAMLH0A0HYM2
+    name: "高收益债风险溢价"
+    group: core_warning
+    transform: level
     higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 60              # 月频数据，60天过期（美联储每月会议）
-    baseline_reason: "利率水平过高会抑制经济活动，使用非危机期间75%分位数作为警戒线"
-
-  - name: 3个月国债利率
-    series_id: DTB3
-    group: rates_level
-    indicator_weight: 0.2
-    global_weight: 0.03
-    transform: level
-    compare_to: noncrisis_p75
-    higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 30              # 日频数据，30天过期
-    baseline_reason: "短期利率过高会抑制经济活动，使用非危机期间75%分位数作为警戒线"
-
-  - name: 10年期国债利率
-    series_id: DGS10
-    group: rates_level
-    indicator_weight: 0.2
-    global_weight: 0.03
-    transform: level
-    compare_to: noncrisis_p75
-    higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 30              # 日频数据，30天过期
-    baseline_reason: "长期利率过高会抑制投资和消费，使用非危机期间75%分位数作为警戒线"
-
-  - name: 30年期抵押贷款利率
-    series_id: MORTGAGE30US
-    group: rates_level
-    indicator_weight: 0.2
-    global_weight: 0.03
-    transform: level
-    compare_to: noncrisis_p75
-    higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 30              # 周频数据，30天过期
-    baseline_reason: "抵押贷款利率过高会抑制房地产需求，使用非危机期间75%分位数作为警戒线"
-
-  - name: SOFR隔夜利率
-    series_id: SOFR
-    group: rates_level
-    indicator_weight: 0.2
-    global_weight: 0.03
-    transform: level
-    compare_to: noncrisis_p75
-    higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 30              # 日频数据，30天过期
-    baseline_reason: "隔夜利率过高反映资金紧张，使用非危机期间75%分位数作为警戒线"
-
-  # —— 信用利差（15%）——
-  - name: 高收益债风险溢价
-    series_id: BAMLH0A0HYM2
-    group: credit_spreads
-    indicator_weight: 0.5
-    global_weight: 0.075
-    transform: level
-    compare_to: crisis_median       # 接近危机中位越危险
-    higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 30              # 日频数据，30天过期
-    baseline_reason: "高收益债利差扩大反映信用风险上升，使用历史危机期间中位数作为警戒线"
-
-  - name: "投资级信用利差: Baa-10Y国债"
-    series_id: BAA10YM
-    group: credit_spreads
-    indicator_weight: 0.5
-    global_weight: 0.075
-    transform: level
     compare_to: crisis_median
-    higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 30              # 日频数据，30天过期
-    baseline_reason: "投资级信用利差扩大反映企业信用风险上升，使用历史危机期间中位数作为警戒线"
+    weight: 0.05
+    freq: D
 
-  # —— 金融状况/波动（10%）——
-  - name: 芝加哥金融状况指数
-    series_id: NFCI
-    group: fin_cond_vol
-    indicator_weight: 0.5
-    global_weight: 0.05
+  - id: BAA10YM
+    name: "投资级信用利差: Baa-10Y国债"
+    group: core_warning
     transform: level
+    higher_is_risk: true
+    compare_to: crisis_median
+    weight: 0.03  # 减少1%
+    freq: D
+
+  - id: TEDRATE
+    name: "TED利差"
+    group: core_warning
+    transform: level
+    higher_is_risk: true
+    compare_to: crisis_median
+    weight: 0.03  # 减少2%
+    freq: D
+
+  - id: CP_MINUS_DTB3
+    name: "商业票据-3个月国债利差"
+    group: core_warning
+    transform: level
+    higher_is_risk: true
+    compare_to: crisis_median
+    weight: 0.04
+    freq: D
+
+  - id: SOFR20DMA_MINUS_DTB3
+    name: "SOFR(20日均值)-3个月国债利差"
+    group: core_warning
+    transform: level
+    higher_is_risk: true
+    compare_to: crisis_median
+    weight: 0.03
+    freq: D
+
+  # 金融压力 (5%)
+  - id: NFCI
+    name: "芝加哥金融状况指数"
+    group: core_warning
+    transform: level
+    higher_is_risk: true
     compare_to: noncrisis_p75
-    higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 30              # 周频数据，30天过期
-    baseline_reason: "金融状况指数上升反映金融市场压力增大，使用非危机期间75%分位数作为警戒线"
+    weight: 0.05
+    freq: W
 
-  - name: VIX波动率指数
-    series_id: VIXCLS
-    group: fin_cond_vol
-    indicator_weight: 0.5
-    global_weight: 0.05
+  # 期限溢价 (2%) - 新增
+  - id: THREEFYTP10
+    name: "期限溢价-10年期Kim-Wright代理"
+    group: core_warning
     transform: level
-    compare_to: noncrisis_p90       # 更灵敏地捕捉抬升
     higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 30              # 日频数据，30天过期
-    baseline_reason: "VIX波动率指数上升反映市场恐慌情绪加剧，使用非危机期间90%分位数作为警戒线"
+    compare_to: noncrisis_p75
+    weight: 0.02
+    freq: D
 
-  # —— 实体经济（15%）——
-  - name: 非农就业人数 YoY
-    series_id: PAYEMS
+  # ===== 实体经济 (25%) =====
+  
+  # 就业与产出 (16%)
+  - id: PAYEMS
+    name: "非农就业人数 YoY"
     group: real_economy
-    indicator_weight: 1/3
-    global_weight: 0.05
     transform: yoy_pct
-    compare_to: crisis_p25
-    higher_is_risk: false           # 越低越危险
-    risk_mode: one_sided
-    freshness_days: 30              # 月频数据，30天过期
-    baseline_reason: "就业增长放缓反映经济疲软，使用历史危机期间25%分位数作为警戒线"
-
-  - name: 工业生产 YoY
-    series_id: INDPRO
-    group: real_economy
-    indicator_weight: 1/3
-    global_weight: 0.05
-    transform: yoy_pct
-    compare_to: crisis_p25
     higher_is_risk: false
-    risk_mode: one_sided
-    freshness_days: 30              # 月频数据，30天过期
-    baseline_reason: "工业生产增长放缓反映制造业疲软，使用历史危机期间25%分位数作为警戒线"
-
-  - name: GDP YoY
-    series_id: GDP
-    group: real_economy
-    indicator_weight: 1/3
-    global_weight: 0.05
-    transform: yoy_pct
     compare_to: crisis_p25
-    higher_is_risk: false
-    risk_mode: one_sided
-    freshness_days: 120             # 季频数据，120天过期
-    baseline_reason: "GDP增长放缓反映整体经济疲软，使用历史危机期间25%分位数作为警戒线"
+    weight: 0.05  # 减少1%
+    freq: M
 
-  # —— 房地产（10%）——
-  - name: 新屋开工（年化）
-    series_id: HOUST
-    group: housing
-    indicator_weight: 0.5
-    global_weight: 0.05
+  - id: MANEMP
+    name: "制造业就业 YoY"
+    group: real_economy
+    transform: yoy_pct
+    higher_is_risk: false
+    compare_to: crisis_p25
+    weight: 0.01  # 减少1%
+    freq: M
+
+  - id: INDPRO
+    name: "工业生产 YoY"
+    group: real_economy
+    transform: yoy_pct
+    higher_is_risk: false
+    compare_to: crisis_p25
+    weight: 0.04  # 减少1%
+    freq: M
+
+  - id: GDP
+    name: "GDP YoY"
+    group: real_economy
+    transform: yoy_pct
+    higher_is_risk: false
+    compare_to: crisis_p25
+    weight: 0.04  # 减少1%
+    freq: Q
+
+  # 新增：制造业新订单 (2%)
+  - id: NEWORDER
+    name: "制造业新订单-非国防资本货不含飞机 YoY"
+    group: real_economy
+    transform: yoy_pct
+    higher_is_risk: false
+    compare_to: crisis_p25
+    weight: 0.02
+    freq: M
+
+  # 新增：制造业平均周工时 (1%)
+  - id: AWHMAN
+    name: "制造业平均周工时"
+    group: real_economy
     transform: level
-    compare_to: crisis_p25
     higher_is_risk: false
-    risk_mode: one_sided
-    freshness_days: 30              # 月频数据，30天过期
-    baseline_reason: "新屋开工数量（千套年化）下降反映房地产投资疲软，使用历史危机期间25%分位数作为警戒线"
+    compare_to: crisis_p25
+    weight: 0.01
+    freq: M
 
-  - name: "房价指数: Case-Shiller 20城 YoY"
-    series_id: CSUSHPINSA
-    group: housing
-    indicator_weight: 0.5
-    global_weight: 0.05
+  # 住房链 (7%) - 减少2%
+  - id: CSUSHPINSA
+    name: "房价指数: Case-Shiller 20城 YoY"
+    group: real_economy
     transform: yoy_pct
+    higher_is_risk: true
     compare_to: noncrisis_p90
-    higher_is_risk: true            # 过热也属风险；如要双边，改 two_sided
-    risk_mode: one_sided
-    freshness_days: 90             # 月频数据但有延迟，90天过期
-    baseline_reason: "房价过快上涨可能引发泡沫风险，使用非危机期间90%分位数作为泡沫警戒线"
+    tail: both  # 暴涨=泡沫风险，骤跌=去杠杆风险
+    weight: 0.03  # 减少1%
+    freq: M
 
-  # —— 消费（8%）——
-  - name: 密歇根消费者信心
-    series_id: UMCSENT
-    group: consumers
-    indicator_weight: 0.5
-    global_weight: 0.04
+  - id: HOUST
+    name: "新屋开工 年化"
+    group: real_economy
     transform: level
-    compare_to: noncrisis_p35        # 调紧阈值：从p25改为p35，更敏感
-    higher_is_risk: false           # 情绪越低越危险
-    risk_mode: one_sided
-    freshness_days: 30              # 月频数据，30天过期
-    baseline_reason: "消费者信心下降反映消费意愿减弱，使用非危机期间35%分位数作为警戒线（调紧）"
+    higher_is_risk: false
+    compare_to: crisis_p25
+    weight: 0.02  # 减少1%
+    freq: M
 
-  - name: 消费者信贷 YoY
-    series_id: TOTALSA
-    group: consumers
-    indicator_weight: 0.5
-    global_weight: 0.04
+  # 新增：建筑许可 (2%)
+  - id: PERMIT
+    name: "住宅建筑许可 YoY"
+    group: real_economy
     transform: yoy_pct
-    compare_to: noncrisis_p75
-    higher_is_risk: true            # 同比增速（%）越高越危险：警惕信用过快扩张引发的后续回落/违约风险
-    risk_mode: one_sided
-    freshness_days: 30              # 月频数据，30天过期
-    baseline_reason: "消费者信贷同比增速过高可能引发债务风险，使用非危机期间75%分位数作为警戒线"
+    higher_is_risk: false
+    compare_to: crisis_p25
+    weight: 0.02
+    freq: M
 
-  # —— 银行业（7%）——
-  - name: 总贷款与租赁 YoY
-    series_id: TOTLL
-    group: banking
-    indicator_weight: 0.5
-    global_weight: 0.035
-    transform: yoy_pct
-    compare_to: noncrisis_p75
-    higher_is_risk: true            # 同比增速（%）越高越危险：警惕信用过快扩张引发的后续回落/违约风险
-    risk_mode: one_sided
-    freshness_days: 30              # 月频数据，30天过期
-    baseline_reason: "银行贷款同比增速过高可能引发信贷风险，使用非危机期间75%分位数作为警戒线"
-
-  - name: 美联储总资产 YoY
-    series_id: WALCL
-    group: banking
-    indicator_weight: 0.5
-    global_weight: 0.035
-    transform: yoy_pct
-    compare_to: crisis_median       # 接近危机扩表节奏 → 风险
+  # ===== 货币政策环境 (14%) - 减少6% =====
+  
+  # 利率水平 (12%) - 减少6%
+  - id: FEDFUNDS
+    name: "联邦基金利率"
+    group: monetary_policy
+    transform: level
     higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 30              # 周频数据，30天过期
-    baseline_reason: "美联储资产过快扩张反映货币政策过度宽松，使用历史危机期间中位数作为警戒线"
+    compare_to: noncrisis_p75
+    weight: 0.03  # 减少1%
+    freq: M
 
-  # —— 外部环境（5%）——
-  - name: 贸易加权美元指数 YoY
-    series_id: DTWEXBGS
-    group: external
-    indicator_weight: 1.0
-    global_weight: 0.05
+  - id: DGS10
+    name: "10年期国债利率"
+    group: monetary_policy
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.025  # 减少1%
+    freq: D
+
+  - id: MORTGAGE30US
+    name: "30年期按揭利率"
+    group: monetary_policy
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.025  # 减少0.5%
+    freq: W
+
+  - id: SOFR
+    name: "SOFR"
+    group: monetary_policy
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.025  # 减少0.5%
+    freq: D
+
+  - id: DTB3
+    name: "3个月国债利率"
+    group: monetary_policy
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.02  # 减少0.5%
+    freq: D
+
+  - id: CPN3M
+    name: "3个月商业票据利率"
+    group: monetary_policy
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.015  # 减少0.5%
+    freq: D
+
+  # 央行资产 (改为monitor，避免用绝对规模评分)
+  - id: WALCL
+    name: "美联储总资产 YoY"
+    group: monetary_policy
     transform: yoy_pct
+    higher_is_risk: true
+    compare_to: crisis_median
+    weight: 0.0  # 改为monitor，不计分
+    role: monitor
+    freq: W
+
+  # ===== 银行体系 (13%) - 增加3% =====
+  
+  # 信贷扩张 (6%)
+  - id: TOTLL
+    name: "总贷款和租赁 YoY"
+    group: banking
+    transform: yoy_pct
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    tail: both  # 暴涨=积累脆弱性，骤冷=信贷闸门收紧
+    weight: 0.03
+    freq: W
+
+  - id: TOTALSA
+    name: "消费者信贷 YoY"
+    group: banking
+    transform: yoy_pct
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    tail: both  # 暴涨=积累脆弱性，骤冷=信贷闸门收紧
+    weight: 0.03
+    freq: M
+
+  # 新增：银行贷款标准 (3%)
+  - id: DRTSCILM
+    name: "银行贷款标准-大中企C&I收紧净比例"
+    group: banking
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.03
+    freq: Q
+
+  # 家庭偿付与备付 (4%)
+  - id: TDSP
+    name: "家庭债务偿付比率"
+    group: banking
+    transform: level
+    higher_is_risk: true
+    compare_to: crisis_median
+    weight: 0.02
+    freq: Q
+
+  - id: TOTRESNS
+    name: "银行准备金 YoY"
+    group: banking
+    transform: yoy_pct
+    higher_is_risk: false
+    compare_to: noncrisis_p25
+    weight: 0.02
+    freq: M
+
+  # 新增：初请失业金4周均值 (3%)
+  - id: IC4WSA
+    name: "初请失业金4周均值"
+    group: banking
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.03
+    freq: W
+
+  # ===== 消费与杠杆/外部 (5%) =====
+  
+  - id: UMCSENT
+    name: "密歇根消费者信心"
+    group: consumers_leverage
+    transform: level
+    higher_is_risk: false
+    compare_to: noncrisis_p35
+    weight: 0.02
+    freq: M
+
+  - id: NCBDBIQ027S
+    name: "企业债/GDP（新）"
+    group: consumers_leverage
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p65
+    weight: 0.02
+    freq: Q
+
+  - id: DTWEXBGS
+    name: "贸易加权美元 YoY"
+    group: consumers_leverage
+    transform: yoy_pct
+    higher_is_risk: true
     compare_to: noncrisis_median
-    higher_is_risk: true            # 美元快速走强常伴紧缩/风险偏好走弱
-    risk_mode: one_sided
-    freshness_days: 30              # 日频数据，30天过期
-    baseline_reason: "美元快速走强常伴随紧缩政策和风险偏好走弱，使用非危机期间中位数作为警戒线"
+    weight: 0.01
+    freq: W
 
-  # —— 杠杆（10%）——
-  - name: "企业债/GDP（名义，%）"
-    series_id: CORPDEBT_GDP_PCT
-    group: leverage
-    indicator_weight: 1.0
-    global_weight: 0.10
+  # ===== 监测项（不计分；展示在报告末尾） =====
+  
+  - id: VIXCLS
+    name: "VIX 波动率"
+    group: monitoring
     transform: level
-    compare_to: noncrisis_p65        # 调紧阈值：从p75改为p65
     higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 120             # 季频数据，120天过期
-    baseline_reason: "名义企业债/名义GDP（%），频率对齐（常为季度），使用季度同比/期对比保持口径一致，企业杠杆水平过高会增加债务风险"
+    compare_to: noncrisis_p90
+    weight: 0.0
+    freq: D
 
-  # —— 银行准备金/缓冲（补充）——
-  - name: "银行准备金/存款（%）"
-    series_id: RESERVES_DEPOSITS_PCT
-    group: banking
-    indicator_weight: 0.0
-    global_weight: 0.0
+  - id: STLFSI3
+    name: "圣路易斯金融压力"
+    group: monitoring
     transform: level
-    compare_to: noncrisis_p25
-    higher_is_risk: false           # 越低越危险
-    risk_mode: one_sided
-    freshness_days: 30              # 周频数据，30天过期
-    baseline_reason: "银行准备金过低会降低流动性缓冲，使用非危机期间25%分位数作为警戒线（更灵敏捕捉缓冲降低）"
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.0
+    freq: W
 
-  - name: "银行准备金/总资产（%）"
-    series_id: RESERVES_ASSETS_PCT
-    group: banking
-    indicator_weight: 0.0
-    global_weight: 0.0
+  - id: DRSFRMACBS
+    name: "房贷违约率"
+    group: monitoring
     transform: level
-    compare_to: noncrisis_p25
-    higher_is_risk: false           # 越低越危险
-    risk_mode: one_sided
-    freshness_days: 30              # 周频数据，30天过期
-    baseline_reason: "银行准备金过低会降低流动性缓冲，使用非危机期间25%分位数作为警戒线（更灵敏捕捉缓冲降低）"
-
-  # —— 补充指标（观察用，不计分）——
-  - name: "家庭债务偿付比率"
-    series_id: TDSP
-    group: consumers
-    indicator_weight: 0.0
-    global_weight: 0.0
-    transform: level
+    higher_is_risk: true
     compare_to: crisis_median
-    higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 120             # 季频数据，120天过期
-    baseline_reason: "家庭债务偿付比率过高会增加违约风险，使用历史危机期间中位数作为警戒线"
+    weight: 0.0
+    freq: Q
 
-  - name: "房贷违约率"
-    series_id: DRSFRMACBS
-    group: housing
-    indicator_weight: 0.0
-    global_weight: 0.0
+  - id: CORPDEBT_GDP_PCT
+    name: "企业债/GDP（旧）"
+    group: monitoring
     transform: level
-    compare_to: crisis_median
     higher_is_risk: true
-    risk_mode: one_sided
-    freshness_days: 120             # 季频数据，120天过期
-    baseline_reason: "房贷违约率上升反映房地产市场压力增大，使用历史危机期间中位数作为警戒线"
+    compare_to: noncrisis_p65
+    weight: 0.0
+    freq: Q
+
+  - id: RESERVES_ASSETS_PCT
+    name: "准备金/资产%"
+    group: monitoring
+    transform: level
+    higher_is_risk: false
+    compare_to: noncrisis_p25
+    weight: 0.0
+    freq: Q
+
+  - id: RESERVES_DEPOSITS_PCT
+    name: "准备金/存款%"
+    group: monitoring
+    transform: level
+    higher_is_risk: false
+    compare_to: noncrisis_p25
+    weight: 0.0
+    freq: Q
