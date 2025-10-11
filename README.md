@@ -1,247 +1,301 @@
-# FRED 金融危机预警监控系统
+# FRED 危机预警监控系统
 
-## 项目概述
+## 系统概述
 
-本项目是一个基于FRED（Federal Reserve Economic Data）数据的美国金融危机预警检测框架。通过监控26个关键宏观经济指标，将当前值与历史危机期间基准值比较，生成风险评分和可视化报告。
+FRED危机预警监控系统是一个基于美国联邦储备经济数据(FRED)的宏观经济风险监测平台，通过实时分析40+个关键经济指标，提供综合风险评分和预警功能。
 
-## 开发时间线
+## 主要功能
 
-**2025年9月14日-21日** - 完整开发周期
-- 数据下载与同步
-- 危机预警框架设计
-- 数据处理与清洗
-- 风险评分算法
-- 可视化报告生成
-- HTML/PNG长图输出
+### 1. 每日风险分析
+- **实时数据获取**: 自动从FRED API获取最新经济数据
+- **智能评分系统**: 基于40+个指标的综合风险评分
+- **风险等级分类**: 极低风险、低风险、中等风险、高风险、极高风险
+- **报告生成**: 自动生成Markdown、HTML、JSON格式的分析报告
 
-## 核心功能
+### 2. 数据管道
+- **增量更新**: 智能检测数据变化，只更新过期数据
+- **数据预处理**: 自动计算YoY指标、合成指标
+- **数据验证**: 确保数据完整性和准确性
 
-### 1. 数据获取与同步
-- **FRED API集成**: 自动获取宏观经济数据
-- **本地数据缓存**: 优先使用本地数据，减少API调用
-- **断点续传**: 支持网络中断后的数据恢复
-- **数据清洗**: 处理缺失值、异常值和格式问题
+### 3. 可视化分析
+- **图表生成**: 为每个指标生成专业图表
+- **长图报告**: 使用Playwright生成完整的长图报告
+- **危机期间标注**: 在图表中标注历史危机期间
 
-### 2. 危机预警算法
-- **26个关键指标**: 涵盖利率、信用利差、实体经济、房地产、消费、银行业等
-- **历史基准对比**: 使用危机期和非危机期分位数作为基准
-- **分组加权评分**: 按指标重要性分组，计算综合风险评分
-- **实时监控**: 自动更新最新数据并重新计算风险等级
-
-### 3. 可视化报告
-- **Markdown报告**: 包含详细指标分析和图表
-- **HTML自包含报告**: 嵌入Base64图片，适合移动端查看
-- **PNG长图**: HTML转图片，便于分享和存档
-- **中文支持**: 完整的中文字体和编码支持
-
-## 目录结构
+## 系统架构
 
 ```
 fred_crisis_monitor/
-├── crisis_monitor.py              # 主程序 - 危机监控系统
-├── config/
-│   ├── crisis_indicators.yaml     # 指标配置文件
-│   └── crisis_periods.yaml        # 历史危机期间定义
-├── scripts/
-│   ├── fred_http.py               # FRED API客户端
-│   ├── clean_utils.py             # 数据清洗工具
-│   ├── sync_fred_data.py          # 单序列数据同步
-│   ├── sync_fred_http.py          # HTTP数据同步器
-│   ├── html2longpng.py            # HTML转PNG工具
-│   ├── plot_one.py                # 单指标图表测试
-│   └── viz.py                     # 可视化模块（已合并到主程序）
-├── data/
-│   └── fred/
-│       ├── series/                # 按序列ID存储的原始数据
-│       └── categories/             # 按分类存储的数据
-├── outputs/
-│   └── crisis_monitor/
-│       ├── figures/               # 指标图表PNG文件
-│       ├── *.md                   # Markdown报告
-│       ├── *.html                 # HTML自包含报告
-│       ├── *.png                  # HTML转PNG长图
-│       ├── *.json                 # JSON数据文件
-│       ├── latest.md              # 最新Markdown报告
-│       └── latest.html            # 最新HTML报告
-├── factors/                       # 因子计算模块
-├── examples/                      # 使用示例
-├── tests/                         # 测试文件
-└── templates/                     # 报告模板
+├── core/                    # 核心模块
+│   ├── aggregator.py       # 数据聚合器
+│   ├── database_integration.py  # 数据库集成
+│   ├── registry.py         # 因子注册表
+│   └── utils.py           # 工具函数
+├── scripts/                # 脚本目录
+│   ├── sync_fred_http.py  # FRED数据同步
+│   ├── calculate_corporate_debt_gdp_ratio.py  # 企业债/GDP计算
+│   └── calculate_yoy_indicators.py  # YoY指标计算
+├── config/                 # 配置文件
+│   ├── indicators.yaml    # 指标配置
+│   └── crisis_periods.yaml # 危机期间定义
+├── data/                  # 数据目录
+│   ├── fred/              # FRED原始数据
+│   └── series/            # 处理后的数据
+├── outputs/               # 输出目录
+│   └── crisis_monitor/    # 分析报告
+└── macrolab_gui.py        # GUI主程序
 ```
 
-## 核心文件详解
+## 快速开始
 
-### 1. crisis_monitor.py (主程序)
-**功能**: 危机监控系统核心程序
-**主要特性**:
-- 加载26个FRED指标配置
-- 计算历史危机基准值
-- 生成风险评分和等级
-- 创建可视化图表
-- 输出多种格式报告
-- 支持中文显示和移动端优化
-
-**关键函数**:
-- `calculate_real_fred_scores()`: 计算真实FRED数据评分
-- `process_single_indicator_real()`: 处理单个指标
-- `calculate_crisis_stats()`: 计算危机期统计
-- `generate_indicator_chart()`: 生成指标图表
-- `render_html_report()`: 渲染HTML报告
-- `generate_long_image()`: 生成长图
-
-### 2. scripts/fred_http.py
-**功能**: FRED API客户端
-**主要特性**:
-- HTTP请求封装
-- 重试机制和错误处理
-- 速率限制
-- 数据格式转换
-
-**关键函数**:
-- `series_observations()`: 获取序列观测数据
-- `series_info()`: 获取序列信息
-- `series_search()`: 搜索替代序列
-
-### 3. scripts/clean_utils.py
-**功能**: 数据清洗工具
-**主要特性**:
-- 数值解析和转换
-- 异常值处理
-- 频率标准化
-
-**关键函数**:
-- `parse_numeric_series()`: 解析数值序列
-- `clean_value()`: 清洗单个数值
-
-### 4. config/crisis_indicators.yaml
-**功能**: 指标配置文件
-**内容**:
-- 26个关键指标定义
-- 分组和权重设置
-- 基准分位配置
-- 变换方法定义
-
-**指标分组**:
-- `rates_curve`: 收益率曲线 (15%)
-- `rates_level`: 利率水平 (15%)
-- `credit_spreads`: 信用利差 (15%)
-- `fin_cond_vol`: 金融状况/波动 (10%)
-- `real_economy`: 实体经济 (15%)
-- `housing`: 房地产 (10%)
-- `consumers`: 消费 (8%)
-- `banking`: 银行业 (7%)
-- `external`: 外部环境 (5%)
-
-## 技术栈
-
-### 核心库
-- **pandas**: 数据处理和分析
-- **numpy**: 数值计算
-- **matplotlib**: 图表生成
-- **yaml**: 配置文件解析
-- **requests**: HTTP请求
-- **tenacity**: 重试机制
-
-### 渲染库
-- **markdown**: Markdown转HTML
-- **mistune**: 备选Markdown渲染器
-- **wkhtmltoimage**: HTML转PNG
-
-### 工具库
-- **pathlib**: 路径处理
-- **dotenv**: 环境变量
-- **base64**: 图片编码
-- **subprocess**: 外部命令调用
-
-## 使用方法
-
-### 1. 环境设置
+### 1. 环境准备
 ```bash
-# 安装依赖
-pip install pandas numpy matplotlib pyyaml requests tenacity markdown
+# 安装Python依赖
+pip install -r requirements.txt
 
-# 设置FRED API密钥
-export FRED_API_KEY="your_api_key_here"
+# 配置环境变量
+cp macrolab.env.example macrolab.env
+# 编辑macrolab.env，设置FRED_API_KEY
 ```
 
-### 2. 运行监控系统
+### 2. 运行系统
 ```bash
+# 启动GUI界面
+python macrolab_gui.py
+
+# 或直接运行主程序
 python crisis_monitor.py
 ```
 
-### 3. 输出文件
-- `latest.html`: 最新HTML报告（推荐移动端查看）
-- `latest.md`: 最新Markdown报告
-- `figures/`: 所有指标图表
-- `crisis_report_long_*.png`: HTML转PNG长图
+### 3. 每日分析
+1. 点击"运行每日分析"按钮
+2. 系统自动获取最新数据
+3. 生成风险评分和报告
+4. 查看输出结果
 
-## 风险评分系统
+## 指标分类
 
-### 评分范围
-- **0-39**: 🔵 极低风险
-- **40-59**: 🟢 低风险  
-- **60-79**: 🟡 中风险
-- **80-100**: 🔴 高风险
+### 金融早期信号 (40%)
+- **VIX_RISK**: 市场波动率 (8%)
+- **YIELD_CURVE**: 收益率曲线 (12%)
+- **CREDIT_SPREAD**: 信用利差 (10%)
+- **TED_SPREAD**: TED利差 (6%)
+- **NFCI**: 金融状况指数 (4%)
 
-### 基准分位类型
-- `crisis_median`: 危机期中位数
-- `crisis_p25`: 危机期25%分位数
-- `noncrisis_p75`: 非危机期75%分位数
-- `noncrisis_p90`: 非危机期90%分位数
+### 实体经济指标 (25%)
+- **PAYEMS**: 非农就业 (5%)
+- **INDPRO**: 工业生产 (5%)
+- **GDP**: GDP (4%)
+- **NEWORDER**: 新订单 (3%)
+- **MANEMP**: 制造业就业 (2%)
+- **IC4WSA**: 初请失业金 (2%)
+- **AWHMAN**: 制造业工时 (2%)
+- **PERMIT**: 建筑许可 (2%)
 
-### 历史危机期间
-- 2008年金融危机
-- 欧债危机
-- 缩减恐慌
-- 中国股市崩盘
-- 英国脱欧
-- 贸易战
-- 疫情初期
-- 通胀飙升
+### 利率与货币政策 (15%)
+- **FEDFUNDS**: 联邦基金利率 (4%)
+- **DGS10**: 10年期国债 (3%)
+- **MORTGAGE30US**: 30年期按揭利率 (3%)
+- **SOFR**: SOFR利率 (2%)
+- **DTB3**: 3个月国债 (2%)
+- **CPN3M**: 3个月商业票据 (1%)
 
-## 数据来源
+### 银行与信贷 (10%)
+- **TOTLL**: 总贷款 (3%)
+- **TOTALSA**: 消费者信贷 (3%)
+- **TDSP**: 家庭债务偿付比率 (2%)
+- **TOTRESNS**: 银行准备金 (2%)
+- **WALCL**: 美联储总资产 (2%)
 
-所有数据来源于FRED (Federal Reserve Economic Data):
-- **官网**: https://fred.stlouisfed.org/
-- **API文档**: https://fred.stlouisfed.org/docs/api/
-- **数据更新**: 实时同步最新数据
+### 房地产与消费 (5%)
+- **HOUSING_STRESS**: 房地产压力 (2%)
+- **CSUSHPINSA**: 房价指数 (2%)
+- **UMICH_CONF**: 消费者信心 (1%)
 
-## 注意事项
+### 外部与杠杆 (3%)
+- **DXY_VOL**: 美元指数 (1%)
+- **NCBDBIQ027S**: 企业债/GDP (1%)
+- **STLFSI3**: 圣路易斯金融压力 (1%)
 
-### 数据质量
-- 部分指标可能存在数据延迟
-- 季频数据更新较慢
-- 过期数据会被标记并降权
+### 监测项 (2%)
+- **DRSFRMACBS**: 房贷违约率 (1%)
+- **HOUST**: 新屋开工 (1%)
 
-### 免责声明
-- 本系统仅供参考，不构成投资建议
-- 历史数据不保证未来表现
-- 请结合其他信息源进行决策
+## 数据流程
 
-## 开发团队
+### 1. 数据获取
+```python
+# 使用sync_fred_http.py进行增量更新
+python scripts/sync_fred_http.py
+```
 
-**主要开发者**: AI Assistant (Claude)
-**项目时间**: 2025年9月14日-21日
-**联系方式**: jiangx@gmail.com
+### 2. 数据处理
+```python
+# 计算企业债/GDP比率
+python scripts/calculate_corporate_debt_gdp_ratio.py
+
+# 计算YoY指标
+python scripts/calculate_yoy_indicators.py
+```
+
+### 3. 风险分析
+```python
+# 使用数据库集成器进行分析
+from core.database_integration import DatabaseIntegration
+db = DatabaseIntegration()
+result = db.run_daily_analysis_with_database()
+```
+
+## 配置说明
+
+### indicators.yaml
+```yaml
+indicators:
+  - id: VIXCLS
+    name: "VIX 波动率"
+    group: fin_cond_vol
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p90
+    weight: 0.08
+    freq: D
+    role: score
+```
+
+### crisis_periods.yaml
+```yaml
+crisis_periods:
+  - name: "2008金融危机"
+    start: "2007-12-01"
+    end: "2009-06-01"
+  - name: "2020疫情危机"
+    start: "2020-02-01"
+    end: "2020-04-01"
+```
+
+## 输出报告
+
+### 1. Markdown报告
+- 包含所有指标的分析结果
+- 风险评分和等级
+- 图表嵌入
+
+### 2. HTML报告
+- 交互式网页格式
+- 响应式设计
+- 图表可视化
+
+### 3. JSON报告
+- 结构化数据
+- 便于程序处理
+- 包含原始数据
+
+### 4. 长图报告
+- 使用Playwright生成
+- 适合打印和分享
+- 包含完整分析内容
+
+## 开发指南
+
+### 添加新指标
+1. 在`config/indicators.yaml`中添加指标配置
+2. 在`core/database_integration.py`中添加因子映射
+3. 更新权重配置
+4. 测试新指标
+
+### 修改评分逻辑
+1. 编辑`core/database_integration.py`中的`_calculate_risk_score`方法
+2. 调整阈值和权重
+3. 验证评分结果
+
+### 自定义报告
+1. 修改`core/report.py`中的报告生成逻辑
+2. 添加新的报告格式
+3. 自定义图表样式
+
+## 故障排除
+
+### 常见问题
+
+1. **数据获取失败**
+   - 检查FRED_API_KEY配置
+   - 验证网络连接
+   - 查看API限制
+
+2. **评分异常**
+   - 检查数据完整性
+   - 验证指标配置
+   - 查看日志输出
+
+3. **图表生成失败**
+   - 检查matplotlib配置
+   - 验证中文字体
+   - 查看Playwright安装
+
+### 日志查看
+```bash
+# 查看系统日志
+tail -f logs/crisis_monitor.log
+
+# 查看错误日志
+grep ERROR logs/crisis_monitor.log
+```
+
+## 性能优化
+
+### 1. 数据缓存
+- 使用本地CSV文件缓存
+- 增量更新机制
+- 智能数据验证
+
+### 2. 并行处理
+- 多线程数据获取
+- 异步图表生成
+- 批量数据处理
+
+### 3. 内存管理
+- 数据分块处理
+- 及时释放内存
+- 优化数据结构
 
 ## 更新日志
 
-### v1.0 (2025-09-21)
-- ✅ 完成26个指标的数据获取和清洗
-- ✅ 实现危机预警算法和评分系统
-- ✅ 生成多格式可视化报告
-- ✅ 支持中文显示和移动端优化
-- ✅ 实现HTML转PNG长图功能
-- ✅ 优化Markdown表格渲染
+### v2.0.0 (2025-10-12)
+- 优化打分系统
+- 移除重复因子
+- 调整阈值设置
+- 完善权重配置
+- 新增多个指标
 
-### 待优化项目
-- [ ] 添加更多国际指标
-- [ ] 实现实时数据推送
-- [ ] 增加机器学习预测模型
-- [ ] 支持多国数据对比
+### v1.0.0 (2025-09-10)
+- 初始版本发布
+- 基础功能实现
+- GUI界面完成
+
+## 贡献指南
+
+1. Fork项目
+2. 创建功能分支
+3. 提交更改
+4. 创建Pull Request
+
+## 许可证
+
+MIT License
+
+## 联系方式
+
+- 项目维护者: MacroLab Team
+- 邮箱: macrolab@example.com
+- 项目地址: https://github.com/macrolab/fred_crisis_monitor
+
+## 参考文献
+
+1. Federal Reserve Economic Data (FRED) API Documentation
+2. 宏观经济风险监测方法研究
+3. 金融危机预警指标体系构建
+4. 数据可视化最佳实践
 
 ---
 
-**最后更新**: 2025年9月21日
-**版本**: v1.0
-**状态**: 生产就绪
+**注意**: 本系统仅供研究和教育目的，不构成投资建议。使用者应自行承担使用风险。

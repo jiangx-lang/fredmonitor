@@ -9,6 +9,7 @@ from tkinter import ttk, messagebox, scrolledtext, filedialog
 import threading
 import os
 import sys
+import subprocess
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
@@ -127,7 +128,7 @@ class MacroLabGUI:
                                       command=self.show_backfill_dialog)
         self.backfill_btn.pack(fill=tk.X, pady=2)
         
-        self.explain_btn = ttk.Button(button_frame, text="生成解读报告", 
+        self.explain_btn = ttk.Button(button_frame, text="📚 生成详细解释报告", 
                                      command=self.show_explain_dialog)
         self.explain_btn.pack(fill=tk.X, pady=2)
         
@@ -231,17 +232,20 @@ class MacroLabGUI:
                     self.settings = {"outputs": {"write_excel": True}}
                     self.log_message("使用默认设置配置")
                 
+                # 使用数据库集成器（不依赖因子注册表）
                 try:
-                    self.registry = FactorRegistry("factors", "config/factor_registry.yaml")
-                except:
-                    self.registry = None
-                    self.log_message("因子注册表不可用，跳过因子相关功能")
+                    from core.database_integration import DatabaseIntegration
+                    self.db_integration = DatabaseIntegration()
+                    self.log_message("✅ 数据库集成器初始化成功")
+                except Exception as e:
+                    self.db_integration = None
+                    self.log_message(f"⚠️ 数据库集成器初始化失败: {e}")
                 
-                # 创建聚合器 - 只有在有FRED客户端时才创建
-                if hasattr(self, 'fred_client') and self.fred_client:
+                # 创建聚合器 - 使用数据库集成器
+                if hasattr(self, 'db_integration') and self.db_integration:
                     try:
                         self.aggregator = DataAggregator(self.fred_client, self.cache_manager, 
-                                                       self.registry, self.settings)
+                                                       None, self.settings)  # 不传递registry
                     except:
                         self.aggregator = None
                         self.log_message("数据聚合器初始化失败，跳过聚合功能")
@@ -293,17 +297,17 @@ class MacroLabGUI:
                 
                 self.log_message("开始运行每日分析...")
                 
-                # 检查聚合器是否可用
-                if not hasattr(self, 'aggregator') or self.aggregator is None:
-                    self.log_message("❌ 数据聚合器不可用，请检查系统配置")
+                # 检查数据库集成器是否可用
+                if not hasattr(self, 'db_integration') or self.db_integration is None:
+                    self.log_message("❌ 数据库集成器不可用，请检查系统配置")
                     return
                 
                 # 运行分析
-                result = self.aggregator.run_daily_analysis()
+                result = self.db_integration.run_daily_analysis_with_database()
                 
                 # 显示结果
                 self.log_message(f"分析完成！")
-                self.log_message(f"分析日期: {result['date'].strftime('%Y-%m-%d')}")
+                self.log_message(f"分析日期: {result['date']}")
                 self.log_message(f"综合风险评分: {result['total_score']:.2f}")
                 self.log_message(f"风险等级: {result['risk_level']}")
                 self.log_message("")
@@ -320,7 +324,8 @@ class MacroLabGUI:
                 # 生成报告
                 if hasattr(self, 'report_generator') and self.report_generator:
                     try:
-                        recent_scores = self.aggregator.get_recent_scores(5)
+                        # 使用空的历史评分列表（数据库集成器暂不支持历史评分）
+                        recent_scores = []
                         report_path = self.report_generator.generate_daily_report(result, recent_scores)
                         self.log_message(f"")
                         self.log_message(f"报告已生成: {report_path}")
@@ -1207,8 +1212,23 @@ class MacroLabGUI:
                                              encoding='utf-8',
                                              errors='replace')
                     
-                    # 实时显示输出
+                    # 实时显示输出（带超时）
+                    import time
+                    start_time = time.time()
+                    timeout_seconds = 600  # 10分钟超时
+                    
                     while True:
+                        # 检查超时
+                        if time.time() - start_time > timeout_seconds:
+                            self.log_message("⚠️ 下载超时，正在终止进程...")
+                            process.terminate()
+                            try:
+                                process.wait(timeout=10)
+                            except subprocess.TimeoutExpired:
+                                process.kill()
+                            self.log_message("❌ 下载超时，请检查网络连接")
+                            return
+                        
                         output = process.stdout.readline()
                         if output == '' and process.poll() is not None:
                             break
@@ -1261,6 +1281,42 @@ class MacroLabGUI:
                 self.download_data_btn.config(state='normal')
         
         threading.Thread(target=download_thread, daemon=True).start()
+    
+    def run_crisis_monitor_for_explanation(self):
+        """运行危机监测系统生成详细解释报告"""
+        if self.is_running:
+            messagebox.showwarning("警告", "系统正在运行中，请稍候...")
+            return
+        
+        def explain_thread():
+            try:
+                self.is_running = True
+                self.progress.start()
+                self.explain_btn.config(state='disabled')
+                
+                self.log_message("正在生成详细解释报告...")
+                self.log_message("⏳ 预计等待时间: 3-5分钟...")
+                
+                # 运行危机监测系统
+                result = subprocess.run([
+                    sys.executable, "crisis_monitor.py"
+                ], capture_output=True, text=True, encoding='utf-8', errors='replace')
+                
+                if result.returncode == 0:
+                    self.log_message("✅ 详细解释报告生成完成!")
+                    self.log_message("📁 报告位置: outputs/crisis_monitor/")
+                    self.log_message("📄 详细解释文件: crisis_report_detailed_*.md")
+                else:
+                    self.log_message(f"❌ 报告生成失败: {result.stderr}")
+                
+            except Exception as e:
+                self.log_message(f"❌ 生成报告时出错: {e}")
+            finally:
+                self.is_running = False
+                self.progress.stop()
+                self.explain_btn.config(state='normal')
+        
+        threading.Thread(target=explain_thread, daemon=True).start()
 
 
 class BackfillDialog:
@@ -1381,21 +1437,13 @@ class ExplainDialog:
             # 验证日期格式
             datetime.strptime(analysis_date, "%Y-%m-%d")
             
-            self.main_app.log_message(f"生成解读报告: {analysis_date}")
+            self.main_app.log_message(f"生成详细解释报告: {analysis_date}")
+            
+            # 运行危机监测系统生成详细报告
+            self.main_app.run_crisis_monitor_for_explanation()
+            
             self.dialog.destroy()
             
-            # 在后台线程中生成报告
-            def explain_thread():
-                try:
-                    target_date = datetime.strptime(analysis_date, "%Y-%m-%d")
-                    result = self.main_app.aggregator.run_daily_analysis(target_date)
-                    recent_scores = self.main_app.aggregator.get_recent_scores(5)
-                    report_path = self.main_app.report_generator.generate_daily_report(result, recent_scores)
-                    self.main_app.log_message(f"解读报告已生成: {report_path}")
-                except Exception as e:
-                    self.main_app.log_message(f"生成解读报告失败: {e}")
-            
-            threading.Thread(target=explain_thread, daemon=True).start()
             
         except ValueError:
             messagebox.showerror("错误", "日期格式错误，请使用 YYYY-MM-DD 格式")

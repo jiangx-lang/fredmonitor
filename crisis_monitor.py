@@ -20,6 +20,16 @@ import subprocess
 import html as _html
 from datetime import datetime
 from typing import List, Dict, Optional
+import pytz
+
+# 设置控制台编码为UTF-8，支持emoji显示
+if sys.platform == "win32":
+    import codecs
+    sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+    sys.stderr = codecs.getwriter("utf-8")(sys.stderr.detach())
+
+# 统一时区设置
+JST = pytz.timezone("Asia/Tokyo")
 
 import numpy as np
 import pandas as pd
@@ -131,8 +141,6 @@ def transform_series(series_id: str, raw_ts: pd.Series, indicator_meta: dict) ->
 # --- FRED 读取与合成序列 ---
 def fetch_series(series_id: str) -> pd.Series:
     """从本地缓存优先读取，否则 FRED API，最后返回一个 float Series（索引为 datetime）。"""
-    from scripts.fred_http import series_observations
-    from scripts.clean_utils import parse_numeric_series
     cache = BASE / "data" / "fred" / "series" / series_id / "raw.csv"
     if cache.exists():
         try:
@@ -141,6 +149,11 @@ def fetch_series(series_id: str) -> pd.Series:
                 return parse_numeric_series(df.iloc[:,0]).dropna()
         except Exception:
             pass
+    
+    # 只有在FRED可用时才调用API
+    if not FRED_AVAILABLE:
+        return pd.Series(dtype="float64")
+    
     # API
     data = series_observations(series_id)
     obs = data.get("observations", []) if data else []
@@ -172,8 +185,13 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
         csv_path = f"data/series/{sid}.csv"
         if os.path.exists(csv_path):
             try:
-                ts = pd.read_csv(csv_path, index_col=0, parse_dates=True).squeeze()
-                print(f"📁 使用预计算数据: {series_id}")
+                df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+                # 处理不同的列名格式
+                if len(df.columns) == 1:
+                    ts = df.iloc[:, 0]  # 取第一列
+                else:
+                    ts = df.squeeze()  # 尝试squeeze
+                print(f"📁 使用预计算数据: {series_id} ({len(ts)} 个数据点)")
                 return ts
             except Exception as e:
                 print(f"⚠️ {series_id}: 预计算数据读取失败: {e}")
@@ -270,12 +288,14 @@ def setup_chinese_font():
 setup_chinese_font()
 
 # 导入依赖模块
+FRED_AVAILABLE = False
 try:
     from scripts.fred_http import series_observations, series_search
     from scripts.clean_utils import parse_numeric_series
+    FRED_AVAILABLE = True
 except ImportError as e:
-    print(f"⚠️ 导入模块失败: {e}")
-    print("将使用简化版本")
+    print(f"⚠️ FRED模块不可用: {e}")
+    print("将只使用本地缓存数据")
 
 # 频率工具
 def _month_end_code() -> str:
@@ -742,14 +762,14 @@ def generate_long_image(html_path: str, output_path: str) -> bool:
         return False
 
 # 真实FRED数据计算
-def calculate_real_fred_scores(indicators_config=None):
+def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
     """基于真实FRED数据计算评分"""
     
     # 配置验证检查
     print("🔍 配置验证检查...")
     
     # 检查transform类型和名称/口径一致性
-    valid_transforms = {"level", "yoy_pct"}
+    valid_transforms = {"level", "yoy_pct", "none"}
     for indicator in indicators_config or []:
         transform = indicator.get('transform', 'level')
         if transform not in valid_transforms:
@@ -819,47 +839,83 @@ def calculate_real_fred_scores(indicators_config=None):
     
     for indicator in indicators:
         try:
-            result = process_single_indicator_real(indicator, crisis_periods)
+            result = process_single_indicator_real(indicator, crisis_periods, scoring_config)
             if result:
                 processed_indicators.append(result)
                 
-                # 计算分组分数
+                # 计算分组分数（排除监控指标）
                 group = result['group']
                 if group not in group_scores:
                     group_scores[group] = {'scores': [], 'weights': []}
                 
-                group_scores[group]['scores'].append(result['risk_score'])
-                group_scores[group]['weights'].append(result.get('global_weight', 0))
+                # 只有计分指标才参与分组计算
+                if result.get('role', 'score') == 'score':
+                    group_scores[group]['scores'].append(result['risk_score'])
+                    group_scores[group]['weights'].append(result.get('global_weight', 0))
                 
         except Exception as e:
             print(f"❌ 处理指标失败 {indicator.get('name', 'Unknown')}: {e}")
             continue
     
-    # 计算分组平均分
+    # 计算分组平均分并归一化权重
     final_group_scores = {}
     total_weighted_score = 0
+    
+    # 收集所有权重进行归一化
+    group_weights = {}
+    for group, data in group_scores.items():
+        if data['scores']:
+            group_weight = sum(data['weights']) if data['weights'] else 0
+            group_weights[group] = group_weight
+    
+    # 归一化权重
+    total_weight = sum(group_weights.values())
+    if total_weight > 0:
+        for group in group_weights:
+            group_weights[group] = group_weights[group] / total_weight
+    else:
+        # 防御：平均分配
+        avg_weight = 1.0 / max(1, len(group_weights))
+        for group in group_weights:
+            group_weights[group] = avg_weight
     
     for group, data in group_scores.items():
         if data['scores']:
             avg_score = sum(data['scores']) / len(data['scores'])
-            group_weight = sum(data['weights']) if data['weights'] else 0
+            normalized_weight = group_weights.get(group, 0)
+            
+            # 应用共振奖励
+            if scoring_config:
+                co_move_threshold_pct = scoring_config.get('co_move_threshold_pct', 0.9)
+                co_move_bonus_per_bucket = scoring_config.get('co_move_bonus_per_bucket', 5)
+                
+                # 计算该组内高风险指标数量
+                high_risk_count = sum(1 for score in data['scores'] if score >= 80)
+                if high_risk_count >= 2:  # 至少2个高风险指标触发共振
+                    avg_score = min(100.0, avg_score + co_move_bonus_per_bucket)
             
             final_group_scores[group] = {
                 'score': avg_score,
-                'weight': group_weight * 100,  # 转换为百分比
+                'weight': normalized_weight * 100,  # 转换为百分比
                 'count': len(data['scores'])
             }
             
-            total_weighted_score += avg_score * group_weight
+            total_weighted_score += avg_score * normalized_weight
     
     return final_group_scores, total_weighted_score, processed_indicators
 
-def process_single_indicator_real(indicator, crisis_periods):
+def process_single_indicator_real(indicator, crisis_periods, scoring_config=None):
     """处理单个指标的真实FRED数据（统一变换/同域基准/同域ECDF）"""
     from scripts.clean_utils import parse_numeric_series
 
     series_id = indicator.get('series_id') or indicator.get('id')
     if not series_id: return None
+    
+    # 检查是否为监控指标（不计分）
+    role = indicator.get('role', 'score')
+    if role == 'monitor':
+        print(f"📊 {series_id}: 监控指标，不计分")
+        # 仍然处理数据但不参与计分
 
     # 特殊处理：优先使用预计算的数据
     if series_id == 'NCBDBIQ027S':
@@ -879,7 +935,7 @@ def process_single_indicator_real(indicator, crisis_periods):
                     
                     # 基准值和风险评分
                     benchmark_value = calculate_benchmark_corrected(series_id, indicator, ts_trans, crisis_periods)
-                    risk_score = calculate_risk_score_simple(current_value, benchmark_value, indicator, ts_trans)
+                    risk_score = calculate_risk_score_simple(current_value, benchmark_value, indicator, ts_trans, scoring_config)
                     
                     return {
                         'name': indicator.get('name', series_id),
@@ -892,7 +948,7 @@ def process_single_indicator_real(indicator, crisis_periods):
                         'global_weight': indicator.get('weight', 0.0),
                         'higher_is_risk': indicator.get('higher_is_risk', True),
                         'compare_to': indicator.get('compare_to', 'noncrisis_p75'),
-                        'plain_explainer': get_indicator_explanation(series_id)
+                        'plain_explainer': get_indicator_explanation(series_id, indicator)
                     }
         except Exception as e:
             print(f"⚠️ {series_id}: 预计算数据读取失败: {e}")
@@ -915,7 +971,7 @@ def process_single_indicator_real(indicator, crisis_periods):
                     
                     # 基准值和风险评分
                     benchmark_value = calculate_benchmark_corrected(series_id, indicator, ts_trans, crisis_periods)
-                    risk_score = calculate_risk_score_simple(current_value, benchmark_value, indicator, ts_trans)
+                    risk_score = calculate_risk_score_simple(current_value, benchmark_value, indicator, ts_trans, scoring_config)
                     
                     return {
                         'name': indicator.get('name', series_id),
@@ -928,7 +984,7 @@ def process_single_indicator_real(indicator, crisis_periods):
                         'global_weight': indicator.get('weight', 0.0),
                         'higher_is_risk': indicator.get('higher_is_risk', True),
                         'compare_to': indicator.get('compare_to', 'noncrisis_p75'),
-                        'plain_explainer': get_indicator_explanation(series_id)
+                        'plain_explainer': get_indicator_explanation(series_id, indicator)
                     }
         except Exception as e:
             print(f"⚠️ {series_id}: YoY预计算数据读取失败: {e}")
@@ -956,6 +1012,15 @@ def process_single_indicator_real(indicator, crisis_periods):
 
     # 5) 风险分：ECDF 在 ts_trans 域内 ★
     risk_score = calculate_risk_score_simple(current_value, benchmark_value, indicator, ts_trans)
+    
+    # 6) 过期数据降权
+    last_dt = ts_trans.index[-1]
+    max_lag = indicator.get('max_lag_days')
+    if max_lag:
+        lag_days = (datetime.now(JST).date() - last_dt.date()).days
+        if lag_days > max_lag:
+            risk_score *= 0.9
+            print(f"⚠️ {series_id}: 数据过期{lag_days}天，风险评分降权至{risk_score:.1f}")
 
     return {
         'name': indicator.get('name', series_id),
@@ -968,11 +1033,12 @@ def process_single_indicator_real(indicator, crisis_periods):
         'global_weight': indicator.get('weight', 0.0),
         'higher_is_risk': indicator.get('higher_is_risk', True),
         'compare_to': indicator.get('compare_to', 'noncrisis_p75'),
-        'plain_explainer': get_indicator_explanation(series_id)
+        'plain_explainer': get_indicator_explanation(series_id),
+        'role': role
     }
 
 def calculate_benchmark_simple(ts, indicator, crisis_periods):
-    """改进的基准值计算，使用危机/非危机掩码"""
+    """改进的基准值计算，使用危机/非危机掩码，支持可选危机子集"""
     compare_to = indicator.get('compare_to', 'noncrisis_p75')
     
     # 创建危机期掩码
@@ -1008,6 +1074,25 @@ def calculate_benchmark_simple(ts, indicator, crisis_periods):
     else:
         return float(sub_ts.median())
 
+def _mask_by_crisis(ts, crisis_periods, use: str):
+    """根据危机期间掩码选择子样本"""
+    if use not in ['crisis', 'noncrisis', 'all']:
+        return ts
+    
+    # 创建危机期掩码
+    crisis_mask = pd.Series(False, index=ts.index)
+    for crisis in crisis_periods:
+        start = pd.Timestamp(crisis["start"])
+        end = pd.Timestamp(crisis["end"])
+        crisis_mask |= (ts.index >= start) & (ts.index <= end)
+    
+    if use == 'crisis':
+        return ts[crisis_mask]
+    elif use == 'noncrisis':
+        return ts[~crisis_mask]
+    else:  # 'all'
+        return ts
+
 def calculate_benchmark_corrected(series_id, indicator, ts_trans, crisis_periods):
     """
     计算修正后的基准值（使用预计算的YoY基准值）
@@ -1023,55 +1108,110 @@ def calculate_benchmark_corrected(series_id, indicator, ts_trans, crisis_periods
     # 正确回退：把 crisis_periods 传进去，且用 ts_trans ★
     return calculate_benchmark_simple(ts_trans, indicator, crisis_periods)
 
-def calculate_risk_score_simple(current, benchmark, indicator, ts=None):
-    """改进的风险评分计算，支持双尾风险"""
-    higher_is_risk = indicator.get('higher_is_risk', True)
-    tail_type = indicator.get('tail', 'single')
+def _parse_compare_to_to_pct(compare_to: str) -> float:
+    """解析 compare_to 为分位数阈值"""
+    if compare_to.endswith('_median'):
+        return 0.5
+    if '_p' in compare_to:
+        try:
+            return float(compare_to.split('_p')[-1]) / 100.0
+        except:
+            return 0.5
+    return 0.5  # 默认中位数
+
+def score_with_threshold(ts: pd.Series, current: float, *, direction: str, compare_to: str, tail: str='single') -> float:
+    """真正用阈值参与打分（单尾/双尾统一）"""
+    if ts is None or ts.empty or pd.isna(current):
+        return 50.0
     
-    # 计算百分位
-    if ts is not None and not ts.empty:
-        # 使用ECDF计算百分位
-        p = (ts <= current).mean()
+    # 1) 全样本分位
+    p_cur = (ts <= current).mean()
+    # 2) 阈值分位
+    p_thr = _parse_compare_to_to_pct(compare_to)
+    eps = 1e-6
+    
+    # 3) 映射成 0~100
+    if tail == 'both':
+        p_mid = 0.5
+        denom = max(abs(p_mid - p_thr), eps)
+        raw = min(1.0, abs(p_cur - p_mid) / denom)
     else:
-        # 简化计算
+        if direction == 'up_is_risk':   # 高为险
+            raw = max(0.0, (p_cur - p_thr) / max(1 - p_thr, eps))
+        else:                           # 低为险
+            raw = max(0.0, (p_thr - p_cur) / max(p_thr, eps))
+    
+    return float(np.clip(raw * 100.0, 0, 100))
+
+def level_from_score(score: float, bands: dict) -> str:
+    """根据分数返回风险等级"""
+    high = bands.get('high', 80)
+    med = bands.get('med', 60)
+    low = bands.get('low', 40)
+    
+    if score >= high:
+        return 'high'
+    elif score >= med:
+        return 'med'
+    elif score >= low:
+        return 'low'
+    else:
+        return 'very_low'
+
+def compute_momentum_score(ts: pd.Series, days: list = [1, 5]) -> float:
+    """计算动量评分（0-1之间）"""
+    if ts is None or ts.empty or len(ts) < max(days) + 1:
+        return 0.0
+    
+    momentum_scores = []
+    for d in days:
+        if len(ts) > d:
+            # 计算d天前的值到当前值的变化
+            current = ts.iloc[-1]
+            past = ts.iloc[-d-1]
+            if not pd.isna(current) and not pd.isna(past) and past != 0:
+                change = (current - past) / abs(past)
+                momentum_scores.append(abs(change))
+    
+    if not momentum_scores:
+        return 0.0
+    
+    # 返回平均动量（标准化到0-1）
+    avg_momentum = np.mean(momentum_scores)
+    return min(1.0, avg_momentum)
+
+def calculate_risk_score_simple(current, benchmark, indicator, ts=None, scoring_config=None):
+    """改进的风险评分计算，真正锚定配置的基准分位，支持动量奖励"""
+    compare_to = indicator.get('compare_to', 'noncrisis_median')
+    direction = 'up_is_risk' if indicator.get('higher_is_risk', True) else 'down_is_risk'
+    tail = indicator.get('tail', 'single')
+    
+    # 计算基础风险评分
+    if ts is not None and not ts.empty:
+        base_score = score_with_threshold(ts, current, direction=direction, compare_to=compare_to, tail=tail)
+    else:
+        # 回退到简化计算（当没有时间序列数据时）
+        higher_is_risk = indicator.get('higher_is_risk', True)
         if higher_is_risk:
             deviation = current - benchmark
         else:
             deviation = benchmark - current
-        # 简化的评分公式
-        score = 50 + 10 * deviation
-        return max(0, min(100, score))
+        base_score = 50 + 10 * deviation
+        base_score = max(0, min(100, base_score))
     
-    # 方向调整
-    if not higher_is_risk:
-        p = 1 - p
+    # 应用动量奖励
+    if scoring_config and ts is not None and not ts.empty:
+        mom_bonus_max = scoring_config.get('momentum_bonus_max', 5)
+        momentum_days = scoring_config.get('momentum_days', [1, 5])
+        
+        momentum_raw = compute_momentum_score(ts, days=momentum_days)
+        momentum_bonus = momentum_raw * mom_bonus_max
+        
+        # 限制总分不超过100
+        final_score = min(100.0, base_score + momentum_bonus)
+        return final_score
     
-    # 双尾风险处理
-    if tail_type == 'both':
-        # 两端都危险：离中位数越远越危险
-        p = max(p, 1 - p)
-    
-    # 使用分位锚点映射到0-100分
-    anchors = [
-        [0.10, 20], [0.25, 35], [0.50, 50], [0.75, 65],
-        [0.90, 80], [0.95, 90], [0.99, 96], [0.995, 98], [0.999, 99.5]
-    ]
-    
-    # 线性插值
-    for i in range(len(anchors) - 1):
-        if anchors[i][0] <= p <= anchors[i+1][0]:
-            x1, y1 = anchors[i]
-            x2, y2 = anchors[i+1]
-            score = y1 + (y2 - y1) * (p - x1) / (x2 - x1)
-            return max(0, min(100, score))
-    
-    # 超出范围的处理
-    if p < anchors[0][0]:
-        return anchors[0][1]
-    elif p > anchors[-1][0]:
-        return anchors[-1][1]
-    
-    return 50  # 默认中性分数
+    return base_score
 
 def calculate_crisis_stats(ts, crisis_periods):
     """计算危机期间的统计数据"""
@@ -1099,8 +1239,8 @@ def calculate_crisis_stats(ts, crisis_periods):
         "crisis_n": int(crisis_vals.size)
     }
 
-def get_indicator_explanation(series_id):
-    """获取指标解释"""
+def get_indicator_explanation(series_id, indicator_config=None):
+    """获取指标解释（统一与方向/双尾配置）"""
     explanations = {
         'T10Y3M': '10年期与3个月国债收益率利差。计算公式：T10Y3M = 10年期国债收益率 - 3个月国债收益率。倒挂(负值)越深越危险，表明市场预期短期利率将高于长期利率，通常预示经济衰退。',
         'T10Y2Y': '10年期与2年期国债收益率利差。计算公式：T10Y2Y = 10年期国债收益率 - 2年期国债收益率。倒挂(负值)越深越危险，是重要的经济领先指标。',
@@ -1129,7 +1269,24 @@ def get_indicator_explanation(series_id):
         'TDSP': '家庭债务偿付收入比。水平值，比率越高表示家庭债务负担过重。',
         'DRSFRMACBS': '房贷违约率。水平值，违约率越高表示家庭财务压力越大。'
     }
-    return explanations.get(series_id, '该指标反映经济金融状况，需要结合其他指标综合判断。')
+    
+    base_explanation = explanations.get(series_id, f'{series_id}指标')
+    
+    # 根据配置添加方向性说明
+    if indicator_config:
+        higher_is_risk = indicator_config.get('higher_is_risk', True)
+        tail = indicator_config.get('tail', 'single')
+        
+        if tail == 'both':
+            dir_txt = " | 双尾风险"
+        elif higher_is_risk:
+            dir_txt = " | 高为险"
+        else:
+            dir_txt = " | 低为险"
+        
+        return base_explanation + dir_txt
+    
+    return base_explanation
 
 def run_data_pipeline():
     """运行完整的数据管道：下载+预处理+计算"""
@@ -1207,6 +1364,467 @@ def run_data_pipeline():
     print(f"✅ 步骤{current_step}/{total_steps} ({progress}%): 数据管道完成")
     print("=" * 60)
 
+def generate_detailed_explanation_report(processed_indicators, output_path, timestamp):
+    """生成详细解释报告，包含每个指标的通俗解释"""
+    
+    # 指标解释字典
+    indicator_explanations = {
+        'T10Y3M': {
+            'name': '10年期-3个月国债利差',
+            'description': '长期国债收益率减去短期国债收益率，反映市场对未来经济的预期',
+            'high_risk_explanation': '利差很小或为负（倒挂）通常预示经济衰退，因为市场预期未来利率会下降',
+            'low_risk_explanation': '利差较大表示经济健康，银行可以正常放贷获利',
+            'unit': '%',
+            'typical_range': '0.5% - 3.0%',
+            'crisis_threshold': '< 0.5%'
+        },
+        'T10Y2Y': {
+            'name': '10年期-2年期国债利差',
+            'description': '另一个重要的收益率曲线指标，同样反映经济预期',
+            'high_risk_explanation': '倒挂（负值）预示经济衰退风险',
+            'low_risk_explanation': '正常利差表示经济健康',
+            'unit': '%',
+            'typical_range': '0.3% - 2.5%',
+            'crisis_threshold': '< 0.3%'
+        },
+        'BAMLH0A0HYM2': {
+            'name': '高收益债券利差',
+            'description': '高风险公司债券与国债的收益率差异，反映信用风险',
+            'high_risk_explanation': '利差扩大表示企业违约风险上升，投资者要求更高回报',
+            'low_risk_explanation': '利差较小表示企业信用状况良好',
+            'unit': '%',
+            'typical_range': '3% - 8%',
+            'crisis_threshold': '> 8%'
+        },
+        'BAA10YM': {
+            'name': '投资级公司债利差',
+            'description': '投资级公司债券与国债的收益率差异',
+            'high_risk_explanation': '利差扩大表示企业信用风险上升',
+            'low_risk_explanation': '利差较小表示企业信用状况良好',
+            'unit': '%',
+            'typical_range': '1% - 4%',
+            'crisis_threshold': '> 4%'
+        },
+        'TEDRATE': {
+            'name': 'TED利差',
+            'description': '3个月期银行间拆借利率与国债利率的差异，反映银行间信用风险',
+            'high_risk_explanation': '利差扩大表示银行间不信任，流动性紧张',
+            'low_risk_explanation': '利差较小表示银行间信任度高，流动性充足',
+            'unit': '%',
+            'typical_range': '0.1% - 1.0%',
+            'crisis_threshold': '> 1.0%'
+        },
+        'VIXCLS': {
+            'name': 'VIX波动率指数',
+            'description': '衡量市场恐慌情绪和未来波动率预期',
+            'high_risk_explanation': 'VIX高表示市场恐慌，投资者预期波动率上升',
+            'low_risk_explanation': 'VIX低表示市场平静，投资者情绪稳定',
+            'unit': '点',
+            'typical_range': '10 - 30',
+            'crisis_threshold': '> 30'
+        },
+        'NFCI': {
+            'name': '芝加哥金融状况指数',
+            'description': '综合反映金融市场压力状况',
+            'high_risk_explanation': '指数高表示金融状况紧张，融资困难',
+            'low_risk_explanation': '指数低表示金融状况宽松，融资容易',
+            'unit': '指数',
+            'typical_range': '-1.0 - 1.0',
+            'crisis_threshold': '> 1.0'
+        },
+        'GDP': {
+            'name': '国内生产总值',
+            'description': '衡量一个国家经济总量的指标',
+            'high_risk_explanation': 'GDP增长缓慢或负增长表示经济衰退',
+            'low_risk_explanation': 'GDP稳定增长表示经济健康',
+            'unit': '%',
+            'typical_range': '2% - 4%',
+            'crisis_threshold': '< 1%'
+        },
+        'INDPRO': {
+            'name': '工业生产指数',
+            'description': '衡量制造业和采矿业产出',
+            'high_risk_explanation': '工业生产下降表示经济衰退',
+            'low_risk_explanation': '工业生产增长表示经济扩张',
+            'unit': '%',
+            'typical_range': '0% - 5%',
+            'crisis_threshold': '< -2%'
+        },
+        'UNRATE': {
+            'name': '失业率',
+            'description': '失业人口占总劳动力的比例',
+            'high_risk_explanation': '失业率高表示经济衰退，就业困难',
+            'low_risk_explanation': '失业率低表示经济健康，就业充分',
+            'unit': '%',
+            'typical_range': '3% - 6%',
+            'crisis_threshold': '> 7%'
+        },
+        'CPIAUCSL': {
+            'name': '消费者价格指数',
+            'description': '衡量通胀水平的指标',
+            'high_risk_explanation': '通胀过高会侵蚀购买力，央行可能加息',
+            'low_risk_explanation': '适度通胀有利于经济增长',
+            'unit': '%',
+            'typical_range': '1% - 3%',
+            'crisis_threshold': '> 5%'
+        },
+        'FEDFUNDS': {
+            'name': '联邦基金利率',
+            'description': '美联储设定的短期利率，影响整个经济',
+            'high_risk_explanation': '利率过高会抑制经济增长',
+            'low_risk_explanation': '适度利率有利于经济平衡',
+            'unit': '%',
+            'typical_range': '0% - 5%',
+            'crisis_threshold': '> 6%'
+        },
+        'HOUST': {
+            'name': '新屋开工数',
+            'description': '衡量房地产市场的活跃程度',
+            'high_risk_explanation': '新屋开工下降表示房地产市场疲软',
+            'low_risk_explanation': '新屋开工增长表示房地产市场活跃',
+            'unit': '千套',
+            'typical_range': '1000 - 2000',
+            'crisis_threshold': '< 800'
+        },
+        'UMCSENT': {
+            'name': '密歇根消费者信心指数',
+            'description': '衡量消费者对未来经济的信心',
+            'high_risk_explanation': '信心低表示消费者对未来悲观，消费减少',
+            'low_risk_explanation': '信心高表示消费者对未来乐观，消费增加',
+            'unit': '指数',
+            'typical_range': '80 - 100',
+            'crisis_threshold': '< 70'
+        },
+        'SOFR20DMA_MINUS_DTB3': {
+            'name': 'SOFR(20日均值)-3个月国债利差',
+            'description': '有担保隔夜融资利率与3个月国债利率的差异，反映短期流动性状况',
+            'high_risk_explanation': '利差扩大表示短期融资成本上升，流动性紧张',
+            'low_risk_explanation': '利差较小表示短期融资成本低，流动性充足',
+            'unit': '%',
+            'typical_range': '0.1% - 0.5%',
+            'crisis_threshold': '> 0.5%'
+        },
+        'PAYEMS': {
+            'name': '非农就业人数',
+            'description': '美国非农业部门就业人数的年度变化率',
+            'high_risk_explanation': '就业增长放缓表示经济疲软，失业风险上升',
+            'low_risk_explanation': '就业稳定增长表示经济健康，就业市场强劲',
+            'unit': '%',
+            'typical_range': '1% - 3%',
+            'crisis_threshold': '< 0.5%'
+        },
+        'CSUSHPINSA': {
+            'name': '房价指数: Case-Shiller 20城',
+            'description': '美国20个主要城市的房价指数年度变化率',
+            'high_risk_explanation': '房价下跌表示房地产市场疲软，可能引发债务危机',
+            'low_risk_explanation': '房价稳定增长表示房地产市场健康',
+            'unit': '%',
+            'typical_range': '2% - 8%',
+            'crisis_threshold': '< 0%'
+        },
+        'PERMIT': {
+            'name': '住宅建筑许可',
+            'description': '新住宅建筑许可数量的年度变化率',
+            'high_risk_explanation': '建筑许可大幅下降表示房地产市场萎缩',
+            'low_risk_explanation': '建筑许可稳定表示房地产市场活跃',
+            'unit': '%',
+            'typical_range': '-5% - 10%',
+            'crisis_threshold': '< -15%'
+        },
+        'MORTGAGE30US': {
+            'name': '30年期按揭利率',
+            'description': '30年期固定利率抵押贷款的平均利率',
+            'high_risk_explanation': '利率过高会抑制购房需求，影响房地产市场',
+            'low_risk_explanation': '适度利率有利于房地产市场发展',
+            'unit': '%',
+            'typical_range': '3% - 7%',
+            'crisis_threshold': '> 8%'
+        },
+        'CPN3M': {
+            'name': '3个月商业票据利率',
+            'description': '3个月期商业票据的平均利率，反映企业短期融资成本',
+            'high_risk_explanation': '利率过高会增加企业融资成本，影响经营',
+            'low_risk_explanation': '适度利率有利于企业融资和发展',
+            'unit': '%',
+            'typical_range': '1% - 5%',
+            'crisis_threshold': '> 6%'
+        },
+        'TOTLL': {
+            'name': '总贷款和租赁',
+            'description': '银行总贷款和租赁业务的年度变化率',
+            'high_risk_explanation': '贷款增长放缓表示银行放贷谨慎，经济疲软',
+            'low_risk_explanation': '贷款稳定增长表示银行放贷活跃，经济健康',
+            'unit': '%',
+            'typical_range': '3% - 8%',
+            'crisis_threshold': '< 1%'
+        },
+        'DRTSCILM': {
+            'name': '银行贷款标准-大中企C&I收紧净比例',
+            'description': '银行对大中型企业商业和工业贷款收紧标准的净比例',
+            'high_risk_explanation': '收紧比例高表示银行风险偏好下降，信贷紧缩',
+            'low_risk_explanation': '收紧比例低表示银行风险偏好正常，信贷宽松',
+            'unit': '%',
+            'typical_range': '0% - 20%',
+            'crisis_threshold': '> 30%'
+        },
+        'NCBDBIQ027S': {
+            'name': '企业债/GDP（新）',
+            'description': '企业债务总额占GDP的百分比',
+            'high_risk_explanation': '企业债务过高会增加违约风险，影响金融稳定',
+            'low_risk_explanation': '企业债务适中表示企业杠杆合理',
+            'unit': '%',
+            'typical_range': '20% - 30%',
+            'crisis_threshold': '> 35%'
+        },
+        'CORPDEBT_GDP_PCT': {
+            'name': '企业债/GDP（旧）',
+            'description': '企业债务总额占GDP的百分比（旧计算方法）',
+            'high_risk_explanation': '企业债务过高会增加违约风险，影响金融稳定',
+            'low_risk_explanation': '企业债务适中表示企业杠杆合理',
+            'unit': '%',
+            'typical_range': '18% - 28%',
+            'crisis_threshold': '> 32%'
+        },
+        'THREEFYTP10': {
+            'name': '期限溢价-10年期Kim-Wright代理',
+            'description': '10年期国债的期限溢价，反映长期利率风险',
+            'high_risk_explanation': '期限溢价过高表示长期利率风险上升',
+            'low_risk_explanation': '期限溢价适中表示长期利率风险可控',
+            'unit': '%',
+            'typical_range': '0.5% - 2.0%',
+            'crisis_threshold': '> 3.0%'
+        },
+        'MANEMP': {
+            'name': '制造业就业',
+            'description': '制造业就业人数的年度变化率',
+            'high_risk_explanation': '制造业就业下降表示制造业萎缩，经济衰退',
+            'low_risk_explanation': '制造业就业稳定表示制造业健康',
+            'unit': '%',
+            'typical_range': '-2% - 2%',
+            'crisis_threshold': '< -3%'
+        },
+        'NEWORDER': {
+            'name': '制造业新订单-非国防资本货不含飞机',
+            'description': '制造业新订单的年度变化率（排除国防和飞机）',
+            'high_risk_explanation': '新订单下降表示制造业需求疲软',
+            'low_risk_explanation': '新订单增长表示制造业需求旺盛',
+            'unit': '%',
+            'typical_range': '-5% - 10%',
+            'crisis_threshold': '< -10%'
+        },
+        'AWHMAN': {
+            'name': '制造业平均周工时',
+            'description': '制造业工人的平均每周工作小时数',
+            'high_risk_explanation': '工时减少表示制造业活动放缓',
+            'low_risk_explanation': '工时稳定表示制造业活动正常',
+            'unit': '小时',
+            'typical_range': '40 - 42',
+            'crisis_threshold': '< 39'
+        },
+        'DGS10': {
+            'name': '10年期国债利率',
+            'description': '10年期美国国债的收益率',
+            'high_risk_explanation': '利率过高会抑制经济增长，增加债务负担',
+            'low_risk_explanation': '适度利率有利于经济平衡发展',
+            'unit': '%',
+            'typical_range': '2% - 6%',
+            'crisis_threshold': '> 7%'
+        },
+        'SOFR': {
+            'name': 'SOFR',
+            'description': '有担保隔夜融资利率，反映短期资金成本',
+            'high_risk_explanation': 'SOFR过高会增加短期融资成本',
+            'low_risk_explanation': 'SOFR适中有利于短期融资',
+            'unit': '%',
+            'typical_range': '0% - 5%',
+            'crisis_threshold': '> 6%'
+        },
+        'DTB3': {
+            'name': '3个月国债利率',
+            'description': '3个月期美国国债的收益率',
+            'high_risk_explanation': '利率过高会增加短期融资成本',
+            'low_risk_explanation': '适度利率有利于短期融资',
+            'unit': '%',
+            'typical_range': '0% - 5%',
+            'crisis_threshold': '> 6%'
+        },
+        'WALCL': {
+            'name': '美联储总资产',
+            'description': '美联储资产负债表总资产的年度变化率',
+            'high_risk_explanation': '资产大幅收缩表示货币政策收紧',
+            'low_risk_explanation': '资产稳定表示货币政策适中',
+            'unit': '%',
+            'typical_range': '-5% - 10%',
+            'crisis_threshold': '< -10%'
+        },
+        'TOTALSA': {
+            'name': '消费者信贷',
+            'description': '消费者信贷总额的年度变化率',
+            'high_risk_explanation': '信贷增长过快可能引发债务风险',
+            'low_risk_explanation': '信贷适度增长有利于消费',
+            'unit': '%',
+            'typical_range': '3% - 8%',
+            'crisis_threshold': '> 12%'
+        },
+        'TDSP': {
+            'name': '家庭债务偿付比率',
+            'description': '家庭债务偿付占可支配收入的比例',
+            'high_risk_explanation': '比率过高表示家庭债务负担过重',
+            'low_risk_explanation': '比率适中表示家庭债务负担合理',
+            'unit': '%',
+            'typical_range': '8% - 12%',
+            'crisis_threshold': '> 15%'
+        },
+        'TOTRESNS': {
+            'name': '银行准备金',
+            'description': '银行准备金的年度变化率',
+            'high_risk_explanation': '准备金大幅下降可能影响银行流动性',
+            'low_risk_explanation': '准备金稳定表示银行流动性充足',
+            'unit': '%',
+            'typical_range': '-5% - 5%',
+            'crisis_threshold': '< -10%'
+        },
+        'IC4WSA': {
+            'name': '初请失业金4周均值',
+            'description': '初次申请失业救济金的4周移动平均值',
+            'high_risk_explanation': '申请人数过多表示就业市场疲软',
+            'low_risk_explanation': '申请人数适中表示就业市场健康',
+            'unit': '人',
+            'typical_range': '200,000 - 300,000',
+            'crisis_threshold': '> 400,000'
+        },
+        'DTWEXBGS': {
+            'name': '贸易加权美元',
+            'description': '美元对主要贸易伙伴货币的加权汇率年度变化率',
+            'high_risk_explanation': '美元过强会削弱出口竞争力',
+            'low_risk_explanation': '美元适中有利于贸易平衡',
+            'unit': '%',
+            'typical_range': '-5% - 5%',
+            'crisis_threshold': '> 10%'
+        },
+        'STLFSI3': {
+            'name': '圣路易斯金融压力',
+            'description': '圣路易斯联邦储备银行的金融压力指数',
+            'high_risk_explanation': '压力指数高表示金融市场压力大',
+            'low_risk_explanation': '压力指数低表示金融市场稳定',
+            'unit': '指数',
+            'typical_range': '-2.0 - 2.0',
+            'crisis_threshold': '> 3.0'
+        },
+        'DRSFRMACBS': {
+            'name': '房贷违约率',
+            'description': '住房抵押贷款违约率',
+            'high_risk_explanation': '违约率高表示房地产市场风险上升',
+            'low_risk_explanation': '违约率低表示房地产市场健康',
+            'unit': '%',
+            'typical_range': '1% - 3%',
+            'crisis_threshold': '> 5%'
+        }
+    }
+    
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write("# 📚 FRED指标详细解释报告\n\n")
+        f.write(f"**生成时间**: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}\n\n")
+        
+        f.write("## 📖 使用说明\n\n")
+        f.write("本报告为每个指标提供通俗易懂的解释，帮助普通投资者理解经济指标的含义。\n\n")
+        f.write("每个指标包含：\n")
+        f.write("- **指标含义**：这个指标代表什么\n")
+        f.write("- **高低风险解释**：为什么高/低值表示风险\n")
+        f.write("- **典型范围**：正常情况下的数值范围\n")
+        f.write("- **危机阈值**：达到什么水平需要警惕\n")
+        f.write("- **当前状态**：与历史数据的对比\n\n")
+        
+        f.write("## 📊 指标详细解释\n\n")
+        
+        # 按风险等级分组
+        high_risk = [i for i in processed_indicators if i['risk_score'] >= 80]
+        medium_risk = [i for i in processed_indicators if 60 <= i['risk_score'] < 80]
+        low_risk = [i for i in processed_indicators if i['risk_score'] < 60]
+        
+        # 高风险指标
+        if high_risk:
+            f.write("### 🔴 高风险指标\n\n")
+            for indicator in high_risk:
+                series_id = indicator['series_id']
+                explanation = indicator_explanations.get(series_id, {})
+                
+                f.write(f"#### {explanation.get('name', indicator['name'])} ({series_id})\n\n")
+                f.write(f"**指标含义**: {explanation.get('description', '暂无详细解释')}\n\n")
+                f.write(f"**当前值**: {indicator['current_value']:.4f} {explanation.get('unit', '')}\n")
+                f.write(f"**风险评分**: {indicator['risk_score']:.1f}/100 (🔴 高风险)\n\n")
+                
+                f.write(f"**为什么是高风险**: {explanation.get('high_risk_explanation', '当前值偏离正常范围')}\n\n")
+                f.write(f"**典型范围**: {explanation.get('typical_range', '暂无数据')}\n")
+                f.write(f"**危机阈值**: {explanation.get('crisis_threshold', '暂无数据')}\n\n")
+                
+                # 添加历史对比
+                if 'benchmark_value' in indicator:
+                    f.write(f"**历史对比**: 当前值 {indicator['current_value']:.4f} vs 基准值 {indicator['benchmark_value']:.4f}\n")
+                    if indicator['current_value'] > indicator['benchmark_value']:
+                        f.write("当前值高于历史基准，风险上升\n\n")
+                    else:
+                        f.write("当前值低于历史基准，风险相对较低\n\n")
+                
+                f.write("---\n\n")
+        
+        # 中风险指标
+        if medium_risk:
+            f.write("### 🟡 中风险指标\n\n")
+            for indicator in medium_risk:
+                series_id = indicator['series_id']
+                explanation = indicator_explanations.get(series_id, {})
+                
+                f.write(f"#### {explanation.get('name', indicator['name'])} ({series_id})\n\n")
+                f.write(f"**指标含义**: {explanation.get('description', '暂无详细解释')}\n\n")
+                f.write(f"**当前值**: {indicator['current_value']:.4f} {explanation.get('unit', '')}\n")
+                f.write(f"**风险评分**: {indicator['risk_score']:.1f}/100 (🟡 中风险)\n\n")
+                
+                f.write(f"**风险解释**: {explanation.get('high_risk_explanation', '当前值略偏离正常范围')}\n\n")
+                f.write(f"**典型范围**: {explanation.get('typical_range', '暂无数据')}\n")
+                f.write(f"**危机阈值**: {explanation.get('crisis_threshold', '暂无数据')}\n\n")
+                
+                if 'benchmark_value' in indicator:
+                    f.write(f"**历史对比**: 当前值 {indicator['current_value']:.4f} vs 基准值 {indicator['benchmark_value']:.4f}\n\n")
+                
+                f.write("---\n\n")
+        
+        # 低风险指标
+        if low_risk:
+            f.write("### 🟢 低风险指标\n\n")
+            for indicator in low_risk:
+                series_id = indicator['series_id']
+                explanation = indicator_explanations.get(series_id, {})
+                
+                f.write(f"#### {explanation.get('name', indicator['name'])} ({series_id})\n\n")
+                f.write(f"**指标含义**: {explanation.get('description', '暂无详细解释')}\n\n")
+                f.write(f"**当前值**: {indicator['current_value']:.4f} {explanation.get('unit', '')}\n")
+                f.write(f"**风险评分**: {indicator['risk_score']:.1f}/100 (🟢 低风险)\n\n")
+                
+                f.write(f"**为什么是低风险**: {explanation.get('low_risk_explanation', '当前值在正常范围内')}\n\n")
+                f.write(f"**典型范围**: {explanation.get('typical_range', '暂无数据')}\n")
+                f.write(f"**危机阈值**: {explanation.get('crisis_threshold', '暂无数据')}\n\n")
+                
+                if 'benchmark_value' in indicator:
+                    f.write(f"**历史对比**: 当前值 {indicator['current_value']:.4f} vs 基准值 {indicator['benchmark_value']:.4f}\n\n")
+                
+                f.write("---\n\n")
+        
+        f.write("## 📝 总结\n\n")
+        f.write("本报告基于FRED官方数据，通过对比历史危机期间的数据来评估当前风险。\n\n")
+        f.write("**重要提醒**:\n")
+        f.write("- 这些指标仅供参考，不构成投资建议\n")
+        f.write("- 经济指标存在滞后性，需要结合其他信息综合判断\n")
+        f.write("- 市场情况复杂多变，单一指标不能完全预测未来\n")
+        f.write("- 建议咨询专业投资顾问获得个性化建议\n\n")
+        
+        f.write("**数据来源**: FRED (Federal Reserve Economic Data)\n")
+        f.write("**报告生成**: FRED危机预警监控系统\n")
+        f.write("**联系方式**: jiangx@gmail.com\n\n")
+        
+        f.write("---\n")
+        f.write(f"*报告生成时间: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}*\n")
+
 def generate_report_with_images():
     """生成带图片的危机预警报告"""
     print("🚨 FRED 危机预警监控系统启动...")
@@ -1223,13 +1841,21 @@ def generate_report_with_images():
     
     config = load_yaml_config(config_path)
     indicators = config.get('indicators', [])
+    scoring_config = config.get('scoring', {})
+    bands = scoring_config.get('bands', {'low': 40, 'med': 60, 'high': 80})
     print(f"📊 加载了 {len(indicators)} 个指标")
     
     # 计算真实FRED数据评分
-    group_scores, total_score, processed_indicators = calculate_real_fred_scores(indicators)
+    group_scores, total_score, processed_indicators = calculate_real_fred_scores(indicators, scoring_config)
     
-    # 生成报告
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # 为每个指标添加风险等级
+    for indicator in processed_indicators:
+        indicator['risk_level'] = level_from_score(indicator['risk_score'], bands)
+    
+    # 生成报告（使用JST时区）
+    now = datetime.now(JST)
+    timestamp = now.strftime("%Y%m%d_%H%M%S")
+    display_time = now.strftime("%Y年%m月%d日 %H:%M:%S JST")
     output_dir = BASE / "outputs" / "crisis_monitor"
     output_dir.mkdir(parents=True, exist_ok=True)
     
@@ -1285,6 +1911,20 @@ def generate_report_with_images():
                             print(f"📊 使用企业债/GDP比率数据: {series_id}")
                     except Exception as e:
                         print(f"⚠️ 企业债/GDP比率数据读取失败: {e}")
+                
+                # 处理合成指标
+                elif series_id in ['CP_MINUS_DTB3', 'SOFR20DMA_MINUS_DTB3', 'CORPDEBT_GDP_PCT', 'RESERVES_ASSETS_PCT', 'RESERVES_DEPOSITS_PCT']:
+                    # 使用预计算的合成指标数据
+                    try:
+                        synthetic_file = pathlib.Path(f"data/series/{series_id}.csv")
+                        if synthetic_file.exists():
+                            synthetic_df = pd.read_csv(synthetic_file)
+                            synthetic_df['date'] = pd.to_datetime(synthetic_df['date'])
+                            synthetic_df = synthetic_df.set_index('date')
+                            ts = synthetic_df['value'].dropna()
+                            print(f"📁 使用预计算合成指标数据: {series_id}")
+                    except Exception as e:
+                        print(f"⚠️ 合成指标数据读取失败: {e}")
                 
                 elif series_id in ['PAYEMS', 'INDPRO', 'GDP', 'NEWORDER', 'CSUSHPINSA', 'TOTALSA', 'TOTLL', 'MANEMP', 'WALCL', 'DTWEXBGS', 'PERMIT', 'TOTRESNS']:
                     # 使用预计算的YoY数据
@@ -1375,6 +2015,10 @@ def generate_report_with_images():
     if main_chart_paths:
         image_paths['main_indicators'] = main_chart_paths[0]  # 使用第一个作为代表
     
+    # 生成详细解释Markdown报告
+    detailed_md_path = output_dir / f"crisis_report_detailed_{timestamp}.md"
+    generate_detailed_explanation_report(processed_indicators, detailed_md_path, timestamp)
+    
     # 生成Markdown报告 - 优化排版格式
     md_path = output_dir / f"crisis_report_{timestamp}.md"
     with open(md_path, "w", encoding="utf-8") as f:
@@ -1388,18 +2032,20 @@ def generate_report_with_images():
         f.write("采用分组加权评分：先计算各组平均分，再按权重合成总分。\n\n")
         f.write("总分 = ∑(分组平均分 × 分组权重)，分组权重归一处理后合成。\n\n")
         f.write("过期数据处理：月频数据>60天、季频数据>120天标记⚠️，过期数据权重×0.9。\n\n")
-        f.write("颜色分段：0–39 🔵 极低，40–59 🟢 低，60–79 🟡 中，80–100 🔴 高；50 为中性。\n\n")
+        f.write(f"颜色分段：0–{bands['low']-1} 🔵 极低，{bands['low']}–{bands['med']-1} 🟢 低，{bands['med']}–{bands['high']-1} 🟡 中，{bands['high']}–100 🔴 高；50 为中性。\n\n")
         
         f.write("## 📊 执行摘要\n\n")
         f.write(f"- **总指标数**: {len(processed_indicators)}\n")
-        f.write(f"- **高风险指标**: {len([i for i in processed_indicators if i['risk_score'] >= 80])} 个\n")
-        f.write(f"- **中风险指标**: {len([i for i in processed_indicators if 60 <= i['risk_score'] < 80])} 个\n")
-        f.write(f"- **低风险指标**: {len([i for i in processed_indicators if i['risk_score'] < 60])} 个\n\n")
+        f.write(f"- **高风险指标**: {len([i for i in processed_indicators if i['risk_score'] >= bands['high']])} 个\n")
+        f.write(f"- **中风险指标**: {len([i for i in processed_indicators if bands['med'] <= i['risk_score'] < bands['high']])} 个\n")
+        f.write(f"- **低风险指标**: {len([i for i in processed_indicators if bands['low'] <= i['risk_score'] < bands['med']])} 个\n")
+        f.write(f"- **极低风险指标**: {len([i for i in processed_indicators if i['risk_score'] < bands['low']])} 个\n\n")
         
         f.write("### 🎯 风险等级说明\n\n")
-        f.write("- 🔴 **高风险** (70-100分): 当前值显著偏离历史危机水平\n")
-        f.write("- 🟡 **中风险** (40-69分): 当前值略高于历史危机水平\n")
-        f.write("- 🟢 **低风险** (0-39分): 当前值接近或低于历史危机水平\n\n")
+        f.write(f"- 🔴 **高风险** ({bands['high']}-100分): 当前值显著偏离历史危机水平\n")
+        f.write(f"- 🟡 **中风险** ({bands['med']}-{bands['high']-1}分): 当前值略高于历史危机水平\n")
+        f.write(f"- 🟢 **低风险** ({bands['low']}-{bands['med']-1}分): 当前值接近或低于历史危机水平\n")
+        f.write(f"- 🔵 **极低风险** (0-{bands['low']-1}分): 当前值远低于历史危机水平\n\n")
         
         f.write("## 📈 详细指标分析\n\n")
         
@@ -1411,11 +2057,11 @@ def generate_report_with_images():
         
         for indicator in processed_indicators:
             score = indicator['risk_score']
-            if score >= 80:
+            if score >= bands['high']:
                 high_risk_indicators.append(indicator)
-            elif score >= 60:
+            elif score >= bands['med']:
                 medium_risk_indicators.append(indicator)
-            elif score >= 40:
+            elif score >= bands['low']:
                 low_risk_indicators.append(indicator)
             else:
                 very_low_risk_indicators.append(indicator)
@@ -1561,15 +2207,16 @@ def generate_report_with_images():
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_content)
     
-    # 生成"最新"副本
+    # 生成"最新"副本和latest软链接
     latest_md = output_dir / f"latest_{timestamp}.md"
     latest_html = output_dir / f"latest_{timestamp}.html"
     latest_md.write_text(markdown_content, encoding="utf-8")
     latest_html.write_text(html_content, encoding="utf-8")
     
-    # 生成长图（保存到和HTML同一个目录）
-    long_image_path = output_dir / f"crisis_report_long_{timestamp}.png"
-    image_success = generate_long_image(str(html_path), str(long_image_path))
+    # 创建latest软链接（Windows下使用复制）
+    latest_md_link = output_dir / "crisis_report_latest.md"
+    latest_html_link = output_dir / "crisis_report_latest.html"
+    latest_json_link = output_dir / "crisis_report_latest.json"
     
     # 保存JSON数据
     json_path = output_dir / f"crisis_report_{timestamp}.json"
@@ -1577,19 +2224,38 @@ def generate_report_with_images():
         "timestamp": timestamp,
         "total_score": total_score,
         "risk_level": risk_level,
-        "group_scores": group_scores,
         "indicators": processed_indicators,
-        "image_paths": image_paths,
+        "group_scores": group_scores,
         "summary": {
-            "total_indicators": 26,
-            "successful_indicators": 26,
-            "failed_indicators": 0,
-            "skipped_indicators": 0
+            "high_risk_count": len([i for i in processed_indicators if i['risk_score'] >= 80]),
+            "medium_risk_count": len([i for i in processed_indicators if 60 <= i['risk_score'] < 80]),
+            "low_risk_count": len([i for i in processed_indicators if i['risk_score'] < 60])
         }
     }
     
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(json_data, f, ensure_ascii=False, indent=2)
+    
+    try:
+        # Windows下使用复制而不是软链接
+        import shutil
+        if latest_md_link.exists():
+            latest_md_link.unlink()
+        if latest_html_link.exists():
+            latest_html_link.unlink()
+        if latest_json_link.exists():
+            latest_json_link.unlink()
+            
+        shutil.copyfile(md_path, latest_md_link)
+        shutil.copyfile(html_path, latest_html_link)
+        shutil.copyfile(json_path, latest_json_link)
+        print(f"✅ 创建latest文件: {latest_md_link.name}, {latest_html_link.name}, {latest_json_link.name}")
+    except Exception as e:
+        print(f"⚠️ 创建latest文件失败: {e}")
+    
+    # 生成长图（保存到和HTML同一个目录）
+    long_image_path = output_dir / f"crisis_report_long_{timestamp}.png"
+    image_success = generate_long_image(str(html_path), str(long_image_path))
     
     print(f"✅ 报告生成完成!")
     print(f"📄 Markdown: {md_path}")
