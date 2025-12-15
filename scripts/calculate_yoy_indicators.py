@@ -13,6 +13,12 @@ import pandas as pd
 import pathlib
 from datetime import datetime
 
+# 设置控制台编码为UTF-8，支持emoji显示
+if sys.platform == "win32":
+    import codecs
+    sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+    sys.stderr = codecs.getwriter("utf-8")(sys.stderr.detach())
+
 # 添加项目根目录到路径
 sys.path.append('.')
 
@@ -102,12 +108,12 @@ def calculate_yoy_for_indicator(series_id: str, name: str) -> bool:
         return True
         
     except Exception as e:
-        print(f"❌ 计算 {series_id} YoY失败: {e}")
+        print(f"[失败] 计算 {series_id} YoY失败: {e}")
         return False
 
 def calculate_all_yoy_indicators():
     """计算所有需要YoY的指标"""
-    print("📊 开始计算所有YoY指标...")
+    print("[开始] 开始计算所有YoY指标...")
     
     # 需要计算YoY的指标列表
     yoy_indicators = [

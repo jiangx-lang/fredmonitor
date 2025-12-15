@@ -7,6 +7,7 @@ import numpy as np
 from datetime import datetime, timedelta
 from typing import Dict, Any, List, Optional
 from core.registry import FactorRegistry
+from core.database_integration import DatabaseIntegration
 
 
 class DataAggregator:
@@ -32,6 +33,9 @@ class DataAggregator:
         
         # 历史评分缓存
         self.score_history = []
+        
+        # 数据库集成器（优先使用现有数据库）
+        self.db_integration = DatabaseIntegration()
     
     def run_daily_analysis(self, target_date: Optional[datetime] = None) -> Dict[str, Any]:
         """
@@ -46,7 +50,31 @@ class DataAggregator:
         if target_date is None:
             target_date = datetime.now()
         
-        print(f"📊 开始每日分析: {target_date.strftime('%Y-%m-%d')}")
+        print(f"📊 开始每日分析（使用现有数据库）: {target_date.strftime('%Y-%m-%d')}")
+        
+        # 优先使用数据库集成器
+        try:
+            result = self.db_integration.run_daily_analysis_with_database(target_date)
+            
+            # 保存评分历史
+            self._save_score_history(result)
+            
+            print(f"\n📊 每日分析完成:")
+            print(f"  综合评分: {result['total_score']:.1f}")
+            print(f"  风险等级: {result['risk_level']}")
+            print(f"  活跃因子: {result['summary']['active_factors']}/{result['summary']['total_factors']}")
+            
+            return result
+            
+        except Exception as e:
+            print(f"⚠️ 数据库集成失败，回退到原始方法: {e}")
+            return self._run_daily_analysis_fallback(target_date)
+    
+    def _run_daily_analysis_fallback(self, target_date: Optional[datetime] = None) -> Dict[str, Any]:
+        """
+        回退方法：使用原始因子系统
+        """
+        print(f"📊 使用回退方法进行每日分析: {target_date.strftime('%Y-%m-%d')}")
         
         # 分析每个因子
         factor_scores = {}

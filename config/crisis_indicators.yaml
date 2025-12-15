@@ -2,6 +2,16 @@
 # 按照用户建议：解决高相关性、重复计算问题，权重总计100%
 # 新增学术指标：SLOOS、初请、新订单、建筑许可、工时、期限溢价
 
+scoring:
+  bands:
+    low: 40
+    med: 60
+    high: 80
+  momentum_bonus_max: 5
+  momentum_days: [1, 5]
+  co_move_threshold_pct: 0.9
+  co_move_bonus_per_bucket: 5
+
 indicators:
   # ===== 核心预警指标 (40%) =====
   
@@ -9,7 +19,7 @@ indicators:
   - id: T10Y3M
     name: "收益率曲线倒挂: 10年期-3个月"
     group: core_warning
-    transform: level
+    transform: none
     higher_is_risk: false
     compare_to: noncrisis_p25
     weight: 0.08
@@ -18,7 +28,7 @@ indicators:
   - id: T10Y2Y
     name: "收益率曲线倒挂: 10年期-2年期"
     group: core_warning
-    transform: level
+    transform: none
     higher_is_risk: false
     compare_to: noncrisis_p25
     weight: 0.06
@@ -28,7 +38,7 @@ indicators:
   - id: BAMLH0A0HYM2
     name: "高收益债风险溢价"
     group: core_warning
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: crisis_median
     weight: 0.05
@@ -37,7 +47,7 @@ indicators:
   - id: BAA10YM
     name: "投资级信用利差: Baa-10Y国债"
     group: core_warning
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: crisis_median
     weight: 0.03  # 减少1%
@@ -46,7 +56,7 @@ indicators:
   - id: TEDRATE
     name: "TED利差"
     group: core_warning
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: crisis_median
     weight: 0.03  # 减少2%
@@ -55,7 +65,7 @@ indicators:
   - id: CP_MINUS_DTB3
     name: "商业票据-3个月国债利差"
     group: core_warning
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: crisis_median
     weight: 0.04
@@ -64,7 +74,7 @@ indicators:
   - id: SOFR20DMA_MINUS_DTB3
     name: "SOFR(20日均值)-3个月国债利差"
     group: core_warning
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: crisis_median
     weight: 0.03
@@ -74,7 +84,7 @@ indicators:
   - id: NFCI
     name: "芝加哥金融状况指数"
     group: core_warning
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.05
@@ -84,7 +94,7 @@ indicators:
   - id: THREEFYTP10
     name: "期限溢价-10年期Kim-Wright代理"
     group: core_warning
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.02
@@ -143,7 +153,7 @@ indicators:
   - id: AWHMAN
     name: "制造业平均周工时"
     group: real_economy
-    transform: level
+    transform: none
     higher_is_risk: false
     compare_to: crisis_p25
     weight: 0.01
@@ -163,7 +173,7 @@ indicators:
   - id: HOUST
     name: "新屋开工 年化"
     group: real_economy
-    transform: level
+    transform: none
     higher_is_risk: false
     compare_to: crisis_p25
     weight: 0.02  # 减少1%
@@ -185,7 +195,7 @@ indicators:
   - id: FEDFUNDS
     name: "联邦基金利率"
     group: monetary_policy
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.03  # 减少1%
@@ -194,7 +204,7 @@ indicators:
   - id: DGS10
     name: "10年期国债利率"
     group: monetary_policy
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.025  # 减少1%
@@ -203,7 +213,7 @@ indicators:
   - id: MORTGAGE30US
     name: "30年期按揭利率"
     group: monetary_policy
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.025  # 减少0.5%
@@ -212,7 +222,7 @@ indicators:
   - id: SOFR
     name: "SOFR"
     group: monetary_policy
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.025  # 减少0.5%
@@ -221,7 +231,7 @@ indicators:
   - id: DTB3
     name: "3个月国债利率"
     group: monetary_policy
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.02  # 减少0.5%
@@ -230,7 +240,7 @@ indicators:
   - id: CPN3M
     name: "3个月商业票据利率"
     group: monetary_policy
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.015  # 减少0.5%
@@ -274,7 +284,7 @@ indicators:
   - id: DRTSCILM
     name: "银行贷款标准-大中企C&I收紧净比例"
     group: banking
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.03
@@ -284,7 +294,7 @@ indicators:
   - id: TDSP
     name: "家庭债务偿付比率"
     group: banking
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: crisis_median
     weight: 0.02
@@ -303,7 +313,7 @@ indicators:
   - id: IC4WSA
     name: "初请失业金4周均值"
     group: banking
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.03
@@ -314,7 +324,7 @@ indicators:
   - id: UMCSENT
     name: "密歇根消费者信心"
     group: consumers_leverage
-    transform: level
+    transform: none
     higher_is_risk: false
     compare_to: noncrisis_p35
     weight: 0.02
@@ -323,7 +333,7 @@ indicators:
   - id: NCBDBIQ027S
     name: "企业债/GDP（新）"
     group: consumers_leverage
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p65
     weight: 0.02
@@ -343,7 +353,7 @@ indicators:
   - id: VIXCLS
     name: "VIX 波动率"
     group: monitoring
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p90
     weight: 0.0
@@ -352,7 +362,7 @@ indicators:
   - id: STLFSI3
     name: "圣路易斯金融压力"
     group: monitoring
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.0
@@ -361,7 +371,7 @@ indicators:
   - id: DRSFRMACBS
     name: "房贷违约率"
     group: monitoring
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: crisis_median
     weight: 0.0
@@ -370,7 +380,7 @@ indicators:
   - id: CORPDEBT_GDP_PCT
     name: "企业债/GDP（旧）"
     group: monitoring
-    transform: level
+    transform: none
     higher_is_risk: true
     compare_to: noncrisis_p65
     weight: 0.0
@@ -379,7 +389,7 @@ indicators:
   - id: RESERVES_ASSETS_PCT
     name: "准备金/资产%"
     group: monitoring
-    transform: level
+    transform: none
     higher_is_risk: false
     compare_to: noncrisis_p25
     weight: 0.0
@@ -388,7 +398,7 @@ indicators:
   - id: RESERVES_DEPOSITS_PCT
     name: "准备金/存款%"
     group: monitoring
-    transform: level
+    transform: none
     higher_is_risk: false
     compare_to: noncrisis_p25
     weight: 0.0

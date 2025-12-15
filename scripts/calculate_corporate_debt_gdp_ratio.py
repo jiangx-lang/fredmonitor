@@ -13,6 +13,12 @@ import pandas as pd
 import pathlib
 from datetime import datetime
 
+# 设置控制台编码为UTF-8，支持emoji显示
+if sys.platform == "win32":
+    import codecs
+    sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+    sys.stderr = codecs.getwriter("utf-8")(sys.stderr.detach())
+
 # 添加项目根目录到路径
 sys.path.append('.')
 
@@ -42,19 +48,19 @@ def calculate_corporate_debt_gdp_ratio():
         corp_debt_df = corp_debt_df.set_index('date')
         corp_debt_ts = parse_numeric_series(corp_debt_df['value']).dropna()
         
-        print(f"✅ 企业债数据获取成功: {len(corp_debt_ts)} 个观测值")
+        print(f"[成功] 企业债数据获取成功: {len(corp_debt_ts)} 个观测值")
         print(f"   最新值: {corp_debt_ts.iloc[-1]:,.0f} 百万美元")
         
         # 2. 获取GDP数据
-        print("📊 获取GDP数据...")
+        print("[获取] 获取GDP数据...")
         gdp_response = series_observations('GDP')
         if not gdp_response or 'observations' not in gdp_response:
-            print("❌ 无法获取GDP数据")
+            print("[失败] 无法获取GDP数据")
             return False
         
         gdp_obs = gdp_response.get('observations', [])
         if not gdp_obs:
-            print("❌ GDP数据为空")
+            print("[失败] GDP数据为空")
             return False
         
         # 转换为DataFrame
@@ -63,21 +69,21 @@ def calculate_corporate_debt_gdp_ratio():
         gdp_df = gdp_df.set_index('date')
         gdp_ts = parse_numeric_series(gdp_df['value']).dropna()
         
-        print(f"✅ GDP数据获取成功: {len(gdp_ts)} 个观测值")
+        print(f"[成功] GDP数据获取成功: {len(gdp_ts)} 个观测值")
         print(f"   最新值: {gdp_ts.iloc[-1]:,.0f} 十亿美元")
         
         # 3. 计算企业债/GDP比率
-        print("🧮 计算企业债/GDP比率...")
+        print("[计算] 计算企业债/GDP比率...")
         
         # 对齐时间序列（取交集）
         common_dates = corp_debt_ts.index.intersection(gdp_ts.index)
         if len(common_dates) == 0:
-            print("❌ 企业债和GDP数据没有共同日期")
+            print("[失败] 企业债和GDP数据没有共同日期")
             return False
         
         # 重新索引并前向填充
-        corp_debt_aligned = corp_debt_ts.reindex(common_dates).fillna(method='ffill')
-        gdp_aligned = gdp_ts.reindex(common_dates).fillna(method='ffill')
+        corp_debt_aligned = corp_debt_ts.reindex(common_dates).ffill()
+        gdp_aligned = gdp_ts.reindex(common_dates).ffill()
         
         # 计算比率：企业债(百万美元) / GDP(十亿美元) * 100
         # 注意单位转换：企业债是百万美元，GDP是十亿美元
@@ -87,7 +93,7 @@ def calculate_corporate_debt_gdp_ratio():
         # 移除无效值
         ratio_ts = ratio_ts.dropna()
         
-        print(f"✅ 比率计算完成: {len(ratio_ts)} 个有效值")
+        print(f"[成功] 比率计算完成: {len(ratio_ts)} 个有效值")
         print(f"   最新比率: {ratio_ts.iloc[-1]:.2f}%")
         print(f"   历史范围: {ratio_ts.min():.2f}% - {ratio_ts.max():.2f}%")
         
@@ -104,10 +110,10 @@ def calculate_corporate_debt_gdp_ratio():
         })
         
         output_df.to_csv(output_file, index=False)
-        print(f"💾 数据已保存到: {output_file}")
+        print(f"[保存] 数据已保存到: {output_file}")
         
         # 5. 显示统计信息
-        print("\n📈 企业债/GDP比率统计:")
+        print("\n[统计] 企业债/GDP比率统计:")
         print(f"   数据期间: {ratio_ts.index[0].strftime('%Y-%m-%d')} 至 {ratio_ts.index[-1].strftime('%Y-%m-%d')}")
         print(f"   最新值: {ratio_ts.iloc[-1]:.2f}%")
         print(f"   历史均值: {ratio_ts.mean():.2f}%")
@@ -119,7 +125,7 @@ def calculate_corporate_debt_gdp_ratio():
         return True
         
     except Exception as e:
-        print(f"❌ 计算企业债/GDP比率失败: {e}")
+        print(f"[失败] 计算企业债/GDP比率失败: {e}")
         return False
 
 if __name__ == "__main__":
@@ -130,9 +136,9 @@ if __name__ == "__main__":
     success = calculate_corporate_debt_gdp_ratio()
     
     if success:
-        print("\n✅ 企业债/GDP比率计算完成！")
+        print("\n[完成] 企业债/GDP比率计算完成！")
         print("📁 数据文件: data/series/CORPORATE_DEBT_GDP_RATIO.csv")
         print("📊 现在可以在crisis_monitor中直接使用这个比率数据")
     else:
-        print("\n❌ 企业债/GDP比率计算失败！")
+        print("\n[失败] 企业债/GDP比率计算失败！")
         sys.exit(1)

@@ -826,6 +826,15 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
     else:
         indicators = indicators_config
     
+    # 修复：移除冗余指标
+    # 如果同时存在 NCBDBIQ027S 和 CORPDEBT_GDP_PCT，移除 CORPDEBT_GDP_PCT
+    indicator_ids = [ind.get('series_id') or ind.get('id', '') for ind in indicators]
+    if 'NCBDBIQ027S' in indicator_ids and 'CORPDEBT_GDP_PCT' in indicator_ids:
+        print("⚠️ 检测到冗余指标：NCBDBIQ027S 和 CORPDEBT_GDP_PCT 同时存在，移除 CORPDEBT_GDP_PCT")
+        indicators = [ind for ind in indicators 
+                     if (ind.get('series_id') or ind.get('id', '')) != 'CORPDEBT_GDP_PCT']
+        print(f"✅ 已移除冗余指标，剩余 {len(indicators)} 个指标")
+    
     # 加载危机期间配置
     crisis_config_path = BASE / "config" / "crisis_periods.yaml"
     crisis_config = load_yaml_config(crisis_config_path)
@@ -1137,11 +1146,29 @@ def score_with_threshold(ts: pd.Series, current: float, *, direction: str, compa
         raw = min(1.0, abs(p_cur - p_mid) / denom)
     else:
         if direction == 'up_is_risk':   # 高为险
+            # 当前值越高（p_cur越大），风险越高
             raw = max(0.0, (p_cur - p_thr) / max(1 - p_thr, eps))
         else:                           # 低为险
+            # 当前值越低（p_cur越小），风险越高
+            # 当 p_cur < p_thr 时，说明当前值低于阈值，风险高
             raw = max(0.0, (p_thr - p_cur) / max(p_thr, eps))
     
-    return float(np.clip(raw * 100.0, 0, 100))
+    score = float(np.clip(raw * 100.0, 0, 100))
+    
+    # 修复：对于 down_is_risk，如果当前值低于基准值，确保分数至少反映风险
+    if direction == 'down_is_risk' and ts is not None and not ts.empty:
+        benchmark_val = ts.quantile(p_thr)
+        if current < benchmark_val:
+            # 当前值低于基准值，风险应该较高
+            # 如果计算出的分数太低，需要调整
+            if score < 50:
+                # 根据偏离程度计算风险分数
+                # 偏离越大，分数越高
+                deviation = (benchmark_val - current) / max(abs(benchmark_val), eps)
+                # 确保分数至少为 50，并根据偏离程度增加
+                score = min(100.0, 50.0 + min(50.0, deviation * 100.0))
+    
+    return score
 
 def level_from_score(score: float, bands: dict) -> str:
     """根据分数返回风险等级"""
@@ -1296,6 +1323,31 @@ def run_data_pipeline():
 
     print("🔄 启动数据管道...")
     print("=" * 60)
+    
+    # 修复：清洗预计算的中间文件缓存
+    print("🧹 清洗预计算缓存文件...")
+    cache_dir = BASE / "data" / "series"
+    if cache_dir.exists():
+        cache_files = list(cache_dir.glob("*.csv"))
+        # 排除 README 和其他非数据文件
+        cache_files = [f for f in cache_files if f.name not in ['README.md', 'data_catalog.py']]
+        
+        removed_count = 0
+        for cache_file in cache_files:
+            try:
+                cache_file.unlink()
+                removed_count += 1
+            except Exception as e:
+                print(f"⚠️ 删除缓存文件失败 {cache_file.name}: {e}")
+        
+        if removed_count > 0:
+            print(f"✅ 已删除 {removed_count} 个预计算缓存文件")
+        else:
+            print("ℹ️ 没有需要清理的缓存文件")
+    else:
+        print("ℹ️ 缓存目录不存在，跳过清理")
+    
+    # 保留原始数据：data/fred/series/*/raw.csv 不会被删除
 
     total_steps = 4
     current_step = 0
