@@ -140,39 +140,39 @@ def check_all_indicators():
             corrupted_count += 1
     
     # 显示统计结果
-    print(f"\n📊 数据完整性统计:")
-    print(f"✅ 数据新鲜 (≤7天): {fresh_count}")
-    print(f"⚠️ 数据陈旧 (8-30天): {stale_count}")
-    print(f"🔄 数据过期 (>30天): {outdated_count}")
-    print(f"❌ 数据缺失: {missing_count}")
-    print(f"💥 数据损坏: {corrupted_count}")
+    print(f"\n[统计] 数据完整性统计:")
+    print(f"[新鲜] 数据新鲜 (≤7天): {fresh_count}")
+    print(f"[陈旧] 数据陈旧 (8-30天): {stale_count}")
+    print(f"[过期] 数据过期 (>30天): {outdated_count}")
+    print(f"[缺失] 数据缺失: {missing_count}")
+    print(f"[损坏] 数据损坏: {corrupted_count}")
     
     # 计算完整性百分比
     total_indicators = len(all_indicators)
     available_indicators = fresh_count + stale_count + outdated_count
     completeness = (available_indicators / total_indicators) * 100 if total_indicators > 0 else 0
     
-    print(f"\n📈 数据完整性: {completeness:.1f}% ({available_indicators}/{total_indicators})")
+    print(f"\n[完整性] 数据完整性: {completeness:.1f}% ({available_indicators}/{total_indicators})")
     
     # 显示问题指标
     problem_indicators = [r for r in results if r['status'] in ['missing', 'corrupted', 'outdated']]
     
     if problem_indicators:
-        print(f"\n⚠️ 需要处理的指标 ({len(problem_indicators)}个):")
+        print(f"\n[问题] 需要处理的指标 ({len(problem_indicators)}个):")
         for status in problem_indicators:
             if status['status'] == 'missing':
-                print(f"  ❌ {status['series_id']}: 数据缺失")
+                print(f"  [缺失] {status['series_id']}: 数据缺失")
             elif status['status'] == 'corrupted':
-                print(f"  💥 {status['series_id']}: 数据损坏")
+                print(f"  [损坏] {status['series_id']}: 数据损坏")
             elif status['status'] == 'outdated':
-                print(f"  🔄 {status['series_id']}: 数据过期 ({status['days_old']}天前)")
+                print(f"  [过期] {status['series_id']}: 数据过期 ({status['days_old']}天前)")
     
     # 显示数据陈旧的指标
     stale_indicators = [r for r in results if r['status'] == 'stale']
     if stale_indicators:
-        print(f"\n⚠️ 数据陈旧的指标 ({len(stale_indicators)}个):")
+        print(f"\n[陈旧] 数据陈旧的指标 ({len(stale_indicators)}个):")
         for status in stale_indicators:
-            print(f"  ⚠️ {status['series_id']}: {status['days_old']}天前")
+            print(f"  [陈旧] {status['series_id']}: {status['days_old']}天前")
     
     return {
         'total_indicators': total_indicators,
@@ -188,7 +188,7 @@ def check_all_indicators():
 
 def recommend_action(completeness_stats: Dict):
     """根据数据完整性推荐操作"""
-    print(f"\n💡 操作建议:")
+    print(f"\n[建议] 操作建议:")
     print("=" * 60)
     
     completeness = completeness_stats['completeness']
@@ -197,27 +197,27 @@ def recommend_action(completeness_stats: Dict):
     corrupted_count = completeness_stats['corrupted_count']
     
     if completeness >= 90:
-        print("✅ 数据完整性良好，可以直接运行风险监控系统")
-        print("💡 建议: 运行 python macrolab_gui.py 开始监控")
+        print("[良好] 数据完整性良好，可以直接运行风险监控系统")
+        print("[建议] 运行 python macrolab_gui.py 开始监控")
     elif completeness >= 70:
-        print("⚠️ 数据完整性一般，建议先更新数据")
+        print("[一般] 数据完整性一般，建议先更新数据")
         if missing_count > 0:
-            print(f"📥 需要下载 {missing_count} 个缺失指标")
+            print(f"[下载] 需要下载 {missing_count} 个缺失指标")
         if outdated_count > 0:
-            print(f"🔄 需要更新 {outdated_count} 个过期指标")
-        print("💡 建议: 运行数据下载脚本后再进行监控")
+            print(f"[更新] 需要更新 {outdated_count} 个过期指标")
+        print("[建议] 运行数据下载脚本后再进行监控")
     else:
-        print("❌ 数据完整性不足，必须先下载数据")
-        print(f"📥 需要下载 {missing_count} 个缺失指标")
+        print("[不足] 数据完整性不足，必须先下载数据")
+        print(f"[下载] 需要下载 {missing_count} 个缺失指标")
         if corrupted_count > 0:
-            print(f"💥 需要修复 {corrupted_count} 个损坏指标")
-        print("💡 建议: 立即运行数据下载脚本")
+            print(f"[修复] 需要修复 {corrupted_count} 个损坏指标")
+        print("[建议] 立即运行数据下载脚本")
     
     # 提供具体的运行命令
-    print(f"\n🚀 推荐运行顺序:")
-    print("1️⃣ 数据下载: python scripts/sync_fred_http.py")
-    print("2️⃣ 数据检查: python check_data_completeness.py")
-    print("3️⃣ 风险监控: python macrolab_gui.py")
+    print(f"\n[顺序] 推荐运行顺序:")
+    print("1. 数据下载: python scripts/sync_fred_http.py")
+    print("2. 数据检查: python check_data_completeness.py")
+    print("3. 风险监控: python macrolab_gui.py")
 
 def main():
     """主函数"""
@@ -239,7 +239,7 @@ def main():
         with open(result_file, 'w', encoding='utf-8') as f:
             json.dump(completeness_stats, f, ensure_ascii=False, indent=2, default=str)
         
-        print(f"\n📄 检查结果已保存: {result_file}")
+        print(f"\n[保存] 检查结果已保存: {result_file}")
     
     print("=" * 60)
 
