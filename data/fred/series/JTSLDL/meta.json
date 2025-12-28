@@ -1,7 +1,7 @@
 {
   "id": "JTSLDL",
-  "realtime_start": "2025-09-30",
-  "realtime_end": "2025-09-30",
+  "realtime_start": "2025-10-03",
+  "realtime_end": "2025-10-03",
   "title": "Layoffs and Discharges: Total Nonfarm",
   "observation_start": "2000-12-01",
   "observation_end": "2025-08-01",
@@ -12,8 +12,8 @@
   "seasonal_adjustment": "Seasonally Adjusted",
   "seasonal_adjustment_short": "SA",
   "last_updated": "2025-09-30 09:09:01-05",
-  "popularity": 64,
-  "sync_timestamp": "2025-10-10T21:34:52.508720",
+  "popularity": 66,
+  "sync_timestamp": "2025-10-12T00:58:48.224914",
   "alias": "Layoffs_Discharges_Total_Nonfarm",
   "freshness_days": 30,
   "next_release": "N/A"

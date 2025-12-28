@@ -11,6 +11,15 @@ scoring:
   momentum_days: [1, 5]
   co_move_threshold_pct: 0.9
   co_move_bonus_per_bucket: 5
+  # v2.0: 动量评分权重配置
+  momentum_weight: 0.3  # 动量评分权重（0.3 = 30%）
+  level_weight: 0.7     # 水平评分权重（0.7 = 70%）
+  # v2.0: 持续时间乘数
+  persistence_months: 3  # 持续高风险月数阈值
+  persistence_multiplier: 1.1  # 持续高风险时的乘数
+  # v2.0: 共振检测配置
+  resonance_threshold: 80  # 触发共振的高风险阈值
+  systemic_risk_multiplier: 1.2  # 系统性风险乘数
 
 indicators:
   # ===== 核心预警指标 (40%) =====
@@ -19,20 +28,26 @@ indicators:
   - id: T10Y3M
     name: "收益率曲线倒挂: 10年期-3个月"
     group: core_warning
+    type: leading  # v2.0: 指标类型 (leading/coincident/lagging)
     transform: none
     higher_is_risk: false
     compare_to: noncrisis_p25
     weight: 0.08
     freq: D
+    momentum_window: 3  # v2.0: 动量计算窗口（月）
+    invert_momentum: false  # v2.0: 是否反转动量（快速下降为风险）
 
   - id: T10Y2Y
     name: "收益率曲线倒挂: 10年期-2年期"
     group: core_warning
+    type: leading  # v2.0: 指标类型
     transform: none
     higher_is_risk: false
     compare_to: noncrisis_p25
     weight: 0.06
     freq: D
+    momentum_window: 3
+    invert_momentum: false
 
   # 信用利差簇 (18%) - 减少3%给EBP
   - id: BAMLH0A0HYM2
@@ -348,16 +363,100 @@ indicators:
     weight: 0.01
     freq: W
 
+  # ===== v2.0: 流动性指标（流动性阀门） =====
+  
+  - id: RRPONTSYD
+    name: "隔夜逆回购协议"
+    group: liquidity
+    type: coincident
+    transform: level
+    higher_is_risk: false  # 低为风险（接近0表示流动性紧张）
+    compare_to: noncrisis_p25
+    weight: 0.03
+    freq: D
+    momentum_window: 1  # 日频数据，用1个月窗口
+    invert_momentum: true  # 快速下降为风险
+    role: monitor  # 监控级别，不计分但显示
+
+  - id: WTREGEN
+    name: "财政部一般账户"
+    group: liquidity
+    type: coincident
+    transform: level
+    higher_is_risk: true  # 高为风险（抽走流动性）
+    compare_to: noncrisis_p75
+    weight: 0.02
+    freq: D
+    momentum_window: 1
+    invert_momentum: false
+    role: monitor
+
+  - id: M2SL
+    name: "M2货币供应量 YoY"
+    group: liquidity
+    type: coincident
+    transform: yoy_pct
+    higher_is_risk: false  # 负增长为通缩风险
+    compare_to: noncrisis_p25
+    weight: 0.02
+    freq: M
+    momentum_window: 3
+    invert_momentum: true
+
+  # ===== v2.0: 衰退先行指标 =====
+  
+  - id: SAHMREALTIME
+    name: "Sahm规则衰退指标"
+    group: recession_leading
+    type: leading
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.04
+    freq: M
+    momentum_window: 3
+    invert_momentum: false
+    threshold: 0.50  # 超过0.50表示衰退
+
+  - id: KCFSI
+    name: "堪萨斯城金融压力指数"
+    group: recession_leading
+    type: leading
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.03
+    freq: W
+    momentum_window: 1
+    invert_momentum: false
+
+  # ===== v2.0: 通胀预期指标 =====
+  
+  - id: T5YIE
+    name: "5年期盈亏平衡通胀率"
+    group: inflation_expectations
+    type: leading
+    transform: level
+    higher_is_risk: true  # 通胀预期过高为风险
+    compare_to: noncrisis_p75
+    weight: 0.02
+    freq: D
+    momentum_window: 3
+    invert_momentum: false
+
   # ===== 监测项（不计分；展示在报告末尾） =====
   
   - id: VIXCLS
     name: "VIX 波动率"
     group: monitoring
+    type: coincident
     transform: none
     higher_is_risk: true
     compare_to: noncrisis_p90
     weight: 0.0
     freq: D
+    momentum_window: 1
+    invert_momentum: false
 
   - id: STLFSI3
     name: "圣路易斯金融压力"

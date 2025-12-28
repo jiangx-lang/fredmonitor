@@ -1,0 +1,193 @@
+{
+  "timestamp": "20251010_220624",
+  "total_score": 34.514862131409075,
+  "bucket_scores": {
+    "VolTerm": {
+      "score": 39.1702641182363,
+      "weight": 0.3,
+      "count": 3
+    },
+    "Credit": {
+      "score": 13.566529865111256,
+      "weight": 0.3,
+      "count": 4
+    },
+    "Liquidity": {
+      "score": 61.76208642566136,
+      "weight": 0.2,
+      "count": 3
+    },
+    "RiskOnOff": {
+      "score": 34.3715977810466,
+      "weight": 0.1,
+      "count": 2
+    },
+    "StressComposite": {
+      "score": 29.04246873167872,
+      "weight": 0.1,
+      "count": 2
+    }
+  },
+  "indicators": [
+    {
+      "series_id": "VIXCLS",
+      "label": "VIX",
+      "current_value": 16.43,
+      "percentile": 0.3341269841269841,
+      "base_score": 33.41269841269841,
+      "momentum_score": 0.9509575999114359,
+      "final_score": 34.363656012609844,
+      "last_date": "2025-10-09",
+      "direction": "up_is_risk"
+    },
+    {
+      "series_id": "T10Y3M",
+      "label": "10Y-3M",
+      "current_value": 0.11,
+      "percentile": 0.4563492063492064,
+      "base_score": 45.63492063492064,
+      "momentum_score": 4.788557213930348,
+      "final_score": 50.423477848850986,
+      "last_date": "2025-09-19",
+      "direction": "down_is_risk"
+    },
+    {
+      "series_id": "T10Y2Y",
+      "label": "10Y-2Y",
+      "current_value": 0.57,
+      "percentile": 0.28095238095238095,
+      "base_score": 28.095238095238095,
+      "momentum_score": 4.6284203980099505,
+      "final_score": 32.723658493248045,
+      "last_date": "2025-09-19",
+      "direction": "down_is_risk"
+    },
+    {
+      "series_id": "BAMLH0A0HYM2",
+      "label": "HY_OAS",
+      "current_value": 2.84,
+      "percentile": 0.08888888888888889,
+      "base_score": 8.88888888888889,
+      "momentum_score": 1.954466782052989,
+      "final_score": 10.843355670941879,
+      "last_date": "2025-10-08",
+      "direction": "up_is_risk"
+    },
+    {
+      "series_id": "BAMLC0A0CM",
+      "label": "IG_OAS",
+      "current_value": 0.75,
+      "percentile": 0.011904761904761904,
+      "base_score": 1.1904761904761905,
+      "momentum_score": 3.8288948069241013,
+      "final_score": 5.019370997400292,
+      "last_date": "2025-10-08",
+      "direction": "up_is_risk"
+    },
+    {
+      "series_id": "TEDRATE",
+      "label": "TED",
+      "current_value": 0.09,
+      "percentile": 0.07777777777777778,
+      "base_score": 7.777777777777778,
+      "momentum_score": 3.372119295074559,
+      "final_score": 11.149897072852337,
+      "last_date": "2022-01-21",
+      "direction": "up_is_risk"
+    },
+    {
+      "series_id": "BAA10Y",
+      "label": "BAA_10Y_Sprd",
+      "current_value": 1.68,
+      "percentile": 0.25317460317460316,
+      "base_score": 25.317460317460316,
+      "momentum_score": 1.9360354017902042,
+      "final_score": 27.25349571925052,
+      "last_date": "2025-10-08",
+      "direction": "up_is_risk"
+    },
+    {
+      "series_id": "RRPONTSYD",
+      "label": "ON_RRP",
+      "current_value": 4.496,
+      "percentile": 0.5984126984126984,
+      "base_score": 59.84126984126984,
+      "momentum_score": 1.706528765352295,
+      "final_score": 61.54779860662214,
+      "last_date": "2025-10-09",
+      "direction": "tilt_change"
+    },
+    {
+      "series_id": "WSHOMCB",
+      "label": "Fed_Balance",
+      "current_value": 2085983.0,
+      "percentile": 0.20403022670025184,
+      "base_score": 20.403022670025184,
+      "momentum_score": 4.453781512605042,
+      "final_score": 24.856804182630228,
+      "last_date": "2025-10-08",
+      "direction": "down_is_risk"
+    },
+    {
+      "series_id": "WTREGEN",
+      "label": "TGA",
+      "current_value": 807.428,
+      "percentile": 0.9388888888888889,
+      "base_score": 93.88888888888889,
+      "momentum_score": 4.992767598842816,
+      "final_score": 98.8816564877317,
+      "last_date": "2025-10-08",
+      "direction": "up_is_risk"
+    },
+    {
+      "series_id": "DTWEXBGS",
+      "label": "Broad_USD",
+      "current_value": 120.5163,
+      "percentile": 0.48253968253968255,
+      "base_score": 48.25396825396825,
+      "momentum_score": 3.6906925095901473,
+      "final_score": 51.9446607635584,
+      "last_date": "2025-10-03",
+      "direction": "up_is_risk"
+    },
+    {
+      "series_id": "DCOILWTICO",
+      "label": "WTI_abs_chg",
+      "current_value": 62.49,
+      "percentile": 0.12380952380952381,
+      "base_score": 12.380952380952381,
+      "momentum_score": 4.417582417582418,
+      "final_score": 16.7985347985348,
+      "last_date": "2025-10-06",
+      "direction": "up_is_risk"
+    },
+    {
+      "series_id": "STLFSI2",
+      "label": "STL_FSI",
+      "current_value": -0.8509,
+      "percentile": 0.07936507936507936,
+      "base_score": 7.936507936507936,
+      "momentum_score": 4.770861833105336,
+      "final_score": 12.707369769613273,
+      "last_date": "2022-01-07",
+      "direction": "up_is_risk"
+    },
+    {
+      "series_id": "NFCI",
+      "label": "CHI_NFCI",
+      "current_value": -0.54613,
+      "percentile": 0.4301587301587302,
+      "base_score": 43.01587301587302,
+      "momentum_score": 2.3616946778711485,
+      "final_score": 45.37756769374417,
+      "last_date": "2025-10-03",
+      "direction": "up_is_risk"
+    }
+  ],
+  "summary": {
+    "total_indicators": 14,
+    "high_risk_count": 1,
+    "medium_risk_count": 0,
+    "low_risk_count": 13
+  }
+}

@@ -438,6 +438,182 @@ def check_json_logic():
         import traceback
         logger.write(traceback.format_exc(), "error")
 
+# ===== v2.0: 新增诊断功能 =====
+
+def check_v2_indicators(logger):
+    """检查v2.0新增指标配置"""
+    logger.write("检查v2.0新增指标配置", "section")
+    
+    config_path = BASE_DIR / "config" / "crisis_indicators.yaml"
+    if not config_path.exists():
+        logger.write("配置文件不存在", "error")
+        return False
+    
+    import yaml
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    
+    indicators = config.get('indicators', [])
+    
+    # 检查新指标类别
+    new_categories = ['liquidity', 'recession_leading', 'inflation_expectations']
+    found_categories = set()
+    new_indicators = ['RRPONTSYD', 'WTREGEN', 'M2SL', 'SAHMREALTIME', 'KCFSI', 'T5YIE']
+    found_indicators = []
+    
+    for ind in indicators:
+        group = ind.get('group', '')
+        if group in new_categories:
+            found_categories.add(group)
+        
+        series_id = ind.get('id') or ind.get('series_id', '')
+        if series_id in new_indicators:
+            found_indicators.append(series_id)
+    
+    # 检查新字段
+    has_type = False
+    has_momentum_window = False
+    has_invert_momentum = False
+    
+    for ind in indicators:
+        if 'type' in ind:
+            has_type = True
+        if 'momentum_window' in ind:
+            has_momentum_window = True
+        if 'invert_momentum' in ind:
+            has_invert_momentum = True
+    
+    # 报告结果
+    if found_categories:
+        logger.write(f"✅ 找到新指标类别: {', '.join(found_categories)}", "pass")
+    else:
+        logger.write("⚠️ 未找到新指标类别", "warn")
+    
+    if found_indicators:
+        logger.write(f"✅ 找到新指标: {', '.join(found_indicators)}", "pass")
+    else:
+        logger.write("⚠️ 未找到新指标", "warn")
+    
+    if has_type:
+        logger.write("✅ 配置包含'type'字段", "pass")
+    else:
+        logger.write("⚠️ 配置缺少'type'字段", "warn")
+    
+    if has_momentum_window:
+        logger.write("✅ 配置包含'momentum_window'字段", "pass")
+    else:
+        logger.write("⚠️ 配置缺少'momentum_window'字段", "warn")
+    
+    if has_invert_momentum:
+        logger.write("✅ 配置包含'invert_momentum'字段", "pass")
+    else:
+        logger.write("⚠️ 配置缺少'invert_momentum'字段", "warn")
+    
+    return True
+
+def check_momentum_calculations(logger):
+    """检查动量计算（确保没有除零错误）"""
+    logger.write("检查动量计算", "section")
+    
+    try:
+        # 导入crisis_monitor模块
+        sys.path.insert(0, str(BASE_DIR))
+        from crisis_monitor import calculate_momentum_score_v2
+        import pandas as pd
+        import numpy as np
+        
+        # 测试用例1: 正常数据
+        test_ts1 = pd.Series([1.0, 1.1, 1.2, 1.3, 1.4], 
+                             index=pd.date_range('2024-01-01', periods=5, freq='D'))
+        score1 = calculate_momentum_score_v2(test_ts1, momentum_window=3, 
+                                             invert_momentum=False, higher_is_risk=True)
+        if 0 <= score1 <= 100:
+            logger.write(f"✅ 正常数据测试通过: score={score1:.2f}", "pass")
+        else:
+            logger.write(f"❌ 正常数据测试失败: score={score1:.2f} (应在0-100之间)", "error")
+        
+        # 测试用例2: 空数据
+        test_ts2 = pd.Series(dtype=float)
+        score2 = calculate_momentum_score_v2(test_ts2, momentum_window=3, 
+                                             invert_momentum=False, higher_is_risk=True)
+        if score2 == 0.0:
+            logger.write("✅ 空数据测试通过: 返回0", "pass")
+        else:
+            logger.write(f"❌ 空数据测试失败: score={score2}", "error")
+        
+        # 测试用例3: 包含零值的数据（防止除零错误）
+        test_ts3 = pd.Series([0.0, 0.1, 0.2, 0.3], 
+                             index=pd.date_range('2024-01-01', periods=4, freq='D'))
+        try:
+            score3 = calculate_momentum_score_v2(test_ts3, momentum_window=1, 
+                                                 invert_momentum=False, higher_is_risk=True)
+            logger.write(f"✅ 零值数据测试通过: score={score3:.2f}", "pass")
+        except ZeroDivisionError:
+            logger.write("❌ 零值数据测试失败: 发生除零错误", "error")
+        
+        # 测试用例4: 包含NaN的数据
+        test_ts4 = pd.Series([1.0, np.nan, 1.2, 1.3, 1.4], 
+                             index=pd.date_range('2024-01-01', periods=5, freq='D'))
+        try:
+            score4 = calculate_momentum_score_v2(test_ts4, momentum_window=3, 
+                                                 invert_momentum=False, higher_is_risk=True)
+            logger.write(f"✅ NaN数据测试通过: score={score4:.2f}", "pass")
+        except Exception as e:
+            logger.write(f"❌ NaN数据测试失败: {e}", "error")
+        
+        return True
+        
+    except ImportError as e:
+        logger.write(f"❌ 无法导入crisis_monitor模块: {e}", "error")
+        return False
+    except Exception as e:
+        logger.write(f"❌ 动量计算检查失败: {e}", "error")
+        return False
+
+def check_v2_scoring_config(logger):
+    """检查v2.0评分配置"""
+    logger.write("检查v2.0评分配置", "section")
+    
+    config_path = BASE_DIR / "config" / "crisis_indicators.yaml"
+    if not config_path.exists():
+        logger.write("配置文件不存在", "error")
+        return False
+    
+    import yaml
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    
+    scoring = config.get('scoring', {})
+    
+    # 检查v2.0新配置项
+    required_v2_configs = [
+        'momentum_weight', 'level_weight', 
+        'persistence_months', 'persistence_multiplier',
+        'resonance_threshold', 'systemic_risk_multiplier'
+    ]
+    
+    missing_configs = []
+    for key in required_v2_configs:
+        if key not in scoring:
+            missing_configs.append(key)
+    
+    if missing_configs:
+        logger.write(f"⚠️ 缺少v2.0配置项: {', '.join(missing_configs)}", "warn")
+    else:
+        logger.write("✅ 所有v2.0配置项都存在", "pass")
+    
+    # 检查权重归一化
+    momentum_weight = scoring.get('momentum_weight', 0.3)
+    level_weight = scoring.get('level_weight', 0.7)
+    total_weight = momentum_weight + level_weight
+    
+    if abs(total_weight - 1.0) < 0.01:
+        logger.write(f"✅ 动量/水平权重归一化正确: {momentum_weight} + {level_weight} = {total_weight:.2f}", "pass")
+    else:
+        logger.write(f"⚠️ 动量/水平权重未归一化: {momentum_weight} + {level_weight} = {total_weight:.2f} (应为1.0)", "warn")
+    
+    return True
+
 def check_env():
     """检查环境配置"""
     logger.write("3. 环境检查", "header")
@@ -507,6 +683,16 @@ def main():
         logger.write_separator()
         
         check_json_logic()
+        logger.write_separator()
+        
+        # v2.0: 新增检查项
+        check_v2_indicators(logger)
+        logger.write_separator()
+        
+        check_momentum_calculations(logger)
+        logger.write_separator()
+        
+        check_v2_scoring_config(logger)
         logger.write_separator()
         
         check_env()

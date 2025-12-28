@@ -4,3 +4,14 @@ echo =====================================
 cd /d "D:\fred_crisis_monitor\daily_risk_dashboard"
 python test_risk_dashboard.py
 pause
+
+
+
+
+
+
+
+
+
+
+

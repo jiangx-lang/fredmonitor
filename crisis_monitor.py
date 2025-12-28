@@ -177,7 +177,13 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
     # 预计算的合成指标列表
     derived_series = [
         "CP_MINUS_DTB3", "SOFR20DMA_MINUS_DTB3", 
-        "CORPDEBT_GDP_PCT", "RESERVES_ASSETS_PCT", "RESERVES_DEPOSITS_PCT"
+        "CORPDEBT_GDP_PCT", "RESERVES_ASSETS_PCT", "RESERVES_DEPOSITS_PCT",
+        # 黄金见顶判断模型指标
+        "US_REAL_RATE_10Y", "GOLD_REAL_RATE_DIFF",
+        # 权益周期监控指标
+        "SP500_PROFIT_DIVERGENCE", "USD_NET_LIQUIDITY",
+        # 长期估值锚指标
+        "BUFFETT_INDICATOR"
     ]
     
     if sid in derived_series:
@@ -866,6 +872,62 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
             print(f"❌ 处理指标失败 {indicator.get('name', 'Unknown')}: {e}")
             continue
     
+    # T10Y3M 陡峭化动量修正（后处理）
+    for indicator_result in processed_indicators:
+        if indicator_result.get('series_id') == 'T10Y3M':
+            try:
+                # 获取时间序列数据
+                ts = compose_series('T10Y3M')
+                if ts is None:
+                    ts = fetch_series('T10Y3M')
+                
+                if ts is not None and not ts.empty:
+                    current_value = indicator_result.get('current_value', 0)
+                    
+                    # 获取20个交易日（约1个月）前的数值
+                    # 假设交易日频率，取约20个数据点
+                    if len(ts) >= 20:
+                        value_1m_ago = float(ts.iloc[-20])
+                        delta_1m = current_value - value_1m_ago
+                        
+                        # 定义"恶性陡峭化"条件
+                        condition_a = current_value > -0.50  # 曲线已接近回正或已回正
+                        condition_b = delta_1m > 0.25  # 1个月内利差飙升超过25个基点
+                        
+                        # 如果同时满足A和B，说明正在发生Bear Steepening
+                        if condition_a and condition_b:
+                            original_score = indicator_result.get('risk_score', 0)
+                            # 强制修正：至少提升至80.0（如果原分数低于80）
+                            if original_score < 80.0:
+                                indicator_result['risk_score'] = 80.0
+                                print(f"⚠️ T10Y3M: 监测到快速陡峭化趋势 (月度变动 +{delta_1m:.2f} 基点)，风险评分强制提升至80.0")
+                            
+                            # 追加解释文本
+                            original_explainer = indicator_result.get('plain_explainer', '')
+                            additional_warning = f" ⚠️ 监测到快速陡峭化趋势 (月度变动 +{delta_1m:.2f} 基点)，警惕衰退交易冲击。"
+                            indicator_result['plain_explainer'] = original_explainer + additional_warning
+                        else:
+                            # 调试信息：显示为什么没有触发
+                            if not condition_a:
+                                print(f"ℹ️ T10Y3M: 条件A未满足 (当前值 {current_value:.2f} <= -0.50)")
+                            if not condition_b:
+                                print(f"ℹ️ T10Y3M: 条件B未满足 (月度变动 {delta_1m:.2f} <= 0.25 基点)")
+                            
+                            # 注意：分组分数会在后面重新计算，使用更新后的risk_score
+            except Exception as e:
+                print(f"⚠️ T10Y3M 陡峭化动量修正失败: {e}")
+            break  # 只处理一次T10Y3M
+    
+    # 重新计算分组分数（使用更新后的T10Y3M分数）
+    group_scores = {}
+    for indicator_result in processed_indicators:
+        if indicator_result.get('role', 'score') == 'score':
+            group = indicator_result.get('group', 'unknown')
+            if group not in group_scores:
+                group_scores[group] = {'scores': [], 'weights': []}
+            group_scores[group]['scores'].append(indicator_result['risk_score'])
+            group_scores[group]['weights'].append(indicator_result.get('global_weight', 0))
+    
     # 计算分组平均分并归一化权重
     final_group_scores = {}
     total_weighted_score = 0
@@ -893,7 +955,7 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
             avg_score = sum(data['scores']) / len(data['scores'])
             normalized_weight = group_weights.get(group, 0)
             
-            # 应用共振奖励
+            # v1.0: 应用组内共振奖励（保留向后兼容）
             if scoring_config:
                 co_move_threshold_pct = scoring_config.get('co_move_threshold_pct', 0.9)
                 co_move_bonus_per_bucket = scoring_config.get('co_move_bonus_per_bucket', 5)
@@ -910,6 +972,21 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
             }
             
             total_weighted_score += avg_score * normalized_weight
+    
+    # v2.0: 应用系统性共振检测
+    if scoring_config:
+        resonance_threshold = scoring_config.get('resonance_threshold', 80)
+        systemic_risk_multiplier = scoring_config.get('systemic_risk_multiplier', 1.2)
+        
+        resonance_multiplier = calculate_resonance(
+            final_group_scores, processed_indicators, 
+            resonance_threshold, systemic_risk_multiplier
+        )
+        
+        if resonance_multiplier > 1.0:
+            total_weighted_score *= resonance_multiplier
+            print(f"⚠️ v2.0 共振检测触发：收益率曲线和实体经济同时高风险，应用系统性风险乘数 {resonance_multiplier:.2f}x")
+            total_weighted_score = min(100.0, total_weighted_score)
     
     return final_group_scores, total_weighted_score, processed_indicators
 
@@ -963,7 +1040,7 @@ def process_single_indicator_real(indicator, crisis_periods, scoring_config=None
             print(f"⚠️ {series_id}: 预计算数据读取失败: {e}")
     
     # YoY指标：使用预计算的YoY数据
-    yoy_indicators = ['PAYEMS', 'INDPRO', 'GDP', 'NEWORDER', 'CSUSHPINSA', 'TOTALSA', 'TOTLL', 'MANEMP', 'WALCL', 'DTWEXBGS', 'PERMIT', 'TOTRESNS']
+    yoy_indicators = ['PAYEMS', 'INDPRO', 'GDP', 'NEWORDER', 'CSUSHPINSA', 'TOTALSA', 'TOTLL', 'MANEMP', 'WALCL', 'DTWEXBGS', 'PERMIT', 'TOTRESNS', 'USD_NET_LIQUIDITY']
     if series_id in yoy_indicators and indicator.get('transform') == 'yoy_pct':
         try:
             yoy_file = pathlib.Path(f"data/series/{series_id}_YOY.csv")
@@ -1207,15 +1284,501 @@ def compute_momentum_score(ts: pd.Series, days: list = [1, 5]) -> float:
     avg_momentum = np.mean(momentum_scores)
     return min(1.0, avg_momentum)
 
+# ===== v2.0: 升级的数学引擎 =====
+
+def calculate_momentum_score_v2(ts: pd.Series, momentum_window: int, 
+                                 invert_momentum: bool = False, 
+                                 higher_is_risk: bool = True) -> float:
+    """
+    v2.0: 计算动量评分（Rate of Change over momentum_window months）
+    
+    Args:
+        ts: 时间序列数据
+        momentum_window: 动量计算窗口（月数）
+        invert_momentum: 是否反转动量（快速下降为风险，如流动性指标）
+        higher_is_risk: 指标方向（高为险还是低为险）
+    
+    Returns:
+        动量评分 (0-100)
+    """
+    if ts is None or ts.empty:
+        return 0.0
+    
+    # 转换为月度数据（如果原始数据是日频或周频）
+    if len(ts) < momentum_window + 1:
+        return 0.0
+    
+    # 根据数据频率推断期数
+    freq = pd.infer_freq(ts.index) or ""
+    if freq.startswith('D'):
+        periods = momentum_window * 20  # 约20个交易日/月
+    elif freq.startswith('W'):
+        periods = momentum_window * 4  # 约4周/月
+    elif freq.startswith('M'):
+        periods = momentum_window
+    elif freq.startswith('Q'):
+        periods = max(1, momentum_window // 3)
+    else:
+        periods = momentum_window * 20  # 默认假设日频
+    
+    if len(ts) < periods + 1:
+        return 0.0
+    
+    # 计算Rate of Change (RoC)
+    current = ts.iloc[-1]
+    past = ts.iloc[-periods-1]
+    
+    if pd.isna(current) or pd.isna(past) or past == 0:
+        return 0.0
+    
+    roc = (current - past) / abs(past) * 100  # 转换为百分比
+    
+    # 根据方向调整
+    if invert_momentum:
+        # 快速下降为风险（如流动性指标）
+        roc = -roc
+    
+    # 将RoC映射到0-100评分
+    # 对于higher_is_risk指标：正RoC增加风险；对于lower_is_risk指标：负RoC增加风险
+    if higher_is_risk:
+        # 正变化（上升）增加风险
+        momentum_score = 50 + min(50, max(-50, roc * 10))  # 放大10倍，限制在0-100
+    else:
+        # 负变化（下降）增加风险
+        momentum_score = 50 + min(50, max(-50, -roc * 10))
+    
+    return max(0.0, min(100.0, momentum_score))
+
+def calculate_persistence_score(ts: pd.Series, current_score: float, 
+                                high_risk_threshold: float = 80.0,
+                                persistence_months: int = 3) -> float:
+    """
+    v2.0: 计算持续时间/持续性评分
+    
+    如果指标持续处于高风险区域（>threshold）超过persistence_months个月，
+    则应用乘数增加风险评分。
+    
+    Args:
+        ts: 时间序列数据
+        current_score: 当前风险评分
+        high_risk_threshold: 高风险阈值
+        persistence_months: 持续高风险月数阈值
+    
+    Returns:
+        调整后的风险评分
+    """
+    if ts is None or ts.empty or current_score < high_risk_threshold:
+        return current_score
+    
+    # 计算历史评分序列（简化：假设我们只有当前评分）
+    # 在实际实现中，需要保存历史评分或从历史数据重新计算
+    # 这里使用简化版本：如果当前评分高，检查历史趋势
+    
+    # 检查最近persistence_months个月的趋势
+    freq = pd.infer_freq(ts.index) or ""
+    if freq.startswith('D'):
+        lookback_periods = persistence_months * 20
+    elif freq.startswith('W'):
+        lookback_periods = persistence_months * 4
+    elif freq.startswith('M'):
+        lookback_periods = persistence_months
+    else:
+        lookback_periods = persistence_months * 20
+    
+    if len(ts) < lookback_periods:
+        return current_score
+    
+    # 检查最近几个月的值是否持续处于高风险区域
+    recent_values = ts.iloc[-lookback_periods:].dropna()
+    if len(recent_values) < persistence_months:
+        return current_score
+    
+    # 简化：如果当前值明显高于历史中位数，认为持续高风险
+    median_value = recent_values.median()
+    current_value = ts.iloc[-1]
+    
+    if current_value > median_value * 1.1:  # 当前值比中位数高10%以上
+        # 应用持续性乘数
+        persistence_multiplier = 1.1
+        adjusted_score = min(100.0, current_score * persistence_multiplier)
+        return adjusted_score
+    
+    return current_score
+
+# ===== v2.0: 报告层升级 =====
+
+def calculate_trend(ts: pd.Series, current_score: float, previous_score: float = None) -> str:
+    """
+    v2.0: 计算趋势箭头
+    
+    Args:
+        ts: 时间序列数据
+        current_score: 当前风险评分
+        previous_score: 上一期风险评分（如果可用）
+    
+    Returns:
+        趋势符号: ↑ (恶化), ↓ (改善), → (稳定)
+    """
+    if previous_score is not None:
+        # 如果有历史评分，直接比较
+        if current_score > previous_score + 5:  # 阈值5分
+            return "↑"  # 恶化
+        elif current_score < previous_score - 5:
+            return "↓"  # 改善
+        else:
+            return "→"  # 稳定
+    
+    # 如果没有历史评分，使用时间序列数据推断趋势
+    if ts is None or ts.empty or len(ts) < 2:
+        return "→"
+    
+    # 计算最近几个数据点的趋势
+    recent_values = ts.iloc[-min(5, len(ts)):].dropna()
+    if len(recent_values) < 2:
+        return "→"
+    
+    # 简单线性趋势
+    if len(recent_values) >= 2:
+        first_half = recent_values.iloc[:len(recent_values)//2].mean()
+        second_half = recent_values.iloc[len(recent_values)//2:].mean()
+        
+        if second_half > first_half * 1.02:  # 上升超过2%
+            return "↑"
+        elif second_half < first_half * 0.98:  # 下降超过2%
+            return "↓"
+    
+    return "→"
+
+def generate_macro_narrative(processed_indicators: list, group_scores: dict, 
+                            total_score: float, scoring_config: dict) -> str:
+    """
+    v2.0: 生成宏观叙事（自动文本）
+    
+    基于指标状态生成情景分析：
+    - Scenario A (滞胀): 通胀 > 阈值 AND 增长 < 阈值
+    - Scenario B (流动性陷阱): RRP < 低阈值 AND 利差 > 高阈值
+    - Scenario C (分化): 收益率曲线倒挂 BUT 利差收紧
+    """
+    narratives = []
+    
+    # 获取关键指标
+    inflation_score = 0
+    growth_score = 0
+    yield_curve_score = 0
+    spread_score = 0
+    rrp_value = None
+    liquidity_score = 0
+    
+    for indicator in processed_indicators:
+        series_id = indicator.get('series_id', '')
+        score = indicator.get('risk_score', 0)
+        
+        # 通胀指标
+        if series_id in ['T5YIE', 'CPIAUCSL', 'PCEPI']:
+            inflation_score = max(inflation_score, score)
+        
+        # 增长指标
+        if series_id in ['GDP', 'INDPRO', 'PAYEMS', 'NEWORDER']:
+            growth_score = max(growth_score, score)
+        
+        # 收益率曲线
+        if series_id in ['T10Y3M', 'T10Y2Y']:
+            yield_curve_score = max(yield_curve_score, score)
+        
+        # 信用利差
+        if series_id in ['BAMLH0A0HYM2', 'BAA10YM', 'CP_MINUS_DTB3']:
+            spread_score = max(spread_score, score)
+        
+        # 流动性指标
+        if series_id == 'RRPONTSYD':
+            rrp_value = indicator.get('current_value')
+        if series_id in ['RRPONTSYD', 'WTREGEN', 'M2SL']:
+            liquidity_score = max(liquidity_score, score)
+    
+    # 获取阈值
+    bands = scoring_config.get('bands', {'low': 40, 'med': 60, 'high': 80})
+    high_threshold = bands.get('high', 80)
+    med_threshold = bands.get('med', 60)
+    
+    # Scenario A: 滞胀压力
+    if inflation_score >= med_threshold and growth_score >= med_threshold:
+        narratives.append("⚠️ **滞胀压力检测**: 通胀预期上升同时经济增长放缓，可能出现滞胀风险。")
+    
+    # Scenario B: 流动性陷阱
+    if rrp_value is not None and rrp_value < 100:  # RRP接近0
+        if spread_score >= med_threshold:
+            narratives.append("⚠️ **流动性陷阱警告**: 隔夜逆回购接近零（流动性枯竭）同时信用利差扩大，市场流动性紧张。")
+    
+    # Scenario C: 市场分化
+    if yield_curve_score >= high_threshold and spread_score < med_threshold:
+        narratives.append("⚠️ **市场分化**: 收益率曲线倒挂（债券市场预测衰退），但信用利差保持低位（信用市场保持乐观），市场信号出现分化。")
+    
+    # 共振检测
+    yield_curve_groups = ['core_warning', '收益率曲线']
+    real_economy_groups = ['real_economy', '实体经济']
+    
+    yield_curve_high = False
+    real_economy_high = False
+    
+    for group_name, group_data in group_scores.items():
+        if any(g in group_name for g in yield_curve_groups):
+            if group_data.get('score', 0) >= high_threshold:
+                yield_curve_high = True
+        if any(g in group_name for g in real_economy_groups):
+            if group_data.get('score', 0) >= high_threshold:
+                real_economy_high = True
+    
+    if yield_curve_high and real_economy_high:
+        narratives.append("🚨 **系统性风险共振**: 收益率曲线和实体经济同时发出高风险信号，系统性风险上升。")
+    
+    # 总体风险评估
+    if total_score >= high_threshold:
+        narratives.append(f"🔴 **总体高风险**: 综合风险评分 {total_score:.1f}/100，建议密切关注市场动态。")
+    elif total_score >= med_threshold:
+        narratives.append(f"🟡 **中等风险**: 综合风险评分 {total_score:.1f}/100，保持警惕。")
+    else:
+        narratives.append(f"🟢 **低风险**: 综合风险评分 {total_score:.1f}/100，市场状况相对稳定。")
+    
+    if not narratives:
+        narratives.append("ℹ️ 当前市场信号较为均衡，未检测到明显的系统性风险。")
+    
+    return "\n\n".join(narratives)
+
+def generate_bubble_diagnosis(processed_indicators: list) -> tuple:
+    """
+    基于巴菲特指标(长期)、利润背离(中期)和流动性(短期)生成深度泡沫诊断
+    
+    Args:
+        processed_indicators: 处理后的指标列表
+    
+    Returns:
+        (markdown_text, html_text) 元组
+    """
+    # 1. 提取核心指标数据
+    def get_ind_data(sid):
+        for ind in processed_indicators:
+            if ind.get('series_id') == sid:
+                return ind
+        return {}
+    
+    buffett = get_ind_data('BUFFETT_INDICATOR')
+    profit_div = get_ind_data('SP500_PROFIT_DIVERGENCE')
+    liquidity = get_ind_data('USD_NET_LIQUIDITY')
+    
+    # 获取数值 (带默认值)
+    val_buffett = buffett.get('current_value', 0) if buffett else 0
+    score_buffett = buffett.get('risk_score', 0) if buffett else 0
+    
+    score_profit = profit_div.get('risk_score', 0) if profit_div else 0
+    
+    val_liq = liquidity.get('current_value', 0) if liquidity else 0
+    score_liq = liquidity.get('risk_score', 0) if liquidity else 0
+    
+    # 2. 诊断逻辑与文案生成（严格区分"状态"与"触发"）
+    # 场景 A: 危机临界点 (流动性枯竭 + 估值高) - 触发器被激活
+    if score_liq >= 80:
+        status = "🔴 危机临界点 (Crash Alert)"
+        main_color = "#c62828"
+        bg_color = "#ffebee"
+        final_judgment = "红色警报！高估值叠加流动性枯竭（触发器被激活）。这是历史上泡沫破裂的标准范式，建议立即防御。"
+    # 场景 B: 高估值平稳期 (估值高 + 流动性充裕) - 状态昂贵但无触发
+    elif score_profit >= 80:
+        status = "🟠 高估值平稳期 (Expensive but Stable)"
+        main_color = "#ef6c00"
+        bg_color = "#fff3e0"
+        final_judgment = "当前处于'高估值、低压力'状态。虽然资产价格昂贵（长期锚红色），但系统流动性充裕（地板绿色），**缺乏触发崩盘的宏观催化剂**。市场可能会在高位维持较长时间，而非立即崩盘。"
+    # 场景 C: 安全/正常
+    else:
+        status = "🟢 趋势正常"
+        main_color = "#2e7d32"
+        bg_color = "#e8f5e9"
+        final_judgment = "估值虽高，但盈利与流动性配合良好，暂无系统性崩盘迹象。"
+    
+    # 3. 生成 HTML 卡片 (三段式结构)
+    html_card = f"""
+    <div style="background-color: {bg_color}; border-left: 5px solid {main_color}; padding: 15px; margin: 20px 0; border-radius: 4px;">
+        <h3 style="color: {main_color}; margin-top: 0;">💹 美股泡沫深度诊断 (US Bubble Diagnosis)</h3>
+        <p><strong>当前状态：{status}</strong></p>
+        <hr style="border-top: 1px dashed {main_color}; opacity: 0.3;">
+        
+        <p><strong>逻辑一：长期估值锚 (The Ceiling)</strong><br>
+        <span style="color: #666; font-size: 0.9em;">原理：巴菲特指标(市值/GDP)衡量股市长期是否"昂贵"。</span><br>
+        <strong>现状</strong>：系统评分 <b>{score_buffett:.1f}</b> (🔴 历史极高位)。当前比值 <b>{val_buffett:.1f}%</b>。<br>
+        👉 <em>结论：长期估值已达历史天花板，容错率极低。</em></p>
+
+        <p><strong>逻辑二：盈利背离度 (The Foam)</strong><br>
+        <span style="color: #666; font-size: 0.9em;">原理：股价涨幅远超利润增速("Optimism"阶段)是泡沫化的核心特征。</span><br>
+        <strong>现状</strong>：系统评分 <b>{score_profit:.1f}</b> (🔴 高风险)。<br>
+        👉 <em>结论：股价上涨脱离基本面（P/E扩张驱动），存在明显的投机溢价。</em></p>
+
+        <p><strong>逻辑三：流动性底座 (The Floor)</strong><br>
+        <span style="color: #666; font-size: 0.9em;">原理：只要央行/财政部还在注入流动性，泡沫就可以维持("Rational Bubble")。</span><br>
+        <strong>现状</strong>：系统评分 <b>{score_liq:.1f}</b> ({"🔵 极低风险" if score_liq < 40 else "🟡 中风险"})。净流动性同比 <b>{val_liq:.2f}%</b>。<br>
+        👉 <em>结论：流动性尚未枯竭，仍在为高估值提供资金接力。</em></p>
+        
+        <hr style="border-top: 1px dashed {main_color}; opacity: 0.3;">
+        <p style="font-weight: bold; color: {main_color};">🤖 系统最终预判：<br>
+        "{final_judgment}"</p>
+        <p style="font-size: 0.85em; color: #666; margin-top: 10px; font-style: italic;">
+        <em>注：本模块仅评估'是否具备危机条件'，不代表对短期涨跌的预测。估值高低决定下跌空间，流动性松紧决定下跌时间。</em></p>
+    </div>
+    """
+    
+    # 生成 Markdown 文本
+    md_text = f"""### 💹 美股泡沫深度诊断
+
+**当前状态：{status}**
+
+**逻辑一：长期估值锚 (The Ceiling)**
+* **现状**：巴菲特指标 **{val_buffett:.1f}%** (评分 {score_buffett:.1f})。
+* **结论**：长期估值已达历史天花板。
+
+**逻辑二：盈利背离度 (The Foam)**
+* **现状**：利润背离评分 **{score_profit:.1f}** (🔴 高风险)。
+* **结论**：股价脱离基本面，全靠拔估值。
+
+**逻辑三：流动性底座 (The Floor)**
+* **现状**：流动性评分 **{score_liq:.1f}**。
+* **结论**：流动性尚未枯竭，泡沫暂未破裂。
+
+> **🤖 系统预判**：{final_judgment}
+
+*注：本模块仅评估'是否具备危机条件'，不代表对短期涨跌的预测。估值高低决定下跌空间，流动性松紧决定下跌时间。*
+
+---
+"""
+    return md_text, html_card
+
+def generate_gold_diagnosis(processed_indicators: list) -> tuple:
+    """
+    生成黄金市场深度诊断（三段式逻辑）
+    
+    Args:
+        processed_indicators: 处理后的指标列表
+    
+    Returns:
+        (html_text, markdown_text) 元组
+    """
+    def get_data(sid):
+        for i in processed_indicators:
+            if i.get('series_id') == sid:
+                return i
+        return {}
+    
+    # 获取数据
+    gold_val = get_data('GOLD_REAL_RATE_DIFF')
+    real_rate = get_data('US_REAL_RATE_10Y')
+    fiscal = get_data('MTSDS133FMS')
+    
+    # 提取数值 (带默认值防止报错)
+    val_diff = gold_val.get('current_value', 0) if gold_val else 0
+    score_diff = gold_val.get('risk_score', 0) if gold_val else 0
+    
+    val_rate = real_rate.get('current_value', 0) if real_rate else 0
+    score_rate = real_rate.get('risk_score', 0) if real_rate else 0
+    
+    val_fiscal = fiscal.get('current_value', 0) if fiscal else 0
+    
+    # 定义状态颜色
+    status_color = "#d32f2f" if score_diff > 80 else "#f57c00"  # 红或橙
+    
+    # 生成HTML文本
+    html = f"""
+    <div style="background-color: #fff8e1; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 4px;">
+        <h3 style="color: #bf360c; margin-top: 0;">🏆 黄金见顶逻辑诊断 (Gold Top Diagnosis)</h3>
+        
+        <p><strong>逻辑一：估值泡沫 (泡沫的燃料)</strong><br>
+        <span style="color: #666; font-size: 0.9em;">原理：当金价远超"赤字+购金"模型时，产生的残差代表纯粹的情绪溢价。</span><br>
+        <strong>现状</strong>：系统评分 <b>{score_diff:.1f}</b> (🔴 高风险)。当前残差 <b>{val_diff:.2f}</b> 远超历史警戒线。<br>
+        👉 <em>结论：金价处于极度泡沫化阶段，脱离了基本面模型。</em></p>
+
+        <p><strong>逻辑二：实际利率引信 (泡沫的针)</strong><br>
+        <span style="color: #666; font-size: 0.9em;">原理：实际利率是持有黄金的机会成本，大幅上行往往刺破泡沫。</span><br>
+        <strong>现状</strong>：系统评分 <b>{score_rate:.1f}</b> ({"🔵 极低风险" if score_rate < 40 else "🟡 中风险"})。当前实际利率 <b>{val_rate:.2f}%</b>。<br>
+        👉 <em>结论：尚未满足顶部特征。历史上的黄金大顶通常需要实际利率突破 2.0%~2.5% 且财政显著收缩。当前仅满足估值条件，未满足宏观约束条件。</em></p>
+
+        <p><strong>逻辑三：财政脉冲熄火 (领先指标)</strong><br>
+        <span style="color: #666; font-size: 0.9em;">原理：财政赤字收缩往往领先金价见顶 6-9 个月。</span><br>
+        <strong>现状</strong>：当前赤字 <b>{val_fiscal/1000:.2f} Billion</b>。<br>
+        👉 <em>结论：财政尚未显著收缩，仍在为市场提供流动性支撑。</em></p>
+        
+        <hr style="border-top: 1px dashed #bdbdbd;">
+        <p style="font-weight: bold; color: #bf360c;">🤖 系统最终预判：<br>
+        "黄金处于<strong>估值极端区</strong>，但在宏观条件（利率/财政）配合之前，这种背离可能持续。<strong>当前是'且涨且珍惜'的鱼尾阶段，而非确定的反转时刻。</strong>"</p>
+    </div>
+    """
+    
+    # 生成Markdown文本
+    md = f"""### 🏆 黄金见顶逻辑诊断
+
+**逻辑一：估值泡沫 (泡沫的燃料)**
+* **现状**：评分 **{score_diff:.1f}** (🔴 高风险)，残差 **{val_diff:.2f}**。
+* **结论**：金价处于极度泡沫化阶段，脱离基本面。
+
+**逻辑二：实际利率引信 (泡沫的针)**
+* **现状**：评分 **{score_rate:.1f}**，当前值 **{val_rate:.2f}%**。
+* **结论**：尚未满足顶部特征。历史上的黄金大顶通常需要实际利率突破 2.0%~2.5% 且财政显著收缩。当前仅满足估值条件，未满足宏观约束条件。
+
+**逻辑三：财政脉冲**
+* **现状**：赤字 **{val_fiscal/1000:.2f} B**，尚未显著收缩。
+
+> **🤖 系统预判**：黄金处于**估值极端区**，但在宏观条件（利率/财政）配合之前，这种背离可能持续。**当前是'且涨且珍惜'的鱼尾阶段，而非确定的反转时刻。**
+"""
+    
+    return html, md
+
+def calculate_resonance(group_scores: dict, processed_indicators: list,
+                        resonance_threshold: float = 80.0,
+                        systemic_risk_multiplier: float = 1.2) -> float:
+    """
+    v2.0: 计算共振检测
+    
+    检查"收益率曲线"组和"实体经济"组是否同时发出高风险信号（>threshold）。
+    如果True，应用系统性风险乘数。
+    
+    Args:
+        group_scores: 分组评分字典
+        processed_indicators: 处理后的指标列表
+        resonance_threshold: 触发共振的高风险阈值
+        systemic_risk_multiplier: 系统性风险乘数
+    
+    Returns:
+        调整后的总评分乘数（1.0或systemic_risk_multiplier）
+    """
+    # 检查收益率曲线组
+    yield_curve_groups = ['core_warning', '收益率曲线']  # 可能的组名
+    real_economy_groups = ['real_economy', '实体经济']  # 可能的组名
+    
+    yield_curve_high_risk = False
+    real_economy_high_risk = False
+    
+    # 检查分组评分
+    for group_name, group_data in group_scores.items():
+        if any(g in group_name for g in yield_curve_groups):
+            if group_data.get('score', 0) >= resonance_threshold:
+                yield_curve_high_risk = True
+        if any(g in group_name for g in real_economy_groups):
+            if group_data.get('score', 0) >= resonance_threshold:
+                real_economy_high_risk = True
+    
+    # 如果两个组都高风险，应用共振乘数
+    if yield_curve_high_risk and real_economy_high_risk:
+        return systemic_risk_multiplier
+    
+    return 1.0
+
 def calculate_risk_score_simple(current, benchmark, indicator, ts=None, scoring_config=None):
-    """改进的风险评分计算，真正锚定配置的基准分位，支持动量奖励"""
+    """
+    v2.0: 升级的风险评分计算
+    从 Score = f(Level) 升级到 Score = f(Level, Momentum, Duration)
+    """
     compare_to = indicator.get('compare_to', 'noncrisis_median')
     direction = 'up_is_risk' if indicator.get('higher_is_risk', True) else 'down_is_risk'
     tail = indicator.get('tail', 'single')
     
-    # 计算基础风险评分
+    # 1. 计算基础水平评分
     if ts is not None and not ts.empty:
-        base_score = score_with_threshold(ts, current, direction=direction, compare_to=compare_to, tail=tail)
+        level_score = score_with_threshold(ts, current, direction=direction, compare_to=compare_to, tail=tail)
     else:
         # 回退到简化计算（当没有时间序列数据时）
         higher_is_risk = indicator.get('higher_is_risk', True)
@@ -1223,22 +1786,51 @@ def calculate_risk_score_simple(current, benchmark, indicator, ts=None, scoring_
             deviation = current - benchmark
         else:
             deviation = benchmark - current
-        base_score = 50 + 10 * deviation
-        base_score = max(0, min(100, base_score))
+        level_score = 50 + 10 * deviation
+        level_score = max(0, min(100, level_score))
     
-    # 应用动量奖励
+    # 2. v2.0: 计算动量评分
+    momentum_score = 0.0
     if scoring_config and ts is not None and not ts.empty:
-        mom_bonus_max = scoring_config.get('momentum_bonus_max', 5)
-        momentum_days = scoring_config.get('momentum_days', [1, 5])
+        # 获取v2.0配置
+        momentum_window = indicator.get('momentum_window', 3)  # 默认3个月
+        invert_momentum = indicator.get('invert_momentum', False)
+        higher_is_risk = indicator.get('higher_is_risk', True)
         
-        momentum_raw = compute_momentum_score(ts, days=momentum_days)
-        momentum_bonus = momentum_raw * mom_bonus_max
+        # 使用v2.0动量计算
+        momentum_score = calculate_momentum_score_v2(
+            ts, momentum_window, invert_momentum, higher_is_risk
+        )
         
-        # 限制总分不超过100
-        final_score = min(100.0, base_score + momentum_bonus)
-        return final_score
+        # 获取权重配置
+        momentum_weight = scoring_config.get('momentum_weight', 0.3)
+        level_weight = scoring_config.get('level_weight', 0.7)
+        
+        # 组合评分：Final_Score = level_weight * Level_Score + momentum_weight * Momentum_Score
+        final_score = level_weight * level_score + momentum_weight * momentum_score
+    else:
+        # 如果没有配置或数据，使用旧逻辑（向后兼容）
+        if scoring_config and ts is not None and not ts.empty:
+            mom_bonus_max = scoring_config.get('momentum_bonus_max', 5)
+            momentum_days = scoring_config.get('momentum_days', [1, 5])
+            
+            momentum_raw = compute_momentum_score(ts, days=momentum_days)
+            momentum_bonus = momentum_raw * mom_bonus_max
+            
+            final_score = min(100.0, level_score + momentum_bonus)
+        else:
+            final_score = level_score
     
-    return base_score
+    # 3. v2.0: 应用持续时间逻辑
+    if scoring_config and ts is not None and not ts.empty:
+        persistence_months = scoring_config.get('persistence_months', 3)
+        high_risk_threshold = scoring_config.get('bands', {}).get('high', 80)
+        
+        final_score = calculate_persistence_score(
+            ts, final_score, high_risk_threshold, persistence_months
+        )
+    
+    return max(0.0, min(100.0, final_score))
 
 def calculate_crisis_stats(ts, crisis_periods):
     """计算危机期间的统计数据"""
@@ -1269,7 +1861,7 @@ def calculate_crisis_stats(ts, crisis_periods):
 def get_indicator_explanation(series_id, indicator_config=None):
     """获取指标解释（统一与方向/双尾配置）"""
     explanations = {
-        'T10Y3M': '10年期与3个月国债收益率利差。计算公式：T10Y3M = 10年期国债收益率 - 3个月国债收益率。倒挂(负值)越深越危险，表明市场预期短期利率将高于长期利率，通常预示经济衰退。',
+        'T10Y3M': '10年期与3个月国债收益率利差。计算公式：T10Y3M = 10年期国债收益率 - 3个月国债收益率。**警惕：** 该指标不仅在"深度倒挂"时预警，在**"倒挂回正（解除倒挂）"**的初期往往对应衰退实质性发生的时刻（Bear Steepening）。当前高风险评分反映了曲线形态的极端不稳定性，而非单纯的倒挂深度。',
         'T10Y2Y': '10年期与2年期国债收益率利差。计算公式：T10Y2Y = 10年期国债收益率 - 2年期国债收益率。倒挂(负值)越深越危险，是重要的经济领先指标。',
         'FEDFUNDS': '联邦基金利率。水平值，利率越高表示货币政策越紧缩，会抑制经济增长。',
         'DTB3': '3个月国债收益率。水平值，收益率越高表示短期利率水平越高。',
@@ -1289,12 +1881,23 @@ def get_indicator_explanation(series_id, indicator_config=None):
         'TOTALSA': '消费者信贷同比变化率。计算公式：TOTALSA_YoY = (当前月消费者信贷 - 上年同期消费者信贷) / 上年同期消费者信贷 × 100%。双尾风险：暴涨(积累脆弱性)和骤冷(信贷闸门收紧)都危险。',
         'TOTLL': '银行总贷款和租赁同比变化率。计算公式：TOTLL_YoY = (当前周贷款总额 - 上年同期贷款总额) / 上年同期贷款总额 × 100%。双尾风险：暴涨(积累脆弱性)和骤冷(信贷闸门收紧)都危险。',
         'WALCL': '美联储总资产同比变化率。计算公式：WALCL_YoY = (当前周总资产 - 上年同期总资产) / 上年同期总资产 × 100%。增速越高表示扩表速度越快。',
+        'RRPONTSYD': '隔夜逆回购协议余额。它是市场的"剩余流动性蓄水池"。当前评分较高是因为余额处于低位，意味着缓冲垫变薄。**注意：RRP下降本身属于资金释放（利好），只有当其与"净流动性"同步收缩时，才构成系统性压力。**',
         'DTWEXBGS': '贸易加权美元指数同比变化率。计算公式：DTWEXBGS_YoY = (当前周美元指数 - 上年同期美元指数) / 上年同期美元指数 × 100%。增速越高表示美元越强势，金融条件越紧张。',
         'CORPDEBT_GDP_PCT': '企业债务占GDP比例。计算公式：CORPDEBT_GDP_PCT = 企业债务总额 / GDP × 100%。比例过高表明企业杠杆率过高。',
         'RESERVES_DEPOSITS_PCT': '银行准备金占存款比例。计算公式：RESERVES_DEPOSITS_PCT = 银行准备金 / 银行存款 × 100%。比例过低表明银行流动性不足。',
         'RESERVES_ASSETS_PCT': '银行准备金占总资产比例。计算公式：RESERVES_ASSETS_PCT = 银行准备金 / 银行总资产 × 100%。比例过低表明银行流动性不足。',
         'TDSP': '家庭债务偿付收入比。水平值，比率越高表示家庭债务负担过重。',
-        'DRSFRMACBS': '房贷违约率。水平值，违约率越高表示家庭财务压力越大。'
+        'DRSFRMACBS': '房贷违约率。水平值，违约率越高表示家庭财务压力越大。',
+        # 黄金见顶判断模型指标
+        'US_REAL_RATE_10Y': '美国10年期实际利率。计算公式：US_REAL_RATE_10Y = DGS10（名义利率） - T10YIE（通胀预期）。它是持有黄金的机会成本。实际利率飙升意味着持有无息资产（黄金）的成本极高，通常对应金价见顶。实际利率为负或极低时，利好黄金。典型范围：-1.0% - 2.5%，危机阈值：> 2.0%（高位预警）。',
+        'MTSDS133FMS': '联邦财政盈余/赤字。美国联邦政府的月度财政收支状况。如果赤字快速收窄（数值趋向0或变正），意味着"财政脉冲"消退，经济失去支撑，且通胀预期下降，利空金价。赤字大幅扩张（数值很负）通常对应"大放水"，利好黄金。典型范围：-300 Billion - 0，危机阈值：> -50 Billion（赤字显著收窄）。',
+        'GOLD_REAL_RATE_DIFF': '金价-实际利率估值差。黄金价格与实际利率的相对位置模型残差。当实际利率走高（利空）但金价依然狂涨时，二者差值拉大，形成"鳄鱼嘴"背离，暗示金价进入纯情绪博弈的泡沫阶段，见顶风险极大。差值收敛意味着估值回归合理。典型范围：需根据历史数据动态评估，危机阈值：> 历史90分位。',
+        # 权益周期监控指标
+        'SP500_PROFIT_DIVERGENCE': '标普500与企业利润背离度。计算公式：SP500_PROFIT_DIVERGENCE = SP500 / CPATAX（企业税后利润）。该指标专门识别"Optimism"阶段（Real Price Return > Real EPS Growth），即股价涨幅远超盈利增长，形成估值泡沫。比值越高，说明股价脱离盈利基本面，见顶风险越大。典型范围：需根据历史数据动态评估，危机阈值：> 历史90分位。',
+        'USD_NET_LIQUIDITY': '美联储净流动性。计算公式：USD_NET_LIQUIDITY = WALCL（美联储总资产） - WTREGEN（财政部一般账户） - RRPONTSYD（隔夜逆回购）。该指标反映真正流入市场的流动性。流动性收缩（负增长或快速下跌）是股市最大的风险，意味着市场失去资金支撑。流动性扩张时利好股市。典型范围：需根据历史数据动态评估，危机阈值：YoY < 历史25分位（流动性水位过低）。',
+        'STLFSI3': '圣路易斯金融压力指数。该指数综合反映金融市场的压力水平，>0 代表压力高于历史平均。压力飙升通常对应市场恐慌、流动性枯竭，是股市见顶的重要信号。典型范围：-3.0 - 3.0，危机阈值：> 历史90分位（压力飙升）。',
+        # 长期估值锚指标
+        'BUFFETT_INDICATOR': '巴菲特指标（市值/GDP）。计算公式：BUFFETT_INDICATOR = (WILL5000INDFC / GDP) × 100。该指标反映股票市场总市值相对于经济总量的估值水平，是长期估值锚点。由于全球化、无形资产等因素，该指标可能长期处于高位，但仍可作为结构性估值参考。典型范围：80% - 150%，危机阈值：> 历史90分位（长期估值昂贵）。'
     }
     
     base_explanation = explanations.get(series_id, f'{series_id}指标')
@@ -1900,9 +2503,24 @@ def generate_report_with_images():
     # 计算真实FRED数据评分
     group_scores, total_score, processed_indicators = calculate_real_fred_scores(indicators, scoring_config)
     
-    # 为每个指标添加风险等级
+    # v2.0: 为每个指标添加风险等级和趋势
     for indicator in processed_indicators:
         indicator['risk_level'] = level_from_score(indicator['risk_score'], bands)
+        # 计算趋势箭头（需要时间序列数据）
+        series_id = indicator.get('series_id', '')
+        try:
+            ts = compose_series(series_id)
+            if ts is None:
+                ts = fetch_series(series_id)
+            if ts is not None and not ts.empty:
+                indicator['trend'] = calculate_trend(ts, indicator['risk_score'])
+            else:
+                indicator['trend'] = "→"
+        except:
+            indicator['trend'] = "→"
+    
+    # v2.0: 生成宏观叙事
+    macro_narrative = generate_macro_narrative(processed_indicators, group_scores, total_score, scoring_config)
     
     # 生成报告（使用JST时区）
     now = datetime.now(JST)
@@ -1978,7 +2596,7 @@ def generate_report_with_images():
                     except Exception as e:
                         print(f"⚠️ 合成指标数据读取失败: {e}")
                 
-                elif series_id in ['PAYEMS', 'INDPRO', 'GDP', 'NEWORDER', 'CSUSHPINSA', 'TOTALSA', 'TOTLL', 'MANEMP', 'WALCL', 'DTWEXBGS', 'PERMIT', 'TOTRESNS']:
+                elif series_id in ['PAYEMS', 'INDPRO', 'GDP', 'NEWORDER', 'CSUSHPINSA', 'TOTALSA', 'TOTLL', 'MANEMP', 'WALCL', 'DTWEXBGS', 'PERMIT', 'TOTRESNS', 'USD_NET_LIQUIDITY']:
                     # 使用预计算的YoY数据
                     try:
                         yoy_file = pathlib.Path(f"data/series/{series_id}_YOY.csv")
@@ -1990,6 +2608,21 @@ def generate_report_with_images():
                             print(f"📊 使用YoY数据: {series_id}")
                     except Exception as e:
                         print(f"⚠️ YoY数据读取失败: {e}")
+                
+                # 黄金见顶判断模型、权益周期监控和长期估值锚合成指标
+                elif series_id in ['US_REAL_RATE_10Y', 'GOLD_REAL_RATE_DIFF', 'SP500_PROFIT_DIVERGENCE', 'USD_NET_LIQUIDITY', 'BUFFETT_INDICATOR']:
+                    # 使用预计算的合成指标数据
+                    try:
+                        synthetic_file = pathlib.Path(f"data/series/{series_id}.csv")
+                        if synthetic_file.exists():
+                            synthetic_df = pd.read_csv(synthetic_file, index_col=0, parse_dates=True)
+                            if len(synthetic_df.columns) == 1:
+                                ts = parse_numeric_series(synthetic_df.iloc[:, 0]).dropna()
+                            else:
+                                ts = parse_numeric_series(synthetic_df['value']).dropna()
+                            print(f"📁 使用预计算合成指标数据: {series_id}")
+                    except Exception as e:
+                        print(f"⚠️ 合成指标数据读取失败: {e}")
                 
                 # 如果没有预计算数据，使用原始数据
                 if ts is None or ts.empty:
@@ -2075,7 +2708,17 @@ def generate_report_with_images():
     md_path = output_dir / f"crisis_report_{timestamp}.md"
     with open(md_path, "w", encoding="utf-8") as f:
         f.write("# 🚨 FRED 宏观金融危机预警监控报告\n\n")
-        f.write(f"**生成时间**: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}\n\n")
+        f.write(f"**生成时间**: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}\n")
+        f.write(f"**系统版本**: v2.1 (动态趋势与流动性感知系统)\n\n")
+        
+        # 核心方法论声明（V2.1新增）
+        f.write("### ℹ️ 如何阅读本报告 (V2.1)\n\n")
+        f.write("本系统采用**\"三层指标体系\"**来区分\"贵\"与\"险\"：\n\n")
+        f.write("1. **状态指标 (State)**：如巴菲特指标、利润背离。它们只告诉你\"资产贵不贵\"，**不直接触发危机预警**。\n\n")
+        f.write("2. **触发指标 (Trigger)**：如流动性、信用利差、FCI。它们决定\"泡沫会不会破\"，是危机爆发的扳机。\n\n")
+        f.write("3. **约束指标 (Constraint)**：如实际利率、财政赤字。它们是资产定价的宏观边界。\n\n")
+        f.write("*当前总分较低（极低风险）是因为\"触发指标\"依然健康，尽管\"状态指标\"已经报警。请据此区分长期配置风险与短期交易风险。*\n\n")
+        f.write("---\n\n")
         
         f.write("## 📋 报告说明\n\n")
         f.write("本报告基于FRED宏观指标，将当前值与历史危机期间基准值比较，以评估风险。\n\n")
@@ -2099,9 +2742,58 @@ def generate_report_with_images():
         f.write(f"- 🟢 **低风险** ({bands['low']}-{bands['med']-1}分): 当前值接近或低于历史危机水平\n")
         f.write(f"- 🔵 **极低风险** (0-{bands['low']-1}分): 当前值远低于历史危机水平\n\n")
         
+        # v2.0: 添加宏观叙事部分
+        f.write("## 📖 宏观叙事分析 (v2.0)\n\n")
+        f.write(macro_narrative)
+        f.write("\n\n")
+        
+        # 添加美股泡沫深度诊断（三段式逻辑）
+        bubble_md, bubble_html = generate_bubble_diagnosis(processed_indicators)
+        f.write(bubble_md)
+        f.write("\n")
+        
+        # 添加黄金市场深度诊断
+        gold_html, gold_md = generate_gold_diagnosis(processed_indicators)
+        f.write(gold_md)
+        f.write("\n\n")
+        
+        # 保存gold_html和gold_md供后续HTML生成使用
+        # 注意：这里我们需要在函数外部保存这些值，但由于作用域限制，我们在HTML生成时重新生成
+        
         f.write("## 📈 详细指标分析\n\n")
         
-        # 按风险等级分组显示所有指标
+        # v2.0: 按指标类型重组报告结构
+        # 1. 先行指标 (Leading Indicators)
+        leading_indicators = [i for i in processed_indicators 
+                             if i.get('type') == 'leading' or 
+                             i.get('series_id', '') in ['T10Y3M', 'T10Y2Y', 'SAHMREALTIME', 'KCFSI', 'T5YIE']]
+        
+        if leading_indicators:
+            f.write("### 🚨 先行指标 (早期预警系统)\n\n")
+            f.write("| 指标名称 | 当前值 | 风险评分 | 趋势 | 说明 |\n")
+            f.write("|---------|--------|----------|------|------|\n")
+            for indicator in sorted(leading_indicators, key=lambda x: x['risk_score'], reverse=True):
+                trend = indicator.get('trend', '→')
+                f.write(f"| {indicator['name']} | {indicator['current_value']:.2f} | "
+                       f"{indicator['risk_score']:.1f} | {trend} | {indicator.get('plain_explainer', '')[:50]}... |\n")
+            f.write("\n")
+        
+        # 2. 流动性条件 (Liquidity Conditions)
+        liquidity_indicators = [i for i in processed_indicators 
+                               if i.get('group') == 'liquidity' or
+                               i.get('series_id', '') in ['RRPONTSYD', 'WTREGEN', 'M2SL']]
+        
+        if liquidity_indicators:
+            f.write("### 💧 流动性条件 (市场燃料)\n\n")
+            f.write("| 指标名称 | 当前值 | 风险评分 | 趋势 | 说明 |\n")
+            f.write("|---------|--------|----------|------|------|\n")
+            for indicator in sorted(liquidity_indicators, key=lambda x: x['risk_score'], reverse=True):
+                trend = indicator.get('trend', '→')
+                f.write(f"| {indicator['name']} | {indicator['current_value']:.2f} | "
+                       f"{indicator['risk_score']:.1f} | {trend} | {indicator.get('plain_explainer', '')[:50]}... |\n")
+            f.write("\n")
+        
+        # 3. 按风险等级分组显示所有指标（保留原有结构）
         high_risk_indicators = []
         medium_risk_indicators = []
         low_risk_indicators = []
@@ -2122,10 +2814,11 @@ def generate_report_with_images():
         if high_risk_indicators:
             f.write("### 🔴 高风险指标\n\n")
             for i, indicator in enumerate(high_risk_indicators, 1):
-                f.write(f"#### {i}. {indicator['name']} ({indicator['series_id']})\n\n")
+                trend = indicator.get('trend', '→')
+                f.write(f"#### {i}. {indicator['name']} ({indicator['series_id']}) {trend}\n\n")
                 f.write(f"- **当前值**: {indicator['current_value']:.4f}\n")
                 f.write(f"- **基准值**: {indicator['benchmark_value']:.4f} ({indicator.get('compare_to', 'unknown')})\n")
-                f.write(f"- **风险评分**: {indicator['risk_score']:.1f} (🔴 高风险)\n")
+                f.write(f"- **风险评分**: {indicator['risk_score']:.1f} (🔴 高风险) | **趋势**: {trend}\n")
                 f.write(f"- **解释**: {indicator.get('plain_explainer', '无解释')}\n\n")
                 f.write(f"![{indicator['series_id']}](figures/{indicator['series_id']}_latest.png)\n\n")
         
@@ -2133,10 +2826,11 @@ def generate_report_with_images():
         if medium_risk_indicators:
             f.write("### 🟡 中风险指标\n\n")
             for i, indicator in enumerate(medium_risk_indicators, 1):
-                f.write(f"#### {i}. {indicator['name']} ({indicator['series_id']})\n\n")
+                trend = indicator.get('trend', '→')
+                f.write(f"#### {i}. {indicator['name']} ({indicator['series_id']}) {trend}\n\n")
                 f.write(f"- **当前值**: {indicator['current_value']:.4f}\n")
                 f.write(f"- **基准值**: {indicator['benchmark_value']:.4f} ({indicator.get('compare_to', 'unknown')})\n")
-                f.write(f"- **风险评分**: {indicator['risk_score']:.1f} (🟡 中风险)\n")
+                f.write(f"- **风险评分**: {indicator['risk_score']:.1f} (🟡 中风险) | **趋势**: {trend}\n")
                 f.write(f"- **解释**: {indicator.get('plain_explainer', '无解释')}\n\n")
                 f.write(f"![{indicator['series_id']}](figures/{indicator['series_id']}_latest.png)\n\n")
         
@@ -2244,7 +2938,8 @@ def generate_report_with_images():
         
         # 免责声明
         f.write("## ⚠️ 免责声明\n\n")
-        f.write("本报告仅供参考，不构成投资建议。历史数据不保证未来表现。\n\n")
+        f.write("本报告仅供参考，不构成投资建议。历史数据不保证未来表现。本报告所有数据下载都存在错误可能，计算存在错误可能。请不要作为投资判断的依据。\n\n")
+        f.write("如果你发现任何错误，欢迎指出，发邮件给：jiangx@gmail.com\n\n")
         
         f.write("---\n\n")
         f.write("*本报告基于FRED数据，仅供参考，不构成投资建议*\n")
@@ -2254,8 +2949,23 @@ def generate_report_with_images():
     with open(md_path, "r", encoding="utf-8") as f:
         markdown_content = f.read()
     
-    # 使用Base64嵌入功能
+    # 在HTML中替换Markdown版本的美股和黄金诊断为HTML版本
+    bubble_md, bubble_html = generate_bubble_diagnosis(processed_indicators)
+    gold_html, gold_md = generate_gold_diagnosis(processed_indicators)
+    
+    # 先转换Markdown为HTML
     html_content = render_html_report(markdown_content, "宏观金融危机监察报告", output_dir)
+    
+    # 替换美股诊断（Markdown转HTML后会被转义）
+    import re
+    bubble_md_pattern = r'<h3>💹 美股泡沫深度诊断</h3>.*?---'
+    if re.search(bubble_md_pattern, html_content, re.DOTALL):
+        html_content = re.sub(bubble_md_pattern, bubble_html, html_content, flags=re.DOTALL)
+    
+    # 替换黄金诊断（Markdown转HTML后会被转义）
+    gold_md_pattern = r'<h3>🏆 黄金见顶逻辑诊断</h3>.*?属于"晚期狂热"。'
+    if re.search(gold_md_pattern, html_content, re.DOTALL):
+        html_content = re.sub(gold_md_pattern, gold_html, html_content, flags=re.DOTALL)
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_content)
     

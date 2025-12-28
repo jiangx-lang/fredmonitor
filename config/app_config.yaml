@@ -1,0 +1,114 @@
+# 应用程序配置文件
+# 用于管理硬编码的路径、数值和配置
+
+# 路径配置
+paths:
+  series: "data/series"
+  fred: "data/fred/series"
+  outputs: "outputs/crisis_monitor"
+  config: "config"
+  scripts: "scripts"
+  figures: "outputs/crisis_monitor/figures"
+
+# 数值配置
+values:
+  # 除法运算默认值
+  division_default: 0.0
+  # 数据类型转换默认值
+  float_default: 0.0
+  int_default: 0
+  # 百分比计算
+  percentage_multiplier: 100
+  # 单位转换
+  millions_to_billions: 1000
+  # 文件大小单位
+  mb_divisor: 1048576  # 1024*1024
+  
+# 超时配置
+timeouts:
+  subprocess_default: 300
+  fred_download: 300
+  corporate_debt_calc: 60
+  yoy_calc: 120
+  long_image_gen: 60
+
+# 图表配置
+charts:
+  figure_size: [10, 6]
+  dpi: 100
+  window_size: [1200, 800]
+  viewport_size: [1200, 800]
+
+# 风险评分配置
+scoring:
+  bands:
+    low: 40
+    med: 60
+    high: 80
+  default_weight: 1.0
+  max_score: 100
+
+# 数据配置
+data:
+  cache_size: 128
+  chunk_size: 1000
+  max_file_size_mb: 100
+  
+# 字体配置
+fonts:
+  chinese_fonts:
+    - "Microsoft YaHei"
+    - "SimHei"
+    - "黑体"
+    - "微软雅黑"
+  fallback_font: "Arial"
+
+# 输出配置
+output:
+  formats: ["markdown", "html", "json", "png"]
+  encoding: "utf-8"
+  include_images: true
+  generate_long_image: true
+
+# 日志配置
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  file: "logs/crisis_monitor.log"
+  max_size_mb: 10
+  backup_count: 5
+
+# API配置
+api:
+  fred:
+    base_url: "https://api.stlouisfed.org/fred"
+    timeout: 30
+    retry_attempts: 5
+    retry_delay: 1
+  rate_limit:
+    requests_per_minute: 120
+    min_interval_seconds: 0.5
+
+# 安全配置
+security:
+  strict_mode: false
+  validate_inputs: true
+  sanitize_outputs: true
+  max_file_size_mb: 50
+
+# 性能配置
+performance:
+  enable_caching: true
+  cache_ttl_seconds: 3600
+  parallel_processing: true
+  max_workers: 4
+  memory_limit_mb: 1024
+
+
+
+
+
+
+
+
+

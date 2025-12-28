@@ -1,0 +1,57 @@
+{
+  "issues": [
+    {
+      "category": "数据有效性",
+      "message": "YoY预计算值为 -6.13%，异常偏低！",
+      "severity": "ERROR"
+    },
+    {
+      "category": "指标冗余",
+      "message": "发现重复指标: NCBDBIQ027S 和 CORPDEBT_GDP_PCT 同时存在",
+      "severity": "WARNING"
+    },
+    {
+      "category": "指标冗余",
+      "message": "两个指标数值完全一致 (28.3865)，存在冗余计算",
+      "severity": "ERROR"
+    },
+    {
+      "category": "逻辑悖论",
+      "message": "T10Y3M已跌破警戒线 (当前值0.1100 < 基准值0.2200)，但风险评分仅为18.30，存在逻辑错误！",
+      "severity": "ERROR"
+    }
+  ],
+  "warnings": [
+    {
+      "category": "指标冗余",
+      "message": "两个重复指标的总权重为 0.0204，可能导致重复计分"
+    }
+  ],
+  "info": [
+    {
+      "category": "数据源",
+      "message": "找到TOTALSA原始数据: YoY文件: TOTALSA_YOY.csv"
+    },
+    {
+      "category": "数据源",
+      "message": "找到TOTALSA YoY预计算数据"
+    },
+    {
+      "category": "指标统计",
+      "message": "找到 40 个指标"
+    },
+    {
+      "category": "格式检查",
+      "message": "未发现解释文本重复后缀"
+    },
+    {
+      "category": "环境检查",
+      "message": "找到 wkhtmltoimage: C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe"
+    }
+  ],
+  "summary": {
+    "error_count": 3,
+    "warning_count": 2,
+    "info_count": 5
+  }
+}

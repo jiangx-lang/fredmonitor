@@ -4,3 +4,14 @@ echo =====================================
 cd /d "D:\fred_crisis_monitor"
 python macrolab_gui.py
 pause
+
+
+
+
+
+
+
+
+
+
+

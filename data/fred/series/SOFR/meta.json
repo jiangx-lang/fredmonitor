@@ -1,7 +1,7 @@
 {
   "id": "SOFR",
-  "realtime_start": "2025-10-10",
-  "realtime_end": "2025-10-10",
+  "realtime_start": "2025-10-11",
+  "realtime_end": "2025-10-11",
   "title": "Secured Overnight Financing Rate",
   "observation_start": "2018-04-03",
   "observation_end": "2025-10-09",
@@ -13,7 +13,7 @@
   "seasonal_adjustment_short": "NSA",
   "last_updated": "2025-10-10 07:01:50-05",
   "popularity": 90,
-  "sync_timestamp": "2025-10-10T21:35:35.986000",
+  "sync_timestamp": "2025-10-12T01:00:23.940276",
   "alias": "SOFR",
   "freshness_days": 7,
   "next_release": "N/A"
