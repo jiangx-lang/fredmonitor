@@ -183,7 +183,9 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
         # 权益周期监控指标
         "SP500_PROFIT_DIVERGENCE", "USD_NET_LIQUIDITY",
         # 长期估值锚指标
-        "BUFFETT_INDICATOR"
+        "BUFFETT_INDICATOR",
+        # v3.0: 市场体制指标
+        "MKT_SPY_TREND_STATUS", "MKT_SPY_REALIZED_VOL", "MKT_CREDIT_APPETITE"
     ]
     
     if sid in derived_series:
@@ -191,12 +193,22 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
         csv_path = f"data/series/{sid}.csv"
         if os.path.exists(csv_path):
             try:
-                df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
-                # 处理不同的列名格式
-                if len(df.columns) == 1:
-                    ts = df.iloc[:, 0]  # 取第一列
+                # v3.0: 支持两种格式（新格式：date,value 两列；旧格式：索引为日期）
+                df = pd.read_csv(csv_path)
+                if 'date' in df.columns and 'value' in df.columns:
+                    # 新格式：date, value 两列，将date设为索引
+                    df['date'] = pd.to_datetime(df['date'])
+                    df = df.set_index('date')
+                    ts = df['value']
                 else:
-                    ts = df.squeeze()  # 尝试squeeze
+                    # 旧格式：索引为日期
+                    df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+                    if len(df.columns) == 1:
+                        ts = df.iloc[:, 0]  # 取第一列
+                    elif 'value' in df.columns:
+                        ts = df['value']
+                    else:
+                        ts = df.squeeze()  # 尝试squeeze
                 print(f"📁 使用预计算数据: {series_id} ({len(ts)} 个数据点)")
                 return ts
             except Exception as e:
@@ -768,6 +780,41 @@ def generate_long_image(html_path: str, output_path: str) -> bool:
         return False
 
 # 真实FRED数据计算
+# v2.2/v2.3: 逻辑阵营映射（State/Trigger/Constraint）
+# v2.3 更新：将 'real_economy' 移出 State，因为它在泡沫期通常很好(0分)，会拉低 State 均分
+CATEGORY_MAPPING = {
+    # STATE (状态/燃料): 纯粹的"势能" (估值、杠杆)，决定"贵不贵"
+    'State': [
+        '权益周期监控 (Equity_Cycle)',  # 估值、巴菲特指标
+        '长期估值锚 (Secular_Valuation)',  # 长期估值
+        # 'real_economy',       # v2.3: 移出 State（泡沫期通常很好，会拉低均分）
+        'consumers_leverage', # 杠杆
+        'banking',            # 银行健康度
+        '黄金见顶监控'     # 黄金估值
+    ],
+    # TRIGGER (触发/火花): 纯粹的"动能" (流动性、信用、波动率、衰退前兆)，决定"破不破"
+    'Trigger': [
+        'liquidity',          # 净流动性、RRP
+        'core_warning',       # 金融压力、VIX、信用利差
+        'recession_leading',  # 衰退先行指标 (Sahm, 倒挂陡峭化)
+        'inflation_expectations',  # 通胀预期（作为触发条件）
+        'monetary_policy'    # 货币政策（作为触发条件）
+    ],
+    # CONSTRAINT (约束/刹车): 宏观边界条件
+    'Constraint': [
+        'real_economy',       # v2.3: 实体经济移到 Constraint
+        'monitoring'         # 监控指标（通常不计分，但作为约束）
+    ]
+}
+
+def get_category_for_group(group_name: str) -> str:
+    """根据group名称返回其所属的类别（State/Trigger/Constraint）"""
+    for category, groups in CATEGORY_MAPPING.items():
+        if group_name in groups:
+            return category
+    # 默认归类为Constraint（未知组）
+    return 'Constraint'
+
 def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
     """基于真实FRED数据计算评分"""
     
@@ -988,7 +1035,208 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
             print(f"⚠️ v2.0 共振检测触发：收益率曲线和实体经济同时高风险，应用系统性风险乘数 {resonance_multiplier:.2f}x")
             total_weighted_score = min(100.0, total_weighted_score)
     
-    return final_group_scores, total_weighted_score, processed_indicators
+    # v2.3: 计算系统张力指数 (System Tension Index) - 引入凸性算法
+    # 1. 计算 State 和 Trigger 得分
+    state_groups = []
+    trigger_groups = []
+    
+    for category, groups in CATEGORY_MAPPING.items():
+        for group in groups:
+            if group in final_group_scores:
+                if category == 'State':
+                    state_groups.append(final_group_scores[group])
+                elif category == 'Trigger':
+                    trigger_groups.append(final_group_scores[group])
+    
+    # 计算加权平均分
+    score_state = 0.0
+    total_state_weight = 0.0
+    for group_data in state_groups:
+        weight = group_data.get('weight', 0) / 100.0  # 转换为小数
+        score = group_data.get('score', 0)
+        score_state += score * weight
+        total_state_weight += weight
+    
+    if total_state_weight > 0:
+        score_state = score_state / total_state_weight
+    else:
+        score_state = 0.0
+    
+    score_trigger = 0.0
+    total_trigger_weight = 0.0
+    for group_data in trigger_groups:
+        weight = group_data.get('weight', 0) / 100.0  # 转换为小数
+        score = group_data.get('score', 0)
+        score_trigger += score * weight
+        total_trigger_weight += weight
+    
+    if total_trigger_weight > 0:
+        score_trigger = score_trigger / total_trigger_weight
+    else:
+        score_trigger = 0.0
+    
+    # v2.3 核心算法：计算 Trigger Momentum 和凸性张力
+    # 简化方案：使用最近13周（约65个交易日）的数据计算动量
+    trigger_momentum = 0.0
+    
+    try:
+        # 收集所有Trigger组指标的历史时间序列和权重
+        trigger_series_list = []
+        trigger_weights_list = []
+        
+        for category, groups in CATEGORY_MAPPING.items():
+            if category == 'Trigger':
+                for group in groups:
+                    if group in final_group_scores:
+                        # 获取该组的所有指标
+                        group_indicators = [ind for ind in processed_indicators 
+                                          if ind.get('group') == group and ind.get('role', 'score') == 'score']
+                        
+                        for ind_result in group_indicators:
+                            series_id = ind_result.get('series_id')
+                            if series_id:
+                                # 获取历史时间序列
+                                ts = compose_series(series_id)
+                                if ts is None:
+                                    ts = fetch_series(series_id)
+                                
+                                if ts is not None and not ts.empty:
+                                    # 只取最近70个交易日的数据（足够计算13周均值）
+                                    ts_recent = ts.tail(70) if len(ts) > 70 else ts
+                                    
+                                    # 使用当前基准值计算历史分数序列
+                                    benchmark_value = ind_result.get('benchmark_value', 0)
+                                    higher_is_risk = ind_result.get('higher_is_risk', True)
+                                    
+                                    # 计算历史分数序列（基于当前基准值）
+                                    if not pd.isna(benchmark_value) and abs(benchmark_value) > 1e-10:
+                                        if higher_is_risk:
+                                            historical_scores = 50.0 + ((ts_recent - benchmark_value) / abs(benchmark_value) * 100)
+                                        else:
+                                            historical_scores = 50.0 + ((benchmark_value - ts_recent) / abs(benchmark_value) * 100)
+                                        historical_scores = historical_scores.clip(0, 100)
+                                        
+                                        weight = ind_result.get('global_weight', 0)
+                                        if weight > 0:
+                                            trigger_series_list.append(historical_scores)
+                                            trigger_weights_list.append(weight)
+        
+        # 计算加权平均的 Trigger 历史序列
+        if trigger_series_list and len(trigger_weights_list) > 0:
+            # 对齐所有序列的日期索引（取交集）
+            common_dates = trigger_series_list[0].index
+            for ts in trigger_series_list[1:]:
+                common_dates = common_dates.intersection(ts.index)
+            
+            if len(common_dates) > 0:
+                # 计算每个日期的加权平均 Trigger 分数
+                trigger_history = pd.Series(index=common_dates, dtype=float)
+                total_weight = sum(trigger_weights_list)
+                
+                for date in common_dates:
+                    weighted_sum = 0.0
+                    for ts, weight in zip(trigger_series_list, trigger_weights_list):
+                        if date in ts.index:
+                            weighted_sum += ts.loc[date] * weight
+                    if total_weight > 0:
+                        trigger_history.loc[date] = weighted_sum / total_weight
+                    else:
+                        trigger_history.loc[date] = 50.0
+                
+                trigger_history = trigger_history.dropna().sort_index()
+                
+                # 计算 13 周（约 65 个交易日）滚动平均
+                window_size = min(65, len(trigger_history))
+                if window_size > 0 and len(trigger_history) > 0:
+                    trigger_mean_13w = trigger_history.rolling(window=window_size, min_periods=1).mean()
+                    # 计算 Momentum（当前值 - 13周均值）
+                    current_trigger = trigger_history.iloc[-1]
+                    mean_13w = trigger_mean_13w.iloc[-1]
+                    trigger_momentum = current_trigger - mean_13w
+                else:
+                    trigger_momentum = 0.0
+            else:
+                trigger_momentum = 0.0
+        else:
+            trigger_momentum = 0.0
+    except Exception as e:
+        print(f"⚠️ 计算 Trigger Momentum 失败: {e}")
+        trigger_momentum = 0.0
+    
+    # v2.3 核心算法：计算凸性乘数 (Convexity Multiplier - 指数版)
+    # 使用回测验证过的参数（与 backtest_history.py 保持一致）
+    base_threshold = 40.0
+    scale = 15.0
+    max_mult = 8.0  # 稍微调高上限，允许在极端泡沫期报警
+    
+    if score_state > base_threshold:
+        # 计算放大倍数（指数函数）
+        x = (score_state - base_threshold) / scale
+        convexity_factor = min(max_mult, 1.0 + (math.exp(x) - 1.0))
+    else:
+        convexity_factor = 1.0
+    
+    # 计算原始张力 (Base Tension): 传统的 Level * Level
+    raw_tension = (score_state * score_trigger) / 100.0
+    
+    # 计算动量压力 (Momentum Stress): 专门捕捉"变化率"
+    # 只有当环境在恶化 (Momentum > 0) 时才计算
+    mom_risk = max(0.0, trigger_momentum)
+    
+    # 最终合成 (Final Synthesis)
+    # 总张力 = 基础张力 + (动量风险 * 放大倍数)
+    index_tension = raw_tension + (mom_risk * convexity_factor)
+    
+    # 封顶 100
+    index_tension = min(100.0, index_tension)
+    
+    # === v2.4 新增：结构性脆弱底座 (Structural Fragility Floor) ===
+    # 逻辑：当 State > 40 (高估值区) 时，无论 Trigger 多好，风险分都不应低于一定水平。
+    # 惩罚系数：State 每高出 1 分，强制增加 0.5 分的基础风险底座。
+    # 例如：State=90 (极度泡沫), Floor = (90-40)*0.5 = 25分 (强制脱离"极低风险区")
+    floor_threshold = 40.0
+    floor_penalty_rate = 0.5
+    
+    if score_state > floor_threshold:
+        structural_floor = (score_state - floor_threshold) * floor_penalty_rate
+    else:
+        structural_floor = 0.0
+    
+    # 最终取大值：要么是计算出的动态张力，要么是硬性的结构底座
+    final_risk_score = max(index_tension, structural_floor)
+    
+    # 封顶
+    final_risk_score = min(100.0, final_risk_score)
+    
+    # 生成张力分析文本（基于最终风险分）
+    if final_risk_score < 20:
+        tension_analysis_text = "系统松弛。可能是低估值期，或是高估值但流动性极其充裕（金发女孩经济）。"
+    elif final_risk_score < 50:
+        tension_analysis_text = "张力积聚。估值高企，且流动性边际收紧，密切关注 Trigger 变化。"
+    else:
+        tension_analysis_text = "⚠️ 临界断裂风险！高估值叠加触发条件恶化，这是典型的 Minsky Moment 前兆。"
+    
+    # v2.3: 添加凸性因子信息到分析文本
+    if convexity_factor > 1.0:
+        tension_analysis_text += f" [凸性放大: {convexity_factor:.2f}x]"
+    
+    # v2.4: 添加结构性底座信息
+    if final_risk_score == structural_floor and structural_floor > 0:
+        tension_analysis_text += f" [🛡️ 结构性底座已激活: {structural_floor:.1f}]"
+    
+    # 将张力指标添加到返回结果中（v2.4: 增加 Structural Floor）
+    tension_metrics = {
+        'score_state': score_state,
+        'score_trigger': score_trigger,
+        'trigger_momentum': trigger_momentum,
+        'convexity_factor': convexity_factor,
+        'index_tension': index_tension,  # v2.3 原始张力
+        'structural_floor': structural_floor,  # v2.4 结构性底座
+        'final_risk_score': final_risk_score,  # v2.4 最终风险分
+        'tension_analysis': tension_analysis_text
+    }
+    
+    return final_group_scores, total_weighted_score, processed_indicators, tension_metrics
 
 def process_single_indicator_real(indicator, crisis_periods, scoring_config=None):
     """处理单个指标的真实FRED数据（统一变换/同域基准/同域ECDF）"""
@@ -1649,6 +1897,126 @@ def generate_bubble_diagnosis(processed_indicators: list) -> tuple:
 """
     return md_text, html_card
 
+def generate_market_regime_diagnosis(processed_indicators: list) -> tuple:
+    """
+    v3.0: 生成市场体制雷达诊断
+    
+    Args:
+        processed_indicators: 处理后的指标列表（可能不包含市场指标）
+    
+    Returns:
+        (markdown_text, html_text) 元组
+    """
+    # 直接从文件读取市场体制指标数据（不依赖processed_indicators）
+    def load_market_indicator(sid):
+        """直接从CSV文件加载市场指标的最新值"""
+        try:
+            csv_path = BASE / "data" / "series" / f"{sid}.csv"
+            if csv_path.exists():
+                # 尝试两种格式：带date列（新格式）或索引为日期（旧格式）
+                df = pd.read_csv(csv_path)
+                if not df.empty:
+                    # 新格式：date, value 两列
+                    if 'date' in df.columns and 'value' in df.columns:
+                        latest_value = float(df['value'].iloc[-1])
+                    # 旧格式：索引为日期，第一列为value
+                    elif 'value' in df.columns:
+                        latest_value = float(df['value'].iloc[-1])
+                    elif len(df.columns) == 1:
+                        latest_value = float(df.iloc[-1, 0])
+                    else:
+                        latest_value = 0.0
+                    print(f"📊 市场指标 {sid}: {latest_value}")
+                    return latest_value
+            else:
+                print(f"⚠️ 市场指标文件不存在: {csv_path}")
+        except Exception as e:
+            print(f"⚠️ 加载市场指标 {sid} 失败: {e}")
+        return 0.0
+    
+    # 获取市场体制指标数据
+    val_trend = load_market_indicator('MKT_SPY_TREND_STATUS')
+    val_vol = load_market_indicator('MKT_SPY_REALIZED_VOL')
+    val_credit = load_market_indicator('MKT_CREDIT_APPETITE')
+    
+    # 判断趋势状态
+    trend_status = "🟢 牛市 (价格 > 200日均线)" if val_trend >= 0.5 else "🔴 熊市 (价格 < 200日均线)"
+    trend_color = "#2e7d32" if val_trend >= 0.5 else "#c62828"
+    
+    # 判断波动率环境（假设 >20% 为高波动）
+    vol_status = "🔴 高波动 (波动率飙升)" if val_vol > 20 else "🟢 平静 (波动率正常)" if val_vol < 15 else "🟡 中等波动"
+    vol_color = "#c62828" if val_vol > 20 else "#2e7d32" if val_vol < 15 else "#f57c00"
+    
+    # 判断风险偏好（HYG/TLT 比率，通常范围在 0.8-1.2 之间）
+    # 需要与历史均值对比，这里简化处理：>0.9 为风险偏好，<0.9 为避险
+    credit_status = "🟢 风险偏好 (资金进攻)" if val_credit > 0.9 else "🔴 避险主导 (资金撤退)" if val_credit > 0 else "🟡 中性"
+    credit_color = "#2e7d32" if val_credit > 0.9 else "#c62828" if val_credit > 0 else "#f57c00"
+    
+    # AI 综评逻辑
+    if val_trend < 0.5 and val_vol > 20:
+        ai_judgment = "当前处于'熊市高波动'的市场体制，宏观数据虽未恶化，但价格行为显示资金正在快速撤退，市场情绪极度恐慌。"
+        main_color = "#c62828"
+        bg_color = "#ffebee"
+    elif val_trend < 0.5 and val_credit < 0:
+        ai_judgment = "当前处于'宽幅震荡/避险主导'的市场体制，宏观数据虽未恶化，但价格行为显示资金正在撤退，风险资产承压。"
+        main_color = "#ef6c00"
+        bg_color = "#fff3e0"
+    elif val_trend >= 0.5 and val_vol < 15:
+        ai_judgment = "当前处于'牛市平静'的市场体制，价格行为与宏观数据一致，市场情绪稳定，资金持续流入风险资产。"
+        main_color = "#2e7d32"
+        bg_color = "#e8f5e9"
+    else:
+        ai_judgment = "当前处于'震荡分化'的市场体制，价格行为与宏观数据出现分化，需要密切关注后续信号确认方向。"
+        main_color = "#f57c00"
+        bg_color = "#fff3e0"
+    
+    # 生成 HTML 卡片
+    html_card = f"""
+    <div style="background-color: {bg_color}; border-left: 5px solid {main_color}; padding: 15px; margin: 20px 0; border-radius: 4px;">
+        <h3 style="color: {main_color}; margin-top: 0;">🧭 市场体制雷达 (Market Regime Radar)</h3>
+        
+        <p><strong>主要趋势 (Trend)</strong><br>
+        <span style="color: #666; font-size: 0.9em;">原理：SPY 价格相对于 200日均线的位置反映长期趋势方向。</span><br>
+        <strong>现状</strong>：{trend_status} (当前值: {val_trend:.0f})<br>
+        👉 <em>结论：长期趋势方向已明确。</em></p>
+
+        <p><strong>波动率环境 (Volatility)</strong><br>
+        <span style="color: #666; font-size: 0.9em;">原理：20日实际波动率反映市场恐慌程度和价格波动幅度。</span><br>
+        <strong>现状</strong>：{vol_status} (当前值: {val_vol:.2f}%)<br>
+        👉 <em>结论：波动率环境决定了交易策略的激进程度。</em></p>
+
+        <p><strong>风险偏好 (Risk Appetite)</strong><br>
+        <span style="color: #666; font-size: 0.9em;">原理：HYG/TLT 比率反映资金在风险资产与避险资产之间的配置偏好。</span><br>
+        <strong>现状</strong>：{credit_status} (当前值: {val_credit:.4f})<br>
+        👉 <em>结论：资金流向揭示了市场的真实情绪。</em></p>
+        
+        <hr style="border-top: 1px dashed {main_color}; opacity: 0.3;">
+        <p style="font-weight: bold; color: {main_color};">🤖 AI 综评：<br>
+        "{ai_judgment}"</p>
+    </div>
+    """
+    
+    # 生成 Markdown 文本
+    md_text = f"""### 🧭 市场体制雷达 (Market Regime Radar)
+
+**主要趋势 (Trend)**
+* **现状**：{trend_status} (当前值: {val_trend:.0f})
+* **结论**：长期趋势方向已明确。
+
+**波动率环境 (Volatility)**
+* **现状**：{vol_status} (当前值: {val_vol:.2f}%)
+* **结论**：波动率环境决定了交易策略的激进程度。
+
+**风险偏好 (Risk Appetite)**
+* **现状**：{credit_status} (当前值: {val_credit:.4f})
+* **结论**：资金流向揭示了市场的真实情绪。
+
+> **🤖 AI 综评**：{ai_judgment}
+
+---
+"""
+    return md_text, html_card
+
 def generate_gold_diagnosis(processed_indicators: list) -> tuple:
     """
     生成黄金市场深度诊断（三段式逻辑）
@@ -1927,13 +2295,15 @@ def run_data_pipeline():
     print("🔄 启动数据管道...")
     print("=" * 60)
     
-    # 修复：清洗预计算的中间文件缓存
+    # 修复：清洗预计算的中间文件缓存（排除市场信号文件）
     print("🧹 清洗预计算缓存文件...")
     cache_dir = BASE / "data" / "series"
     if cache_dir.exists():
         cache_files = list(cache_dir.glob("*.csv"))
-        # 排除 README 和其他非数据文件
-        cache_files = [f for f in cache_files if f.name not in ['README.md', 'data_catalog.py']]
+        # 排除 README、市场信号文件（MKT_开头）和其他非数据文件
+        cache_files = [f for f in cache_files 
+                      if f.name not in ['README.md', 'data_catalog.py'] 
+                      and not f.name.startswith('MKT_')]  # v3.0: 保护市场信号文件
         
         removed_count = 0
         for cache_file in cache_files:
@@ -2501,7 +2871,18 @@ def generate_report_with_images():
     print(f"📊 加载了 {len(indicators)} 个指标")
     
     # 计算真实FRED数据评分
-    group_scores, total_score, processed_indicators = calculate_real_fred_scores(indicators, scoring_config)
+    result = calculate_real_fred_scores(indicators, scoring_config)
+    if len(result) == 4:
+        group_scores, total_score, processed_indicators, tension_metrics = result
+    else:
+        # 向后兼容：如果没有张力指标，创建默认值
+        group_scores, total_score, processed_indicators = result
+        tension_metrics = {
+            'score_state': 0.0,
+            'score_trigger': 0.0,
+            'index_tension': 0.0,
+            'tension_analysis': '数据不足，无法计算系统张力。'
+        }
     
     # v2.0: 为每个指标添加风险等级和趋势
     for indicator in processed_indicators:
@@ -2613,13 +2994,18 @@ def generate_report_with_images():
                 elif series_id in ['US_REAL_RATE_10Y', 'GOLD_REAL_RATE_DIFF', 'SP500_PROFIT_DIVERGENCE', 'USD_NET_LIQUIDITY', 'BUFFETT_INDICATOR']:
                     # 使用预计算的合成指标数据
                     try:
+                        # v3.0: 检查市场体制指标和其他合成指标
                         synthetic_file = pathlib.Path(f"data/series/{series_id}.csv")
                         if synthetic_file.exists():
                             synthetic_df = pd.read_csv(synthetic_file, index_col=0, parse_dates=True)
                             if len(synthetic_df.columns) == 1:
                                 ts = parse_numeric_series(synthetic_df.iloc[:, 0]).dropna()
                             else:
-                                ts = parse_numeric_series(synthetic_df['value']).dropna()
+                                # 优先使用 'value' 列，否则使用第一列
+                                if 'value' in synthetic_df.columns:
+                                    ts = parse_numeric_series(synthetic_df['value']).dropna()
+                                else:
+                                    ts = parse_numeric_series(synthetic_df.iloc[:, 0]).dropna()
                             print(f"📁 使用预计算合成指标数据: {series_id}")
                     except Exception as e:
                         print(f"⚠️ 合成指标数据读取失败: {e}")
@@ -2709,14 +3095,68 @@ def generate_report_with_images():
     with open(md_path, "w", encoding="utf-8") as f:
         f.write("# 🚨 FRED 宏观金融危机预警监控报告\n\n")
         f.write(f"**生成时间**: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}\n")
-        f.write(f"**系统版本**: v2.1 (动态趋势与流动性感知系统)\n\n")
+        f.write(f"**系统版本**: v2.4 (Structural Fragility Floor - 结构性脆弱底座)\n\n")
         
-        # 核心方法论声明（V2.1新增）
-        f.write("### ℹ️ 如何阅读本报告 (V2.1)\n\n")
+        # v2.4: 双轨风险面板（在报告最前面）
+        f.write("## ⚡ v2.4 双轨风险面板 (System Tension Dashboard)\n\n")
+        
+        score_state = tension_metrics.get('score_state', 0.0)
+        score_trigger = tension_metrics.get('score_trigger', 0.0)
+        # v2.4: 使用最终风险分（考虑结构性底座）
+        final_risk_score = tension_metrics.get('final_risk_score', tension_metrics.get('index_tension', 0.0))
+        structural_floor = tension_metrics.get('structural_floor', 0.0)
+        index_tension = tension_metrics.get('index_tension', 0.0)
+        tension_analysis = tension_metrics.get('tension_analysis', '数据不足')
+        
+        # Markdown格式的双轨面板
+        f.write("### 📉 回报不对称性 (Valuation Risk - State)\n\n")
+        f.write(f"**得分**: {score_state:.1f} / 100\n\n")
+        f.write("**含义**：资产是否昂贵？未来长期回报是否受限？\n\n")
+        f.write("**策略**：分数越高，越应降低预期收益，而非立刻卖出。\n\n")
+        f.write("---\n\n")
+        f.write("### 💥 崩盘触发概率 (Trigger Risk)\n\n")
+        f.write(f"**得分**: {score_trigger:.1f} / 100\n\n")
+        f.write("**含义**：流动性/信用/情绪是否在恶化？\n\n")
+        f.write("**策略**：分数越高，越应增加对冲或现金。\n\n")
+        f.write("---\n\n")
+        f.write("### ⚡ 系统张力指数 (System Tension)\n\n")
+        f.write(f"**指数**: {final_risk_score:.1f} / 100\n\n")
+        
+        # v2.3: 显示 Momentum 和 Convexity
+        trigger_momentum = tension_metrics.get('trigger_momentum', 0.0)
+        convexity_factor = tension_metrics.get('convexity_factor', 1.0)
+        
+        if trigger_momentum > 0:
+            momentum_text = f"+{trigger_momentum:.1f} (恶化 ⚠️)"
+        else:
+            momentum_text = f"{trigger_momentum:.1f} (改善)"
+        
+        f.write(f"**Trigger Momentum**: {momentum_text}\n\n")
+        f.write(f"**Convexity Multiplier**: {convexity_factor:.2f}x\n\n")
+        
+        # v2.4: 显示结构性底座
+        if structural_floor > 0:
+            if final_risk_score == structural_floor:
+                f.write(f"**🛡️ 结构性底座**: {structural_floor:.1f} (已激活) ⚠️\n\n")
+                f.write(f"*原因：State ({tension_metrics.get('score_state', 0.0):.1f}) 过高，系统强制锁定最低风险分。*\n\n")
+            else:
+                f.write(f"**🛡️ 结构性底座**: {structural_floor:.1f} (未激活)\n\n")
+        
+        f.write(f"**分析**: {tension_analysis}\n\n")
+        f.write(f"*v2.4 算法：当 State > 40 时，系统进入\"易碎模式\" (Fragile Mode)，Trigger 的微小恶化会被凸性放大 {convexity_factor:.1f} 倍。同时，高估值会触发结构性底座，防止风险低估。*\n\n")
+        f.write("---\n\n")
+        
+        # 核心方法论声明（V2.4更新）
+        f.write("### ℹ️ 如何阅读本报告 (V2.4)\n\n")
         f.write("本系统采用**\"三层指标体系\"**来区分\"贵\"与\"险\"：\n\n")
         f.write("1. **状态指标 (State)**：如巴菲特指标、利润背离。它们只告诉你\"资产贵不贵\"，**不直接触发危机预警**。\n\n")
         f.write("2. **触发指标 (Trigger)**：如流动性、信用利差、FCI。它们决定\"泡沫会不会破\"，是危机爆发的扳机。\n\n")
         f.write("3. **约束指标 (Constraint)**：如实际利率、财政赤字。它们是资产定价的宏观边界。\n\n")
+        f.write("**系统张力指数** = 基础张力 + (动量风险 × 凸性放大)。\n\n")
+        f.write("        * **基础张力** = (State得分 × Trigger得分) / 100\n")
+        f.write("        * **动量风险** = Trigger当前值 - Trigger 13周均值（仅当恶化时>0）\n")
+        f.write("        * **凸性放大** = 当State>40时，使用指数函数放大动量风险\n\n")
+        f.write("        高估值+触发恶化 = 极度危险（动量被大幅放大）。\n\n")
         f.write("*当前总分较低（极低风险）是因为\"触发指标\"依然健康，尽管\"状态指标\"已经报警。请据此区分长期配置风险与短期交易风险。*\n\n")
         f.write("---\n\n")
         
@@ -2746,6 +3186,15 @@ def generate_report_with_images():
         f.write("## 📖 宏观叙事分析 (v2.0)\n\n")
         f.write(macro_narrative)
         f.write("\n\n")
+        
+        # v3.0: 添加市场体制雷达诊断
+        try:
+            market_md, market_html = generate_market_regime_diagnosis(processed_indicators)
+            f.write(market_md)
+            f.write("\n")
+        except Exception as e:
+            print(f"⚠️ 市场体制诊断生成失败: {e}")
+            f.write("### 🧭 市场体制雷达\n\n*市场数据暂不可用*\n\n")
         
         # 添加美股泡沫深度诊断（三段式逻辑）
         bubble_md, bubble_html = generate_bubble_diagnosis(processed_indicators)
@@ -2949,15 +3398,96 @@ def generate_report_with_images():
     with open(md_path, "r", encoding="utf-8") as f:
         markdown_content = f.read()
     
-    # 在HTML中替换Markdown版本的美股和黄金诊断为HTML版本
+    # v2.4: 生成双轨风险面板的HTML版本（增加 Structural Floor）
+    score_state = tension_metrics.get('score_state', 0.0)
+    score_trigger = tension_metrics.get('score_trigger', 0.0)
+    trigger_momentum = tension_metrics.get('trigger_momentum', 0.0)
+    convexity_factor = tension_metrics.get('convexity_factor', 1.0)
+    index_tension = tension_metrics.get('index_tension', 0.0)
+    structural_floor = tension_metrics.get('structural_floor', 0.0)
+    final_risk_score = tension_metrics.get('final_risk_score', index_tension)
+    tension_analysis = tension_metrics.get('tension_analysis', '数据不足')
+    
+    if trigger_momentum > 0:
+        momentum_text = f"+{trigger_momentum:.1f} (恶化 ⚠️)"
+        momentum_color = "#c62828"
+    else:
+        momentum_text = f"{trigger_momentum:.1f} (改善)"
+        momentum_color = "#2e7d32"
+    
+    # v2.4: 判断结构性底座是否激活
+    floor_active = (final_risk_score == structural_floor and structural_floor > 0)
+    floor_status_text = ""
+    if structural_floor > 0:
+        if floor_active:
+            floor_status_text = f'<div style="background: #ffebee; padding: 8px; border-radius: 4px; margin-top: 10px; border-left: 3px solid #c62828;"><strong>🛡️ 结构性底座已激活 (Structural Floor Active)</strong><br><span style="font-size: 0.9em;">原因：State ({score_state:.1f}) 过高，系统强制锁定最低风险分 {structural_floor:.1f}。</span></div>'
+        else:
+            floor_status_text = f'<div style="background: #f5f5f5; padding: 8px; border-radius: 4px; margin-top: 10px; font-size: 0.9em; color: #666;">🛡️ 结构性底座: {structural_floor:.1f} (未激活)</div>'
+    
+    tension_html = f"""
+<div style="margin: 20px 0;">
+    <div style="display: flex; gap: 20px; margin-bottom: 15px;">
+        <div style="flex: 1; background: #e3f2fd; padding: 15px; border-radius: 8px; border-left: 5px solid #2196f3;">
+            <h3 style="margin-top: 0; color: #1976d2;">📉 回报不对称性 (Valuation Risk)</h3>
+            <p style="font-size: 1.2em; font-weight: bold; color: #1976d2;">得分: {score_state:.1f} / 100</p>
+            <p style="color: #555;">含义：资产是否昂贵？未来长期回报是否受限？</p>
+            <p style="color: #555; font-size: 0.9em;">策略：分数越高，越应降低预期收益，而非立刻卖出。</p>
+        </div>
+        <div style="flex: 1; background: #ffebee; padding: 15px; border-radius: 8px; border-left: 5px solid #f44336;">
+            <h3 style="margin-top: 0; color: #c62828;">💥 崩盘触发概率 (Trigger Risk)</h3>
+            <p style="font-size: 1.2em; font-weight: bold; color: #c62828;">得分: {score_trigger:.1f} / 100</p>
+            <p style="color: #555;">含义：流动性/信用/情绪是否在恶化？</p>
+            <p style="color: {momentum_color}; font-weight: bold;">🌊 动量: {momentum_text}</p>
+            <p style="color: #555; font-size: 0.9em;">策略：分数越高，越应增加对冲或现金。</p>
+        </div>
+    </div>
+    <div style="background: #fff3e0; padding: 15px; border-left: 5px solid #ff9800; border-radius: 4px;">
+        <h3 style="margin-top: 0; color: #e65100;">⚡ 系统张力指数 (System Tension): {final_risk_score:.1f} / 100</h3>
+        <div style="display: flex; gap: 20px; margin-bottom: 10px; font-size: 0.9em; color: #666;">
+            <div>🔥 凸性放大器: <strong>{convexity_factor:.2f}x</strong></div>
+            <div>🌊 Trigger动量: <strong style="color: {momentum_color};">{momentum_text}</strong></div>
+        </div>
+        {floor_status_text}
+        <p style="font-weight: bold; color: #e65100; font-size: 1.1em; margin-top: 10px;">{tension_analysis}</p>
+        <p style="font-size: 0.85em; color: #888; margin-top: 5px;">
+            * v2.4 算法：当 State > 40 时，系统进入"易碎模式" (Fragile Mode)，Trigger 的微小恶化会被凸性放大 {convexity_factor:.1f} 倍。同时，高估值会触发结构性底座，防止风险低估。
+        </p>
+    </div>
+</div>
+"""
+    
+    # 在HTML中替换Markdown版本的市场体制、美股和黄金诊断为HTML版本
+    try:
+        market_md, market_html = generate_market_regime_diagnosis(processed_indicators)
+    except Exception as e:
+        print(f"⚠️ 市场体制诊断生成失败: {e}")
+        market_md, market_html = "### 🧭 市场体制雷达\n\n*市场数据暂不可用*\n\n", ""
+    
     bubble_md, bubble_html = generate_bubble_diagnosis(processed_indicators)
     gold_html, gold_md = generate_gold_diagnosis(processed_indicators)
     
     # 先转换Markdown为HTML
     html_content = render_html_report(markdown_content, "宏观金融危机监察报告", output_dir)
     
-    # 替换美股诊断（Markdown转HTML后会被转义）
+    # v2.4: 替换双轨风险面板（Markdown转HTML后会被转义）
     import re
+    tension_md_pattern = r'<h2>⚡ v2\.4 双轨风险面板.*?</h2>.*?<hr\s*/>'
+    if re.search(tension_md_pattern, html_content, re.DOTALL):
+        html_content = re.sub(tension_md_pattern, tension_html, html_content, flags=re.DOTALL)
+    else:
+        # 如果找不到，在报告开头插入
+        body_start = html_content.find('<body>')
+        if body_start != -1:
+            body_content_start = html_content.find('>', body_start) + 1
+            html_content = html_content[:body_content_start] + tension_html + html_content[body_content_start:]
+    
+    # 替换市场体制诊断（Markdown转HTML后会被转义）
+    if market_html:
+        market_md_pattern = r'<h3>🧭 市场体制雷达</h3>.*?---'
+        if re.search(market_md_pattern, html_content, re.DOTALL):
+            html_content = re.sub(market_md_pattern, market_html, html_content, flags=re.DOTALL)
+    
+    # 替换美股诊断（Markdown转HTML后会被转义）
     bubble_md_pattern = r'<h3>💹 美股泡沫深度诊断</h3>.*?---'
     if re.search(bubble_md_pattern, html_content, re.DOTALL):
         html_content = re.sub(bubble_md_pattern, bubble_html, html_content, flags=re.DOTALL)
