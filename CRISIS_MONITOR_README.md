@@ -64,6 +64,14 @@ cd C:\Users\admin\上网
 python -m scripts.crisis_monitor
 ```
 
+### 每日 9:00 自动运行并发邮件
+1) 设置环境变量 `SENDGRID_API_KEY`
+2) 编辑 `config/email_settings.yaml`（发件人/收件人）
+3) 运行：
+```
+scripts\create_daily_task.bat
+```
+
 ### 输出文件
 系统会在 `outputs/crisis_monitor/` 目录下生成：
 - **CSV报告**: `crisis_report_YYYYMMDD_HHMMSS.csv`

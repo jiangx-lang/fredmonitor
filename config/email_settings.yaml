@@ -1,0 +1,6 @@
+sender: jiangx@gmail.com
+recipients:
+  - 34718@qq.com
+  - jiangx@gmail.com
+subject_prefix: "[Crisis Monitor]"
+include_paths: true

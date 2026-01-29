@@ -36,55 +36,31 @@ def infer_shift_for_yoy(idx: pd.DatetimeIndex) -> int:
     # 日频：用交易日近似
     return 252
 
-def calculate_yoy_for_indicator(series_id: str, name: str, from_local: bool = False) -> bool:
-    """计算单个指标的YoY数据
-    
-    Args:
-        series_id: 指标ID
-        name: 指标名称
-        from_local: 是否从本地文件读取（用于合成指标）
-    """
+def calculate_yoy_for_indicator(series_id: str, name: str) -> bool:
+    """计算单个指标的YoY数据"""
     print(f"📊 计算 {series_id} ({name}) 的YoY数据...")
     
     try:
         # 1. 获取原始数据
-        if from_local:
-            # 从本地文件读取合成指标
-            local_file = pathlib.Path(f"data/series/{series_id}.csv")
-            if not local_file.exists():
-                print(f"❌ 本地文件不存在: {local_file}")
-                return False
-            
-            df = pd.read_csv(local_file, index_col=0, parse_dates=True)
-            if len(df.columns) == 1:
-                ts = parse_numeric_series(df.iloc[:, 0]).dropna()
-            else:
-                ts = parse_numeric_series(df['value']).dropna()
-            
-            if ts.empty:
-                print(f"❌ {series_id} 无有效数据")
-                return False
-        else:
-            # 从FRED API获取数据
-            response = series_observations(series_id)
-            if not response or 'observations' not in response:
-                print(f"❌ 无法获取 {series_id} 数据")
-                return False
-            
-            observations = response.get('observations', [])
-            if not observations:
-                print(f"❌ {series_id} 数据为空")
-                return False
-            
-            # 转换为DataFrame
-            df = pd.DataFrame(observations)
-            df['date'] = pd.to_datetime(df['date'])
-            df = df.set_index('date')
-            ts = parse_numeric_series(df['value']).dropna()
-            
-            if ts.empty:
-                print(f"❌ {series_id} 无有效数据")
-                return False
+        response = series_observations(series_id)
+        if not response or 'observations' not in response:
+            print(f"❌ 无法获取 {series_id} 数据")
+            return False
+        
+        observations = response.get('observations', [])
+        if not observations:
+            print(f"❌ {series_id} 数据为空")
+            return False
+        
+        # 转换为DataFrame
+        df = pd.DataFrame(observations)
+        df['date'] = pd.to_datetime(df['date'])
+        df = df.set_index('date')
+        ts = parse_numeric_series(df['value']).dropna()
+        
+        if ts.empty:
+            print(f"❌ {series_id} 无有效数据")
+            return False
         
         print(f"✅ {series_id} 原始数据获取成功: {len(ts)} 个观测值")
         print(f"   最新值: {ts.iloc[-1]:,.2f}")
@@ -139,34 +115,28 @@ def calculate_all_yoy_indicators():
     """计算所有需要YoY的指标"""
     print("[开始] 开始计算所有YoY指标...")
     
-    # 需要计算YoY的指标列表（从FRED API获取）
+    # 需要计算YoY的指标列表
     yoy_indicators = [
-        ('PAYEMS', '非农就业人数', False),
-        ('INDPRO', '工业生产指数', False),
-        ('GDP', '国内生产总值', False),
-        ('NEWORDER', '制造业新订单', False),
-        ('CSUSHPINSA', 'Case-Shiller房价指数', False),
-        ('TOTALSA', '消费者信贷', False),
-        ('TOTLL', '银行总贷款和租赁', False),
-        ('MANEMP', '制造业就业', False),
-        ('WALCL', '美联储总资产', False),
-        ('DTWEXBGS', '贸易加权美元指数', False),
-        ('PERMIT', '建筑许可', False),
-        ('TOTRESNS', '银行准备金', False)
+        ('PAYEMS', '非农就业人数'),
+        ('INDPRO', '工业生产指数'),
+        ('GDP', '国内生产总值'),
+        ('NEWORDER', '制造业新订单'),
+        ('CSUSHPINSA', 'Case-Shiller房价指数'),
+        ('TOTALSA', '消费者信贷'),
+        ('TOTLL', '银行总贷款和租赁'),
+        ('MANEMP', '制造业就业'),
+        ('WALCL', '美联储总资产'),
+        ('DTWEXBGS', '贸易加权美元指数'),
+        ('PERMIT', '建筑许可'),
+        ('TOTRESNS', '银行准备金')
     ]
     
-    # 需要计算YoY的合成指标（从本地文件读取）
-    synthetic_yoy_indicators = [
-        ('USD_NET_LIQUIDITY', '美联储净流动性', True)
-    ]
-    
-    all_indicators = yoy_indicators + synthetic_yoy_indicators
     success_count = 0
-    total_count = len(all_indicators)
+    total_count = len(yoy_indicators)
     
-    for series_id, name, from_local in all_indicators:
+    for series_id, name in yoy_indicators:
         print(f"\n{'='*60}")
-        if calculate_yoy_for_indicator(series_id, name, from_local):
+        if calculate_yoy_for_indicator(series_id, name):
             success_count += 1
         print(f"{'='*60}")
     

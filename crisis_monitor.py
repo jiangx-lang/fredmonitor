@@ -18,6 +18,9 @@ import base64
 import re
 import subprocess
 import html as _html
+import time
+import threading
+import random
 from datetime import datetime
 from typing import List, Dict, Optional
 import pytz
@@ -31,12 +34,31 @@ if sys.platform == "win32":
 # 统一时区设置
 JST = pytz.timezone("Asia/Tokyo")
 
+RUN_LOG_PATH = None
+RUN_START_TS = None
+
+
+def _log_stage(message: str) -> None:
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    elapsed = ""
+    if RUN_START_TS is not None:
+        elapsed = f" (+{time.time() - RUN_START_TS:.1f}s)"
+    line = f"[{timestamp}]{elapsed} {message}"
+    print(line)
+    if RUN_LOG_PATH:
+        try:
+            with open(RUN_LOG_PATH, "a", encoding="utf-8") as f:
+                f.write(line + "\n")
+        except Exception:
+            pass
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import font_manager
 from dotenv import load_dotenv
+import yfinance as yf
 
 # 抑制警告
 warnings.filterwarnings("ignore", category=FutureWarning)
@@ -129,12 +151,59 @@ def to_yoy_pct(ts: pd.Series) -> pd.Series:
 def rolling_mean(ts: pd.Series, window: int = 20) -> pd.Series:
     return ts.dropna().astype(float).rolling(window, min_periods=max(5, window//2)).mean()
 
+def infer_window_for_zscore(idx: pd.DatetimeIndex) -> int:
+    """根据索引推断Z-Score窗口（D=252, W=52, M=12, Q=4）"""
+    if len(idx) < 3:
+        return 252
+    freq = pd.infer_freq(idx) or ""
+    f = freq.upper() if freq else ""
+    if f.startswith("Q"):
+        return 20
+    if f.startswith("M"):
+        return 60
+    if f.startswith("W"):
+        return 104
+    return 252
+
+def calculate_zscore(series: pd.Series, window: Optional[int] = None) -> pd.Series:
+    """计算滚动Z-Score (当前值 - 均值) / 标准差"""
+    series = series.dropna().astype(float)
+    if series.empty:
+        return series
+    if window is None:
+        window = infer_window_for_zscore(series.index)
+    min_periods = max(5, window // 2)
+    roll_mean = series.rolling(window=window, min_periods=min_periods).mean()
+    roll_std = series.rolling(window=window, min_periods=min_periods).std()
+    zscore = (series - roll_mean) / roll_std
+    return zscore.replace([np.inf, -np.inf], np.nan)
+
+def calculate_rsi(series: pd.Series, window: int = 14) -> pd.Series:
+    """计算RSI相对强弱指标 (Wilder's Smoothing)"""
+    series = series.dropna().astype(float)
+    if series.empty:
+        return series
+    delta = series.diff()
+    # 获得上涨和下跌的绝对值
+    gain = delta.where(delta > 0, 0.0)
+    loss = -delta.where(delta < 0, 0.0)
+    
+    # 使用Wilder's Smoothing (alpha = 1/n)
+    avg_gain = gain.ewm(alpha=1/window, min_periods=window, adjust=False).mean()
+    avg_loss = loss.ewm(alpha=1/window, min_periods=window, adjust=False).mean()
+    
+    rs = avg_gain / avg_loss
+    rsi = 100 - (100 / (1 + rs))
+    return rsi
+
 def transform_series(series_id: str, raw_ts: pd.Series, indicator_meta: dict) -> pd.Series:
     """对历史序列应用与当前值一致的变换，确保打分的域一致。"""
     transform = indicator_meta.get("transform", "level")
     ts = raw_ts.dropna().astype(float)
     if transform == "yoy_pct":
         return to_yoy_pct(ts)
+    if transform == "zscore":
+        return calculate_zscore(ts)
     # 兼容派生：SOFR20DMA_MINUS_DTB3 等在外层先合成，再进这里
     return ts
 
@@ -155,7 +224,11 @@ def fetch_series(series_id: str) -> pd.Series:
         return pd.Series(dtype="float64")
     
     # API
-    data = series_observations(series_id)
+    try:
+        data = series_observations(series_id)
+    except Exception as e:
+        print(f"⚠️ API获取数据失败: {series_id} - {e}")
+        return pd.Series(dtype="float64")
     obs = data.get("observations", []) if data else []
     if not obs: return pd.Series(dtype="float64")
     df = pd.DataFrame(obs)
@@ -170,6 +243,68 @@ def fetch_series(series_id: str) -> pd.Series:
         pass
     return ts
 
+def fetch_yahoo_safe(symbol: str, retries: int = 5, delay: float = 3.0) -> pd.Series:
+    """
+    带重试与退避的Yahoo下载函数（优先缓存）
+    """
+    safe_symbol = symbol.replace("^", "_")
+    cache = BASE / "data" / "yahoo" / "series" / safe_symbol / "raw.csv"
+    if cache.exists():
+        try:
+            df = pd.read_csv(cache, index_col=0, parse_dates=True)
+            if not df.empty:
+                return parse_numeric_series(df.iloc[:, 0]).dropna()
+        except Exception:
+            pass
+    
+    print(f"🌐 正在获取 {symbol} (Yahoo)...")
+    for i in range(retries):
+        try:
+            sleep_time = delay * (1.5 ** i) + random.uniform(0.5, 1.5)
+            if i > 0:
+                print(f"   ⏳ 触发限流，等待 {sleep_time:.1f} 秒后重试 ({i+1}/{retries})...")
+            time.sleep(sleep_time)
+            
+            df = yf.download(symbol, period="5y", progress=False)
+            if df.empty:
+                print(f"   ⚠️ {symbol} 返回空数据，尝试重试...")
+                continue
+            
+            if 'Adj Close' in df.columns:
+                series = df['Adj Close']
+            elif 'Close' in df.columns:
+                series = df['Close']
+            else:
+                series = df.iloc[:, 0]
+            
+            if isinstance(series, pd.DataFrame):
+                series = series.iloc[:, 0]
+            if getattr(series.index, "tz", None) is not None:
+                series.index = series.index.tz_localize(None)
+            
+            series = parse_numeric_series(series).dropna()
+            if series.empty:
+                print(f"   ⚠️ {symbol} 清洗后为空，尝试重试...")
+                continue
+            
+            try:
+                cache.parent.mkdir(parents=True, exist_ok=True)
+                series.to_frame(symbol).to_csv(cache)
+            except Exception:
+                pass
+            
+            print(f"   ✅ {symbol} 获取成功 (最新: {series.iloc[-1]:.2f})")
+            return series
+        except Exception as e:
+            error_msg = str(e).lower()
+            if "429" in error_msg or "too many requests" in error_msg:
+                continue
+            print(f"   ❌ {symbol} 下载出错: {e}")
+            break
+    
+    print(f"   ❌ {symbol} 重试 {retries} 次后彻底失败，跳过。")
+    return pd.Series(dtype="float64")
+
 def compose_series(series_id: str) -> Optional[pd.Series]:
     """处理非FRED原生ID的派生系列。优先使用预计算的CSV，否则实时计算。"""
     sid = series_id.upper()
@@ -178,14 +313,10 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
     derived_series = [
         "CP_MINUS_DTB3", "SOFR20DMA_MINUS_DTB3", 
         "CORPDEBT_GDP_PCT", "RESERVES_ASSETS_PCT", "RESERVES_DEPOSITS_PCT",
-        # 黄金见顶判断模型指标
-        "US_REAL_RATE_10Y", "GOLD_REAL_RATE_DIFF",
-        # 权益周期监控指标
-        "SP500_PROFIT_DIVERGENCE", "USD_NET_LIQUIDITY",
-        # 长期估值锚指标
-        "BUFFETT_INDICATOR",
-        # v3.0: 市场体制指标
-        "MKT_SPY_TREND_STATUS", "MKT_SPY_REALIZED_VOL", "MKT_CREDIT_APPETITE"
+        "UST30Y_UST2Y_RSI",
+        "HY_OAS_MOMENTUM_RATIO", "SP500_DGS10_CORR60D", "NET_LIQUIDITY",
+        "VIX_TERM_STRUCTURE", "HY_IG_RATIO", "GLOBAL_LIQUIDITY_USD",
+        "CREDIT_CARD_DELINQUENCY"
     ]
     
     if sid in derived_series:
@@ -193,22 +324,12 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
         csv_path = f"data/series/{sid}.csv"
         if os.path.exists(csv_path):
             try:
-                # v3.0: 支持两种格式（新格式：date,value 两列；旧格式：索引为日期）
-                df = pd.read_csv(csv_path)
-                if 'date' in df.columns and 'value' in df.columns:
-                    # 新格式：date, value 两列，将date设为索引
-                    df['date'] = pd.to_datetime(df['date'])
-                    df = df.set_index('date')
-                    ts = df['value']
+                df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
+                # 处理不同的列名格式
+                if len(df.columns) == 1:
+                    ts = df.iloc[:, 0]  # 取第一列
                 else:
-                    # 旧格式：索引为日期
-                    df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
-                    if len(df.columns) == 1:
-                        ts = df.iloc[:, 0]  # 取第一列
-                    elif 'value' in df.columns:
-                        ts = df['value']
-                    else:
-                        ts = df.squeeze()  # 尝试squeeze
+                    ts = df.squeeze()  # 尝试squeeze
                 print(f"📁 使用预计算数据: {series_id} ({len(ts)} 个数据点)")
                 return ts
             except Exception as e:
@@ -232,8 +353,150 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
                     print(f"⚠️ {series_id}: 基础数据缺失，跳过合成")
                     return None
                 sofr20 = rolling_mean(sofr, 20)
-                tb_aligned = tb.reindex_like(sofr20).fillna(method="ffill")
+                tb_aligned = tb.reindex_like(sofr20).ffill()
                 return (sofr20 - tb_aligned).dropna()
+            
+            if sid == "UST30Y_UST2Y_RSI":
+                t30 = fetch_series("DGS30")
+                t2 = fetch_series("DGS2")
+                if t30.empty or t2.empty:
+                    print(f"⚠️ {series_id}: 基础数据(DGS30/DGS2)缺失，跳过合成")
+                    return None
+                t30_aligned = t30.reindex_like(t2).ffill()
+                ratio_daily = (t30_aligned / t2).replace([np.inf, -np.inf], np.nan).dropna()
+                if ratio_daily.empty:
+                    print(f"⚠️ {series_id}: 比率序列为空，跳过合成")
+                    return None
+                
+                try:
+                    ratio_monthly = ratio_daily.resample("ME").last()
+                except ValueError:
+                    ratio_monthly = ratio_daily.resample("M").last()
+                
+                rsi_monthly = calculate_rsi(ratio_monthly, window=14).dropna()
+                if rsi_monthly.empty:
+                    print(f"⚠️ {series_id}: RSI计算结果为空，跳过合成")
+                    return None
+                
+                rsi_daily = rsi_monthly.reindex(ratio_daily.index, method="ffill")
+                return rsi_daily.dropna()
+            
+            if sid == "HY_OAS_MOMENTUM_RATIO":
+                oas = fetch_series("BAMLH0A0HYM2")
+                if oas.empty:
+                    print(f"⚠️ {series_id}: 基础数据(BAMLH0A0HYM2)缺失，跳过合成")
+                    return None
+                oas_ma20 = rolling_mean(oas, 20)
+                oas_aligned = oas.reindex_like(oas_ma20).ffill()
+                ratio = (oas_aligned / oas_ma20).replace([np.inf, -np.inf], np.nan)
+                return ratio.dropna()
+            
+            if sid == "SP500_DGS10_CORR60D":
+                spx = fetch_series("SP500")
+                dgs10 = fetch_series("DGS10")
+                if spx.empty or dgs10.empty:
+                    print(f"⚠️ {series_id}: 基础数据(SP500/DGS10)缺失，跳过合成")
+                    return None
+                dgs10_aligned = dgs10.reindex_like(spx).ffill()
+                spx_ret = spx.pct_change()
+                dgs10_ret = dgs10_aligned.pct_change()
+                corr = spx_ret.rolling(60).corr(dgs10_ret)
+                return corr.dropna()
+            
+            if sid == "NET_LIQUIDITY":
+                walcl = fetch_series("WALCL")
+                tga = fetch_series("WTREGEN")
+                rrp = fetch_series("RRPONTSYD")
+                if walcl.empty or tga.empty or rrp.empty:
+                    print(f"⚠️ {series_id}: 基础数据(WALCL/WTREGEN/RRPONTSYD)缺失，跳过合成")
+                    return None
+                start = min(walcl.index.min(), tga.index.min(), rrp.index.min())
+                end = max(walcl.index.max(), tga.index.max(), rrp.index.max())
+                daily_index = pd.date_range(start, end, freq="D")
+                
+                walcl_daily = walcl.reindex(daily_index).interpolate(method="time").ffill()
+                tga_daily = tga.reindex(daily_index).ffill()
+                rrp_daily = rrp.reindex(daily_index).ffill()
+                
+                net_liquidity = walcl_daily - tga_daily - rrp_daily
+                return net_liquidity.dropna()
+            
+            if sid == "VIX_TERM_STRUCTURE":
+                vix = fetch_series("VIXCLS")
+                if vix.empty:
+                    vix = fetch_yahoo_safe("^VIX")
+                
+                vix3m = fetch_series("VIX3M")
+                if vix3m.empty:
+                    vix3m = fetch_yahoo_safe("^VIX3M")
+                
+                if (vix.empty or vix3m.empty) and not vix.empty:
+                    print("   ⚠️ 无法获取 ^VIX3M，尝试使用备选指标 ^VIX9D...")
+                    vix9d = fetch_yahoo_safe("^VIX9D")
+                    if not vix9d.empty:
+                        vix, vix9d = vix.align(vix9d, join="inner")
+                        return (vix9d / vix).dropna()
+                    return None
+                
+                if vix.empty or vix3m.empty:
+                    print(f"⚠️ {series_id}: 基础数据(VIXCLS/VIX3M)缺失，跳过合成")
+                    return None
+                vix, vix3m = vix.align(vix3m, join="inner")
+                ratio = (vix / vix3m).replace([np.inf, -np.inf], np.nan)
+                return ratio.dropna()
+            
+            if sid == "HY_IG_RATIO":
+                hy = fetch_series("BAMLHYH0A0HYM2TRIV")
+                ig = fetch_series("BAMLCC0A0CMTRIV")
+                if hy.empty or ig.empty:
+                    print(f"⚠️ {series_id}: 基础数据(HY/IG总回报)缺失，跳过合成")
+                    return None
+                hy, ig = hy.align(ig, join="inner")
+                ratio = (hy / ig).replace([np.inf, -np.inf], np.nan)
+                return ratio.dropna()
+            
+            if sid == "GLOBAL_LIQUIDITY_USD":
+                fed = fetch_series("WALCL")
+                if fed.empty:
+                    print(f"⚠️ {series_id}: 基础数据(WALCL)缺失，跳过合成")
+                    return None
+                ecb = fetch_series("ECBASSETSW")
+                eurusd = fetch_series("DEXUSEU")
+                boj = fetch_series("JPNASSETS")
+                usdjpy = fetch_series("DEXJPUS")
+                
+                start = fed.index.min()
+                end = fed.index.max()
+                for s in [ecb, eurusd, boj, usdjpy]:
+                    if s is not None and not s.empty:
+                        start = min(start, s.index.min())
+                        end = max(end, s.index.max())
+                
+                daily_index = pd.date_range(start, end, freq="D")
+                fed_daily = fed.reindex(daily_index).ffill()
+                total = fed_daily.copy()
+                
+                if ecb is not None and not ecb.empty and eurusd is not None and not eurusd.empty:
+                    ecb_daily = ecb.reindex(daily_index).ffill()
+                    eurusd_daily = eurusd.reindex(daily_index).ffill()
+                    ecb_usd = ecb_daily * eurusd_daily
+                    total = total.add(ecb_usd, fill_value=0)
+                
+                if boj is not None and not boj.empty and usdjpy is not None and not usdjpy.empty:
+                    boj_daily = boj.reindex(daily_index).ffill()
+                    usdjpy_daily = usdjpy.reindex(daily_index).ffill()
+                    # BOJ单位假定为1e8 JPY，换算为USD
+                    boj_usd = (boj_daily * 100000000) / usdjpy_daily
+                    total = total.add(boj_usd, fill_value=0)
+                
+                return total.dropna()
+            
+            if sid == "CREDIT_CARD_DELINQUENCY":
+                delinquency = fetch_series("DRCCLACBS")
+                if delinquency.empty:
+                    print(f"⚠️ {series_id}: 基础数据(DRCCLACBS)缺失，跳过合成")
+                    return None
+                return delinquency.dropna()
             
             if sid == "CORPDEBT_GDP_PCT":
                 corp_debt = fetch_series("NCBDBIQ027S")
@@ -737,7 +1000,8 @@ def generate_long_image(html_path: str, output_path: str) -> bool:
         for path in wkhtmltoimage_paths:
             try:
                 result = subprocess.run([path, '--version'], 
-                                      capture_output=True, text=True, timeout=10)
+                                      capture_output=True, text=True, timeout=10,
+                                      encoding="utf-8", errors="replace")
                 if result.returncode == 0:
                     wkhtmltoimage_cmd = path
                     print(f"✅ 找到wkhtmltoimage: {path}")
@@ -761,7 +1025,8 @@ def generate_long_image(html_path: str, output_path: str) -> bool:
             output_path
         ]
         
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=60,
+                               encoding="utf-8", errors="replace")
         if result.returncode == 0:
             print(f"✅ 长图生成成功: {output_path}")
             return True
@@ -780,41 +1045,6 @@ def generate_long_image(html_path: str, output_path: str) -> bool:
         return False
 
 # 真实FRED数据计算
-# v2.2/v2.3: 逻辑阵营映射（State/Trigger/Constraint）
-# v2.3 更新：将 'real_economy' 移出 State，因为它在泡沫期通常很好(0分)，会拉低 State 均分
-CATEGORY_MAPPING = {
-    # STATE (状态/燃料): 纯粹的"势能" (估值、杠杆)，决定"贵不贵"
-    'State': [
-        '权益周期监控 (Equity_Cycle)',  # 估值、巴菲特指标
-        '长期估值锚 (Secular_Valuation)',  # 长期估值
-        # 'real_economy',       # v2.3: 移出 State（泡沫期通常很好，会拉低均分）
-        'consumers_leverage', # 杠杆
-        'banking',            # 银行健康度
-        '黄金见顶监控'     # 黄金估值
-    ],
-    # TRIGGER (触发/火花): 纯粹的"动能" (流动性、信用、波动率、衰退前兆)，决定"破不破"
-    'Trigger': [
-        'liquidity',          # 净流动性、RRP
-        'core_warning',       # 金融压力、VIX、信用利差
-        'recession_leading',  # 衰退先行指标 (Sahm, 倒挂陡峭化)
-        'inflation_expectations',  # 通胀预期（作为触发条件）
-        'monetary_policy'    # 货币政策（作为触发条件）
-    ],
-    # CONSTRAINT (约束/刹车): 宏观边界条件
-    'Constraint': [
-        'real_economy',       # v2.3: 实体经济移到 Constraint
-        'monitoring'         # 监控指标（通常不计分，但作为约束）
-    ]
-}
-
-def get_category_for_group(group_name: str) -> str:
-    """根据group名称返回其所属的类别（State/Trigger/Constraint）"""
-    for category, groups in CATEGORY_MAPPING.items():
-        if group_name in groups:
-            return category
-    # 默认归类为Constraint（未知组）
-    return 'Constraint'
-
 def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
     """基于真实FRED数据计算评分"""
     
@@ -822,7 +1052,7 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
     print("🔍 配置验证检查...")
     
     # 检查transform类型和名称/口径一致性
-    valid_transforms = {"level", "yoy_pct", "none"}
+    valid_transforms = {"level", "yoy_pct", "none", "zscore"}
     for indicator in indicators_config or []:
         transform = indicator.get('transform', 'level')
         if transform not in valid_transforms:
@@ -879,15 +1109,6 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
     else:
         indicators = indicators_config
     
-    # 修复：移除冗余指标
-    # 如果同时存在 NCBDBIQ027S 和 CORPDEBT_GDP_PCT，移除 CORPDEBT_GDP_PCT
-    indicator_ids = [ind.get('series_id') or ind.get('id', '') for ind in indicators]
-    if 'NCBDBIQ027S' in indicator_ids and 'CORPDEBT_GDP_PCT' in indicator_ids:
-        print("⚠️ 检测到冗余指标：NCBDBIQ027S 和 CORPDEBT_GDP_PCT 同时存在，移除 CORPDEBT_GDP_PCT")
-        indicators = [ind for ind in indicators 
-                     if (ind.get('series_id') or ind.get('id', '')) != 'CORPDEBT_GDP_PCT']
-        print(f"✅ 已移除冗余指标，剩余 {len(indicators)} 个指标")
-    
     # 加载危机期间配置
     crisis_config_path = BASE / "config" / "crisis_periods.yaml"
     crisis_config = load_yaml_config(crisis_config_path)
@@ -919,62 +1140,6 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
             print(f"❌ 处理指标失败 {indicator.get('name', 'Unknown')}: {e}")
             continue
     
-    # T10Y3M 陡峭化动量修正（后处理）
-    for indicator_result in processed_indicators:
-        if indicator_result.get('series_id') == 'T10Y3M':
-            try:
-                # 获取时间序列数据
-                ts = compose_series('T10Y3M')
-                if ts is None:
-                    ts = fetch_series('T10Y3M')
-                
-                if ts is not None and not ts.empty:
-                    current_value = indicator_result.get('current_value', 0)
-                    
-                    # 获取20个交易日（约1个月）前的数值
-                    # 假设交易日频率，取约20个数据点
-                    if len(ts) >= 20:
-                        value_1m_ago = float(ts.iloc[-20])
-                        delta_1m = current_value - value_1m_ago
-                        
-                        # 定义"恶性陡峭化"条件
-                        condition_a = current_value > -0.50  # 曲线已接近回正或已回正
-                        condition_b = delta_1m > 0.25  # 1个月内利差飙升超过25个基点
-                        
-                        # 如果同时满足A和B，说明正在发生Bear Steepening
-                        if condition_a and condition_b:
-                            original_score = indicator_result.get('risk_score', 0)
-                            # 强制修正：至少提升至80.0（如果原分数低于80）
-                            if original_score < 80.0:
-                                indicator_result['risk_score'] = 80.0
-                                print(f"⚠️ T10Y3M: 监测到快速陡峭化趋势 (月度变动 +{delta_1m:.2f} 基点)，风险评分强制提升至80.0")
-                            
-                            # 追加解释文本
-                            original_explainer = indicator_result.get('plain_explainer', '')
-                            additional_warning = f" ⚠️ 监测到快速陡峭化趋势 (月度变动 +{delta_1m:.2f} 基点)，警惕衰退交易冲击。"
-                            indicator_result['plain_explainer'] = original_explainer + additional_warning
-                        else:
-                            # 调试信息：显示为什么没有触发
-                            if not condition_a:
-                                print(f"ℹ️ T10Y3M: 条件A未满足 (当前值 {current_value:.2f} <= -0.50)")
-                            if not condition_b:
-                                print(f"ℹ️ T10Y3M: 条件B未满足 (月度变动 {delta_1m:.2f} <= 0.25 基点)")
-                            
-                            # 注意：分组分数会在后面重新计算，使用更新后的risk_score
-            except Exception as e:
-                print(f"⚠️ T10Y3M 陡峭化动量修正失败: {e}")
-            break  # 只处理一次T10Y3M
-    
-    # 重新计算分组分数（使用更新后的T10Y3M分数）
-    group_scores = {}
-    for indicator_result in processed_indicators:
-        if indicator_result.get('role', 'score') == 'score':
-            group = indicator_result.get('group', 'unknown')
-            if group not in group_scores:
-                group_scores[group] = {'scores': [], 'weights': []}
-            group_scores[group]['scores'].append(indicator_result['risk_score'])
-            group_scores[group]['weights'].append(indicator_result.get('global_weight', 0))
-    
     # 计算分组平均分并归一化权重
     final_group_scores = {}
     total_weighted_score = 0
@@ -1002,7 +1167,7 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
             avg_score = sum(data['scores']) / len(data['scores'])
             normalized_weight = group_weights.get(group, 0)
             
-            # v1.0: 应用组内共振奖励（保留向后兼容）
+            # 应用共振奖励
             if scoring_config:
                 co_move_threshold_pct = scoring_config.get('co_move_threshold_pct', 0.9)
                 co_move_bonus_per_bucket = scoring_config.get('co_move_bonus_per_bucket', 5)
@@ -1020,223 +1185,7 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
             
             total_weighted_score += avg_score * normalized_weight
     
-    # v2.0: 应用系统性共振检测
-    if scoring_config:
-        resonance_threshold = scoring_config.get('resonance_threshold', 80)
-        systemic_risk_multiplier = scoring_config.get('systemic_risk_multiplier', 1.2)
-        
-        resonance_multiplier = calculate_resonance(
-            final_group_scores, processed_indicators, 
-            resonance_threshold, systemic_risk_multiplier
-        )
-        
-        if resonance_multiplier > 1.0:
-            total_weighted_score *= resonance_multiplier
-            print(f"⚠️ v2.0 共振检测触发：收益率曲线和实体经济同时高风险，应用系统性风险乘数 {resonance_multiplier:.2f}x")
-            total_weighted_score = min(100.0, total_weighted_score)
-    
-    # v2.3: 计算系统张力指数 (System Tension Index) - 引入凸性算法
-    # 1. 计算 State 和 Trigger 得分
-    state_groups = []
-    trigger_groups = []
-    
-    for category, groups in CATEGORY_MAPPING.items():
-        for group in groups:
-            if group in final_group_scores:
-                if category == 'State':
-                    state_groups.append(final_group_scores[group])
-                elif category == 'Trigger':
-                    trigger_groups.append(final_group_scores[group])
-    
-    # 计算加权平均分
-    score_state = 0.0
-    total_state_weight = 0.0
-    for group_data in state_groups:
-        weight = group_data.get('weight', 0) / 100.0  # 转换为小数
-        score = group_data.get('score', 0)
-        score_state += score * weight
-        total_state_weight += weight
-    
-    if total_state_weight > 0:
-        score_state = score_state / total_state_weight
-    else:
-        score_state = 0.0
-    
-    score_trigger = 0.0
-    total_trigger_weight = 0.0
-    for group_data in trigger_groups:
-        weight = group_data.get('weight', 0) / 100.0  # 转换为小数
-        score = group_data.get('score', 0)
-        score_trigger += score * weight
-        total_trigger_weight += weight
-    
-    if total_trigger_weight > 0:
-        score_trigger = score_trigger / total_trigger_weight
-    else:
-        score_trigger = 0.0
-    
-    # v2.3 核心算法：计算 Trigger Momentum 和凸性张力
-    # 简化方案：使用最近13周（约65个交易日）的数据计算动量
-    trigger_momentum = 0.0
-    
-    try:
-        # 收集所有Trigger组指标的历史时间序列和权重
-        trigger_series_list = []
-        trigger_weights_list = []
-        
-        for category, groups in CATEGORY_MAPPING.items():
-            if category == 'Trigger':
-                for group in groups:
-                    if group in final_group_scores:
-                        # 获取该组的所有指标
-                        group_indicators = [ind for ind in processed_indicators 
-                                          if ind.get('group') == group and ind.get('role', 'score') == 'score']
-                        
-                        for ind_result in group_indicators:
-                            series_id = ind_result.get('series_id')
-                            if series_id:
-                                # 获取历史时间序列
-                                ts = compose_series(series_id)
-                                if ts is None:
-                                    ts = fetch_series(series_id)
-                                
-                                if ts is not None and not ts.empty:
-                                    # 只取最近70个交易日的数据（足够计算13周均值）
-                                    ts_recent = ts.tail(70) if len(ts) > 70 else ts
-                                    
-                                    # 使用当前基准值计算历史分数序列
-                                    benchmark_value = ind_result.get('benchmark_value', 0)
-                                    higher_is_risk = ind_result.get('higher_is_risk', True)
-                                    
-                                    # 计算历史分数序列（基于当前基准值）
-                                    if not pd.isna(benchmark_value) and abs(benchmark_value) > 1e-10:
-                                        if higher_is_risk:
-                                            historical_scores = 50.0 + ((ts_recent - benchmark_value) / abs(benchmark_value) * 100)
-                                        else:
-                                            historical_scores = 50.0 + ((benchmark_value - ts_recent) / abs(benchmark_value) * 100)
-                                        historical_scores = historical_scores.clip(0, 100)
-                                        
-                                        weight = ind_result.get('global_weight', 0)
-                                        if weight > 0:
-                                            trigger_series_list.append(historical_scores)
-                                            trigger_weights_list.append(weight)
-        
-        # 计算加权平均的 Trigger 历史序列
-        if trigger_series_list and len(trigger_weights_list) > 0:
-            # 对齐所有序列的日期索引（取交集）
-            common_dates = trigger_series_list[0].index
-            for ts in trigger_series_list[1:]:
-                common_dates = common_dates.intersection(ts.index)
-            
-            if len(common_dates) > 0:
-                # 计算每个日期的加权平均 Trigger 分数
-                trigger_history = pd.Series(index=common_dates, dtype=float)
-                total_weight = sum(trigger_weights_list)
-                
-                for date in common_dates:
-                    weighted_sum = 0.0
-                    for ts, weight in zip(trigger_series_list, trigger_weights_list):
-                        if date in ts.index:
-                            weighted_sum += ts.loc[date] * weight
-                    if total_weight > 0:
-                        trigger_history.loc[date] = weighted_sum / total_weight
-                    else:
-                        trigger_history.loc[date] = 50.0
-                
-                trigger_history = trigger_history.dropna().sort_index()
-                
-                # 计算 13 周（约 65 个交易日）滚动平均
-                window_size = min(65, len(trigger_history))
-                if window_size > 0 and len(trigger_history) > 0:
-                    trigger_mean_13w = trigger_history.rolling(window=window_size, min_periods=1).mean()
-                    # 计算 Momentum（当前值 - 13周均值）
-                    current_trigger = trigger_history.iloc[-1]
-                    mean_13w = trigger_mean_13w.iloc[-1]
-                    trigger_momentum = current_trigger - mean_13w
-                else:
-                    trigger_momentum = 0.0
-            else:
-                trigger_momentum = 0.0
-        else:
-            trigger_momentum = 0.0
-    except Exception as e:
-        print(f"⚠️ 计算 Trigger Momentum 失败: {e}")
-        trigger_momentum = 0.0
-    
-    # v2.3 核心算法：计算凸性乘数 (Convexity Multiplier - 指数版)
-    # 使用回测验证过的参数（与 backtest_history.py 保持一致）
-    base_threshold = 40.0
-    scale = 15.0
-    max_mult = 8.0  # 稍微调高上限，允许在极端泡沫期报警
-    
-    if score_state > base_threshold:
-        # 计算放大倍数（指数函数）
-        x = (score_state - base_threshold) / scale
-        convexity_factor = min(max_mult, 1.0 + (math.exp(x) - 1.0))
-    else:
-        convexity_factor = 1.0
-    
-    # 计算原始张力 (Base Tension): 传统的 Level * Level
-    raw_tension = (score_state * score_trigger) / 100.0
-    
-    # 计算动量压力 (Momentum Stress): 专门捕捉"变化率"
-    # 只有当环境在恶化 (Momentum > 0) 时才计算
-    mom_risk = max(0.0, trigger_momentum)
-    
-    # 最终合成 (Final Synthesis)
-    # 总张力 = 基础张力 + (动量风险 * 放大倍数)
-    index_tension = raw_tension + (mom_risk * convexity_factor)
-    
-    # 封顶 100
-    index_tension = min(100.0, index_tension)
-    
-    # === v2.4 新增：结构性脆弱底座 (Structural Fragility Floor) ===
-    # 逻辑：当 State > 40 (高估值区) 时，无论 Trigger 多好，风险分都不应低于一定水平。
-    # 惩罚系数：State 每高出 1 分，强制增加 0.5 分的基础风险底座。
-    # 例如：State=90 (极度泡沫), Floor = (90-40)*0.5 = 25分 (强制脱离"极低风险区")
-    floor_threshold = 40.0
-    floor_penalty_rate = 0.5
-    
-    if score_state > floor_threshold:
-        structural_floor = (score_state - floor_threshold) * floor_penalty_rate
-    else:
-        structural_floor = 0.0
-    
-    # 最终取大值：要么是计算出的动态张力，要么是硬性的结构底座
-    final_risk_score = max(index_tension, structural_floor)
-    
-    # 封顶
-    final_risk_score = min(100.0, final_risk_score)
-    
-    # 生成张力分析文本（基于最终风险分）
-    if final_risk_score < 20:
-        tension_analysis_text = "系统松弛。可能是低估值期，或是高估值但流动性极其充裕（金发女孩经济）。"
-    elif final_risk_score < 50:
-        tension_analysis_text = "张力积聚。估值高企，且流动性边际收紧，密切关注 Trigger 变化。"
-    else:
-        tension_analysis_text = "⚠️ 临界断裂风险！高估值叠加触发条件恶化，这是典型的 Minsky Moment 前兆。"
-    
-    # v2.3: 添加凸性因子信息到分析文本
-    if convexity_factor > 1.0:
-        tension_analysis_text += f" [凸性放大: {convexity_factor:.2f}x]"
-    
-    # v2.4: 添加结构性底座信息
-    if final_risk_score == structural_floor and structural_floor > 0:
-        tension_analysis_text += f" [🛡️ 结构性底座已激活: {structural_floor:.1f}]"
-    
-    # 将张力指标添加到返回结果中（v2.4: 增加 Structural Floor）
-    tension_metrics = {
-        'score_state': score_state,
-        'score_trigger': score_trigger,
-        'trigger_momentum': trigger_momentum,
-        'convexity_factor': convexity_factor,
-        'index_tension': index_tension,  # v2.3 原始张力
-        'structural_floor': structural_floor,  # v2.4 结构性底座
-        'final_risk_score': final_risk_score,  # v2.4 最终风险分
-        'tension_analysis': tension_analysis_text
-    }
-    
-    return final_group_scores, total_weighted_score, processed_indicators, tension_metrics
+    return final_group_scores, total_weighted_score, processed_indicators
 
 def process_single_indicator_real(indicator, crisis_periods, scoring_config=None):
     """处理单个指标的真实FRED数据（统一变换/同域基准/同域ECDF）"""
@@ -1288,7 +1237,7 @@ def process_single_indicator_real(indicator, crisis_periods, scoring_config=None
             print(f"⚠️ {series_id}: 预计算数据读取失败: {e}")
     
     # YoY指标：使用预计算的YoY数据
-    yoy_indicators = ['PAYEMS', 'INDPRO', 'GDP', 'NEWORDER', 'CSUSHPINSA', 'TOTALSA', 'TOTLL', 'MANEMP', 'WALCL', 'DTWEXBGS', 'PERMIT', 'TOTRESNS', 'USD_NET_LIQUIDITY']
+    yoy_indicators = ['PAYEMS', 'INDPRO', 'GDP', 'NEWORDER', 'CSUSHPINSA', 'TOTALSA', 'TOTLL', 'MANEMP', 'WALCL', 'DTWEXBGS', 'PERMIT', 'TOTRESNS']
     if series_id in yoy_indicators and indicator.get('transform') == 'yoy_pct':
         try:
             yoy_file = pathlib.Path(f"data/series/{series_id}_YOY.csv")
@@ -1373,6 +1322,9 @@ def process_single_indicator_real(indicator, crisis_periods, scoring_config=None
 
 def calculate_benchmark_simple(ts, indicator, crisis_periods):
     """改进的基准值计算，使用危机/非危机掩码，支持可选危机子集"""
+    series_id = indicator.get('series_id') or indicator.get('id')
+    if series_id == 'UST30Y_UST2Y_RSI':
+        return 50.0
     compare_to = indicator.get('compare_to', 'noncrisis_p75')
     
     # 创建危机期掩码
@@ -1461,7 +1413,14 @@ def score_with_threshold(ts: pd.Series, current: float, *, direction: str, compa
     # 1) 全样本分位
     p_cur = (ts <= current).mean()
     # 2) 阈值分位
-    p_thr = _parse_compare_to_to_pct(compare_to)
+    if compare_to.startswith("constant_"):
+        try:
+            threshold_value = float(compare_to.split("_", 1)[-1])
+        except ValueError:
+            threshold_value = 50.0
+        p_thr = (ts <= threshold_value).mean()
+    else:
+        p_thr = _parse_compare_to_to_pct(compare_to)
     eps = 1e-6
     
     # 3) 映射成 0~100
@@ -1471,29 +1430,11 @@ def score_with_threshold(ts: pd.Series, current: float, *, direction: str, compa
         raw = min(1.0, abs(p_cur - p_mid) / denom)
     else:
         if direction == 'up_is_risk':   # 高为险
-            # 当前值越高（p_cur越大），风险越高
             raw = max(0.0, (p_cur - p_thr) / max(1 - p_thr, eps))
         else:                           # 低为险
-            # 当前值越低（p_cur越小），风险越高
-            # 当 p_cur < p_thr 时，说明当前值低于阈值，风险高
             raw = max(0.0, (p_thr - p_cur) / max(p_thr, eps))
     
-    score = float(np.clip(raw * 100.0, 0, 100))
-    
-    # 修复：对于 down_is_risk，如果当前值低于基准值，确保分数至少反映风险
-    if direction == 'down_is_risk' and ts is not None and not ts.empty:
-        benchmark_val = ts.quantile(p_thr)
-        if current < benchmark_val:
-            # 当前值低于基准值，风险应该较高
-            # 如果计算出的分数太低，需要调整
-            if score < 50:
-                # 根据偏离程度计算风险分数
-                # 偏离越大，分数越高
-                deviation = (benchmark_val - current) / max(abs(benchmark_val), eps)
-                # 确保分数至少为 50，并根据偏离程度增加
-                score = min(100.0, 50.0 + min(50.0, deviation * 100.0))
-    
-    return score
+    return float(np.clip(raw * 100.0, 0, 100))
 
 def level_from_score(score: float, bands: dict) -> str:
     """根据分数返回风险等级"""
@@ -1532,621 +1473,15 @@ def compute_momentum_score(ts: pd.Series, days: list = [1, 5]) -> float:
     avg_momentum = np.mean(momentum_scores)
     return min(1.0, avg_momentum)
 
-# ===== v2.0: 升级的数学引擎 =====
-
-def calculate_momentum_score_v2(ts: pd.Series, momentum_window: int, 
-                                 invert_momentum: bool = False, 
-                                 higher_is_risk: bool = True) -> float:
-    """
-    v2.0: 计算动量评分（Rate of Change over momentum_window months）
-    
-    Args:
-        ts: 时间序列数据
-        momentum_window: 动量计算窗口（月数）
-        invert_momentum: 是否反转动量（快速下降为风险，如流动性指标）
-        higher_is_risk: 指标方向（高为险还是低为险）
-    
-    Returns:
-        动量评分 (0-100)
-    """
-    if ts is None or ts.empty:
-        return 0.0
-    
-    # 转换为月度数据（如果原始数据是日频或周频）
-    if len(ts) < momentum_window + 1:
-        return 0.0
-    
-    # 根据数据频率推断期数
-    freq = pd.infer_freq(ts.index) or ""
-    if freq.startswith('D'):
-        periods = momentum_window * 20  # 约20个交易日/月
-    elif freq.startswith('W'):
-        periods = momentum_window * 4  # 约4周/月
-    elif freq.startswith('M'):
-        periods = momentum_window
-    elif freq.startswith('Q'):
-        periods = max(1, momentum_window // 3)
-    else:
-        periods = momentum_window * 20  # 默认假设日频
-    
-    if len(ts) < periods + 1:
-        return 0.0
-    
-    # 计算Rate of Change (RoC)
-    current = ts.iloc[-1]
-    past = ts.iloc[-periods-1]
-    
-    if pd.isna(current) or pd.isna(past) or past == 0:
-        return 0.0
-    
-    roc = (current - past) / abs(past) * 100  # 转换为百分比
-    
-    # 根据方向调整
-    if invert_momentum:
-        # 快速下降为风险（如流动性指标）
-        roc = -roc
-    
-    # 将RoC映射到0-100评分
-    # 对于higher_is_risk指标：正RoC增加风险；对于lower_is_risk指标：负RoC增加风险
-    if higher_is_risk:
-        # 正变化（上升）增加风险
-        momentum_score = 50 + min(50, max(-50, roc * 10))  # 放大10倍，限制在0-100
-    else:
-        # 负变化（下降）增加风险
-        momentum_score = 50 + min(50, max(-50, -roc * 10))
-    
-    return max(0.0, min(100.0, momentum_score))
-
-def calculate_persistence_score(ts: pd.Series, current_score: float, 
-                                high_risk_threshold: float = 80.0,
-                                persistence_months: int = 3) -> float:
-    """
-    v2.0: 计算持续时间/持续性评分
-    
-    如果指标持续处于高风险区域（>threshold）超过persistence_months个月，
-    则应用乘数增加风险评分。
-    
-    Args:
-        ts: 时间序列数据
-        current_score: 当前风险评分
-        high_risk_threshold: 高风险阈值
-        persistence_months: 持续高风险月数阈值
-    
-    Returns:
-        调整后的风险评分
-    """
-    if ts is None or ts.empty or current_score < high_risk_threshold:
-        return current_score
-    
-    # 计算历史评分序列（简化：假设我们只有当前评分）
-    # 在实际实现中，需要保存历史评分或从历史数据重新计算
-    # 这里使用简化版本：如果当前评分高，检查历史趋势
-    
-    # 检查最近persistence_months个月的趋势
-    freq = pd.infer_freq(ts.index) or ""
-    if freq.startswith('D'):
-        lookback_periods = persistence_months * 20
-    elif freq.startswith('W'):
-        lookback_periods = persistence_months * 4
-    elif freq.startswith('M'):
-        lookback_periods = persistence_months
-    else:
-        lookback_periods = persistence_months * 20
-    
-    if len(ts) < lookback_periods:
-        return current_score
-    
-    # 检查最近几个月的值是否持续处于高风险区域
-    recent_values = ts.iloc[-lookback_periods:].dropna()
-    if len(recent_values) < persistence_months:
-        return current_score
-    
-    # 简化：如果当前值明显高于历史中位数，认为持续高风险
-    median_value = recent_values.median()
-    current_value = ts.iloc[-1]
-    
-    if current_value > median_value * 1.1:  # 当前值比中位数高10%以上
-        # 应用持续性乘数
-        persistence_multiplier = 1.1
-        adjusted_score = min(100.0, current_score * persistence_multiplier)
-        return adjusted_score
-    
-    return current_score
-
-# ===== v2.0: 报告层升级 =====
-
-def calculate_trend(ts: pd.Series, current_score: float, previous_score: float = None) -> str:
-    """
-    v2.0: 计算趋势箭头
-    
-    Args:
-        ts: 时间序列数据
-        current_score: 当前风险评分
-        previous_score: 上一期风险评分（如果可用）
-    
-    Returns:
-        趋势符号: ↑ (恶化), ↓ (改善), → (稳定)
-    """
-    if previous_score is not None:
-        # 如果有历史评分，直接比较
-        if current_score > previous_score + 5:  # 阈值5分
-            return "↑"  # 恶化
-        elif current_score < previous_score - 5:
-            return "↓"  # 改善
-        else:
-            return "→"  # 稳定
-    
-    # 如果没有历史评分，使用时间序列数据推断趋势
-    if ts is None or ts.empty or len(ts) < 2:
-        return "→"
-    
-    # 计算最近几个数据点的趋势
-    recent_values = ts.iloc[-min(5, len(ts)):].dropna()
-    if len(recent_values) < 2:
-        return "→"
-    
-    # 简单线性趋势
-    if len(recent_values) >= 2:
-        first_half = recent_values.iloc[:len(recent_values)//2].mean()
-        second_half = recent_values.iloc[len(recent_values)//2:].mean()
-        
-        if second_half > first_half * 1.02:  # 上升超过2%
-            return "↑"
-        elif second_half < first_half * 0.98:  # 下降超过2%
-            return "↓"
-    
-    return "→"
-
-def generate_macro_narrative(processed_indicators: list, group_scores: dict, 
-                            total_score: float, scoring_config: dict) -> str:
-    """
-    v2.0: 生成宏观叙事（自动文本）
-    
-    基于指标状态生成情景分析：
-    - Scenario A (滞胀): 通胀 > 阈值 AND 增长 < 阈值
-    - Scenario B (流动性陷阱): RRP < 低阈值 AND 利差 > 高阈值
-    - Scenario C (分化): 收益率曲线倒挂 BUT 利差收紧
-    """
-    narratives = []
-    
-    # 获取关键指标
-    inflation_score = 0
-    growth_score = 0
-    yield_curve_score = 0
-    spread_score = 0
-    rrp_value = None
-    liquidity_score = 0
-    
-    for indicator in processed_indicators:
-        series_id = indicator.get('series_id', '')
-        score = indicator.get('risk_score', 0)
-        
-        # 通胀指标
-        if series_id in ['T5YIE', 'CPIAUCSL', 'PCEPI']:
-            inflation_score = max(inflation_score, score)
-        
-        # 增长指标
-        if series_id in ['GDP', 'INDPRO', 'PAYEMS', 'NEWORDER']:
-            growth_score = max(growth_score, score)
-        
-        # 收益率曲线
-        if series_id in ['T10Y3M', 'T10Y2Y']:
-            yield_curve_score = max(yield_curve_score, score)
-        
-        # 信用利差
-        if series_id in ['BAMLH0A0HYM2', 'BAA10YM', 'CP_MINUS_DTB3']:
-            spread_score = max(spread_score, score)
-        
-        # 流动性指标
-        if series_id == 'RRPONTSYD':
-            rrp_value = indicator.get('current_value')
-        if series_id in ['RRPONTSYD', 'WTREGEN', 'M2SL']:
-            liquidity_score = max(liquidity_score, score)
-    
-    # 获取阈值
-    bands = scoring_config.get('bands', {'low': 40, 'med': 60, 'high': 80})
-    high_threshold = bands.get('high', 80)
-    med_threshold = bands.get('med', 60)
-    
-    # Scenario A: 滞胀压力
-    if inflation_score >= med_threshold and growth_score >= med_threshold:
-        narratives.append("⚠️ **滞胀压力检测**: 通胀预期上升同时经济增长放缓，可能出现滞胀风险。")
-    
-    # Scenario B: 流动性陷阱
-    if rrp_value is not None and rrp_value < 100:  # RRP接近0
-        if spread_score >= med_threshold:
-            narratives.append("⚠️ **流动性陷阱警告**: 隔夜逆回购接近零（流动性枯竭）同时信用利差扩大，市场流动性紧张。")
-    
-    # Scenario C: 市场分化
-    if yield_curve_score >= high_threshold and spread_score < med_threshold:
-        narratives.append("⚠️ **市场分化**: 收益率曲线倒挂（债券市场预测衰退），但信用利差保持低位（信用市场保持乐观），市场信号出现分化。")
-    
-    # 共振检测
-    yield_curve_groups = ['core_warning', '收益率曲线']
-    real_economy_groups = ['real_economy', '实体经济']
-    
-    yield_curve_high = False
-    real_economy_high = False
-    
-    for group_name, group_data in group_scores.items():
-        if any(g in group_name for g in yield_curve_groups):
-            if group_data.get('score', 0) >= high_threshold:
-                yield_curve_high = True
-        if any(g in group_name for g in real_economy_groups):
-            if group_data.get('score', 0) >= high_threshold:
-                real_economy_high = True
-    
-    if yield_curve_high and real_economy_high:
-        narratives.append("🚨 **系统性风险共振**: 收益率曲线和实体经济同时发出高风险信号，系统性风险上升。")
-    
-    # 总体风险评估
-    if total_score >= high_threshold:
-        narratives.append(f"🔴 **总体高风险**: 综合风险评分 {total_score:.1f}/100，建议密切关注市场动态。")
-    elif total_score >= med_threshold:
-        narratives.append(f"🟡 **中等风险**: 综合风险评分 {total_score:.1f}/100，保持警惕。")
-    else:
-        narratives.append(f"🟢 **低风险**: 综合风险评分 {total_score:.1f}/100，市场状况相对稳定。")
-    
-    if not narratives:
-        narratives.append("ℹ️ 当前市场信号较为均衡，未检测到明显的系统性风险。")
-    
-    return "\n\n".join(narratives)
-
-def generate_bubble_diagnosis(processed_indicators: list) -> tuple:
-    """
-    基于巴菲特指标(长期)、利润背离(中期)和流动性(短期)生成深度泡沫诊断
-    
-    Args:
-        processed_indicators: 处理后的指标列表
-    
-    Returns:
-        (markdown_text, html_text) 元组
-    """
-    # 1. 提取核心指标数据
-    def get_ind_data(sid):
-        for ind in processed_indicators:
-            if ind.get('series_id') == sid:
-                return ind
-        return {}
-    
-    buffett = get_ind_data('BUFFETT_INDICATOR')
-    profit_div = get_ind_data('SP500_PROFIT_DIVERGENCE')
-    liquidity = get_ind_data('USD_NET_LIQUIDITY')
-    
-    # 获取数值 (带默认值)
-    val_buffett = buffett.get('current_value', 0) if buffett else 0
-    score_buffett = buffett.get('risk_score', 0) if buffett else 0
-    
-    score_profit = profit_div.get('risk_score', 0) if profit_div else 0
-    
-    val_liq = liquidity.get('current_value', 0) if liquidity else 0
-    score_liq = liquidity.get('risk_score', 0) if liquidity else 0
-    
-    # 2. 诊断逻辑与文案生成（严格区分"状态"与"触发"）
-    # 场景 A: 危机临界点 (流动性枯竭 + 估值高) - 触发器被激活
-    if score_liq >= 80:
-        status = "🔴 危机临界点 (Crash Alert)"
-        main_color = "#c62828"
-        bg_color = "#ffebee"
-        final_judgment = "红色警报！高估值叠加流动性枯竭（触发器被激活）。这是历史上泡沫破裂的标准范式，建议立即防御。"
-    # 场景 B: 高估值平稳期 (估值高 + 流动性充裕) - 状态昂贵但无触发
-    elif score_profit >= 80:
-        status = "🟠 高估值平稳期 (Expensive but Stable)"
-        main_color = "#ef6c00"
-        bg_color = "#fff3e0"
-        final_judgment = "当前处于'高估值、低压力'状态。虽然资产价格昂贵（长期锚红色），但系统流动性充裕（地板绿色），**缺乏触发崩盘的宏观催化剂**。市场可能会在高位维持较长时间，而非立即崩盘。"
-    # 场景 C: 安全/正常
-    else:
-        status = "🟢 趋势正常"
-        main_color = "#2e7d32"
-        bg_color = "#e8f5e9"
-        final_judgment = "估值虽高，但盈利与流动性配合良好，暂无系统性崩盘迹象。"
-    
-    # 3. 生成 HTML 卡片 (三段式结构)
-    html_card = f"""
-    <div style="background-color: {bg_color}; border-left: 5px solid {main_color}; padding: 15px; margin: 20px 0; border-radius: 4px;">
-        <h3 style="color: {main_color}; margin-top: 0;">💹 美股泡沫深度诊断 (US Bubble Diagnosis)</h3>
-        <p><strong>当前状态：{status}</strong></p>
-        <hr style="border-top: 1px dashed {main_color}; opacity: 0.3;">
-        
-        <p><strong>逻辑一：长期估值锚 (The Ceiling)</strong><br>
-        <span style="color: #666; font-size: 0.9em;">原理：巴菲特指标(市值/GDP)衡量股市长期是否"昂贵"。</span><br>
-        <strong>现状</strong>：系统评分 <b>{score_buffett:.1f}</b> (🔴 历史极高位)。当前比值 <b>{val_buffett:.1f}%</b>。<br>
-        👉 <em>结论：长期估值已达历史天花板，容错率极低。</em></p>
-
-        <p><strong>逻辑二：盈利背离度 (The Foam)</strong><br>
-        <span style="color: #666; font-size: 0.9em;">原理：股价涨幅远超利润增速("Optimism"阶段)是泡沫化的核心特征。</span><br>
-        <strong>现状</strong>：系统评分 <b>{score_profit:.1f}</b> (🔴 高风险)。<br>
-        👉 <em>结论：股价上涨脱离基本面（P/E扩张驱动），存在明显的投机溢价。</em></p>
-
-        <p><strong>逻辑三：流动性底座 (The Floor)</strong><br>
-        <span style="color: #666; font-size: 0.9em;">原理：只要央行/财政部还在注入流动性，泡沫就可以维持("Rational Bubble")。</span><br>
-        <strong>现状</strong>：系统评分 <b>{score_liq:.1f}</b> ({"🔵 极低风险" if score_liq < 40 else "🟡 中风险"})。净流动性同比 <b>{val_liq:.2f}%</b>。<br>
-        👉 <em>结论：流动性尚未枯竭，仍在为高估值提供资金接力。</em></p>
-        
-        <hr style="border-top: 1px dashed {main_color}; opacity: 0.3;">
-        <p style="font-weight: bold; color: {main_color};">🤖 系统最终预判：<br>
-        "{final_judgment}"</p>
-        <p style="font-size: 0.85em; color: #666; margin-top: 10px; font-style: italic;">
-        <em>注：本模块仅评估'是否具备危机条件'，不代表对短期涨跌的预测。估值高低决定下跌空间，流动性松紧决定下跌时间。</em></p>
-    </div>
-    """
-    
-    # 生成 Markdown 文本
-    md_text = f"""### 💹 美股泡沫深度诊断
-
-**当前状态：{status}**
-
-**逻辑一：长期估值锚 (The Ceiling)**
-* **现状**：巴菲特指标 **{val_buffett:.1f}%** (评分 {score_buffett:.1f})。
-* **结论**：长期估值已达历史天花板。
-
-**逻辑二：盈利背离度 (The Foam)**
-* **现状**：利润背离评分 **{score_profit:.1f}** (🔴 高风险)。
-* **结论**：股价脱离基本面，全靠拔估值。
-
-**逻辑三：流动性底座 (The Floor)**
-* **现状**：流动性评分 **{score_liq:.1f}**。
-* **结论**：流动性尚未枯竭，泡沫暂未破裂。
-
-> **🤖 系统预判**：{final_judgment}
-
-*注：本模块仅评估'是否具备危机条件'，不代表对短期涨跌的预测。估值高低决定下跌空间，流动性松紧决定下跌时间。*
-
----
-"""
-    return md_text, html_card
-
-def generate_market_regime_diagnosis(processed_indicators: list) -> tuple:
-    """
-    v3.0: 生成市场体制雷达诊断
-    
-    Args:
-        processed_indicators: 处理后的指标列表（可能不包含市场指标）
-    
-    Returns:
-        (markdown_text, html_text) 元组
-    """
-    # 直接从文件读取市场体制指标数据（不依赖processed_indicators）
-    def load_market_indicator(sid):
-        """直接从CSV文件加载市场指标的最新值"""
-        try:
-            csv_path = BASE / "data" / "series" / f"{sid}.csv"
-            if csv_path.exists():
-                # 尝试两种格式：带date列（新格式）或索引为日期（旧格式）
-                df = pd.read_csv(csv_path)
-                if not df.empty:
-                    # 新格式：date, value 两列
-                    if 'date' in df.columns and 'value' in df.columns:
-                        latest_value = float(df['value'].iloc[-1])
-                    # 旧格式：索引为日期，第一列为value
-                    elif 'value' in df.columns:
-                        latest_value = float(df['value'].iloc[-1])
-                    elif len(df.columns) == 1:
-                        latest_value = float(df.iloc[-1, 0])
-                    else:
-                        latest_value = 0.0
-                    print(f"📊 市场指标 {sid}: {latest_value}")
-                    return latest_value
-            else:
-                print(f"⚠️ 市场指标文件不存在: {csv_path}")
-        except Exception as e:
-            print(f"⚠️ 加载市场指标 {sid} 失败: {e}")
-        return 0.0
-    
-    # 获取市场体制指标数据
-    val_trend = load_market_indicator('MKT_SPY_TREND_STATUS')
-    val_vol = load_market_indicator('MKT_SPY_REALIZED_VOL')
-    val_credit = load_market_indicator('MKT_CREDIT_APPETITE')
-    
-    # 判断趋势状态
-    trend_status = "🟢 牛市 (价格 > 200日均线)" if val_trend >= 0.5 else "🔴 熊市 (价格 < 200日均线)"
-    trend_color = "#2e7d32" if val_trend >= 0.5 else "#c62828"
-    
-    # 判断波动率环境（假设 >20% 为高波动）
-    vol_status = "🔴 高波动 (波动率飙升)" if val_vol > 20 else "🟢 平静 (波动率正常)" if val_vol < 15 else "🟡 中等波动"
-    vol_color = "#c62828" if val_vol > 20 else "#2e7d32" if val_vol < 15 else "#f57c00"
-    
-    # 判断风险偏好（HYG/TLT 比率，通常范围在 0.8-1.2 之间）
-    # 需要与历史均值对比，这里简化处理：>0.9 为风险偏好，<0.9 为避险
-    credit_status = "🟢 风险偏好 (资金进攻)" if val_credit > 0.9 else "🔴 避险主导 (资金撤退)" if val_credit > 0 else "🟡 中性"
-    credit_color = "#2e7d32" if val_credit > 0.9 else "#c62828" if val_credit > 0 else "#f57c00"
-    
-    # AI 综评逻辑
-    if val_trend < 0.5 and val_vol > 20:
-        ai_judgment = "当前处于'熊市高波动'的市场体制，宏观数据虽未恶化，但价格行为显示资金正在快速撤退，市场情绪极度恐慌。"
-        main_color = "#c62828"
-        bg_color = "#ffebee"
-    elif val_trend < 0.5 and val_credit < 0:
-        ai_judgment = "当前处于'宽幅震荡/避险主导'的市场体制，宏观数据虽未恶化，但价格行为显示资金正在撤退，风险资产承压。"
-        main_color = "#ef6c00"
-        bg_color = "#fff3e0"
-    elif val_trend >= 0.5 and val_vol < 15:
-        ai_judgment = "当前处于'牛市平静'的市场体制，价格行为与宏观数据一致，市场情绪稳定，资金持续流入风险资产。"
-        main_color = "#2e7d32"
-        bg_color = "#e8f5e9"
-    else:
-        ai_judgment = "当前处于'震荡分化'的市场体制，价格行为与宏观数据出现分化，需要密切关注后续信号确认方向。"
-        main_color = "#f57c00"
-        bg_color = "#fff3e0"
-    
-    # 生成 HTML 卡片
-    html_card = f"""
-    <div style="background-color: {bg_color}; border-left: 5px solid {main_color}; padding: 15px; margin: 20px 0; border-radius: 4px;">
-        <h3 style="color: {main_color}; margin-top: 0;">🧭 市场体制雷达 (Market Regime Radar)</h3>
-        
-        <p><strong>主要趋势 (Trend)</strong><br>
-        <span style="color: #666; font-size: 0.9em;">原理：SPY 价格相对于 200日均线的位置反映长期趋势方向。</span><br>
-        <strong>现状</strong>：{trend_status} (当前值: {val_trend:.0f})<br>
-        👉 <em>结论：长期趋势方向已明确。</em></p>
-
-        <p><strong>波动率环境 (Volatility)</strong><br>
-        <span style="color: #666; font-size: 0.9em;">原理：20日实际波动率反映市场恐慌程度和价格波动幅度。</span><br>
-        <strong>现状</strong>：{vol_status} (当前值: {val_vol:.2f}%)<br>
-        👉 <em>结论：波动率环境决定了交易策略的激进程度。</em></p>
-
-        <p><strong>风险偏好 (Risk Appetite)</strong><br>
-        <span style="color: #666; font-size: 0.9em;">原理：HYG/TLT 比率反映资金在风险资产与避险资产之间的配置偏好。</span><br>
-        <strong>现状</strong>：{credit_status} (当前值: {val_credit:.4f})<br>
-        👉 <em>结论：资金流向揭示了市场的真实情绪。</em></p>
-        
-        <hr style="border-top: 1px dashed {main_color}; opacity: 0.3;">
-        <p style="font-weight: bold; color: {main_color};">🤖 AI 综评：<br>
-        "{ai_judgment}"</p>
-    </div>
-    """
-    
-    # 生成 Markdown 文本
-    md_text = f"""### 🧭 市场体制雷达 (Market Regime Radar)
-
-**主要趋势 (Trend)**
-* **现状**：{trend_status} (当前值: {val_trend:.0f})
-* **结论**：长期趋势方向已明确。
-
-**波动率环境 (Volatility)**
-* **现状**：{vol_status} (当前值: {val_vol:.2f}%)
-* **结论**：波动率环境决定了交易策略的激进程度。
-
-**风险偏好 (Risk Appetite)**
-* **现状**：{credit_status} (当前值: {val_credit:.4f})
-* **结论**：资金流向揭示了市场的真实情绪。
-
-> **🤖 AI 综评**：{ai_judgment}
-
----
-"""
-    return md_text, html_card
-
-def generate_gold_diagnosis(processed_indicators: list) -> tuple:
-    """
-    生成黄金市场深度诊断（三段式逻辑）
-    
-    Args:
-        processed_indicators: 处理后的指标列表
-    
-    Returns:
-        (html_text, markdown_text) 元组
-    """
-    def get_data(sid):
-        for i in processed_indicators:
-            if i.get('series_id') == sid:
-                return i
-        return {}
-    
-    # 获取数据
-    gold_val = get_data('GOLD_REAL_RATE_DIFF')
-    real_rate = get_data('US_REAL_RATE_10Y')
-    fiscal = get_data('MTSDS133FMS')
-    
-    # 提取数值 (带默认值防止报错)
-    val_diff = gold_val.get('current_value', 0) if gold_val else 0
-    score_diff = gold_val.get('risk_score', 0) if gold_val else 0
-    
-    val_rate = real_rate.get('current_value', 0) if real_rate else 0
-    score_rate = real_rate.get('risk_score', 0) if real_rate else 0
-    
-    val_fiscal = fiscal.get('current_value', 0) if fiscal else 0
-    
-    # 定义状态颜色
-    status_color = "#d32f2f" if score_diff > 80 else "#f57c00"  # 红或橙
-    
-    # 生成HTML文本
-    html = f"""
-    <div style="background-color: #fff8e1; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 4px;">
-        <h3 style="color: #bf360c; margin-top: 0;">🏆 黄金见顶逻辑诊断 (Gold Top Diagnosis)</h3>
-        
-        <p><strong>逻辑一：估值泡沫 (泡沫的燃料)</strong><br>
-        <span style="color: #666; font-size: 0.9em;">原理：当金价远超"赤字+购金"模型时，产生的残差代表纯粹的情绪溢价。</span><br>
-        <strong>现状</strong>：系统评分 <b>{score_diff:.1f}</b> (🔴 高风险)。当前残差 <b>{val_diff:.2f}</b> 远超历史警戒线。<br>
-        👉 <em>结论：金价处于极度泡沫化阶段，脱离了基本面模型。</em></p>
-
-        <p><strong>逻辑二：实际利率引信 (泡沫的针)</strong><br>
-        <span style="color: #666; font-size: 0.9em;">原理：实际利率是持有黄金的机会成本，大幅上行往往刺破泡沫。</span><br>
-        <strong>现状</strong>：系统评分 <b>{score_rate:.1f}</b> ({"🔵 极低风险" if score_rate < 40 else "🟡 中风险"})。当前实际利率 <b>{val_rate:.2f}%</b>。<br>
-        👉 <em>结论：尚未满足顶部特征。历史上的黄金大顶通常需要实际利率突破 2.0%~2.5% 且财政显著收缩。当前仅满足估值条件，未满足宏观约束条件。</em></p>
-
-        <p><strong>逻辑三：财政脉冲熄火 (领先指标)</strong><br>
-        <span style="color: #666; font-size: 0.9em;">原理：财政赤字收缩往往领先金价见顶 6-9 个月。</span><br>
-        <strong>现状</strong>：当前赤字 <b>{val_fiscal/1000:.2f} Billion</b>。<br>
-        👉 <em>结论：财政尚未显著收缩，仍在为市场提供流动性支撑。</em></p>
-        
-        <hr style="border-top: 1px dashed #bdbdbd;">
-        <p style="font-weight: bold; color: #bf360c;">🤖 系统最终预判：<br>
-        "黄金处于<strong>估值极端区</strong>，但在宏观条件（利率/财政）配合之前，这种背离可能持续。<strong>当前是'且涨且珍惜'的鱼尾阶段，而非确定的反转时刻。</strong>"</p>
-    </div>
-    """
-    
-    # 生成Markdown文本
-    md = f"""### 🏆 黄金见顶逻辑诊断
-
-**逻辑一：估值泡沫 (泡沫的燃料)**
-* **现状**：评分 **{score_diff:.1f}** (🔴 高风险)，残差 **{val_diff:.2f}**。
-* **结论**：金价处于极度泡沫化阶段，脱离基本面。
-
-**逻辑二：实际利率引信 (泡沫的针)**
-* **现状**：评分 **{score_rate:.1f}**，当前值 **{val_rate:.2f}%**。
-* **结论**：尚未满足顶部特征。历史上的黄金大顶通常需要实际利率突破 2.0%~2.5% 且财政显著收缩。当前仅满足估值条件，未满足宏观约束条件。
-
-**逻辑三：财政脉冲**
-* **现状**：赤字 **{val_fiscal/1000:.2f} B**，尚未显著收缩。
-
-> **🤖 系统预判**：黄金处于**估值极端区**，但在宏观条件（利率/财政）配合之前，这种背离可能持续。**当前是'且涨且珍惜'的鱼尾阶段，而非确定的反转时刻。**
-"""
-    
-    return html, md
-
-def calculate_resonance(group_scores: dict, processed_indicators: list,
-                        resonance_threshold: float = 80.0,
-                        systemic_risk_multiplier: float = 1.2) -> float:
-    """
-    v2.0: 计算共振检测
-    
-    检查"收益率曲线"组和"实体经济"组是否同时发出高风险信号（>threshold）。
-    如果True，应用系统性风险乘数。
-    
-    Args:
-        group_scores: 分组评分字典
-        processed_indicators: 处理后的指标列表
-        resonance_threshold: 触发共振的高风险阈值
-        systemic_risk_multiplier: 系统性风险乘数
-    
-    Returns:
-        调整后的总评分乘数（1.0或systemic_risk_multiplier）
-    """
-    # 检查收益率曲线组
-    yield_curve_groups = ['core_warning', '收益率曲线']  # 可能的组名
-    real_economy_groups = ['real_economy', '实体经济']  # 可能的组名
-    
-    yield_curve_high_risk = False
-    real_economy_high_risk = False
-    
-    # 检查分组评分
-    for group_name, group_data in group_scores.items():
-        if any(g in group_name for g in yield_curve_groups):
-            if group_data.get('score', 0) >= resonance_threshold:
-                yield_curve_high_risk = True
-        if any(g in group_name for g in real_economy_groups):
-            if group_data.get('score', 0) >= resonance_threshold:
-                real_economy_high_risk = True
-    
-    # 如果两个组都高风险，应用共振乘数
-    if yield_curve_high_risk and real_economy_high_risk:
-        return systemic_risk_multiplier
-    
-    return 1.0
-
 def calculate_risk_score_simple(current, benchmark, indicator, ts=None, scoring_config=None):
-    """
-    v2.0: 升级的风险评分计算
-    从 Score = f(Level) 升级到 Score = f(Level, Momentum, Duration)
-    """
+    """改进的风险评分计算，真正锚定配置的基准分位，支持动量奖励"""
     compare_to = indicator.get('compare_to', 'noncrisis_median')
     direction = 'up_is_risk' if indicator.get('higher_is_risk', True) else 'down_is_risk'
     tail = indicator.get('tail', 'single')
     
-    # 1. 计算基础水平评分
+    # 计算基础风险评分
     if ts is not None and not ts.empty:
-        level_score = score_with_threshold(ts, current, direction=direction, compare_to=compare_to, tail=tail)
+        base_score = score_with_threshold(ts, current, direction=direction, compare_to=compare_to, tail=tail)
     else:
         # 回退到简化计算（当没有时间序列数据时）
         higher_is_risk = indicator.get('higher_is_risk', True)
@@ -2154,51 +1489,22 @@ def calculate_risk_score_simple(current, benchmark, indicator, ts=None, scoring_
             deviation = current - benchmark
         else:
             deviation = benchmark - current
-        level_score = 50 + 10 * deviation
-        level_score = max(0, min(100, level_score))
+        base_score = 50 + 10 * deviation
+        base_score = max(0, min(100, base_score))
     
-    # 2. v2.0: 计算动量评分
-    momentum_score = 0.0
+    # 应用动量奖励
     if scoring_config and ts is not None and not ts.empty:
-        # 获取v2.0配置
-        momentum_window = indicator.get('momentum_window', 3)  # 默认3个月
-        invert_momentum = indicator.get('invert_momentum', False)
-        higher_is_risk = indicator.get('higher_is_risk', True)
+        mom_bonus_max = scoring_config.get('momentum_bonus_max', 5)
+        momentum_days = scoring_config.get('momentum_days', [1, 5])
         
-        # 使用v2.0动量计算
-        momentum_score = calculate_momentum_score_v2(
-            ts, momentum_window, invert_momentum, higher_is_risk
-        )
+        momentum_raw = compute_momentum_score(ts, days=momentum_days)
+        momentum_bonus = momentum_raw * mom_bonus_max
         
-        # 获取权重配置
-        momentum_weight = scoring_config.get('momentum_weight', 0.3)
-        level_weight = scoring_config.get('level_weight', 0.7)
-        
-        # 组合评分：Final_Score = level_weight * Level_Score + momentum_weight * Momentum_Score
-        final_score = level_weight * level_score + momentum_weight * momentum_score
-    else:
-        # 如果没有配置或数据，使用旧逻辑（向后兼容）
-        if scoring_config and ts is not None and not ts.empty:
-            mom_bonus_max = scoring_config.get('momentum_bonus_max', 5)
-            momentum_days = scoring_config.get('momentum_days', [1, 5])
-            
-            momentum_raw = compute_momentum_score(ts, days=momentum_days)
-            momentum_bonus = momentum_raw * mom_bonus_max
-            
-            final_score = min(100.0, level_score + momentum_bonus)
-        else:
-            final_score = level_score
+        # 限制总分不超过100
+        final_score = min(100.0, base_score + momentum_bonus)
+        return final_score
     
-    # 3. v2.0: 应用持续时间逻辑
-    if scoring_config and ts is not None and not ts.empty:
-        persistence_months = scoring_config.get('persistence_months', 3)
-        high_risk_threshold = scoring_config.get('bands', {}).get('high', 80)
-        
-        final_score = calculate_persistence_score(
-            ts, final_score, high_risk_threshold, persistence_months
-        )
-    
-    return max(0.0, min(100.0, final_score))
+    return base_score
 
 def calculate_crisis_stats(ts, crisis_periods):
     """计算危机期间的统计数据"""
@@ -2229,8 +1535,22 @@ def calculate_crisis_stats(ts, crisis_periods):
 def get_indicator_explanation(series_id, indicator_config=None):
     """获取指标解释（统一与方向/双尾配置）"""
     explanations = {
-        'T10Y3M': '10年期与3个月国债收益率利差。计算公式：T10Y3M = 10年期国债收益率 - 3个月国债收益率。**警惕：** 该指标不仅在"深度倒挂"时预警，在**"倒挂回正（解除倒挂）"**的初期往往对应衰退实质性发生的时刻（Bear Steepening）。当前高风险评分反映了曲线形态的极端不稳定性，而非单纯的倒挂深度。',
+        'T10Y3M': '10年期与3个月国债收益率利差。计算公式：T10Y3M = 10年期国债收益率 - 3个月国债收益率。倒挂(负值)越深越危险，表明市场预期短期利率将高于长期利率，通常预示经济衰退。',
         'T10Y2Y': '10年期与2年期国债收益率利差。计算公式：T10Y2Y = 10年期国债收益率 - 2年期国债收益率。倒挂(负值)越深越危险，是重要的经济领先指标。',
+        'UST30Y_UST2Y_RSI': '30年期与2年期国债收益率比率的月线RSI指标。RSI突破50往往意味着曲线“去倒挂”进入陡峭化阶段，历史上常与崩盘/衰退的实质爆发期同步。',
+        'HY_OAS_MOMENTUM_RATIO': '高收益债利差的20日动量比率（当前值/20日均值）。当比率显著高于1说明信用利差快速走阔，常见于流动性抽离期。',
+        'SP500_DGS10_CORR60D': '标普500与10年期美债收益率的60日滚动相关性。由负转正且升至高位，常代表股债同跌的“现金为王”阶段。',
+        'NET_LIQUIDITY': '每日净流动性：WALCL(线性插值) - WTREGEN - RRPONTSYD。数值下降代表系统性资金被抽离。',
+        'VIX_TERM_STRUCTURE': 'VIX期限结构（VIX/VIX3M）。比值大于1表示短期恐慌高于远期，常见于崩盘前后的恐慌倒挂。',
+        'HYG_LQD_RATIO': '高收益债ETF与投资级债ETF比率（HYG/LQD）。比率下行代表资金从高收益撤离，信用风险上升。',
+        'DXY_CHANGE': '美元指数5日变化率（优先DXY，回退UUP）。短期急升通常反映美元紧张与全球流动性收缩。',
+        'KRE_SPY_RATIO': '区域银行ETF与标普500比率（KRE/SPY）。下行代表银行股相对走弱，常见于区域性金融压力。',
+        'XLF_SPY_RATIO': '金融板块ETF与标普500比率（XLF/SPY）。下行代表金融板块相对走弱。',
+        'BTC_QQQ_RATIO': '比特币与科技股ETF比率（BTC/QQQ）。下行通常意味着风险偏好与流动性边际走弱。',
+        'CROSS_ASSET_CORR_STRESS': '跨资产相关性压力合成指标（SPY/TLT/GLD/USO）。高相关+同跌“现金为王”代表系统性流动性紧张。',
+        'HY_IG_RATIO': '高收益/投资级总回报比率（HY/IG）。比率快速下行代表资金逃离风险信贷。',
+        'GLOBAL_LIQUIDITY_USD': '全球流动性代理：Fed + ECB(美元计价) + BOJ(美元计价)。快速收缩代表全球“抽水”压力上升。',
+        'CREDIT_CARD_DELINQUENCY': '信用卡违约率。与消费信贷变化联动，可验证“真危机”是否发生。',
         'FEDFUNDS': '联邦基金利率。水平值，利率越高表示货币政策越紧缩，会抑制经济增长。',
         'DTB3': '3个月国债收益率。水平值，收益率越高表示短期利率水平越高。',
         'DGS10': '10年期国债收益率。水平值，收益率越高表示长期利率水平越高。',
@@ -2249,23 +1569,12 @@ def get_indicator_explanation(series_id, indicator_config=None):
         'TOTALSA': '消费者信贷同比变化率。计算公式：TOTALSA_YoY = (当前月消费者信贷 - 上年同期消费者信贷) / 上年同期消费者信贷 × 100%。双尾风险：暴涨(积累脆弱性)和骤冷(信贷闸门收紧)都危险。',
         'TOTLL': '银行总贷款和租赁同比变化率。计算公式：TOTLL_YoY = (当前周贷款总额 - 上年同期贷款总额) / 上年同期贷款总额 × 100%。双尾风险：暴涨(积累脆弱性)和骤冷(信贷闸门收紧)都危险。',
         'WALCL': '美联储总资产同比变化率。计算公式：WALCL_YoY = (当前周总资产 - 上年同期总资产) / 上年同期总资产 × 100%。增速越高表示扩表速度越快。',
-        'RRPONTSYD': '隔夜逆回购协议余额。它是市场的"剩余流动性蓄水池"。当前评分较高是因为余额处于低位，意味着缓冲垫变薄。**注意：RRP下降本身属于资金释放（利好），只有当其与"净流动性"同步收缩时，才构成系统性压力。**',
         'DTWEXBGS': '贸易加权美元指数同比变化率。计算公式：DTWEXBGS_YoY = (当前周美元指数 - 上年同期美元指数) / 上年同期美元指数 × 100%。增速越高表示美元越强势，金融条件越紧张。',
         'CORPDEBT_GDP_PCT': '企业债务占GDP比例。计算公式：CORPDEBT_GDP_PCT = 企业债务总额 / GDP × 100%。比例过高表明企业杠杆率过高。',
         'RESERVES_DEPOSITS_PCT': '银行准备金占存款比例。计算公式：RESERVES_DEPOSITS_PCT = 银行准备金 / 银行存款 × 100%。比例过低表明银行流动性不足。',
         'RESERVES_ASSETS_PCT': '银行准备金占总资产比例。计算公式：RESERVES_ASSETS_PCT = 银行准备金 / 银行总资产 × 100%。比例过低表明银行流动性不足。',
         'TDSP': '家庭债务偿付收入比。水平值，比率越高表示家庭债务负担过重。',
-        'DRSFRMACBS': '房贷违约率。水平值，违约率越高表示家庭财务压力越大。',
-        # 黄金见顶判断模型指标
-        'US_REAL_RATE_10Y': '美国10年期实际利率。计算公式：US_REAL_RATE_10Y = DGS10（名义利率） - T10YIE（通胀预期）。它是持有黄金的机会成本。实际利率飙升意味着持有无息资产（黄金）的成本极高，通常对应金价见顶。实际利率为负或极低时，利好黄金。典型范围：-1.0% - 2.5%，危机阈值：> 2.0%（高位预警）。',
-        'MTSDS133FMS': '联邦财政盈余/赤字。美国联邦政府的月度财政收支状况。如果赤字快速收窄（数值趋向0或变正），意味着"财政脉冲"消退，经济失去支撑，且通胀预期下降，利空金价。赤字大幅扩张（数值很负）通常对应"大放水"，利好黄金。典型范围：-300 Billion - 0，危机阈值：> -50 Billion（赤字显著收窄）。',
-        'GOLD_REAL_RATE_DIFF': '金价-实际利率估值差。黄金价格与实际利率的相对位置模型残差。当实际利率走高（利空）但金价依然狂涨时，二者差值拉大，形成"鳄鱼嘴"背离，暗示金价进入纯情绪博弈的泡沫阶段，见顶风险极大。差值收敛意味着估值回归合理。典型范围：需根据历史数据动态评估，危机阈值：> 历史90分位。',
-        # 权益周期监控指标
-        'SP500_PROFIT_DIVERGENCE': '标普500与企业利润背离度。计算公式：SP500_PROFIT_DIVERGENCE = SP500 / CPATAX（企业税后利润）。该指标专门识别"Optimism"阶段（Real Price Return > Real EPS Growth），即股价涨幅远超盈利增长，形成估值泡沫。比值越高，说明股价脱离盈利基本面，见顶风险越大。典型范围：需根据历史数据动态评估，危机阈值：> 历史90分位。',
-        'USD_NET_LIQUIDITY': '美联储净流动性。计算公式：USD_NET_LIQUIDITY = WALCL（美联储总资产） - WTREGEN（财政部一般账户） - RRPONTSYD（隔夜逆回购）。该指标反映真正流入市场的流动性。流动性收缩（负增长或快速下跌）是股市最大的风险，意味着市场失去资金支撑。流动性扩张时利好股市。典型范围：需根据历史数据动态评估，危机阈值：YoY < 历史25分位（流动性水位过低）。',
-        'STLFSI3': '圣路易斯金融压力指数。该指数综合反映金融市场的压力水平，>0 代表压力高于历史平均。压力飙升通常对应市场恐慌、流动性枯竭，是股市见顶的重要信号。典型范围：-3.0 - 3.0，危机阈值：> 历史90分位（压力飙升）。',
-        # 长期估值锚指标
-        'BUFFETT_INDICATOR': '巴菲特指标（市值/GDP）。计算公式：BUFFETT_INDICATOR = (WILL5000INDFC / GDP) × 100。该指标反映股票市场总市值相对于经济总量的估值水平，是长期估值锚点。由于全球化、无形资产等因素，该指标可能长期处于高位，但仍可作为结构性估值参考。典型范围：80% - 150%，危机阈值：> 历史90分位（长期估值昂贵）。'
+        'DRSFRMACBS': '房贷违约率。水平值，违约率越高表示家庭财务压力越大。'
     }
     
     base_explanation = explanations.get(series_id, f'{series_id}指标')
@@ -2292,101 +1601,77 @@ def run_data_pipeline():
     import time
     import os
 
-    print("🔄 启动数据管道...")
+    _log_stage("🔄 启动数据管道...")
     print("=" * 60)
-    
-    # 修复：清洗预计算的中间文件缓存（排除市场信号文件）
-    print("🧹 清洗预计算缓存文件...")
-    cache_dir = BASE / "data" / "series"
-    if cache_dir.exists():
-        cache_files = list(cache_dir.glob("*.csv"))
-        # 排除 README、市场信号文件（MKT_开头）和其他非数据文件
-        cache_files = [f for f in cache_files 
-                      if f.name not in ['README.md', 'data_catalog.py'] 
-                      and not f.name.startswith('MKT_')]  # v3.0: 保护市场信号文件
-        
-        removed_count = 0
-        for cache_file in cache_files:
-            try:
-                cache_file.unlink()
-                removed_count += 1
-            except Exception as e:
-                print(f"⚠️ 删除缓存文件失败 {cache_file.name}: {e}")
-        
-        if removed_count > 0:
-            print(f"✅ 已删除 {removed_count} 个预计算缓存文件")
-        else:
-            print("ℹ️ 没有需要清理的缓存文件")
-    else:
-        print("ℹ️ 缓存目录不存在，跳过清理")
-    
-    # 保留原始数据：data/fred/series/*/raw.csv 不会被删除
 
     total_steps = 4
     current_step = 0
 
     # 获取当前工作目录
     current_dir = os.getcwd()
-    print(f"📁 当前工作目录: {current_dir}")
+    _log_stage(f"📁 当前工作目录: {current_dir}")
 
     # 1. 运行FRED数据下载
     current_step += 1
     progress = int((current_step / total_steps) * 100)
-    print(f"📥 步骤{current_step}/{total_steps} ({progress}%): 下载FRED数据...")
-    print("⏳ 预计等待时间: 2-5分钟...")
+    _log_stage(f"📥 步骤{current_step}/{total_steps} ({progress}%): 下载FRED数据...")
+    _log_stage("⏳ 预计等待时间: 2-5分钟...")
 
     try:
         script_path = os.path.join(current_dir, "scripts", "sync_fred_http.py")
-        print(f"🔍 执行脚本: {script_path}")
+        _log_stage(f"🔍 执行脚本: {script_path}")
         result = subprocess.run([sys.executable, script_path],
-                              capture_output=True, text=True, timeout=300, cwd=current_dir)
+                              capture_output=True, text=True, timeout=300, cwd=current_dir,
+                              encoding="utf-8", errors="replace")
         if result.returncode == 0:
-            print("✅ FRED数据下载完成")
+            _log_stage("✅ FRED数据下载完成")
         else:
-            print(f"⚠️ FRED数据下载警告: {result.stderr}")
+            _log_stage(f"⚠️ FRED数据下载警告: {result.stderr}")
     except Exception as e:
-        print(f"❌ FRED数据下载失败: {e}")
+        _log_stage(f"❌ FRED数据下载失败: {e}")
 
     # 2. 运行企业债/GDP比率计算
     current_step += 1
     progress = int((current_step / total_steps) * 100)
-    print(f"🧮 步骤{current_step}/{total_steps} ({progress}%): 计算企业债/GDP比率...")
-    print("⏳ 预计等待时间: 30秒...")
+    _log_stage(f"🧮 步骤{current_step}/{total_steps} ({progress}%): 计算企业债/GDP比率...")
+    _log_stage("⏳ 预计等待时间: 30秒...")
 
     try:
         script_path = os.path.join(current_dir, "scripts", "calculate_corporate_debt_gdp_ratio.py")
-        print(f"🔍 执行脚本: {script_path}")
+        _log_stage(f"🔍 执行脚本: {script_path}")
         result = subprocess.run([sys.executable, script_path],
-                              capture_output=True, text=True, timeout=60, cwd=current_dir)
+                              capture_output=True, text=True, timeout=60, cwd=current_dir,
+                              encoding="utf-8", errors="replace")
         if result.returncode == 0:
-            print("✅ 企业债/GDP比率计算完成")
+            _log_stage("✅ 企业债/GDP比率计算完成")
         else:
-            print(f"⚠️ 企业债/GDP比率计算警告: {result.stderr}")
+            _log_stage(f"⚠️ 企业债/GDP比率计算警告: {result.stderr}")
     except Exception as e:
-        print(f"❌ 企业债/GDP比率计算失败: {e}")
+        _log_stage(f"❌ 企业债/GDP比率计算失败: {e}")
 
     # 3. 运行YoY指标计算
     current_step += 1
     progress = int((current_step / total_steps) * 100)
-    print(f"📊 步骤{current_step}/{total_steps} ({progress}%): 计算YoY指标...")
-    print("⏳ 预计等待时间: 1-2分钟...")
+    _log_stage(f"📊 步骤{current_step}/{total_steps} ({progress}%): 计算YoY指标...")
+    _log_stage("⏳ 预计等待时间: 1-2分钟...")
 
     try:
         script_path = os.path.join(current_dir, "scripts", "calculate_yoy_indicators.py")
-        print(f"🔍 执行脚本: {script_path}")
+        _log_stage(f"🔍 执行脚本: {script_path}")
         result = subprocess.run([sys.executable, script_path],
-                              capture_output=True, text=True, timeout=120, cwd=current_dir)
+                              capture_output=True, text=True, timeout=120, cwd=current_dir,
+                              encoding="utf-8", errors="replace")
         if result.returncode == 0:
-            print("✅ YoY指标计算完成")
+            _log_stage("✅ YoY指标计算完成")
         else:
-            print(f"⚠️ YoY指标计算警告: {result.stderr}")
+            _log_stage(f"⚠️ YoY指标计算警告: {result.stderr}")
     except Exception as e:
-        print(f"❌ YoY指标计算失败: {e}")
+        _log_stage(f"❌ YoY指标计算失败: {e}")
 
     # 4. 数据管道完成
     current_step += 1
     progress = int((current_step / total_steps) * 100)
-    print(f"✅ 步骤{current_step}/{total_steps} ({progress}%): 数据管道完成")
+    _log_stage(f"✅ 步骤{current_step}/{total_steps} ({progress}%): 数据管道完成")
     print("=" * 60)
 
 def generate_detailed_explanation_report(processed_indicators, output_path, timestamp):
@@ -2411,6 +1696,78 @@ def generate_detailed_explanation_report(processed_indicators, output_path, time
             'unit': '%',
             'typical_range': '0.3% - 2.5%',
             'crisis_threshold': '< 0.3%'
+        },
+        'UST30Y_UST2Y_RSI': {
+            'name': '30年/2年美债利差 RSI',
+            'description': '基于30年期与2年期国债收益率比率(30Y/2Y)计算的月度RSI指标。',
+            'high_risk_explanation': 'RSI突破50通常标志着收益率曲线完成“去倒挂”并开始陡峭化，历史上常对应股市崩盘或经济衰退的实质性爆发期。',
+            'low_risk_explanation': 'RSI低于50通常表示市场处于倒挂期（潜伏期）或正常温和期。',
+            'unit': 'RSI',
+            'typical_range': '30 - 70',
+            'crisis_threshold': '> 50'
+        },
+        'HY_OAS_MOMENTUM_RATIO': {
+            'name': '高收益债利差20日动量比率',
+            'description': 'BAMLH0A0HYM2 当前值相对20日均值的比率，衡量利差短期急速扩张。',
+            'high_risk_explanation': '比率大于1.1表示利差在20日内快速走阔，流动性抽离风险显著上升。',
+            'low_risk_explanation': '比率接近1表示利差变化温和，信用压力可控。',
+            'unit': '比率',
+            'typical_range': '0.9 - 1.1',
+            'crisis_threshold': '> 1.1'
+        },
+        'SP500_DGS10_CORR60D': {
+            'name': '股债60日滚动相关性',
+            'description': '标普500与10年期国债收益率的60日滚动相关性（基于日度涨跌幅）。',
+            'high_risk_explanation': '相关性升至高位且与VIX上升共振时，通常代表股债同跌的“现金为王”阶段。',
+            'low_risk_explanation': '相关性为负或接近0时，股债对冲功能仍在。',
+            'unit': '相关系数',
+            'typical_range': '-0.5 - 0.5',
+            'crisis_threshold': '> 0.5'
+        },
+        'NET_LIQUIDITY': {
+            'name': '每日净流动性',
+            'description': 'WALCL(线性插值) - WTREGEN - RRPONTSYD，近似衡量系统可用流动性。',
+            'high_risk_explanation': '净流动性快速下降通常意味着风险资产缺乏“燃料”，回撤压力增大。',
+            'low_risk_explanation': '净流动性稳定或上升时，风险资产承压较小。',
+            'unit': '亿美元(近似)',
+            'typical_range': '随政策变化',
+            'crisis_threshold': '显著下降'
+        },
+        'VIX_TERM_STRUCTURE': {
+            'name': 'VIX期限结构',
+            'description': 'VIX与VIX3M的比率，用于识别短期恐慌是否倒挂。',
+            'high_risk_explanation': '比值大于1通常表示短期恐慌更强，容易伴随风险资产急跌。',
+            'low_risk_explanation': '比值小于1表示期限结构正常，市场恐慌相对可控。',
+            'unit': '比率',
+            'typical_range': '0.7 - 1.0',
+            'crisis_threshold': '> 1.0'
+        },
+        'HY_IG_RATIO': {
+            'name': '高收益/投资级总回报比率',
+            'description': '高收益债总回报与投资级债总回报的比率，衡量风险偏好。',
+            'high_risk_explanation': '比率快速下行（或Z-Score显著为负）通常代表资金逃离风险信贷。',
+            'low_risk_explanation': '比率稳定或回升表示风险偏好仍在。',
+            'unit': '比率',
+            'typical_range': '随市场变化',
+            'crisis_threshold': '快速下行'
+        },
+        'GLOBAL_LIQUIDITY_USD': {
+            'name': '全球流动性代理',
+            'description': 'Fed + ECB + BOJ 资产负债表折算美元后的合计。',
+            'high_risk_explanation': '全球流动性快速收缩通常对应风险资产压力上升。',
+            'low_risk_explanation': '流动性扩张有利于风险偏好维持。',
+            'unit': '美元(近似)',
+            'typical_range': '随政策变化',
+            'crisis_threshold': '显著下降'
+        },
+        'CREDIT_CARD_DELINQUENCY': {
+            'name': '信用卡违约率',
+            'description': '信用卡违约率（DRCCLACBS），用于验证消费与信贷风险。',
+            'high_risk_explanation': '违约率持续上升，表明消费端真实压力在累积。',
+            'low_risk_explanation': '违约率低位或回落表示消费压力可控。',
+            'unit': '%',
+            'typical_range': '1% - 5%',
+            'crisis_threshold': '> 4%'
         },
         'BAMLH0A0HYM2': {
             'name': '高收益债券利差',
@@ -2852,9 +2209,26 @@ def generate_detailed_explanation_report(processed_indicators, output_path, time
 
 def generate_report_with_images():
     """生成带图片的危机预警报告"""
+    global RUN_LOG_PATH, RUN_START_TS
     print("🚨 FRED 危机预警监控系统启动...")
     print("=" * 80)
-    
+    output_dir = BASE / "outputs" / "crisis_monitor"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    RUN_LOG_PATH = output_dir / "run_trace.log"
+    RUN_START_TS = time.time()
+    _log_stage("▶️ Run start")
+
+    stop_event = threading.Event()
+
+    def _heartbeat():
+        while not stop_event.is_set():
+            time.sleep(30)
+            if not stop_event.is_set():
+                _log_stage("⏱️ 仍在运行...（心跳）")
+
+    heartbeat_thread = threading.Thread(target=_heartbeat, daemon=True)
+    heartbeat_thread.start()
+
     # 首先运行数据管道
     run_data_pipeline()
 
@@ -2868,50 +2242,24 @@ def generate_report_with_images():
     indicators = config.get('indicators', [])
     scoring_config = config.get('scoring', {})
     bands = scoring_config.get('bands', {'low': 40, 'med': 60, 'high': 80})
-    print(f"📊 加载了 {len(indicators)} 个指标")
+    _log_stage(f"📊 加载了 {len(indicators)} 个指标")
     
     # 计算真实FRED数据评分
-    result = calculate_real_fred_scores(indicators, scoring_config)
-    if len(result) == 4:
-        group_scores, total_score, processed_indicators, tension_metrics = result
-    else:
-        # 向后兼容：如果没有张力指标，创建默认值
-        group_scores, total_score, processed_indicators = result
-        tension_metrics = {
-            'score_state': 0.0,
-            'score_trigger': 0.0,
-            'index_tension': 0.0,
-            'tension_analysis': '数据不足，无法计算系统张力。'
-        }
+    _log_stage("🧮 计算指标评分...")
+    group_scores, total_score, processed_indicators = calculate_real_fred_scores(indicators, scoring_config)
+    _log_stage("✅ 指标评分完成")
     
-    # v2.0: 为每个指标添加风险等级和趋势
+    # 为每个指标添加风险等级
     for indicator in processed_indicators:
         indicator['risk_level'] = level_from_score(indicator['risk_score'], bands)
-        # 计算趋势箭头（需要时间序列数据）
-        series_id = indicator.get('series_id', '')
-        try:
-            ts = compose_series(series_id)
-            if ts is None:
-                ts = fetch_series(series_id)
-            if ts is not None and not ts.empty:
-                indicator['trend'] = calculate_trend(ts, indicator['risk_score'])
-            else:
-                indicator['trend'] = "→"
-        except:
-            indicator['trend'] = "→"
-    
-    # v2.0: 生成宏观叙事
-    macro_narrative = generate_macro_narrative(processed_indicators, group_scores, total_score, scoring_config)
     
     # 生成报告（使用JST时区）
     now = datetime.now(JST)
     timestamp = now.strftime("%Y%m%d_%H%M%S")
     display_time = now.strftime("%Y年%m月%d日 %H:%M:%S JST")
-    output_dir = BASE / "outputs" / "crisis_monitor"
-    output_dir.mkdir(parents=True, exist_ok=True)
     
     # 生成图片
-    print("📊 生成图表...")
+    _log_stage("📊 生成图表...")
     image_paths = {}
     
     # 生成总体概览图表
@@ -2940,6 +2288,7 @@ def generate_report_with_images():
     for i, indicator in enumerate(processed_indicators):
         try:
             series_id = indicator['series_id']
+            _log_stage(f"🖼️ 绘图 {i+1}/{len(processed_indicators)}: {series_id}")
             chart_path = output_dir / "figures" / f"{series_id}_latest.png"
             
             if viz_available:
@@ -2949,8 +2298,13 @@ def generate_report_with_images():
                 
                 ts = None
                 
+                # 优先使用合成序列（派生指标）
+                ts = compose_series(series_id)
+                if ts is not None and not ts.empty:
+                    print(f"🔄 使用合成序列绘图: {series_id}")
+                
                 # 优先使用预计算的数据（YoY或比率）
-                if series_id == 'NCBDBIQ027S':
+                if (ts is None or ts.empty) and series_id == 'NCBDBIQ027S':
                     # 使用预计算的企业债/GDP比率数据
                     try:
                         ratio_file = pathlib.Path("data/series/CORPORATE_DEBT_GDP_RATIO.csv")
@@ -2964,7 +2318,7 @@ def generate_report_with_images():
                         print(f"⚠️ 企业债/GDP比率数据读取失败: {e}")
                 
                 # 处理合成指标
-                elif series_id in ['CP_MINUS_DTB3', 'SOFR20DMA_MINUS_DTB3', 'CORPDEBT_GDP_PCT', 'RESERVES_ASSETS_PCT', 'RESERVES_DEPOSITS_PCT']:
+                elif (ts is None or ts.empty) and series_id in ['CP_MINUS_DTB3', 'SOFR20DMA_MINUS_DTB3', 'CORPDEBT_GDP_PCT', 'RESERVES_ASSETS_PCT', 'RESERVES_DEPOSITS_PCT']:
                     # 使用预计算的合成指标数据
                     try:
                         synthetic_file = pathlib.Path(f"data/series/{series_id}.csv")
@@ -2977,7 +2331,7 @@ def generate_report_with_images():
                     except Exception as e:
                         print(f"⚠️ 合成指标数据读取失败: {e}")
                 
-                elif series_id in ['PAYEMS', 'INDPRO', 'GDP', 'NEWORDER', 'CSUSHPINSA', 'TOTALSA', 'TOTLL', 'MANEMP', 'WALCL', 'DTWEXBGS', 'PERMIT', 'TOTRESNS', 'USD_NET_LIQUIDITY']:
+                elif (ts is None or ts.empty) and series_id in ['PAYEMS', 'INDPRO', 'GDP', 'NEWORDER', 'CSUSHPINSA', 'TOTALSA', 'TOTLL', 'MANEMP', 'WALCL', 'DTWEXBGS', 'PERMIT', 'TOTRESNS']:
                     # 使用预计算的YoY数据
                     try:
                         yoy_file = pathlib.Path(f"data/series/{series_id}_YOY.csv")
@@ -2989,26 +2343,6 @@ def generate_report_with_images():
                             print(f"📊 使用YoY数据: {series_id}")
                     except Exception as e:
                         print(f"⚠️ YoY数据读取失败: {e}")
-                
-                # 黄金见顶判断模型、权益周期监控和长期估值锚合成指标
-                elif series_id in ['US_REAL_RATE_10Y', 'GOLD_REAL_RATE_DIFF', 'SP500_PROFIT_DIVERGENCE', 'USD_NET_LIQUIDITY', 'BUFFETT_INDICATOR']:
-                    # 使用预计算的合成指标数据
-                    try:
-                        # v3.0: 检查市场体制指标和其他合成指标
-                        synthetic_file = pathlib.Path(f"data/series/{series_id}.csv")
-                        if synthetic_file.exists():
-                            synthetic_df = pd.read_csv(synthetic_file, index_col=0, parse_dates=True)
-                            if len(synthetic_df.columns) == 1:
-                                ts = parse_numeric_series(synthetic_df.iloc[:, 0]).dropna()
-                            else:
-                                # 优先使用 'value' 列，否则使用第一列
-                                if 'value' in synthetic_df.columns:
-                                    ts = parse_numeric_series(synthetic_df['value']).dropna()
-                                else:
-                                    ts = parse_numeric_series(synthetic_df.iloc[:, 0]).dropna()
-                            print(f"📁 使用预计算合成指标数据: {series_id}")
-                    except Exception as e:
-                        print(f"⚠️ 合成指标数据读取失败: {e}")
                 
                 # 如果没有预计算数据，使用原始数据
                 if ts is None or ts.empty:
@@ -3094,71 +2428,7 @@ def generate_report_with_images():
     md_path = output_dir / f"crisis_report_{timestamp}.md"
     with open(md_path, "w", encoding="utf-8") as f:
         f.write("# 🚨 FRED 宏观金融危机预警监控报告\n\n")
-        f.write(f"**生成时间**: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}\n")
-        f.write(f"**系统版本**: v2.4 (Structural Fragility Floor - 结构性脆弱底座)\n\n")
-        
-        # v2.4: 双轨风险面板（在报告最前面）
-        f.write("## ⚡ v2.4 双轨风险面板 (System Tension Dashboard)\n\n")
-        
-        score_state = tension_metrics.get('score_state', 0.0)
-        score_trigger = tension_metrics.get('score_trigger', 0.0)
-        # v2.4: 使用最终风险分（考虑结构性底座）
-        final_risk_score = tension_metrics.get('final_risk_score', tension_metrics.get('index_tension', 0.0))
-        structural_floor = tension_metrics.get('structural_floor', 0.0)
-        index_tension = tension_metrics.get('index_tension', 0.0)
-        tension_analysis = tension_metrics.get('tension_analysis', '数据不足')
-        
-        # Markdown格式的双轨面板
-        f.write("### 📉 回报不对称性 (Valuation Risk - State)\n\n")
-        f.write(f"**得分**: {score_state:.1f} / 100\n\n")
-        f.write("**含义**：资产是否昂贵？未来长期回报是否受限？\n\n")
-        f.write("**策略**：分数越高，越应降低预期收益，而非立刻卖出。\n\n")
-        f.write("---\n\n")
-        f.write("### 💥 崩盘触发概率 (Trigger Risk)\n\n")
-        f.write(f"**得分**: {score_trigger:.1f} / 100\n\n")
-        f.write("**含义**：流动性/信用/情绪是否在恶化？\n\n")
-        f.write("**策略**：分数越高，越应增加对冲或现金。\n\n")
-        f.write("---\n\n")
-        f.write("### ⚡ 系统张力指数 (System Tension)\n\n")
-        f.write(f"**指数**: {final_risk_score:.1f} / 100\n\n")
-        
-        # v2.3: 显示 Momentum 和 Convexity
-        trigger_momentum = tension_metrics.get('trigger_momentum', 0.0)
-        convexity_factor = tension_metrics.get('convexity_factor', 1.0)
-        
-        if trigger_momentum > 0:
-            momentum_text = f"+{trigger_momentum:.1f} (恶化 ⚠️)"
-        else:
-            momentum_text = f"{trigger_momentum:.1f} (改善)"
-        
-        f.write(f"**Trigger Momentum**: {momentum_text}\n\n")
-        f.write(f"**Convexity Multiplier**: {convexity_factor:.2f}x\n\n")
-        
-        # v2.4: 显示结构性底座
-        if structural_floor > 0:
-            if final_risk_score == structural_floor:
-                f.write(f"**🛡️ 结构性底座**: {structural_floor:.1f} (已激活) ⚠️\n\n")
-                f.write(f"*原因：State ({tension_metrics.get('score_state', 0.0):.1f}) 过高，系统强制锁定最低风险分。*\n\n")
-            else:
-                f.write(f"**🛡️ 结构性底座**: {structural_floor:.1f} (未激活)\n\n")
-        
-        f.write(f"**分析**: {tension_analysis}\n\n")
-        f.write(f"*v2.4 算法：当 State > 40 时，系统进入\"易碎模式\" (Fragile Mode)，Trigger 的微小恶化会被凸性放大 {convexity_factor:.1f} 倍。同时，高估值会触发结构性底座，防止风险低估。*\n\n")
-        f.write("---\n\n")
-        
-        # 核心方法论声明（V2.4更新）
-        f.write("### ℹ️ 如何阅读本报告 (V2.4)\n\n")
-        f.write("本系统采用**\"三层指标体系\"**来区分\"贵\"与\"险\"：\n\n")
-        f.write("1. **状态指标 (State)**：如巴菲特指标、利润背离。它们只告诉你\"资产贵不贵\"，**不直接触发危机预警**。\n\n")
-        f.write("2. **触发指标 (Trigger)**：如流动性、信用利差、FCI。它们决定\"泡沫会不会破\"，是危机爆发的扳机。\n\n")
-        f.write("3. **约束指标 (Constraint)**：如实际利率、财政赤字。它们是资产定价的宏观边界。\n\n")
-        f.write("**系统张力指数** = 基础张力 + (动量风险 × 凸性放大)。\n\n")
-        f.write("        * **基础张力** = (State得分 × Trigger得分) / 100\n")
-        f.write("        * **动量风险** = Trigger当前值 - Trigger 13周均值（仅当恶化时>0）\n")
-        f.write("        * **凸性放大** = 当State>40时，使用指数函数放大动量风险\n\n")
-        f.write("        高估值+触发恶化 = 极度危险（动量被大幅放大）。\n\n")
-        f.write("*当前总分较低（极低风险）是因为\"触发指标\"依然健康，尽管\"状态指标\"已经报警。请据此区分长期配置风险与短期交易风险。*\n\n")
-        f.write("---\n\n")
+        f.write(f"**生成时间**: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}\n\n")
         
         f.write("## 📋 报告说明\n\n")
         f.write("本报告基于FRED宏观指标，将当前值与历史危机期间基准值比较，以评估风险。\n\n")
@@ -3182,67 +2452,9 @@ def generate_report_with_images():
         f.write(f"- 🟢 **低风险** ({bands['low']}-{bands['med']-1}分): 当前值接近或低于历史危机水平\n")
         f.write(f"- 🔵 **极低风险** (0-{bands['low']-1}分): 当前值远低于历史危机水平\n\n")
         
-        # v2.0: 添加宏观叙事部分
-        f.write("## 📖 宏观叙事分析 (v2.0)\n\n")
-        f.write(macro_narrative)
-        f.write("\n\n")
-        
-        # v3.0: 添加市场体制雷达诊断
-        try:
-            market_md, market_html = generate_market_regime_diagnosis(processed_indicators)
-            f.write(market_md)
-            f.write("\n")
-        except Exception as e:
-            print(f"⚠️ 市场体制诊断生成失败: {e}")
-            f.write("### 🧭 市场体制雷达\n\n*市场数据暂不可用*\n\n")
-        
-        # 添加美股泡沫深度诊断（三段式逻辑）
-        bubble_md, bubble_html = generate_bubble_diagnosis(processed_indicators)
-        f.write(bubble_md)
-        f.write("\n")
-        
-        # 添加黄金市场深度诊断
-        gold_html, gold_md = generate_gold_diagnosis(processed_indicators)
-        f.write(gold_md)
-        f.write("\n\n")
-        
-        # 保存gold_html和gold_md供后续HTML生成使用
-        # 注意：这里我们需要在函数外部保存这些值，但由于作用域限制，我们在HTML生成时重新生成
-        
         f.write("## 📈 详细指标分析\n\n")
         
-        # v2.0: 按指标类型重组报告结构
-        # 1. 先行指标 (Leading Indicators)
-        leading_indicators = [i for i in processed_indicators 
-                             if i.get('type') == 'leading' or 
-                             i.get('series_id', '') in ['T10Y3M', 'T10Y2Y', 'SAHMREALTIME', 'KCFSI', 'T5YIE']]
-        
-        if leading_indicators:
-            f.write("### 🚨 先行指标 (早期预警系统)\n\n")
-            f.write("| 指标名称 | 当前值 | 风险评分 | 趋势 | 说明 |\n")
-            f.write("|---------|--------|----------|------|------|\n")
-            for indicator in sorted(leading_indicators, key=lambda x: x['risk_score'], reverse=True):
-                trend = indicator.get('trend', '→')
-                f.write(f"| {indicator['name']} | {indicator['current_value']:.2f} | "
-                       f"{indicator['risk_score']:.1f} | {trend} | {indicator.get('plain_explainer', '')[:50]}... |\n")
-            f.write("\n")
-        
-        # 2. 流动性条件 (Liquidity Conditions)
-        liquidity_indicators = [i for i in processed_indicators 
-                               if i.get('group') == 'liquidity' or
-                               i.get('series_id', '') in ['RRPONTSYD', 'WTREGEN', 'M2SL']]
-        
-        if liquidity_indicators:
-            f.write("### 💧 流动性条件 (市场燃料)\n\n")
-            f.write("| 指标名称 | 当前值 | 风险评分 | 趋势 | 说明 |\n")
-            f.write("|---------|--------|----------|------|------|\n")
-            for indicator in sorted(liquidity_indicators, key=lambda x: x['risk_score'], reverse=True):
-                trend = indicator.get('trend', '→')
-                f.write(f"| {indicator['name']} | {indicator['current_value']:.2f} | "
-                       f"{indicator['risk_score']:.1f} | {trend} | {indicator.get('plain_explainer', '')[:50]}... |\n")
-            f.write("\n")
-        
-        # 3. 按风险等级分组显示所有指标（保留原有结构）
+        # 按风险等级分组显示所有指标
         high_risk_indicators = []
         medium_risk_indicators = []
         low_risk_indicators = []
@@ -3263,11 +2475,10 @@ def generate_report_with_images():
         if high_risk_indicators:
             f.write("### 🔴 高风险指标\n\n")
             for i, indicator in enumerate(high_risk_indicators, 1):
-                trend = indicator.get('trend', '→')
-                f.write(f"#### {i}. {indicator['name']} ({indicator['series_id']}) {trend}\n\n")
+                f.write(f"#### {i}. {indicator['name']} ({indicator['series_id']})\n\n")
                 f.write(f"- **当前值**: {indicator['current_value']:.4f}\n")
                 f.write(f"- **基准值**: {indicator['benchmark_value']:.4f} ({indicator.get('compare_to', 'unknown')})\n")
-                f.write(f"- **风险评分**: {indicator['risk_score']:.1f} (🔴 高风险) | **趋势**: {trend}\n")
+                f.write(f"- **风险评分**: {indicator['risk_score']:.1f} (🔴 高风险)\n")
                 f.write(f"- **解释**: {indicator.get('plain_explainer', '无解释')}\n\n")
                 f.write(f"![{indicator['series_id']}](figures/{indicator['series_id']}_latest.png)\n\n")
         
@@ -3275,11 +2486,10 @@ def generate_report_with_images():
         if medium_risk_indicators:
             f.write("### 🟡 中风险指标\n\n")
             for i, indicator in enumerate(medium_risk_indicators, 1):
-                trend = indicator.get('trend', '→')
-                f.write(f"#### {i}. {indicator['name']} ({indicator['series_id']}) {trend}\n\n")
+                f.write(f"#### {i}. {indicator['name']} ({indicator['series_id']})\n\n")
                 f.write(f"- **当前值**: {indicator['current_value']:.4f}\n")
                 f.write(f"- **基准值**: {indicator['benchmark_value']:.4f} ({indicator.get('compare_to', 'unknown')})\n")
-                f.write(f"- **风险评分**: {indicator['risk_score']:.1f} (🟡 中风险) | **趋势**: {trend}\n")
+                f.write(f"- **风险评分**: {indicator['risk_score']:.1f} (🟡 中风险)\n")
                 f.write(f"- **解释**: {indicator.get('plain_explainer', '无解释')}\n\n")
                 f.write(f"![{indicator['series_id']}](figures/{indicator['series_id']}_latest.png)\n\n")
         
@@ -3387,115 +2597,20 @@ def generate_report_with_images():
         
         # 免责声明
         f.write("## ⚠️ 免责声明\n\n")
-        f.write("本报告仅供参考，不构成投资建议。历史数据不保证未来表现。本报告所有数据下载都存在错误可能，计算存在错误可能。请不要作为投资判断的依据。\n\n")
-        f.write("如果你发现任何错误，欢迎指出，发邮件给：jiangx@gmail.com\n\n")
+        f.write("本报告仅供参考，不构成投资建议。历史数据不保证未来表现。\n\n")
         
         f.write("---\n\n")
         f.write("*本报告基于FRED数据，仅供参考，不构成投资建议*\n")
     
-    # 生成HTML报告（使用Base64嵌入）
-    html_path = output_dir / f"crisis_report_{timestamp}.html"
-    with open(md_path, "r", encoding="utf-8") as f:
-        markdown_content = f.read()
-    
-    # v2.4: 生成双轨风险面板的HTML版本（增加 Structural Floor）
-    score_state = tension_metrics.get('score_state', 0.0)
-    score_trigger = tension_metrics.get('score_trigger', 0.0)
-    trigger_momentum = tension_metrics.get('trigger_momentum', 0.0)
-    convexity_factor = tension_metrics.get('convexity_factor', 1.0)
-    index_tension = tension_metrics.get('index_tension', 0.0)
-    structural_floor = tension_metrics.get('structural_floor', 0.0)
-    final_risk_score = tension_metrics.get('final_risk_score', index_tension)
-    tension_analysis = tension_metrics.get('tension_analysis', '数据不足')
-    
-    if trigger_momentum > 0:
-        momentum_text = f"+{trigger_momentum:.1f} (恶化 ⚠️)"
-        momentum_color = "#c62828"
-    else:
-        momentum_text = f"{trigger_momentum:.1f} (改善)"
-        momentum_color = "#2e7d32"
-    
-    # v2.4: 判断结构性底座是否激活
-    floor_active = (final_risk_score == structural_floor and structural_floor > 0)
-    floor_status_text = ""
-    if structural_floor > 0:
-        if floor_active:
-            floor_status_text = f'<div style="background: #ffebee; padding: 8px; border-radius: 4px; margin-top: 10px; border-left: 3px solid #c62828;"><strong>🛡️ 结构性底座已激活 (Structural Floor Active)</strong><br><span style="font-size: 0.9em;">原因：State ({score_state:.1f}) 过高，系统强制锁定最低风险分 {structural_floor:.1f}。</span></div>'
-        else:
-            floor_status_text = f'<div style="background: #f5f5f5; padding: 8px; border-radius: 4px; margin-top: 10px; font-size: 0.9em; color: #666;">🛡️ 结构性底座: {structural_floor:.1f} (未激活)</div>'
-    
-    tension_html = f"""
-<div style="margin: 20px 0;">
-    <div style="display: flex; gap: 20px; margin-bottom: 15px;">
-        <div style="flex: 1; background: #e3f2fd; padding: 15px; border-radius: 8px; border-left: 5px solid #2196f3;">
-            <h3 style="margin-top: 0; color: #1976d2;">📉 回报不对称性 (Valuation Risk)</h3>
-            <p style="font-size: 1.2em; font-weight: bold; color: #1976d2;">得分: {score_state:.1f} / 100</p>
-            <p style="color: #555;">含义：资产是否昂贵？未来长期回报是否受限？</p>
-            <p style="color: #555; font-size: 0.9em;">策略：分数越高，越应降低预期收益，而非立刻卖出。</p>
-        </div>
-        <div style="flex: 1; background: #ffebee; padding: 15px; border-radius: 8px; border-left: 5px solid #f44336;">
-            <h3 style="margin-top: 0; color: #c62828;">💥 崩盘触发概率 (Trigger Risk)</h3>
-            <p style="font-size: 1.2em; font-weight: bold; color: #c62828;">得分: {score_trigger:.1f} / 100</p>
-            <p style="color: #555;">含义：流动性/信用/情绪是否在恶化？</p>
-            <p style="color: {momentum_color}; font-weight: bold;">🌊 动量: {momentum_text}</p>
-            <p style="color: #555; font-size: 0.9em;">策略：分数越高，越应增加对冲或现金。</p>
-        </div>
-    </div>
-    <div style="background: #fff3e0; padding: 15px; border-left: 5px solid #ff9800; border-radius: 4px;">
-        <h3 style="margin-top: 0; color: #e65100;">⚡ 系统张力指数 (System Tension): {final_risk_score:.1f} / 100</h3>
-        <div style="display: flex; gap: 20px; margin-bottom: 10px; font-size: 0.9em; color: #666;">
-            <div>🔥 凸性放大器: <strong>{convexity_factor:.2f}x</strong></div>
-            <div>🌊 Trigger动量: <strong style="color: {momentum_color};">{momentum_text}</strong></div>
-        </div>
-        {floor_status_text}
-        <p style="font-weight: bold; color: #e65100; font-size: 1.1em; margin-top: 10px;">{tension_analysis}</p>
-        <p style="font-size: 0.85em; color: #888; margin-top: 5px;">
-            * v2.4 算法：当 State > 40 时，系统进入"易碎模式" (Fragile Mode)，Trigger 的微小恶化会被凸性放大 {convexity_factor:.1f} 倍。同时，高估值会触发结构性底座，防止风险低估。
-        </p>
-    </div>
-</div>
-"""
-    
-    # 在HTML中替换Markdown版本的市场体制、美股和黄金诊断为HTML版本
-    try:
-        market_md, market_html = generate_market_regime_diagnosis(processed_indicators)
-    except Exception as e:
-        print(f"⚠️ 市场体制诊断生成失败: {e}")
-        market_md, market_html = "### 🧭 市场体制雷达\n\n*市场数据暂不可用*\n\n", ""
-    
-    bubble_md, bubble_html = generate_bubble_diagnosis(processed_indicators)
-    gold_html, gold_md = generate_gold_diagnosis(processed_indicators)
-    
-    # 先转换Markdown为HTML
-    html_content = render_html_report(markdown_content, "宏观金融危机监察报告", output_dir)
-    
-    # v2.4: 替换双轨风险面板（Markdown转HTML后会被转义）
-    import re
-    tension_md_pattern = r'<h2>⚡ v2\.4 双轨风险面板.*?</h2>.*?<hr\s*/>'
-    if re.search(tension_md_pattern, html_content, re.DOTALL):
-        html_content = re.sub(tension_md_pattern, tension_html, html_content, flags=re.DOTALL)
-    else:
-        # 如果找不到，在报告开头插入
-        body_start = html_content.find('<body>')
-        if body_start != -1:
-            body_content_start = html_content.find('>', body_start) + 1
-            html_content = html_content[:body_content_start] + tension_html + html_content[body_content_start:]
-    
-    # 替换市场体制诊断（Markdown转HTML后会被转义）
-    if market_html:
-        market_md_pattern = r'<h3>🧭 市场体制雷达</h3>.*?---'
-        if re.search(market_md_pattern, html_content, re.DOTALL):
-            html_content = re.sub(market_md_pattern, market_html, html_content, flags=re.DOTALL)
-    
-    # 替换美股诊断（Markdown转HTML后会被转义）
-    bubble_md_pattern = r'<h3>💹 美股泡沫深度诊断</h3>.*?---'
-    if re.search(bubble_md_pattern, html_content, re.DOTALL):
-        html_content = re.sub(bubble_md_pattern, bubble_html, html_content, flags=re.DOTALL)
-    
-    # 替换黄金诊断（Markdown转HTML后会被转义）
-    gold_md_pattern = r'<h3>🏆 黄金见顶逻辑诊断</h3>.*?属于"晚期狂热"。'
-    if re.search(gold_md_pattern, html_content, re.DOTALL):
-        html_content = re.sub(gold_md_pattern, gold_html, html_content, flags=re.DOTALL)
+        # 生成HTML报告（使用Base64嵌入）
+        html_path = output_dir / f"crisis_report_{timestamp}.html"
+        with open(md_path, "r", encoding="utf-8") as f:
+            markdown_content = f.read()
+        
+        # 使用Base64嵌入功能
+        _log_stage("🌐 渲染HTML报告...")
+        html_content = render_html_report(markdown_content, "宏观金融危机监察报告", output_dir)
+        _log_stage("✅ HTML报告渲染完成")
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_content)
     
@@ -3528,23 +2643,22 @@ def generate_report_with_images():
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(json_data, f, ensure_ascii=False, indent=2)
     
-    try:
-        # Windows下使用复制而不是软链接
-        import shutil
-        if latest_md_link.exists():
-            latest_md_link.unlink()
-        if latest_html_link.exists():
-            latest_html_link.unlink()
-        if latest_json_link.exists():
-            latest_json_link.unlink()
-            
-        shutil.copyfile(md_path, latest_md_link)
-        shutil.copyfile(html_path, latest_html_link)
-        shutil.copyfile(json_path, latest_json_link)
-        print(f"✅ 创建latest文件: {latest_md_link.name}, {latest_html_link.name}, {latest_json_link.name}")
-    except Exception as e:
-        print(f"⚠️ 创建latest文件失败: {e}")
-    
+        try:
+            # Windows下使用复制而不是软链接
+            import shutil
+            if latest_md_link.exists():
+                latest_md_link.unlink()
+            if latest_html_link.exists():
+                latest_html_link.unlink()
+            if latest_json_link.exists():
+                latest_json_link.unlink()
+                
+            shutil.copyfile(md_path, latest_md_link)
+            shutil.copyfile(html_path, latest_html_link)
+            shutil.copyfile(json_path, latest_json_link)
+            print(f"✅ 创建latest文件: {latest_md_link.name}, {latest_html_link.name}, {latest_json_link.name}")
+        except Exception as e:
+            print(f"⚠️ 创建latest文件失败: {e}")
     # 生成长图（保存到和HTML同一个目录）
     long_image_path = output_dir / f"crisis_report_long_{timestamp}.png"
     image_success = generate_long_image(str(html_path), str(long_image_path))
@@ -3559,5 +2673,219 @@ def generate_report_with_images():
     print(f"🎯 总体风险评分: {total_score:.1f}/100")
     print(f"📊 风险等级: {risk_level}")
 
+    stop_event.set()
+    heartbeat_thread.join(timeout=1)
+
+# =====================
+# V5.0: 历史时间序列生成函数
+# =====================
+def generate_macro_history(
+    start_date="2005-01-01",
+    end_date=None,
+    frequency="monthly",
+    output_path=None
+):
+    """
+    V5.0: 生成宏观风险打分历史时间序列
+    
+    Parameters:
+    -----------
+    start_date : str
+        开始日期（格式：YYYY-MM-DD）
+    end_date : str or None
+        结束日期，None 表示使用今天
+    frequency : str
+        'daily' 或 'monthly'，输出频率
+    output_path : str or None
+        输出文件路径，None 表示使用默认路径
+    
+    Returns:
+    --------
+    pd.DataFrame
+        包含 Date, Macro_Score, Macro_Risk_Level 的 DataFrame
+    """
+    print("=" * 80)
+    print("V5.0: 生成宏观风险打分历史时间序列")
+    print("=" * 80)
+    
+    # 加载配置
+    config_path = BASE / "config" / "crisis_indicators.yaml"
+    if not config_path.exists():
+        print(f"❌ 配置文件不存在: {config_path}")
+        return None
+    
+    config = load_yaml_config(config_path)
+    indicators = config.get('indicators', [])
+    scoring_config = config.get('scoring', {})
+    
+    # 加载危机期间配置
+    crisis_config_path = BASE / "config" / "crisis_periods.yaml"
+    crisis_config = load_yaml_config(crisis_config_path)
+    crisis_periods = crisis_config.get('crises', [])
+    
+    print(f"📊 加载了 {len(indicators)} 个指标")
+    
+    # 确定日期范围
+    start_dt = pd.Timestamp(start_date)
+    end_dt = pd.Timestamp(end_date) if end_date else pd.Timestamp.now()
+    
+    # 生成日期序列
+    if frequency == "monthly":
+        date_range = pd.date_range(start=start_dt, end=end_dt, freq='ME')
+    else:
+        date_range = pd.date_range(start=start_dt, end=end_dt, freq='B')
+    
+    print(f"📅 将计算 {len(date_range)} 个日期的评分 ({frequency})")
+    
+    # 预先加载所有指标的历史数据
+    print("\n📥 预加载所有指标的历史数据...")
+    indicator_series = {}
+    
+    for indicator in indicators:
+        series_id = indicator.get('series_id') or indicator.get('id')
+        if not series_id:
+            continue
+        
+        try:
+            ts = compose_series(series_id)
+            if ts is None or ts.empty:
+                ts = fetch_series(series_id)
+            
+            if ts is not None and not ts.empty:
+                ts_trans = transform_series(series_id, ts, indicator)
+                ts_trans = ts_trans.dropna()
+                
+                if not ts_trans.empty:
+                    indicator_series[series_id] = {
+                        'series': ts_trans,
+                        'indicator': indicator
+                    }
+                    print(f"  ✅ {series_id}: {len(ts_trans)} 个数据点")
+        except Exception as e:
+            print(f"  ⚠️ {series_id}: 加载失败 - {e}")
+            continue
+    
+    print(f"\n✅ 成功加载 {len(indicator_series)} 个指标")
+    
+    # 计算分组权重
+    group_weights = {}
+    for indicator in indicators:
+        group = indicator.get('group', 'unknown')
+        weight = indicator.get('weight', 0)
+        if group not in group_weights:
+            group_weights[group] = []
+        group_weights[group].append(weight)
+    
+    total_group_weight = sum(sum(weights) for weights in group_weights.values())
+    if total_group_weight > 0:
+        for group in group_weights:
+            group_weights[group] = sum(group_weights[group]) / total_group_weight
+    else:
+        num_groups = len(group_weights)
+        for group in group_weights:
+            group_weights[group] = 1.0 / num_groups if num_groups > 0 else 0
+    
+    # 计算每个日期的评分
+    print("\n🧮 开始计算历史评分...")
+    results = []
+    
+    for i, current_date in enumerate(date_range):
+        if (i + 1) % 50 == 0:
+            print(f"  进度: {i+1}/{len(date_range)} ({100*(i+1)/len(date_range):.1f}%)")
+        
+        date_group_scores = {}
+        
+        for series_id, data in indicator_series.items():
+            indicator = data['indicator']
+            ts_trans = data['series']
+            group = indicator.get('group', 'unknown')
+            
+            # 获取该日期或之前的最新值
+            available_data = ts_trans[ts_trans.index <= current_date]
+            if available_data.empty:
+                continue
+            
+            current_value = float(available_data.iloc[-1])
+            historical_data = ts_trans[ts_trans.index <= current_date]
+            
+            if historical_data.empty or len(historical_data) < 24:
+                continue
+            
+            try:
+                benchmark_value = calculate_benchmark_corrected(
+                    series_id, indicator, historical_data, crisis_periods
+                )
+                risk_score = calculate_risk_score_simple(
+                    current_value, benchmark_value, indicator, historical_data, scoring_config
+                )
+                
+                if group not in date_group_scores:
+                    date_group_scores[group] = []
+                date_group_scores[group].append(risk_score)
+            except Exception:
+                continue
+        
+        # 计算加权总分
+        total_score = 0
+        for group, scores in date_group_scores.items():
+            if scores:
+                avg_score = np.mean(scores)
+                weight = group_weights.get(group, 0)
+                total_score += avg_score * weight
+        
+        # 确定风险等级
+        if total_score >= 80:
+            risk_level = "极高风险"
+        elif total_score >= 60:
+            risk_level = "偏高风险"
+        elif total_score >= 40:
+            risk_level = "中等风险"
+        else:
+            risk_level = "低风险"
+        
+        results.append({
+            'Date': current_date,
+            'Macro_Score': round(total_score, 2) if not pd.isna(total_score) else np.nan,
+            'Macro_Risk_Level': risk_level
+        })
+    
+    # 创建 DataFrame
+    df = pd.DataFrame(results)
+    df['Macro_Score'] = df['Macro_Score'].ffill()
+    df = df.dropna(subset=['Macro_Score'])
+    
+    # 保存到 CSV
+    if output_path is None:
+        output_path = BASE / "data" / "macro_history.csv"
+    
+    output_path = pathlib.Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    df.to_csv(output_path, index=False)
+    print(f"\n✅ 历史评分已保存: {output_path}")
+    print(f"   - 总记录数: {len(df)}")
+    print(f"   - 日期范围: {df['Date'].min()} 至 {df['Date'].max()}")
+    print(f"   - 平均评分: {df['Macro_Score'].mean():.2f}")
+    
+    return df
+
 if __name__ == "__main__":
-    generate_report_with_images()
+    import argparse
+    parser = argparse.ArgumentParser(description="FRED危机预警监控系统")
+    parser.add_argument("--history", action="store_true", help="生成历史时间序列")
+    parser.add_argument("--start-date", type=str, default="2005-01-01", help="开始日期")
+    parser.add_argument("--end-date", type=str, default=None, help="结束日期")
+    parser.add_argument("--frequency", type=str, default="monthly", choices=["daily", "monthly"], help="输出频率")
+    parser.add_argument("--output", type=str, default=None, help="输出文件路径")
+    
+    args = parser.parse_args()
+    
+    if args.history:
+        generate_macro_history(
+            start_date=args.start_date,
+            end_date=args.end_date,
+            frequency=args.frequency,
+            output_path=args.output
+        )
+    else:
+        generate_report_with_images()

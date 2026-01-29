@@ -11,15 +11,8 @@ scoring:
   momentum_days: [1, 5]
   co_move_threshold_pct: 0.9
   co_move_bonus_per_bucket: 5
-  # v2.0: 动量评分权重配置
-  momentum_weight: 0.3  # 动量评分权重（0.3 = 30%）
-  level_weight: 0.7     # 水平评分权重（0.7 = 70%）
-  # v2.0: 持续时间乘数
-  persistence_months: 3  # 持续高风险月数阈值
-  persistence_multiplier: 1.1  # 持续高风险时的乘数
-  # v2.0: 共振检测配置
-  resonance_threshold: 80  # 触发共振的高风险阈值
-  systemic_risk_multiplier: 1.2  # 系统性风险乘数
+  deprecated_series:
+    - TEDRATE
 
 indicators:
   # ===== 核心预警指标 (40%) =====
@@ -28,26 +21,100 @@ indicators:
   - id: T10Y3M
     name: "收益率曲线倒挂: 10年期-3个月"
     group: core_warning
-    type: leading  # v2.0: 指标类型 (leading/coincident/lagging)
     transform: none
     higher_is_risk: false
     compare_to: noncrisis_p25
     weight: 0.08
     freq: D
-    momentum_window: 3  # v2.0: 动量计算窗口（月）
-    invert_momentum: false  # v2.0: 是否反转动量（快速下降为风险）
 
   - id: T10Y2Y
     name: "收益率曲线倒挂: 10年期-2年期"
     group: core_warning
-    type: leading  # v2.0: 指标类型
     transform: none
     higher_is_risk: false
     compare_to: noncrisis_p25
     weight: 0.06
     freq: D
-    momentum_window: 3
-    invert_momentum: false
+
+  - id: UST30Y_UST2Y_RSI
+    name: "30年/2年美债利差 RSI"
+    group: core_warning
+    transform: level
+    higher_is_risk: true
+    compare_to: constant_50
+    weight: 0.15
+    freq: D
+
+  - id: VIX_TERM_STRUCTURE
+    name: "VIX 期限结构 (VIX/VIX3M)"
+    group: core_warning
+    transform: level
+    higher_is_risk: true
+    compare_to: constant_1.0
+    weight: 0.03
+    freq: D
+
+  - id: HYG_LQD_RATIO
+    name: "信用风险偏好 (HYG/LQD)"
+    group: core_warning
+    transform: zscore
+    higher_is_risk: false
+    compare_to: constant_-0.5
+    weight: 0.02
+    freq: D
+    use_velocity: true
+    velocity_mode: pct
+
+  - id: DXY_CHANGE
+    name: "美元指数5日变化 (DXY/UUP)"
+    group: core_warning
+    transform: none
+    higher_is_risk: true
+    compare_to: constant_1.0
+    weight: 0.02
+    freq: D
+    use_velocity: true
+    velocity_mode: pct
+
+  - id: KRE_SPY_RATIO
+    name: "区域银行相对强度 (KRE/SPY)"
+    group: core_warning
+    transform: zscore
+    higher_is_risk: false
+    compare_to: constant_-0.5
+    weight: 0.02
+    freq: D
+    use_velocity: true
+    velocity_mode: pct
+
+  - id: XLF_SPY_RATIO
+    name: "金融板块相对强度 (XLF/SPY)"
+    group: core_warning
+    transform: none
+    higher_is_risk: false
+    compare_to: noncrisis_p25
+    weight: 0.01
+    freq: D
+    use_velocity: true
+    velocity_mode: pct
+
+  - id: HY_IG_RATIO
+    name: "高收益/投资级债比率"
+    group: core_warning
+    transform: zscore
+    higher_is_risk: false
+    compare_to: constant_-2.0
+    weight: 0.03
+    freq: D
+
+  - id: GLOBAL_LIQUIDITY_USD
+    name: "全球央行流动性 (Fed+ECB+BOJ)"
+    group: core_warning
+    transform: zscore
+    higher_is_risk: false
+    compare_to: constant_-1.5
+    weight: 0.03
+    freq: D
 
   # 信用利差簇 (18%) - 减少3%给EBP
   - id: BAMLH0A0HYM2
@@ -113,6 +180,29 @@ indicators:
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.02
+    freq: D
+
+  # ===== 哨兵层 (不参与总分) =====
+  - id: BTC_QQQ_RATIO
+    name: "BTC 相对流动性 (BTC/QQQ)"
+    group: monitoring
+    transform: none
+    higher_is_risk: false
+    compare_to: noncrisis_p25
+    weight: 0.0
+    role: monitor
+    freq: D
+    use_velocity: true
+    velocity_mode: pct
+
+  - id: CROSS_ASSET_CORR_STRESS
+    name: "跨资产相关性压力 (现金为王)"
+    group: monitoring
+    transform: none
+    higher_is_risk: true
+    compare_to: constant_0.7
+    weight: 0.0
+    role: monitor
     freq: D
 
   # ===== 实体经济 (25%) =====
@@ -345,6 +435,15 @@ indicators:
     weight: 0.02
     freq: M
 
+  - id: CREDIT_CARD_DELINQUENCY
+    name: "信用卡违约率"
+    group: consumers_leverage
+    transform: level
+    higher_is_risk: true
+    compare_to: crisis_median
+    weight: 0.02
+    freq: Q
+
   - id: NCBDBIQ027S
     name: "企业债/GDP（新）"
     group: consumers_leverage
@@ -363,100 +462,16 @@ indicators:
     weight: 0.01
     freq: W
 
-  # ===== v2.0: 流动性指标（流动性阀门） =====
-  
-  - id: RRPONTSYD
-    name: "隔夜逆回购协议"
-    group: liquidity
-    type: coincident
-    transform: level
-    higher_is_risk: false  # 低为风险（接近0表示流动性紧张）
-    compare_to: noncrisis_p25
-    weight: 0.03
-    freq: D
-    momentum_window: 1  # 日频数据，用1个月窗口
-    invert_momentum: true  # 快速下降为风险
-    role: monitor  # 监控级别，不计分但显示
-
-  - id: WTREGEN
-    name: "财政部一般账户"
-    group: liquidity
-    type: coincident
-    transform: level
-    higher_is_risk: true  # 高为风险（抽走流动性）
-    compare_to: noncrisis_p75
-    weight: 0.02
-    freq: D
-    momentum_window: 1
-    invert_momentum: false
-    role: monitor
-
-  - id: M2SL
-    name: "M2货币供应量 YoY"
-    group: liquidity
-    type: coincident
-    transform: yoy_pct
-    higher_is_risk: false  # 负增长为通缩风险
-    compare_to: noncrisis_p25
-    weight: 0.02
-    freq: M
-    momentum_window: 3
-    invert_momentum: true
-
-  # ===== v2.0: 衰退先行指标 =====
-  
-  - id: SAHMREALTIME
-    name: "Sahm规则衰退指标"
-    group: recession_leading
-    type: leading
-    transform: level
-    higher_is_risk: true
-    compare_to: noncrisis_p75
-    weight: 0.04
-    freq: M
-    momentum_window: 3
-    invert_momentum: false
-    threshold: 0.50  # 超过0.50表示衰退
-
-  - id: KCFSI
-    name: "堪萨斯城金融压力指数"
-    group: recession_leading
-    type: leading
-    transform: level
-    higher_is_risk: true
-    compare_to: noncrisis_p75
-    weight: 0.03
-    freq: W
-    momentum_window: 1
-    invert_momentum: false
-
-  # ===== v2.0: 通胀预期指标 =====
-  
-  - id: T5YIE
-    name: "5年期盈亏平衡通胀率"
-    group: inflation_expectations
-    type: leading
-    transform: level
-    higher_is_risk: true  # 通胀预期过高为风险
-    compare_to: noncrisis_p75
-    weight: 0.02
-    freq: D
-    momentum_window: 3
-    invert_momentum: false
-
   # ===== 监测项（不计分；展示在报告末尾） =====
   
   - id: VIXCLS
     name: "VIX 波动率"
     group: monitoring
-    type: coincident
     transform: none
     higher_is_risk: true
     compare_to: noncrisis_p90
     weight: 0.0
     freq: D
-    momentum_window: 1
-    invert_momentum: false
 
   - id: STLFSI3
     name: "圣路易斯金融压力"
@@ -466,6 +481,33 @@ indicators:
     compare_to: noncrisis_p75
     weight: 0.0
     freq: W
+
+  - id: HY_OAS_MOMENTUM_RATIO
+    name: "高收益债利差20日动量比率"
+    group: core_warning
+    transform: level
+    higher_is_risk: true
+    compare_to: constant_1.1
+    weight: 0.03
+    freq: D
+
+  - id: SP500_DGS10_CORR60D
+    name: "股债60日滚动相关性"
+    group: core_warning
+    transform: level
+    higher_is_risk: true
+    compare_to: constant_0.5
+    weight: 0.02
+    freq: D
+
+  - id: NET_LIQUIDITY
+    name: "每日净流动性"
+    group: core_warning
+    transform: level
+    higher_is_risk: false
+    compare_to: noncrisis_p25
+    weight: 0.03
+    freq: D
 
   - id: DRSFRMACBS
     name: "房贷违约率"
