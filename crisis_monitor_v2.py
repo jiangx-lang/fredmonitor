@@ -9,6 +9,7 @@ FRED 危机预警监控系统 V2.0（早预警版）
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 import re
 from typing import Dict, Optional, Tuple
@@ -16,12 +17,241 @@ from typing import Dict, Optional, Tuple
 import numpy as np
 import pandas as pd
 
+# 加载 macrolab.env / .env，使 DASHSCOPE_API_KEY 等对 AI 叙事可用
+BASE_DIR = pathlib.Path(__file__).resolve().parent
+try:
+    from dotenv import load_dotenv
+    for _f in [BASE_DIR / "macrolab.env", BASE_DIR / ".env"]:
+        if _f.exists():
+            try:
+                load_dotenv(_f, encoding="utf-8")
+            except Exception:
+                load_dotenv(_f, encoding="gbk")
+except Exception:
+    pass
+
 import crisis_monitor as base
+import crisis_monitor_regime as regime_module
+import conflict_monitor as conflict_module
+import structural_risk as structural_module
+import regime_hysteresis as hysteresis_module
+import event_x_resonance as event_x_resonance_module
+import event_x_freshness as event_x_freshness_module
+import event_x_acceptance as event_x_acceptance_module
 
 V2_SUMMARY: Dict[str, object] = {}
 _BASE_COMPOSE = base.compose_series
 SERIES_SOURCES: Dict[str, str] = {}
 DATA_ERRORS: Dict[str, str] = {}
+
+# 体制乘数：评分前由 generate_report_with_images_v2 设置，供 calculate_real_fred_scores_v2 使用
+REGIME_VERDICT_FOR_SCORING: Optional[str] = None
+
+
+class RegimeWeightManager:
+    """
+    根据宏观体制动态调整风险权重（复用 Regime Dashboard 信号，避免硬编码金价/汇率绝对值）。
+    体制判定来自 CrisisMonitor.evaluate_systemic_risk()，不依赖 gold>2000 等绝对值。
+    """
+    # 配置分组 -> 体制类别（用于乘数）
+    GROUP_TO_CATEGORY = {
+        "core_warning": "yield_curve",      # 收益率曲线、VIX、流动性相关
+        "real_economy": "real_economy",
+        "monetary_policy": "liquidity",
+        "banking": "credit_spread",
+        "consumers_leverage": "credit_spread",
+        "monitoring": "equity_volatility",
+    }
+
+    def __init__(self) -> None:
+        self.regime_multipliers = {
+            "ANTI_FIAT_REGIME": {
+                "gold_regime": 2.5,
+                "yield_curve": 1.5,
+                "credit_spread": 0.5,
+                "equity_volatility": 0.8,
+                "liquidity": 1.0,
+                "real_economy": 1.0,
+            },
+            "FISCAL_DOMINANCE_ACTIVE": {
+                "yield_curve": 3.0,
+                "liquidity": 1.5,
+                "real_economy": 0.8,
+                "gold_regime": 1.0,
+                "credit_spread": 1.0,
+                "equity_volatility": 1.0,
+            },
+            "DEFLATIONARY_CRASH": {
+                "credit_spread": 2.0,
+                "equity_volatility": 2.0,
+                "real_economy": 1.5,
+                "gold_regime": 0.5,
+                "yield_curve": 1.0,
+                "liquidity": 1.0,
+            },
+        }
+        # 体制 verdict 到乘数键的映射（Regime Dashboard 输出 -> 上表键）
+        self.verdict_to_key = {
+            "ANTI_FIAT_REGIME": "ANTI_FIAT_REGIME",
+            "FISCAL_DOMINANCE_ACTIVE": "FISCAL_DOMINANCE_ACTIVE",
+            "K_SHAPED_RECESSION": "DEFLATIONARY_CRASH",
+            "LIQUIDITY_STRESS": "DEFLATIONARY_CRASH",
+            "JAPAN_CONTAGION_CRITICAL": "DEFLATIONARY_CRASH",
+            "SOVEREIGN_LIQUIDITY_CRISIS": "DEFLATIONARY_CRASH",
+        }
+
+    def get_adjusted_weights(self, base_weights: Dict[str, float], current_regime: str) -> Dict[str, float]:
+        """
+        输入: 按体制类别汇总的 base_weights (category -> weight)，当前体制 verdict。
+        输出: 归一化后的新权重 (category -> weight)。
+        """
+        key = self.verdict_to_key.get(current_regime, current_regime)
+        if key not in self.regime_multipliers:
+            return base_weights
+
+        multipliers = self.regime_multipliers[key]
+        new_weights = {}
+        for category, weight in base_weights.items():
+            mult = multipliers.get(category, 1.0)
+            new_weights[category] = weight * mult
+
+        total = sum(new_weights.values())
+        if total <= 0:
+            return base_weights
+        for cat in new_weights:
+            new_weights[cat] = new_weights[cat] / total
+        return new_weights
+
+    def apply_regime_to_group_weights(
+        self, group_weights: Dict[str, float], current_regime: str
+    ) -> Tuple[Dict[str, float], Dict[str, object]]:
+        """
+        输入: 按配置分组名的 group_weights，当前体制 verdict。
+        输出: (调整后并归一化的 group_weights, notes 供报告展示)。
+        """
+        if not current_regime or current_regime == "N/A":
+            return group_weights, {"regime_applied": False, "regime": current_regime or "N/A"}
+
+        # 1) 按体制类别汇总
+        category_weights: Dict[str, float] = {}
+        group_to_cat = self.GROUP_TO_CATEGORY
+        for group, w in group_weights.items():
+            cat = group_to_cat.get(group, "real_economy")
+            category_weights[cat] = category_weights.get(cat, 0.0) + w
+        for cat in ["gold_regime", "yield_curve", "credit_spread", "equity_volatility", "liquidity", "real_economy"]:
+            if cat not in category_weights:
+                category_weights[cat] = 0.0
+
+        # 2) 体制乘数
+        adjusted_cat = self.get_adjusted_weights(category_weights, current_regime)
+        key = self.verdict_to_key.get(current_regime, current_regime)
+        if key not in self.regime_multipliers:
+            return group_weights, {"regime_applied": False, "regime": current_regime}
+
+        # 3) 按组回填并保持组内相对比例
+        new_group_weights: Dict[str, float] = {}
+        for group, w in group_weights.items():
+            cat = group_to_cat.get(group, "real_economy")
+            cat_total = category_weights.get(cat, 0.0)
+            if cat_total > 0 and cat in adjusted_cat:
+                new_group_weights[group] = adjusted_cat[cat] * (w / cat_total)
+            else:
+                new_group_weights[group] = w
+
+        total = sum(new_group_weights.values())
+        if total <= 0:
+            return group_weights, {"regime_applied": True, "regime": current_regime, "error": "zero_total"}
+        for g in new_group_weights:
+            new_group_weights[g] /= total
+
+        notes = {
+            "regime_applied": True,
+            "regime": current_regime,
+            "regime_key": key,
+            "category_weights_before": {k: round(v, 4) for k, v in category_weights.items() if v > 0},
+            "category_weights_after": {k: round(v, 4) for k, v in adjusted_cat.items() if v > 0},
+        }
+        return new_group_weights, notes
+
+
+class AllocationRecommender:
+    """
+    将 Regime 映射到可执行的仓位建议（SPX / Gold / TLT / Cash 等），
+    报告直接给出「该怎么做」而非让用户猜。
+    """
+    ALLOCATION_MAP = {
+        "NORMAL": {
+            "SPX": "Overweight",
+            "Gold": "Neutral",
+            "TLT": "Neutral",
+            "Cash_BIL": "Underweight",
+            "strategy": "Risk On, 做多科技",
+        },
+        "ANTI_FIAT_REGIME": {
+            "SPX": "Sell",
+            "Gold": "Strong Buy",
+            "TLT": "Sell",
+            "Cash_BIL": "Neutral",
+            "strategy": "Long Hard Assets / Bitcoin",
+        },
+        "FISCAL_DOMINANCE_ACTIVE": {
+            "SPX": "Neutral",
+            "Gold": "Accumulate",
+            "TLT": "Strong Sell",
+            "Cash_BIL": "Overweight",
+            "strategy": "Long Gold / Short Bonds",
+        },
+        "K_SHAPED_RECESSION": {
+            "SPX": "Sell",
+            "Gold": "Buy",
+            "TLT": "Buy",
+            "Cash_BIL": "Strong Buy",
+            "strategy": "Cash is King",
+        },
+        "LIQUIDITY_STRESS": {
+            "SPX": "Sell",
+            "Gold": "Buy",
+            "TLT": "Buy",
+            "Cash_BIL": "Strong Buy",
+            "strategy": "Cash is King",
+        },
+        "JAPAN_CONTAGION_CRITICAL": {
+            "SPX": "Sell",
+            "Gold": "Buy",
+            "TLT": "Buy",
+            "Cash_BIL": "Strong Buy",
+            "strategy": "Cash is King",
+        },
+        "SOVEREIGN_LIQUIDITY_CRISIS": {
+            "SPX": "Sell",
+            "Gold": "Buy",
+            "TLT": "Buy",
+            "Cash_BIL": "Strong Buy",
+            "strategy": "Cash is King",
+        },
+    }
+
+    @classmethod
+    def get_allocation_suggestion(cls, regime_type: str) -> Dict[str, str]:
+        """根据体制返回仓位建议字典；未知体制按 NORMAL 处理。"""
+        return dict(cls.ALLOCATION_MAP.get(regime_type, cls.ALLOCATION_MAP["NORMAL"]))
+
+
+def _build_allocation_section(regime_verdict: str) -> str:
+    """生成「Suggested Portfolio Stance」Markdown 段落。"""
+    alloc = AllocationRecommender.get_allocation_suggestion(regime_verdict or "NORMAL")
+    lines = [
+        "## 🛡️ Suggested Portfolio Stance",
+        "",
+        "| 资产 | 建议 |",
+        "|------|------|",
+    ]
+    for key in ("SPX", "Gold", "TLT", "Cash_BIL"):
+        lines.append(f"| {key} | {alloc.get(key, '-')} |")
+    lines.append("")
+    lines.append(f"**策略**: {alloc.get('strategy', '-')}")
+    lines.append("")
+    return "\n".join(lines)
 
 
 def _log_v2_stage(message: str) -> None:
@@ -919,6 +1149,15 @@ def calculate_real_fred_scores_v2(indicators_config=None, scoring_config=None):
         for group in group_weights:
             group_weights[group] = avg_weight
 
+    # 体制乘数：根据 Regime Dashboard 的 verdict 动态调整分组权重
+    regime_verdict = REGIME_VERDICT_FOR_SCORING
+    regime_weight_notes: Dict[str, object] = {}
+    if regime_verdict:
+        mgr = RegimeWeightManager()
+        group_weights, regime_weight_notes = mgr.apply_regime_to_group_weights(
+            dict(group_weights), regime_verdict
+        )
+
     final_group_scores = {}
     total_weighted_score = 0.0
     group_top_k = int(scoring_config.get("group_top_k", 3))
@@ -1048,6 +1287,7 @@ def calculate_real_fred_scores_v2(indicators_config=None, scoring_config=None):
             "group_min_weight": group_min_weight,
             "excluded_groups": excluded_groups,
         },
+        "regime_weight_notes": regime_weight_notes,
         "data_errors": DATA_ERRORS,
         "confirmation_signals": confirmation_signals,
         "confirmation_state": confirmation_state,
@@ -1170,6 +1410,197 @@ def _build_executive_summary_section(executive_summary: dict) -> str:
         executive_summary.get("text", "").strip(),
         "",
     ]
+    return "\n".join(lines)
+
+
+def _build_event_x_reading_guide() -> str:
+    """Event-X Reading Guide：术语与观测点通俗解释，供晨会/投委会非量化读者理解。"""
+    lines = [
+        "### Event-X Reading Guide",
+        "",
+        "- **BIZD** — 私募信贷/BDC 的公开市场代理；若 BIZD 明显下跌，可能表示投资者在私募估值全面反映前先行定价风险，不代表系统性危机已发生。",
+        "- **HY momentum / HY spread widening** — 水平看当前垃圾债风险定价的绝对高度，动量看近期是否快速恶化；即使绝对水平不高，5 日利差快速走阔也可能表示早期信用压力在形成。",
+        "- **Breakeven / breakeven proxy** — 债券市场对未来通胀的大致定价（市场用真钱投票的预期，非 CPI 本身）；FRED 数据过旧时用 proxy 补丁尽量接近实时。breakeven 单独上行代表债券市场开始担心通胀，但若油价和恐慌未配合，这更像预期波动而非已确认地缘能源冲击；因此系统允许其触发 WATCH，但不会单独升级到 ALERT/ALARM（双腿确认）。",
+        "- **STLFSI4** — 金融压力综合指标；绝对水平低表示系统性资金压力不高，change_score 高时表示金融环境在收紧，即使尚未进入危险区。",
+        "- **Geopolitics completeness** — 衡量地缘/通胀链关键腿是否「有效可用」而非仅「字段存在」；若仅 VIX 在动而油价/通胀预期未确认，则为 PARTIAL 或 LOW。",
+        "- **Signal Confidence / Freshness Risk** — Signal Confidence 表示当前判断是否值得采信；Freshness Risk 表示关键数据是否过旧；信号可为 WATCH 但若核心数据很旧，可信度仍可能较低。",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def _build_event_x_machine_summary(
+    struct_results: dict,
+    resonance_result: dict,
+    freshness_result: Optional[dict],
+    confidence_result: Optional[dict],
+    geopolitics_completeness: Optional[dict] = None,
+) -> str:
+    """指挥台 1–3 句：明确触发腿、未确认腿、失真腿；不重复状态枚举。"""
+    pc = struct_results.get("private_credit_liquidity_radar")
+    geo = struct_results.get("geopolitics_inflation_radar")
+    pc_alert = pc.alert if hasattr(pc, "alert") else (pc.get("alert", "NONE") if isinstance(pc, dict) else "NONE")
+    geo_alert = geo.alert if hasattr(geo, "alert") else (geo.get("alert", "NONE") if isinstance(geo, dict) else "NONE")
+    _VALID_ALERTS = {"NONE", "WATCH", "ALERT", "ALARM"}
+    if pc_alert not in _VALID_ALERTS:
+        pc_alert = "NONE"
+    if geo_alert not in _VALID_ALERTS:
+        geo_alert = "NONE"
+    radar_a_status = "NORMAL" if pc_alert == "NONE" else pc_alert
+    radar_b_status = "NORMAL" if geo_alert == "NONE" else geo_alert
+    res_status = (resonance_result or {}).get("level", "OFF")
+    completeness = (geopolitics_completeness or {}).get("completeness", "LOW")
+    details_pc = (getattr(pc, "details", None) or (pc if isinstance(pc, dict) else {})) if pc else {}
+    details_geo = (getattr(geo, "details", None) or (geo if isinstance(geo, dict) else {})) if geo else {}
+
+    sentences = []
+    # Private Credit: 主要触发腿 + 未确认/良性说明
+    if radar_a_status != "NORMAL" and isinstance(details_pc, dict):
+        pc_parts = []
+        if details_pc.get("watch_triggered_by_momentum") and details_pc.get("hy_oas_5d_bp_change") is not None:
+            pc_parts.append("HY spread widening momentum (5D +{:.0f}bp)".format(float(details_pc["hy_oas_5d_bp_change"])))
+        if details_pc.get("bizd_vs_50dma_pct") is not None:
+            pc_parts.append("BIZD weakness")
+        if not pc_parts:
+            pc_parts.append("proxy stress")
+        sentences.append(
+            "Private credit watch is supported by " + " and ".join(pc_parts) + ", while absolute spreads and STLFSI4 remain benign in level terms; reflects early proxy stress, not confirmed systemic credit tightening."
+        )
+    elif radar_a_status == "NORMAL":
+        sentences.append("Private credit spreads remain benign.")
+
+    # Geopolitics: 区分 breakeven-led watch / dual-leg alert / full-chain alarm
+    if radar_b_status != "NORMAL":
+        dual_leg = isinstance(details_geo, dict) and details_geo.get("dual_leg_confirmed")
+        upgrade_blocked = isinstance(details_geo, dict) and details_geo.get("upgrade_blocked_by_single_leg_rule")
+        if radar_b_status == "ALARM" and dual_leg:
+            sentences.append("Geopolitics full-chain alarm: Energy + Inflation + Fear confirmed.")
+        elif radar_b_status == "ALERT" and dual_leg:
+            sentences.append("Geopolitics dual-leg confirmed alert.")
+        elif radar_b_status == "WATCH" and upgrade_blocked:
+            sentences.append("Geopolitics breakeven-led watch (single leg; no upgrade without second leg).")
+        elif completeness in ("LOW", "PARTIAL"):
+            sentences.append(
+                "Geopolitics watch is currently driven mainly by VIX; Brent is available but does not confirm oil shock, and breakeven inflation input remains stale/partial."
+            )
+        else:
+            sentences.append("Geopolitics/inflation radar in " + radar_b_status + "; Brent and breakeven legs effective.")
+    else:
+        sentences.append("Geopolitics/inflation radar normal.")
+
+    if res_status == "OFF":
+        sentences.append("No systemic resonance is confirmed.")
+    conf = (confidence_result or {}).get("confidence", "MEDIUM")
+    summary = " ".join(sentences) + " Signal confidence: " + conf + "."
+    if (freshness_result or {}).get("event_x_freshness_risk") == "HIGH":
+        summary += " Freshness risk HIGH (multiple critical inputs stale)."
+    if isinstance(details_geo, dict) and details_geo.get("breakeven_is_stale"):
+        summary += " Breakeven input is stale; geopolitics inflation chain is only partially confirmed."
+    # Plain-English 翻译层（给非专业读者）
+    plain = _build_event_x_plain_english(radar_a_status, radar_b_status, res_status, completeness)
+    if plain:
+        summary += " In plain English: " + plain
+    return summary
+
+
+def _build_event_x_plain_english(
+    radar_a_status: str, radar_b_status: str, res_status: str, completeness: str,
+) -> str:
+    """给非专业读者的简短翻译，保持专业语气。"""
+    parts = []
+    if radar_a_status != "NORMAL":
+        parts.append("public-market proxies are showing early stress, but broad credit conditions are not yet in crisis mode.")
+    if radar_b_status != "NORMAL":
+        if completeness in ("LOW", "PARTIAL"):
+            parts.append("markets are nervous, but oil and inflation expectations have not fully confirmed a broader inflation shock.")
+        else:
+            parts.append("geopolitics/inflation legs are elevated; oil and inflation expectations support the watch.")
+    if res_status == "OFF":
+        if not parts:
+            parts.append("no warning lights are on.")
+        else:
+            parts.append("several warning lights are flickering, but they have not yet formed a full chain reaction.")
+    if res_status != "OFF":
+        parts.append("multiple risk legs are reinforcing; treat as elevated systemic concern.")
+    return " ".join(parts) if parts else ""
+
+
+def _build_event_x_priority_risks_section(
+    struct_results: dict,
+    resonance_result: dict,
+    freshness_result: Optional[dict] = None,
+    confidence_result: Optional[dict] = None,
+    geopolitics_completeness: Optional[dict] = None,
+) -> str:
+    """Event-X 置顶区块：两雷达 + Resonance + Signal Confidence + Freshness Risk + Geopolitics 数据腿可见性 + Machine Summary。"""
+    pc = struct_results.get("private_credit_liquidity_radar")
+    geo = struct_results.get("geopolitics_inflation_radar")
+    pc_alert = pc.alert if hasattr(pc, "alert") else (pc.get("alert", "NONE") if isinstance(pc, dict) else "NONE")
+    geo_alert = geo.alert if hasattr(geo, "alert") else (geo.get("alert", "NONE") if isinstance(geo, dict) else "NONE")
+    _VALID_ALERTS = {"NONE", "WATCH", "ALERT", "ALARM"}
+    if pc_alert not in _VALID_ALERTS:
+        pc_alert = "NONE"
+    if geo_alert not in _VALID_ALERTS:
+        geo_alert = "NONE"
+    radar_a_status = "NORMAL" if pc_alert == "NONE" else pc_alert
+    radar_b_status = "NORMAL" if geo_alert == "NONE" else geo_alert
+    res_status = (resonance_result or {}).get("level", "OFF")
+
+    machine_summary = _build_event_x_machine_summary(
+        struct_results, resonance_result, freshness_result, confidence_result, geopolitics_completeness
+    )
+    conf = (confidence_result or {}).get("confidence", "MEDIUM")
+    fresh_risk = (freshness_result or {}).get("event_x_freshness_risk", "LOW")
+    comp = (geopolitics_completeness or {}).get("completeness", "")
+
+    lines = [
+        "## 🔴 Event-X Priority Risks",
+        "",
+        f"- **Private Credit Liquidity Radar**: {radar_a_status}",
+        f"- **Geopolitics & Inflation Radar**: {radar_b_status}",
+        f"- **Resonance Trigger**: {res_status}",
+        f"- **Signal Confidence**: {conf}",
+        f"- **Freshness Risk**: {fresh_risk}",
+    ]
+    if comp:
+        lines.append(f"- **Geopolitics completeness**: {comp}")
+    details_geo = (getattr(geo, "details", None) or (geo if isinstance(geo, dict) else {})) if geo else {}
+    if isinstance(details_geo, dict):
+        brent_last = details_geo.get("brent_last") if details_geo.get("brent_last") is not None else details_geo.get("brent")
+        brent_yoy = details_geo.get("brent_yoy") if details_geo.get("brent_yoy") is not None else details_geo.get("brent_yoy_pct")
+        breakeven_last = details_geo.get("breakeven_effective_last") or details_geo.get("breakeven_last") or details_geo.get("t5yie_last") or details_geo.get("t5yie_pct")
+        breakeven_source = details_geo.get("breakeven_source_used") or "FRED_T5YIE"
+        breakeven_stale = details_geo.get("breakeven_is_stale", True)
+        missing = details_geo.get("missing_inputs") or []
+        if brent_last is not None or breakeven_last is not None or "brent" in missing or "breakeven" in missing:
+            parts = []
+            if brent_last is not None:
+                by = ""
+                if brent_yoy is not None and not (isinstance(brent_yoy, (int, float)) and np.isnan(brent_yoy)):
+                    try:
+                        by = f", YoY {float(brent_yoy):.1f}%"
+                    except (TypeError, ValueError):
+                        pass
+                parts.append(f"Brent {float(brent_last):.1f}{by}")
+            elif "brent" in missing:
+                parts.append("Brent: missing / unavailable")
+            if breakeven_last is not None:
+                bdate = details_geo.get("breakeven_last_date") or details_geo.get("t5yie_last_obs_date") or details_geo.get("breakeven_last_valid_date")
+                src = " (realtime proxy)" if breakeven_source == "COMPUTED_DGS5_T5YIFR" else " (FRED)"
+                stale_note = "; stale" if breakeven_stale else ""
+                parts.append(f"Breakeven {float(breakeven_last):.2f}%{src}" + (f" as of {bdate}" if bdate else "") + stale_note)
+            elif "breakeven" in missing or "t5yie" in missing:
+                parts.append("Breakeven: missing / stale / unavailable")
+            if details_geo.get("vix_last") is not None:
+                parts.append("VIX " + str(details_geo.get("vix_last")))
+            if parts:
+                lines.append("- **Data legs**: " + "; ".join(parts))
+    lines.append("")
+    lines.append("*Machine Summary:*")
+    lines.append(machine_summary)
+    lines.append("")
+    lines.append(_build_event_x_reading_guide())
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -1375,6 +1806,7 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
     json_data["summary"]["confirmation_signals"] = summary.get("confirmation_signals", {})
     json_data["summary"]["confirmation_state"] = summary.get("confirmation_state", {})
     json_data["summary"]["group_weight_notes"] = summary.get("group_weight_notes", {})
+    json_data["summary"]["regime_weight_notes"] = summary.get("regime_weight_notes", {})
     json_data["summary"]["data_errors"] = summary.get("data_errors", {})
     json_data["summary"]["cash_is_king_alert"] = summary.get("cash_is_king_alert", False)
     json_data["summary"]["anomaly_notes"] = summary.get("anomaly_notes", [])
@@ -1555,6 +1987,214 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
     json_data["executive_summary"] = executive_summary
     json_data["summary"]["executive_summary"] = executive_summary
 
+    # Regime-Aware (Fiscal Dominance Era) dashboard + 迟滞
+    try:
+        monitor = regime_module.CrisisMonitor(base.BASE)
+        monitor.run_all_checks()
+        raw_verdict, regime_detail = monitor.evaluate_systemic_risk()
+        stabilized_verdict, h_notes = hysteresis_module.get_stabilized_verdict(raw_verdict, output_dir)
+        regime_verdict = stabilized_verdict
+        for m in regime_detail.get("modules", {}).values():
+            v = m.get("value")
+            if v is not None and isinstance(v, (np.floating, float)) and np.isnan(v):
+                m["value"] = None
+            elif isinstance(v, (np.floating, np.integer)):
+                m["value"] = float(v)
+        json_data["regime"] = {
+            "verdict": regime_verdict,
+            "raw_verdict": raw_verdict,
+            "hysteresis_notes": h_notes,
+            **regime_detail,
+        }
+        regime_dashboard_md = regime_module.build_regime_dashboard_md(regime_verdict, regime_detail)
+    except Exception as e:
+        _log_v2_stage(f"⚠️ Regime dashboard 跳过: {e}")
+        regime_verdict = "N/A"
+        regime_dashboard_md = ""
+        json_data["regime"] = {"verdict": "N/A", "explanations": [str(e)], "modules": {}}
+
+    # Conflict & Divergence (Policy Incoherence) panel
+    conflict_dashboard_md = ""
+    try:
+        conflict_mon = conflict_module.ConflictMonitor(base.BASE)
+        conflict_mon.run_all_checks()
+        def _safe_value(x):
+            if x is None:
+                return None
+            try:
+                f = float(x)
+                return None if np.isnan(f) else f
+            except (TypeError, ValueError):
+                return None
+        conflict_results = {k: {"name": v.name, "status": v.status, "value": _safe_value(v.value), "reason": v.reason} for k, v in conflict_mon.results.items()}
+        json_data["conflict"] = {"modules": conflict_results}
+        conflict_dashboard_md = conflict_module.build_conflict_panel_md(conflict_mon.results)
+    except Exception as e:
+        _log_v2_stage(f"⚠️ Conflict & Divergence panel 跳过: {e}")
+        json_data["conflict"] = {"modules": {}, "error": str(e)}
+
+    # Regime Layer: Structural & Regime Risks (alerts only; does not affect base score)
+    structural_regime_md = ""
+    event_x_section = ""
+    try:
+        struct_mon = structural_module.StructuralRiskMonitor(base.BASE)
+        struct_mon.run_all_checks()
+        def _safe_float(x):
+            if x is None: return None
+            try:
+                f = float(x)
+                return None if np.isnan(f) else f
+            except (TypeError, ValueError):
+                return None
+        def _sanitize_details(d):
+            if not d: return d
+            out = {}
+            for k, val in d.items():
+                if isinstance(val, (int, float)) or (hasattr(val, "item") and np.isscalar(val)):
+                    out[k] = _safe_float(val)
+                elif isinstance(val, dict):
+                    out[k] = _sanitize_details(val)
+                else:
+                    out[k] = val
+            return out
+        struct_results = {
+            k: {
+                "name": v.name,
+                "alert": v.alert,
+                "value": _safe_float(v.value),
+                "reason": v.reason,
+                "details": _sanitize_details(v.details),
+            }
+            for k, v in struct_mon.results.items()
+        }
+        json_data["structural_regime"] = {"modules": struct_results, "has_alert": struct_mon.has_any_alert()}
+        if struct_mon.has_any_alert():
+            structural_regime_md = structural_module.build_regime_alerts_md(struct_mon.results)
+
+        # Event-X: Resonance Trigger (Layer 3) + 置顶区块数据
+        pc = struct_mon.results.get("private_credit_liquidity_radar")
+        geo = struct_mon.results.get("geopolitics_inflation_radar")
+        credit_stress_on = bool(
+            summary.get("confirmation_signals", {}).get("credit_stress", {}).get("on", False)
+        )
+        details_pc = (pc.details if hasattr(pc, "details") else {}) if pc else {}
+        details_geo = (geo.details if hasattr(geo, "details") else {}) if geo else {}
+        data_snapshot = {
+            "hy_oas_weekly_change_bp": details_pc.get("hy_oas_weekly_chg_bp"),
+            "t5yie": details_geo.get("breakeven_effective_last") or details_geo.get("t5yie_pct"),
+            "brent": details_geo.get("brent"),
+            "vix": details_geo.get("vix"),
+            "bizd_vs_50dma_pct": details_pc.get("bizd_vs_50dma_pct"),
+            "stlfsi4": details_pc.get("stlfsi4"),
+            "credit_stress_on": credit_stress_on,
+        }
+        resonance_result = event_x_resonance_module.evaluate_resonance_triggers(data_snapshot)
+        json_data["event_x_resonance"] = resonance_result
+        # 分层新鲜度与信号可信度（fail-open）
+        freshness_result = event_x_freshness_module.evaluate_data_freshness_severity(
+            json_data, struct_results, resonance_result, indicators_config
+        )
+        json_data["event_x_freshness"] = freshness_result
+        confidence_result = event_x_freshness_module.evaluate_event_x_signal_confidence(
+            struct_results, resonance_result, freshness_result
+        )
+        json_data["event_x_signal_confidence"] = confidence_result
+        # Geopolitics 数据完整性（有效可用性，非仅字段存在）
+        geo = struct_mon.results.get("geopolitics_inflation_radar")
+        geo_details = (getattr(geo, "details", None) or (geo if isinstance(geo, dict) else {})) if geo else {}
+        geopolitics_completeness = event_x_freshness_module.evaluate_geopolitics_data_completeness(geo_details, freshness_result)
+        json_data["event_x_geopolitics_completeness"] = geopolitics_completeness
+        # Private Credit 明细（用于报告与动量触发说明）
+        pc = struct_mon.results.get("private_credit_liquidity_radar")
+        pc_details = (getattr(pc, "details", None) or (pc if isinstance(pc, dict) else {})) if pc else {}
+        if isinstance(pc_details, dict):
+            json_data["event_x_private_credit_detail"] = {
+                k: pc_details.get(k) for k in (
+                    "hy_oas_last", "hy_oas_5d_bp_change", "stlfsi4_last", "bizd_drawdown_50dma",
+                    "used_inputs", "missing_inputs", "stlfsi_series_used", "watch_triggered_by_momentum",
+                )
+            }
+        else:
+            json_data["event_x_private_credit_detail"] = {}
+        # event_x_status_quality: 已修好 vs 仍弱
+        json_data["event_x_status_quality"] = {
+            "private_credit": {
+                "fixed_items": ["STLFSI4 unified", "BIZD patch active", "HY momentum input active"],
+                "remaining_weaknesses": ["absolute spreads still benign", "early watch depends on proxy + momentum"],
+            },
+            "geopolitics": {
+                "fixed_items": ["Brent connected", "VIX active", "confidence/freshness fields active"],
+                "remaining_weaknesses": ["breakeven input stale unless realtime proxy succeeds", "current watch may still be VIX-led"],
+            },
+        }
+        if geo_details.get("breakeven_is_stale"):
+            json_data["event_x_status_quality"]["geopolitics"]["remaining_weaknesses"] = [
+                "breakeven input stale; geopolitics inflation chain only partially confirmed",
+                "current watch may still be VIX-led",
+            ]
+        event_x_section = _build_event_x_priority_risks_section(
+            struct_mon.results, resonance_result,
+            freshness_result=freshness_result, confidence_result=confidence_result,
+            geopolitics_completeness=geopolitics_completeness,
+        )
+    except Exception as e:
+        _log_v2_stage(f"⚠️ Structural & Regime Risks 跳过: {e}")
+        json_data["structural_regime"] = {"modules": {}, "has_alert": False, "error": str(e)}
+        json_data["event_x_resonance"] = {"level": "OFF", "detail": {}, "summary": "Event-X evaluation skipped."}
+        json_data["event_x_freshness"] = {"critical": [], "important": [], "info": [], "event_x_freshness_risk": "LOW", "summary": "Skipped."}
+        json_data["event_x_signal_confidence"] = {"confidence": "MEDIUM", "reasons": [], "summary": "Skipped."}
+        json_data["event_x_geopolitics_completeness"] = {"core_inputs_present": 0, "core_inputs_effective": 0, "completeness": "LOW", "summary": "Skipped.", "missing_or_weak_legs": []}
+        json_data["event_x_private_credit_detail"] = {}
+        json_data["event_x_status_quality"] = {"private_credit": {"fixed_items": [], "remaining_weaknesses": []}, "geopolitics": {"fixed_items": [], "remaining_weaknesses": []}}
+
+    # 资产配置映射：根据体制给出仓位建议
+    json_data["allocation"] = AllocationRecommender.get_allocation_suggestion(regime_verdict or "NORMAL")
+    allocation_section = _build_allocation_section(regime_verdict)
+
+    # LLM 叙事层：仅「完整报告」时调用（每日定时发送不调用以省 API）
+    # 条件：未设置 CRISIS_MONITOR_SKIP_AI_NARRATOR=1 且（CRISIS_MONITOR_FULL_REPORT=1 或 任一 API Key）
+    ai_narrative_section = ""
+    try:
+        skip_ai = os.environ.get("CRISIS_MONITOR_SKIP_AI_NARRATOR", "").strip() == "1"
+        full_report = os.environ.get("CRISIS_MONITOR_FULL_REPORT", "").strip() == "1"
+        has_key = bool(
+            os.environ.get("DASHSCOPE_API_KEY")
+            or os.environ.get("TONGYI_API_KEY")
+            or os.environ.get("OPENAI_API_KEY")
+            or os.environ.get("GEMINI_API_KEY")
+        )
+        use_ai = not skip_ai and (full_report or has_key)
+        if use_ai:
+            import ai_narrator as ai_narrator_module
+            narrative = ai_narrator_module.generate_narrative_from_data(json_data)
+            if narrative:
+                json_data["ai_narrative"] = narrative
+                ai_narrative_section = "\n## 🤖 每日宏观简报 (AI)\n\n" + narrative.strip() + "\n\n"
+                _log_v2_stage("✅ AI 叙事已生成并写入报告")
+            elif has_key:
+                _log_v2_stage("⚠️ AI Narrator 已调用但未返回内容（检查 API/网络）")
+    except Exception as e:
+        _log_v2_stage(f"⚠️ AI Narrator 跳过: {e}")
+
+    # Event-X 验收与维护者摘要（fail-open）
+    try:
+        acceptance = event_x_acceptance_module.run_acceptance_checks(json_data)
+        json_data["event_x_acceptance_status"] = acceptance
+        json_data["event_x_maintainer_summary"] = event_x_acceptance_module.run_maintainer_summary(
+            json_data, acceptance=acceptance
+        )
+    except Exception as e:
+        _log_v2_stage(f"⚠️ Event-X acceptance 跳过: {e}")
+        json_data["event_x_acceptance_status"] = {}
+        json_data["event_x_maintainer_summary"] = {
+            "non_regression_passed": False,
+            "required_fields_present": False,
+            "stale_downgrade_rules_passed": False,
+            "smoke_tests_ready": True,
+            "historical_validation_ready": False,
+            "notes": [str(e)],
+        }
+
     timestamp = json_data.get("timestamp")
     json_path = output_dir / f"crisis_report_{timestamp}.json"
     json_path.write_text(json.dumps(json_data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -1618,15 +2258,42 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
                 insert_idx += 1
             while insert_idx < len(lines) and lines[insert_idx].strip() == "":
                 insert_idx += 1
+            # Event-X Priority Risks 置顶（在 Executive Verdict 之上）
+            if event_x_section:
+                lines.insert(insert_idx, event_x_section.rstrip())
+                lines.insert(insert_idx + 1, "")
+                insert_idx += 2
             lines.insert(insert_idx, "")
             lines.insert(insert_idx + 1, executive_section.rstrip())
             lines.insert(insert_idx + 2, "")
+            pos = 3
+            if regime_dashboard_md:
+                lines.insert(insert_idx + pos, regime_dashboard_md.rstrip())
+                lines.insert(insert_idx + pos + 1, "")
+                pos += 2
+            if conflict_dashboard_md:
+                lines.insert(insert_idx + pos, conflict_dashboard_md.rstrip())
+                lines.insert(insert_idx + pos + 1, "")
+                pos += 2
+            if structural_regime_md:
+                lines.insert(insert_idx + pos, structural_regime_md.rstrip())
+                lines.insert(insert_idx + pos + 1, "")
+                pos += 2
+            if allocation_section:
+                lines.insert(insert_idx + pos, allocation_section.rstrip())
+                lines.insert(insert_idx + pos + 1, "")
+                pos += 2
+            if ai_narrative_section:
+                lines.insert(insert_idx + pos, ai_narrative_section.rstrip())
+                lines.insert(insert_idx + pos + 1, "")
+                pos += 2
             if ratio_negative_note:
-                lines.insert(insert_idx + 3, ratio_negative_note)
-                lines.insert(insert_idx + 4, "")
+                lines.insert(insert_idx + pos, ratio_negative_note)
+                lines.insert(insert_idx + pos + 1, "")
+                pos += 2
             if data_conf_line:
-                lines.insert(insert_idx + 5, data_conf_line)
-                lines.insert(insert_idx + 6, "")
+                lines.insert(insert_idx + pos, data_conf_line)
+                lines.insert(insert_idx + pos + 1, "")
             md_text = "\n".join(lines).rstrip() + "\n"
         if "## 📈 详细指标分析" in md_text:
             md_text = md_text.replace("## 📈 详细指标分析\n\n", "## 📈 详细指标分析\n\n" + data_quality_section + "\n" + data_issues_section + "\n")
@@ -1646,7 +2313,20 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
 
 
 def generate_report_with_images_v2():
+    global REGIME_VERDICT_FOR_SCORING
     _log_v2_stage("🚀 启动 V2 报告生成")
+    # 先跑 Regime 以得到 verdict，经迟滞后供评分阶段应用体制乘数
+    REGIME_VERDICT_FOR_SCORING = None
+    output_dir = base.BASE / "outputs" / "crisis_monitor"
+    try:
+        monitor = regime_module.CrisisMonitor(base.BASE)
+        monitor.run_all_checks()
+        raw_verdict, _ = monitor.evaluate_systemic_risk()
+        stabilized, h_notes = hysteresis_module.get_stabilized_verdict(raw_verdict, output_dir)
+        REGIME_VERDICT_FOR_SCORING = stabilized
+        _log_v2_stage(f"📌 Regime: raw={raw_verdict} → stabilized={stabilized}（迟滞: {h_notes.get('reason', '')}）")
+    except Exception as e:
+        _log_v2_stage(f"⚠️ Regime 预跑失败(评分将不应用体制乘数): {e}")
     base.calculate_real_fred_scores = calculate_real_fred_scores_v2
     base.compose_series = compose_series_v2
     base.generate_report_with_images()

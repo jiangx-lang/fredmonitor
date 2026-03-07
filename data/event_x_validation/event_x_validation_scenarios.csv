@@ -1,0 +1,5 @@
+scenario_name,date_start,date_end,scenario_type,expected_behavior,notes
+Oil shock / 油价冲击期,2022-02-01,2022-06-30,oil_shock,Geopolitics Radar 在油价与通胀预期抬升期间或之前进入 WATCH，非仅事后才 HIGH。,2022 年俄乌冲突后油价与通胀预期抬升；验证 Geopolitics 是否提前或同步反应。
+Credit widening / 信用利差快速走阔期,2020-03-01,2020-06-30,credit_widening,Private Credit 在绝对阈值触发前可因 HY 5D 动量或 BIZD 弱势先亮 WATCH。,COVID 信用冲击；HY OAS 快速拉大窗口。
+Volatility rise without full resonance / 波动上升但未共振,2021-09-01,2021-11-30,vol_no_resonance,仅 Geopolitics WATCH 或 PARTIAL，不误判 RED ALERT；completeness 非 HIGH；summary 显式 VIX-led。,VIX 上行但 Brent/breakeven/credit 未同步确认。
+True resonance / 真实共振压力期,2020-03-01,2020-05-31,true_resonance,Resonance 升级（非 OFF）；至少一雷达 WATCH/ALERT。,信用+通胀预期+流动性恶化+credit_stress=ON。
