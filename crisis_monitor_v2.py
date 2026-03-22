@@ -3161,6 +3161,65 @@ _TLDR_HEADING = "## ⏱️ 太长不看版 (TL;DR) — 今日决策指南"
 _AI_INFERENCE_MARKER = "## 🧠 深度宏观推演 (AI Logic Inference)"
 
 
+def _apply_dynamic_tldr_from_action_state(tldr_md: str, report_data: dict) -> str:
+    """
+    用 action_state + 高压断路器覆盖 TL;DR 的 headline 与「是否有大风险？」行，
+    避免宏观分低但 L3/HV 已触发时仍显示「否，但有结构性隐患」。
+    """
+    if not (tldr_md and tldr_md.strip()):
+        return tldr_md
+    as_ = report_data.get("action_state") if isinstance(report_data.get("action_state"), dict) else {}
+    try:
+        action_level = int(as_.get("level", as_.get("Level", 0)))
+    except (TypeError, ValueError):
+        action_level = 0
+    hv = (
+        report_data.get("high_voltage_circuit_breaker")
+        if isinstance(report_data.get("high_voltage_circuit_breaker"), dict)
+        else {}
+    )
+    circuit_active = bool(hv.get("active"))
+
+    if circuit_active or action_level >= 3:
+        risk_line = (
+            "- **是否有大风险？** ⚠️ **是。高压断路器已触发，系统检测到非线性风险聚集，"
+            "建议立即转入最大防御模式（现金/极短久期）。**"
+        )
+        tldr_headline = "🔴 **高压断路器触发：系统性压力已确认，最大防御模式生效。**"
+    elif action_level >= 2:
+        risk_line = (
+            "- **是否有大风险？** ⚠️ **有结构性风险。Regime 已切换（通胀/供给冲击），"
+            "建议削减科技/成长敞口，增配硬资产/能源/现金。**"
+        )
+        tldr_headline = "🟠 **Regime 切换：通胀/供给冲击已激活，结构性风险显著上升。**"
+    elif action_level >= 1:
+        risk_line = (
+            "- **是否有大风险？** 暂无系统性危机，但结构性隐患明显，建议停止加杠杆，累积现金缓冲。"
+        )
+        tldr_headline = "🟡 **结构性张力：宏观平稳但内部裂痕扩大，停止加杠杆。**"
+    else:
+        risk_line = "- **是否有大风险？** 否，系统整体健康，可维持正常仓位。"
+        tldr_headline = "🟢 **系统健康：可维持正常仓位。**"
+
+    def _head_repl(m) -> str:
+        return m.group(1) + tldr_headline
+
+    out = re.sub(
+        r"(## ⏱️ 太长不看版 \(TL;DR\) — 今日决策指南\s*\n\s*\n)([^\n]+)",
+        _head_repl,
+        tldr_md,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    out = re.sub(
+        r"- \*\*是否有大风险？\*\*[^\n]*",
+        risk_line,
+        out,
+        count=1,
+    )
+    return out
+
+
 def _extract_tldr_section(md_text: str) -> Tuple[str, str]:
     """
     从正文剥离 TL;DR 块，供后处理置顶到「综合性结论」之后。
@@ -4694,6 +4753,8 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
             ratio_negative_note = "注：部分比率指标出现异常值，已剔除。"
         data_quality_section = _build_data_quality_section(data_quality)
         md_text, tldr_extracted = _extract_tldr_section(md_text)
+        if tldr_extracted:
+            tldr_extracted = _apply_dynamic_tldr_from_action_state(tldr_extracted, json_data)
         md_text = _reorder_ai_logic_inference_section(md_text)
         md_text = re.sub(r"\n## 综合性结论（Executive Verdict）[\s\S]*?(?=\n## |\Z)", "\n", md_text).rstrip()
         lines = md_text.splitlines()
