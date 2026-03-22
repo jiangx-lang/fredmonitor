@@ -65,7 +65,7 @@ python -m scripts.crisis_monitor
 ```
 
 ### 每日 9:00 自动运行并发邮件
-1) 设置环境变量 `SENDGRID_API_KEY`
+1) 在项目根 .env 或 config.env 中配置 `QQ_EMAIL_USER`、`QQ_EMAIL_PASSWORD`（QQ 邮箱授权码）
 2) 编辑 `config/email_settings.yaml`（发件人/收件人）
 3) 运行：
 ```

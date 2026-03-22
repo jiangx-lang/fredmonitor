@@ -68,6 +68,25 @@ def get_realtime_5y_breakeven_proxy_safe(base_module=None) -> Dict[str, Any]:
     except Exception:
         return out
 
+    # 0) 优先使用 compose_series("T5YIE")（V2 实时代理：^FVX-DFII5 / FRED T5YIE / ^FVX 近似）
+    try:
+        compose = getattr(base, "compose_series", None)
+        if callable(compose):
+            t5yie_composed = compose("T5YIE")
+            if t5yie_composed is not None and getattr(t5yie_composed, "empty", True) is False:
+                src = getattr(t5yie_composed, "source", None)
+                if src and src != "FAILED":
+                    val, d = _last_value_and_date(t5yie_composed)
+                    if val is not None:
+                        out["breakeven_source_used"] = src
+                        out["breakeven_last"] = val
+                        out["breakeven_last_date"] = d
+                        out["breakeven_is_stale"] = False
+                        out["breakeven_quality"] = "HIGH" if src == "FVX_MINUS_DFII5" or src == "FRED_T5YIE" else "MEDIUM"
+                        return out
+    except Exception:
+        pass
+
     # 1) FRED T5YIE
     t5yie = None
     try:

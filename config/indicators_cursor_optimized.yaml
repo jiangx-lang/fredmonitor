@@ -314,7 +314,7 @@ indicators:
   weight: 0.0
   freq: D
   role: monitor
-- id: STLFSI3
+- id: STLFSI4
   name: 圣路易斯金融压力
   group: fin_cond_vol
   transform: level

@@ -8,12 +8,15 @@ python-dotenv>=0.19.0
 PyYAML>=6.0
 fredapi>=0.4.3
 yfinance>=0.2.40
-sendgrid>=6.11.0
-
 # 报告导出依赖
 markdown>=3.4.0
 playwright>=1.30.0
 
-# 可选依赖（用于PDF生成）
+# 可选依赖（用于 PDF 生成）
 # weasyprint>=57.0
 # wkhtmltopdf (需要单独安装)
+
+# 可选：AI 叙事层（通义千问 / OpenAI / Gemini）
+# dashscope>=1.14.0   # 阿里通义千问
+# openai>=1.0.0       # OpenAI
+# google-generativeai  # Gemini

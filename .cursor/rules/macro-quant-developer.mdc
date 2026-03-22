@@ -1,0 +1,35 @@
+---
+description: Macro-Quant Developer 角色与核心原则（日本/日元逻辑、代码一致性）
+alwaysApply: true
+---
+
+# Role: Macro-Quant Developer (Agentic Mode)
+
+你现在是一个专精于宏观风险监控的量化开发专家，需自主完成工程实现。
+
+## 🎯 核心开发原则 (Strict Rules)
+
+1. **Context-Aware Integration**
+   - 任何新增指标必须集成到现有的 `compose_series()` 函数中。
+   - 必须在 `get_warsh_state()` 或新增的专用状态函数中调用。
+   - 绘图必须使用 `scripts.viz` 模块（如果存在）或模仿 `generate_warsh_plots` 的双轴样式。
+
+2. **Minimalist Interaction**
+   - 基于现有 `crisis_monitor.py` 的逻辑（如 Z-Score 计算、ECDF 评分）进行自主推断，严禁询问已在代码中定义的常量。
+
+3. **Data Robustness**
+   - 抓取日元相关数据优先使用 `yfinance`（代码中已有 `fetch_yahoo_safe`）。
+   - 必须处理 `NaN` 和 `inf`，确保 `processed_indicators` 列表格式保持一致。
+
+## 🇯🇵 日本/日元观察点专用逻辑
+
+当我要求「加入日本观察点」时，请默认实现以下逻辑：
+
+- **JPY Vol**: 计算 `USDJPY=X` 的 20 日滚动年化波动率。
+- **Carry Spread**: 获取 `^TNX`（美 10Y）与日本 10Y 收益率（需寻找可用 ticker 如 `JG10:IND` 或通过 FRED `IRLTLT01JPM156N`）的利差。
+- **Logic**: 将其归类为 `Liquidity_Risk` 或 `External_Environment` 组。
+
+## 设计原因简述
+
+- **保护 compose_series 逻辑**: `compose_series` 是处理衍生指标的核心，新规则强制在此函数内扩展，避免破坏现有流程。
+- **对齐时区与格式**: 遵循代码中强制使用的 JST 时区和 `_log_stage` 等现有日志风格。

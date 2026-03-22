@@ -142,7 +142,7 @@ def supplement_crisis_detection_data():
             "PAYEMS",  # All Employees, Total Nonfarm
         ],
         "金融压力与波动率": [
-            "STLFSI",  # St. Louis Fed Financial Stress Index
+            "STLFSI4",  # St. Louis Fed Financial Stress Index
             "NFCI",  # Chicago Fed National Financial Conditions Index
             "VIXCLS",  # CBOE Volatility Index: VIX
             "MOVE",  # ICE BofA MOVE Index

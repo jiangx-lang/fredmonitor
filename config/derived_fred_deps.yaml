@@ -1,0 +1,60 @@
+# 派生指标 → 依赖的 FRED 原始序列（一级配置资产）
+#
+# 用途：同步脚本用此表推导「crisis 依赖的 FRED 序列」，保证派生指标用到的腿都会被同步。
+# 维护规则：
+#   - 新增 derived 指标时，必须同时在此补一条映射；
+#   - Code review 时把「derived_fred_deps 是否与 compose_series 一致」列为检查项。
+# 与 crisis_monitor.compose_series 保持一致；仅列依赖 FRED 的派生指标（Yahoo/纯计算不列）。
+
+derived_indicators:
+  CP_MINUS_DTB3:
+    - CPN3M
+    - DTB3
+  SOFR20DMA_MINUS_DTB3:
+    - SOFR
+    - DTB3
+  CORPDEBT_GDP_PCT:
+    - NCBDBIQ027S
+    - GDP
+  RESERVES_ASSETS_PCT:
+    - TOTRESNS
+    - WALCL
+  RESERVES_DEPOSITS_PCT:
+    - TOTRESNS
+    - TOTALSA
+  UST30Y_UST2Y_RSI:
+    - DGS30
+    - DGS2
+  HY_OAS_MOMENTUM_RATIO:
+    - BAMLH0A0HYM2
+  SP500_DGS10_CORR60D:
+    - SP500
+    - DGS10
+  NET_LIQUIDITY:
+    - WALCL
+    - WTREGEN
+    - RRPONTSYD
+  VIX_TERM_STRUCTURE:
+    - VIXCLS
+    - VIX3M
+  HY_IG_RATIO:
+    - BAMLHYH0A0HYM2TRIV
+    - BAMLCC0A0CMTRIV
+  GLOBAL_LIQUIDITY_USD:
+    - WALCL
+    - DEXUSEU
+    - DEXJPUS
+  CREDIT_CARD_DELINQUENCY:
+    - DRCCLACBS
+  US_JPY_10Y_SPREAD:
+    - DGS10
+    - IRLTLT01JPM156N
+  MOVE_PROXY:
+    - VIXCLS
+    - DGS10
+  SOFR_MINUS_IORB:
+    - SOFR
+    - IORB
+  # 以下为 compose_series 中其他依赖 FRED 的派生（避免漏同步）
+  RRP_DRAIN_RATE:
+    - RRPONTSYD

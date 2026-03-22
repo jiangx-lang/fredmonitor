@@ -1,3 +1,10 @@
+# 危机监控日报邮件（QQ 邮箱 SMTP）
+# 发件账号与授权码不在此文件，而在环境文件（任选其一，与 D:\MF 基金邮件可共用）：
+#   macrolab.env / .env / config.env（项目根）
+#   D:\MF\.env / D:\MF\config.env
+# 必填键：QQ_EMAIL_USER=你的QQ邮箱@qq.com  QQ_EMAIL_PASSWORD=SMTP授权码（非QQ登录密码）
+#
+# sender：保留兼容；实际 From 由 QQ_EMAIL_USER 决定，建议与 QQ 登录账号一致。
 sender: jiangx@gmail.com
 recipients:
   - 34718@qq.com

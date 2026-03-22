@@ -50,7 +50,7 @@ indicators:
     group: core_warning
     transform: level
     higher_is_risk: true
-    compare_to: constant_1.0
+    compare_to: noncrisis_p75
     weight: 0.03
     freq: D
 
@@ -133,7 +133,7 @@ indicators:
     higher_is_risk: true
     compare_to: crisis_median
     weight: 0.03  # 减少1%
-    freq: D
+    freq: M
 
   - id: TEDRATE
     name: "TED利差"
@@ -180,7 +180,7 @@ indicators:
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.02
-    freq: D
+    freq: W
 
   # ===== 哨兵层 (不参与总分) =====
   - id: BTC_QQQ_RATIO
@@ -252,7 +252,7 @@ indicators:
     higher_is_risk: false
     compare_to: crisis_p25
     weight: 0.02
-    freq: M
+    freq: Q
 
   # 新增：制造业平均周工时 (1%)
   - id: AWHMAN
@@ -273,7 +273,7 @@ indicators:
     compare_to: noncrisis_p90
     tail: both  # 暴涨=泡沫风险，骤跌=去杠杆风险
     weight: 0.03  # 减少1%
-    freq: M
+    freq: Q
 
   - id: HOUST
     name: "新屋开工 年化"
@@ -282,7 +282,7 @@ indicators:
     higher_is_risk: false
     compare_to: crisis_p25
     weight: 0.02  # 减少1%
-    freq: M
+    freq: Q
 
   # 新增：建筑许可 (2%)
   - id: PERMIT
@@ -292,7 +292,7 @@ indicators:
     higher_is_risk: false
     compare_to: crisis_p25
     weight: 0.02
-    freq: M
+    freq: Q
 
   # ===== 货币政策环境 (14%) - 减少6% =====
   
@@ -322,7 +322,7 @@ indicators:
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.025  # 减少0.5%
-    freq: W
+    freq: M
 
   - id: SOFR
     name: "SOFR"
@@ -349,7 +349,7 @@ indicators:
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.015  # 减少0.5%
-    freq: D
+    freq: M
 
   # 央行资产 (改为monitor，避免用绝对规模评分)
   - id: WALCL
@@ -360,7 +360,7 @@ indicators:
     compare_to: crisis_median
     weight: 0.0  # 改为monitor，不计分
     role: monitor
-    freq: W
+    freq: M
 
   # ===== 银行体系 (13%) - 增加3% =====
   
@@ -412,7 +412,7 @@ indicators:
     higher_is_risk: false
     compare_to: noncrisis_p25
     weight: 0.02
-    freq: M
+    freq: Q
 
   # 新增：初请失业金4周均值 (3%)
   - id: IC4WSA
@@ -433,7 +433,7 @@ indicators:
     higher_is_risk: false
     compare_to: noncrisis_p35
     weight: 0.02
-    freq: M
+    freq: Q
 
   - id: CREDIT_CARD_DELINQUENCY
     name: "信用卡违约率"
@@ -469,17 +469,28 @@ indicators:
     group: monitoring
     transform: none
     higher_is_risk: true
-    compare_to: noncrisis_p90
+    compare_to: crisis_median
     weight: 0.0
     freq: D
 
-  - id: STLFSI3
+  - id: STLFSI4
     name: "圣路易斯金融压力"
     group: monitoring
     transform: none
     higher_is_risk: true
     compare_to: noncrisis_p75
     weight: 0.0
+    freq: W
+
+  # 央行美元互换池（高压断路器 L3 用）：FRED 单位为百万美元，周三周频
+  - id: SWPT
+    name: "美联储央行流动性互换（Central Bank Liquidity Swaps）"
+    group: monitoring
+    transform: none
+    higher_is_risk: true
+    compare_to: noncrisis_p75
+    weight: 0.0
+    role: monitor
     freq: W
 
   - id: HY_OAS_MOMENTUM_RATIO
@@ -544,3 +555,52 @@ indicators:
     compare_to: noncrisis_p25
     weight: 0.0
     freq: Q
+
+  # ===== 日本/日元观察点（Liquidity/External，先作监测不计分） =====
+  - id: JPY_VOL_20D
+    name: "USD/JPY 20日年化波动率"
+    group: monitoring
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p90
+    weight: 0.0
+    role: monitor
+    freq: D
+  - id: US_JPY_10Y_SPREAD
+    name: "美日10年期利差 (美10Y-日10Y)"
+    group: monitoring
+    transform: level
+    higher_is_risk: false
+    compare_to: noncrisis_p25
+    weight: 0.0
+    role: monitor
+    freq: D
+
+  # JPY Carry-Trade Unwind 专用
+  - id: JPY_VOL_1M
+    name: "USD/JPY 1个月实现波动率"
+    group: monitoring
+    transform: level
+    higher_is_risk: true
+    compare_to: noncrisis_p90
+    weight: 0.0
+    role: monitor
+    freq: D
+  - id: US_JPY_10Y_1W_CHG
+    name: "美日10Y利差单周变化(bps)"
+    group: monitoring
+    transform: level
+    higher_is_risk: true
+    compare_to: constant_0
+    weight: 0.0
+    role: monitor
+    freq: D
+  - id: NKY_SPX_CORR_20D
+    name: "日经225-标普500 20日相关性"
+    group: monitoring
+    transform: level
+    higher_is_risk: true
+    compare_to: constant_0.85
+    weight: 0.0
+    role: monitor
+    freq: D

@@ -8,13 +8,42 @@ FRED官方REST API轻量客户端
 import os
 import time
 import threading
+import logging
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import pandas as pd
 from typing import Dict, Any, Optional
 from tenacity import retry, wait_exponential, stop_after_attempt
 
+logger = logging.getLogger(__name__)
+
 # FRED API配置
 API_ROOT = "https://api.stlouisfed.org/fred"
+
+# 工业级重试：连接/读超时与 429/5xx 由 urllib3 在单次 Session 内指数退避重试
+_FRED_HTTP_SESSION: Optional[requests.Session] = None
+
+
+def _fred_http_session() -> requests.Session:
+    global _FRED_HTTP_SESSION
+    if _FRED_HTTP_SESSION is not None:
+        return _FRED_HTTP_SESSION
+    session = requests.Session()
+    retries = Retry(
+        total=5,
+        connect=5,
+        read=5,
+        backoff_factor=1,
+        status_forcelist=(429, 500, 502, 503, 504),
+        allowed_methods=frozenset(["GET"]),
+        raise_on_status=False,
+    )
+    adapter = HTTPAdapter(max_retries=retries, pool_maxsize=16)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    _FRED_HTTP_SESSION = session
+    return session
 
 def get_api_key():
     """获取API密钥"""
@@ -61,25 +90,24 @@ def _params(extra: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def _get(path: str, params: Dict[str, Any]) -> Dict[str, Any]:
-    """发送GET请求到FRED API（带速率限制）"""
+    """发送GET请求到FRED API（速率限制 + Session 级 urllib3 重试 + 较长超时）"""
     RATE_LIMITER.wait()  # 全局速率限制
-    
+
     url = f"{API_ROOT}/{path}"
-    
+
     try:
-        response = requests.get(url, params=_params(params), timeout=30)
-        # FRED API在超限或错误时返回标准HTTP状态码
+        response = _fred_http_session().get(url, params=_params(params), timeout=(15, 60))
         response.raise_for_status()
-        
+
         data = response.json()
-        
-        # 检查FRED API错误响应
+
         if "error_message" in data:
             raise ValueError(f"FRED API错误: {data['error_message']}")
-        
+
         return data
-        
+
     except requests.exceptions.RequestException as e:
+        logger.debug("FRED _get failed after session retries: %s %s", path, e)
         raise ConnectionError(f"FRED API请求失败: {e}")
 
 

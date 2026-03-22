@@ -126,7 +126,7 @@ def check_crisis_detection_coverage():
         
         # 六、综合指数与市场情绪
         "金融压力指数": {
-            "STLFSI": "St. Louis Fed Financial Stress Index",
+            "STLFSI4": "St. Louis Fed Financial Stress Index",
             "NFCI": "Chicago Fed National Financial Conditions Index"
         },
         "市场波动率": {

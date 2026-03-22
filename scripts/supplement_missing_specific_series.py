@@ -125,7 +125,7 @@ def supplement_missing_specific_series():
         "BAMLH0A0HYM2", # 高收益债OAS
         "NAPM",         # ISM制造业PMI
         "INDPRO",       # 工业产出
-        "STLFSI3",      # 圣路易斯金融压力指数
+        "STLFSI4",      # 圣路易斯金融压力指数
     ]
     
     # 创建危机检测分类目录

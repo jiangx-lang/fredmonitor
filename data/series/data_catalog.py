@@ -289,7 +289,7 @@ class DataCatalog:
                           'FEDFUNDS', 'DGS10', 'MORTGAGE30US', 'SOFR', 'DTB3', 'CPN3M',
                           'UNRATE', 'CIVPART', 'EMRATIO', 'UMCSENT', 'DRTSCILM', 'TDSP',
                           'VIXCLS', 'DRSFRMACBS', 'CORPORATE_DEBT_GDP_RATIO'],
-            'index': ['CSUSHPINSA', 'INDPRO', 'NFCI', 'THREEFYTP10', 'STLFSI3', 'EPUINDX', 'SP500'],
+            'index': ['CSUSHPINSA', 'INDPRO', 'NFCI', 'THREEFYTP10', 'STLFSI4', 'EPUINDX', 'SP500'],
             'currency': ['NCBDBIQ027S', 'GDP', 'WALCL', 'TOTLL', 'TOTALSA', 'TOTRESNS'],
             'count': ['PAYEMS', 'MANEMP', 'HOUST', 'PERMIT', 'IC4WSA']
         }
@@ -309,7 +309,7 @@ class DataCatalog:
         frequency_mapping = {
             'daily': ['T10Y3M', 'T10Y2Y', 'BAMLH0A0HYM2', 'BAA10YM', 'TEDRATE', 
                      'DGS10', 'MORTGAGE30US', 'SOFR', 'DTB3', 'VIXCLS', 'SP500'],
-            'weekly': ['IC4WSA', 'NFCI', 'STLFSI3'],
+            'weekly': ['IC4WSA', 'NFCI', 'STLFSI4'],
             'monthly': ['PAYEMS', 'MANEMP', 'AWHMAN', 'INDPRO', 'CSUSHPINSA', 'HOUST', 
                        'PERMIT', 'FEDFUNDS', 'CPN3M', 'WALCL', 'TOTLL', 'TOTALSA', 
                        'TOTRESNS', 'UNRATE', 'CIVPART', 'EMRATIO', 'UMCSENT', 'RETAILSMNSA',

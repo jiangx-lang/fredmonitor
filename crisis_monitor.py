@@ -21,6 +21,7 @@ import html as _html
 import time
 import threading
 import random
+import logging
 from datetime import datetime
 from typing import List, Dict, Optional
 import pytz
@@ -33,6 +34,8 @@ if sys.platform == "win32":
 
 # 统一时区设置
 JST = pytz.timezone("Asia/Tokyo")
+
+_logger_cm = logging.getLogger(__name__)
 
 RUN_LOG_PATH = None
 RUN_START_TS = None
@@ -94,6 +97,9 @@ except Exception:
 # 工程路径
 BASE = pathlib.Path(__file__).parent
 sys.path.insert(0, str(BASE))
+
+# Yahoo 缓存过期天数（超过则重新下载）
+YAHOO_CACHE_EXPIRY_DAYS = 3
 
 # 加载环境变量
 try:
@@ -208,6 +214,19 @@ def transform_series(series_id: str, raw_ts: pd.Series, indicator_meta: dict) ->
     return ts
 
 # --- FRED 读取与合成序列 ---
+def _fred_cache_value_column(df: pd.DataFrame, series_id: str) -> pd.Series:
+    """从 raw.csv 的 DataFrame 中选取正确的数值列：优先 value，其次 series_id 同名列，否则第一个有效数值列。"""
+    if "value" in df.columns:
+        return parse_numeric_series(df["value"]).dropna()
+    if series_id in df.columns:
+        return parse_numeric_series(df[series_id]).dropna()
+    for c in df.columns:
+        s = parse_numeric_series(df[c]).dropna()
+        if not s.empty:
+            return s
+    return pd.Series(dtype="float64")
+
+
 def fetch_series(series_id: str) -> pd.Series:
     """从本地缓存优先读取，否则 FRED API，最后返回一个 float Series（索引为 datetime）。"""
     cache = BASE / "data" / "fred" / "series" / series_id / "raw.csv"
@@ -215,7 +234,7 @@ def fetch_series(series_id: str) -> pd.Series:
         try:
             df = pd.read_csv(cache, index_col=0, parse_dates=True)
             if not df.empty:
-                return parse_numeric_series(df.iloc[:,0]).dropna()
+                return _fred_cache_value_column(df, series_id)
         except Exception:
             pass
     
@@ -243,20 +262,27 @@ def fetch_series(series_id: str) -> pd.Series:
         pass
     return ts
 
-def fetch_yahoo_safe(symbol: str, retries: int = 5, delay: float = 3.0) -> pd.Series:
+def fetch_yahoo_safe(symbol: str, retries: int = 2, delay: float = 3.0) -> pd.Series:
     """
-    带重试与退避的Yahoo下载函数（优先缓存）
+    带重试与退避的Yahoo下载函数（优先缓存，缓存超过 YAHOO_CACHE_EXPIRY_DAYS 天则刷新）
     """
     safe_symbol = symbol.replace("^", "_")
     cache = BASE / "data" / "yahoo" / "series" / safe_symbol / "raw.csv"
+    stale_series = None  # 下载失败时若有过期缓存则降级返回
+
     if cache.exists():
         try:
-            df = pd.read_csv(cache, index_col=0, parse_dates=True)
-            if not df.empty:
-                return parse_numeric_series(df.iloc[:, 0]).dropna()
-        except Exception:
-            pass
-    
+            df_cached = pd.read_csv(cache, index_col=0, parse_dates=True)
+            if not df_cached.empty:
+                last_date = pd.to_datetime(df_cached.index[-1])
+                days_old = (pd.Timestamp.now() - last_date).days
+                if days_old <= YAHOO_CACHE_EXPIRY_DAYS:
+                    return parse_numeric_series(df_cached.iloc[:, 0]).dropna()
+                stale_series = parse_numeric_series(df_cached.iloc[:, 0]).dropna()
+                print(f"   📅 Yahoo 缓存 {symbol} 已 {days_old} 天 (> {YAHOO_CACHE_EXPIRY_DAYS} 天)，刷新中...")
+        except Exception as e:
+            print(f"   ⚠️ 读取 Yahoo 缓存失败 {symbol}: {e}")
+
     print(f"🌐 正在获取 {symbol} (Yahoo)...")
     for i in range(retries):
         try:
@@ -264,65 +290,155 @@ def fetch_yahoo_safe(symbol: str, retries: int = 5, delay: float = 3.0) -> pd.Se
             if i > 0:
                 print(f"   ⏳ 触发限流，等待 {sleep_time:.1f} 秒后重试 ({i+1}/{retries})...")
             time.sleep(sleep_time)
-            
+
             df = yf.download(symbol, period="5y", progress=False)
             if df.empty:
                 print(f"   ⚠️ {symbol} 返回空数据，尝试重试...")
                 continue
-            
+
             if 'Adj Close' in df.columns:
                 series = df['Adj Close']
             elif 'Close' in df.columns:
                 series = df['Close']
             else:
                 series = df.iloc[:, 0]
-            
+
             if isinstance(series, pd.DataFrame):
                 series = series.iloc[:, 0]
             if getattr(series.index, "tz", None) is not None:
                 series.index = series.index.tz_localize(None)
-            
+
             series = parse_numeric_series(series).dropna()
             if series.empty:
                 print(f"   ⚠️ {symbol} 清洗后为空，尝试重试...")
                 continue
-            
+
             try:
                 cache.parent.mkdir(parents=True, exist_ok=True)
                 series.to_frame(symbol).to_csv(cache)
             except Exception:
                 pass
-            
+
             print(f"   ✅ {symbol} 获取成功 (最新: {series.iloc[-1]:.2f})")
             return series
         except Exception as e:
+            time.sleep(5)  # 被限速时等待5秒再重试
             error_msg = str(e).lower()
             if "429" in error_msg or "too many requests" in error_msg:
                 continue
             print(f"   ❌ {symbol} 下载出错: {e}")
             break
-    
+
+    if stale_series is not None and not stale_series.empty:
+        print(f"   ⚠️ {symbol} 下载失败，使用过期缓存 (最新: {stale_series.index[-1].date()})")
+        return stale_series
     print(f"   ❌ {symbol} 重试 {retries} 次后彻底失败，跳过。")
     return pd.Series(dtype="float64")
+
+
+def fetch_bizd_safe() -> pd.Series:
+    """
+    BIZD (BDC ETF) 近 1 年价格，用于 vs 50DMA 回撤。Fail-open: 失败时记录警告并返回空 Series，不阻断管道。
+    Priority: Adj Close -> Close; period 1y only.
+    """
+    symbol = "BIZD"
+    cache = BASE / "data" / "yahoo" / "series" / symbol / "raw.csv"
+    if cache.exists():
+        try:
+            df = pd.read_csv(cache, index_col=0, parse_dates=True)
+            if not df.empty:
+                # 只保留最近 1 年
+                cutoff = pd.Timestamp.now() - pd.DateOffset(days=365)
+                df = df[df.index >= cutoff]
+                if df.empty:
+                    return pd.Series(dtype="float64")
+                col = "Adj Close" if "Adj Close" in df.columns else "Close"
+                if col not in df.columns:
+                    col = df.columns[0]
+                s = parse_numeric_series(df[col]).dropna()
+                return s if not s.empty else pd.Series(dtype="float64")
+        except Exception:
+            pass
+    try:
+        df = yf.download(symbol, period="1y", progress=False, timeout=10)
+        if df.empty:
+            print(f"   ⚠️ BIZD: 返回空数据，指标将优雅降级 (NaN)")
+            return pd.Series(dtype="float64")
+        series = df["Adj Close"] if "Adj Close" in df.columns else (df["Close"] if "Close" in df.columns else df.iloc[:, 0])
+        if isinstance(series, pd.DataFrame):
+            series = series.iloc[:, 0]
+        if getattr(series.index, "tz", None) is not None:
+            series.index = series.index.tz_localize(None)
+        series = parse_numeric_series(series).dropna()
+        if series.empty:
+            print(f"   ⚠️ BIZD: 清洗后为空，指标将优雅降级 (NaN)")
+            return pd.Series(dtype="float64")
+        try:
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            series.to_frame(symbol).to_csv(cache)
+        except Exception:
+            pass
+        return series
+    except Exception as e:
+        print(f"   ⚠️ BIZD 获取失败: {e}，指标将优雅降级 (NaN)")
+        return pd.Series(dtype="float64")
+
+
+def get_gold_spx_rolling_corr_20d() -> tuple:
+    """
+    Rolling 20d corr(Gold, SPX). FRED 优先: SP500, GOLDAMGBD228NLBM；Gold 无 FRED 时 fallback GLD (yfinance).
+    Returns (corr_20d: float or np.nan, source_gold: str, details: dict).
+    Aligns to daily with ffill for low-freq.
+    """
+    spx = fetch_series("SP500")
+    gold_fred = fetch_series("GOLDAMGBD228NLBM")
+    source_gold = "GOLDAMGBD228NLBM"
+    if gold_fred is None or gold_fred.empty:
+        gold_fred = fetch_series("GOLDPMGBD228NLBM")
+        source_gold = "GOLDPMGBD228NLBM"
+    if gold_fred is None or gold_fred.empty:
+        gold = fetch_yahoo_safe("GLD")
+        source_gold = "GLD"
+    else:
+        gold = gold_fred
+    if spx is None or spx.empty or gold is None or gold.empty:
+        return (np.nan, source_gold, {"reason": "missing_spx_or_gold"})
+    # 交易日历对齐：outer join 成 DataFrame -> ffill -> dropna -> rolling(20).corr
+    df = pd.concat([spx.rename("spx"), gold.rename("gold")], axis=1, join="outer")
+    df = df.ffill().dropna()
+    if len(df) < 20:
+        return (np.nan, source_gold, {"reason": "insufficient_overlap_after_ffill"})
+    corr_20 = df["spx"].rolling(20, min_periods=15).corr(df["gold"])
+    last_corr = float(corr_20.iloc[-1]) if not corr_20.empty and pd.notna(corr_20.iloc[-1]) else np.nan
+    last_date = str(df.index[-1].date()) if hasattr(df.index[-1], "date") else str(df.index[-1])
+    return (last_corr, source_gold, {"last_date": last_date})
+
 
 def compose_series(series_id: str) -> Optional[pd.Series]:
     """处理非FRED原生ID的派生系列。优先使用预计算的CSV，否则实时计算。"""
     sid = series_id.upper()
     
-    # 预计算的合成指标列表
+    # 预计算的合成指标列表（含 Warsh 管道指标）
     derived_series = [
-        "CP_MINUS_DTB3", "SOFR20DMA_MINUS_DTB3", 
+        "CP_MINUS_DTB3", "SOFR20DMA_MINUS_DTB3",
+        "SOFR_MINUS_IORB", "SOFR_IORB_SPREAD", "SOFR_IORB_SPREAD_5DMA", "SOFR_IORB_POS_DAYS_20",
+        "RRP_DRAIN_RATE", "RRP_20D_CHANGE", "RRP_20D_PCT",
+        "MOVE_PROXY", "BOND_VOL_PROXY", "BOND_VOL_PROXY_Z20",
+        "THREEFYTP10_Z20", "NET_LIQUIDITY_Z60",
         "CORPDEBT_GDP_PCT", "RESERVES_ASSETS_PCT", "RESERVES_DEPOSITS_PCT",
         "UST30Y_UST2Y_RSI",
         "HY_OAS_MOMENTUM_RATIO", "SP500_DGS10_CORR60D", "NET_LIQUIDITY",
         "VIX_TERM_STRUCTURE", "HY_IG_RATIO", "GLOBAL_LIQUIDITY_USD",
-        "CREDIT_CARD_DELINQUENCY"
+        "CREDIT_CARD_DELINQUENCY",
+        "JPY_VOL_20D", "US_JPY_10Y_SPREAD",
+        "JPY_VOL_1M", "US_JPY_10Y_1W_CHG", "NKY_SPX_CORR_20D",
+        "JGB_ETF_8282",
     ]
     
     if sid in derived_series:
-        # 优先使用预计算的CSV文件
-        csv_path = f"data/series/{sid}.csv"
-        if os.path.exists(csv_path):
+        # 优先使用预计算的CSV文件（使用 BASE 避免工作目录依赖）
+        csv_path = BASE / "data" / "series" / f"{sid}.csv"
+        if csv_path.exists():
             try:
                 df = pd.read_csv(csv_path, index_col=0, parse_dates=True)
                 # 处理不同的列名格式
@@ -355,7 +471,44 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
                 sofr20 = rolling_mean(sofr, 20)
                 tb_aligned = tb.reindex_like(sofr20).ffill()
                 return (sofr20 - tb_aligned).dropna()
-            
+
+            # Warsh 约束仪表盘：SOFR - IORB（流动性底线，>0.05% 为银行间流动性枯竭）
+            if sid == "SOFR_MINUS_IORB":
+                sofr = fetch_series("SOFR")
+                iorb = fetch_series("IORB")
+                if sofr.empty or iorb.empty:
+                    print(f"⚠️ {series_id}: 基础数据(SOFR/IORB)缺失，跳过合成")
+                    return None
+                iorb_aligned = iorb.reindex_like(sofr).ffill()
+                return (sofr - iorb_aligned).dropna()
+
+            # Warsh：RRP 消耗速率（20 日滚动变化率，监测缓冲垫是否被抽干）
+            if sid == "RRP_DRAIN_RATE":
+                rrp = fetch_series("RRPONTSYD")
+                if rrp.empty or len(rrp) < 21:
+                    print(f"⚠️ {series_id}: 基础数据(RRPONTSYD)不足，跳过合成")
+                    return None
+                pct_20d = rrp.pct_change(20)
+                return pct_20d.dropna()
+
+            # Warsh：债市恐慌代理（FRED 无 MOVE 则用 Yahoo ^MOVE，再回退 VIX*DGS10 波动率）
+            if sid == "MOVE_PROXY":
+                move = fetch_series("MOVE")
+                if move.empty:
+                    move = fetch_yahoo_safe("^MOVE")
+                if move is not None and not move.empty:
+                    return move.dropna()
+                vix = fetch_series("VIXCLS")
+                if vix.empty:
+                    vix = fetch_yahoo_safe("^VIX")
+                dgs10 = fetch_series("DGS10")
+                if vix.empty or dgs10.empty:
+                    print(f"⚠️ {series_id}: 基础数据(VIX/DGS10)缺失，跳过合成")
+                    return None
+                dgs10_aligned = dgs10.reindex_like(vix).ffill()
+                vol_proxy = vix.rolling(20, min_periods=5).std() * (dgs10_aligned / 100)
+                return vol_proxy.dropna()
+
             if sid == "UST30Y_UST2Y_RSI":
                 t30 = fetch_series("DGS30")
                 t2 = fetch_series("DGS2")
@@ -425,25 +578,38 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
                 vix = fetch_series("VIXCLS")
                 if vix.empty:
                     vix = fetch_yahoo_safe("^VIX")
-                
+
                 vix3m = fetch_series("VIX3M")
                 if vix3m.empty:
                     vix3m = fetch_yahoo_safe("^VIX3M")
-                
-                if (vix.empty or vix3m.empty) and not vix.empty:
-                    print("   ⚠️ 无法获取 ^VIX3M，尝试使用备选指标 ^VIX9D...")
+
+                if not vix.empty and not vix3m.empty:
+                    vix_a, v3_a = vix.align(vix3m, join="inner")
+                    ratio = (vix_a / v3_a).replace([np.inf, -np.inf], np.nan).dropna()
+                    if not ratio.empty:
+                        return ratio
+
+                if not vix.empty:
+                    print("   ⚠️ VIX3M(FRED/Yahoo ^VIX3M)不可用，尝试备选 ^VIX9D...")
                     vix9d = fetch_yahoo_safe("^VIX9D")
                     if not vix9d.empty:
-                        vix, vix9d = vix.align(vix9d, join="inner")
-                        return (vix9d / vix).dropna()
-                    return None
-                
-                if vix.empty or vix3m.empty:
-                    print(f"⚠️ {series_id}: 基础数据(VIXCLS/VIX3M)缺失，跳过合成")
-                    return None
-                vix, vix3m = vix.align(vix3m, join="inner")
-                ratio = (vix / vix3m).replace([np.inf, -np.inf], np.nan)
-                return ratio.dropna()
+                        vix_a, v9_a = vix.align(vix9d, join="inner")
+                        rr = (v9_a / vix_a).replace([np.inf, -np.inf], np.nan).dropna()
+                        if not rr.empty:
+                            return rr
+                    vixn = pd.to_numeric(vix, errors="coerce").dropna()
+                    if len(vixn) >= 61:
+                        _logger_cm.warning(
+                            "CRITICAL: Both FRED and Yahoo failed for VIX3M. Using MA60 fallback."
+                        )
+                        ma60 = vixn.rolling(60).mean()
+                        ult = (vixn / ma60).replace([np.inf, -np.inf], np.nan).dropna()
+                        ult = ult[np.isfinite(ult) & (ult > 0)]
+                        if not ult.empty:
+                            return ult
+
+                print(f"⚠️ {series_id}: 基础数据(VIXCLS/VIX3M)缺失，跳过合成")
+                return None
             
             if sid == "HY_IG_RATIO":
                 hy = fetch_series("BAMLHYH0A0HYM2TRIV")
@@ -534,6 +700,80 @@ def compose_series(series_id: str) -> Optional[pd.Series]:
                 
                 reserves_aligned = reserves.reindex_like(deposits).fillna(method="ffill")
                 return (reserves_aligned / deposits * 100).dropna()
+
+            # 日本/日元观察点：USD/JPY 20 日滚动年化波动率 (%)
+            if sid == "JPY_VOL_20D":
+                usdjpy = fetch_yahoo_safe("USDJPY=X")
+                if usdjpy is None or usdjpy.empty or len(usdjpy) < 21:
+                    print(f"⚠️ {series_id}: USD/JPY 数据不足，跳过合成")
+                    return None
+                usdjpy = usdjpy.replace(0, np.nan).dropna()
+                logret = np.log(usdjpy / usdjpy.shift(1))
+                vol20 = logret.rolling(20, min_periods=5).std() * (np.sqrt(252) * 100)
+                out = vol20.replace([np.inf, -np.inf], np.nan).dropna()
+                return out
+
+            # 美日 10Y 利差 (bp)：美 10Y - 日 10Y（FRED IRLTLT01JPM156N 为月频，对齐到日频）
+            if sid == "US_JPY_10Y_SPREAD":
+                ust10 = fetch_series("DGS10")
+                jgb10 = fetch_series("IRLTLT01JPM156N")
+                if ust10.empty:
+                    print(f"⚠️ {series_id}: DGS10 缺失，跳过合成")
+                    return None
+                if jgb10.empty or jgb10.isna().all():
+                    print(f"⚠️ {series_id}: 日本 10Y(IRLTLT01JPM156N) 缺失，跳过合成")
+                    return None
+                jgb_daily = jgb10.reindex(ust10.index).ffill()
+                spread_bp = (ust10 - jgb_daily)  # 均为 % 单位，差值为 bp 等价
+                out = spread_bp.replace([np.inf, -np.inf], np.nan).dropna()
+                return out
+
+            # 日本 Carry-Trade Unwind：USD/JPY 1 个月实现波动率（约 21 个交易日）
+            if sid == "JPY_VOL_1M":
+                usdjpy = fetch_yahoo_safe("USDJPY=X")
+                if usdjpy is None or usdjpy.empty or len(usdjpy) < 22:
+                    print(f"⚠️ {series_id}: USD/JPY 数据不足，跳过合成")
+                    return None
+                usdjpy = usdjpy.replace(0, np.nan).dropna()
+                logret = np.log(usdjpy / usdjpy.shift(1))
+                vol1m = logret.rolling(21, min_periods=5).std() * (np.sqrt(252) * 100)
+                out = vol1m.replace([np.inf, -np.inf], np.nan).dropna()
+                return out
+
+            # 美日 10Y 利差单周变化 (bps)：收窄为负，用于平仓压力监测
+            if sid == "US_JPY_10Y_1W_CHG":
+                spread = compose_series("US_JPY_10Y_SPREAD")
+                if spread is None or spread.empty or len(spread) < 6:
+                    print(f"⚠️ {series_id}: US_JPY_10Y_SPREAD 不足，跳过合成")
+                    return None
+                chg = spread.diff(5)  # 5 个交易日 ≈ 1 周；单位为 %，*100 为 bps
+                out = (chg * 100).replace([np.inf, -np.inf], np.nan).dropna()
+                return out
+
+            # 日经 225 与标普 500 20 日滚动相关系数（去杠杆时相关性飙升）
+            if sid == "NKY_SPX_CORR_20D":
+                nky = fetch_yahoo_safe("^N225")
+                spx = fetch_series("SP500")
+                if spx.empty:
+                    spx = fetch_yahoo_safe("^GSPC")
+                if nky is None or nky.empty or spx is None or spx.empty:
+                    print(f"⚠️ {series_id}: 日经/标普数据缺失，跳过合成")
+                    return None
+                nky, spx = nky.align(spx, join="inner")
+                r_nky = nky.pct_change()
+                r_spx = spx.pct_change()
+                corr = r_nky.rolling(20, min_periods=5).corr(r_spx)
+                out = corr.replace([np.inf, -np.inf], np.nan).dropna()
+                return out
+
+            # 日本 10Y 国债实时代理：8282.T（跟踪 10Y 日债的 ETF，yfinance 可用；FRED IRLTLT01JPM156N 常滞后 1–2 月）
+            if sid == "JGB_ETF_8282":
+                etf = fetch_yahoo_safe("8282.T")
+                if etf is None or etf.empty:
+                    print(f"⚠️ {series_id}: 8282.T 数据不可用，跳过")
+                    return None
+                out = etf.replace(0, np.nan).dropna()
+                return out
             
         except Exception as e:
             print(f"⚠️ {series_id}: 实时合成计算失败: {e}")
@@ -767,6 +1007,712 @@ def generate_summary_chart(group_scores: dict, total_score: float, output_dir: p
     except Exception as e:
         print(f"❌ 生成概览图表失败: {e}")
         return None
+
+
+# ---------- Warsh Constraint Dashboard: 解释性报告与风险信号灯 ----------
+# RRPONTSYD 在 FRED 中单位为十亿美元 (Billions of Dollars)，无需再除 1000
+RRP_GREEN_MIN_BN = 500.0   # RRP > 500 十亿
+RRP_RED_MAX_BN = 100.0     # RRP < 100 十亿
+RRP_YELLOW_20D_DROP_BN = -200.0  # 20 日绝对下降超过 200 十亿
+RRP_AMBER_BN = 100.0       # RRP < 100B → AMBER (Constraint Watch)；绘图阈值线
+
+def get_warsh_timeseries():
+    """
+    获取 Warsh 仪表盘用时间序列（真实数据，与 get_warsh_state 同源）。
+    返回 (rrp_bn, spread_bp, tp_pct) 对齐到同一日期索引；任一缺失则返回 None。
+    - rrp_bn: RRP 十亿美元 (Billions)
+    - spread_bp: SOFR−IORB 基点 (basis points)，内部百分比×100
+    - tp_pct: 10Y 期限溢价百分比 (THREEFYTP10)
+    """
+    rrp = fetch_series("RRPONTSYD")
+    spread_pct = compose_series("SOFR_MINUS_IORB")
+    if spread_pct is None or spread_pct.empty:
+        sofr = fetch_series("SOFR")
+        iorb = fetch_series("IORB")
+        if sofr is not None and not sofr.empty and iorb is not None and not iorb.empty:
+            iorb_aligned = iorb.reindex_like(sofr).ffill()
+            spread_pct = (sofr - iorb_aligned).dropna()
+    tp = fetch_series("THREEFYTP10")
+    if rrp is None or rrp.empty or spread_pct is None or spread_pct.empty or tp is None or tp.empty:
+        return None
+    # 对齐到共同日期，去掉任一缺失的行，保证三序列同长同索引
+    common = rrp.index.intersection(spread_pct.index).intersection(tp.index)
+    if len(common) < 20:
+        return None
+    df = pd.DataFrame(
+        {"rrp": rrp.reindex(common).ffill().bfill(), "spread": spread_pct.reindex(common).ffill().bfill(), "tp": tp.reindex(common).ffill().bfill()},
+        index=common,
+    ).dropna(how="any")
+    if len(df) < 20:
+        return None
+    rrp_bn = df["rrp"]
+    spread_bp = df["spread"] * 100.0  # 百分比 → bp
+    tp_pct = df["tp"]
+    return (rrp_bn, spread_bp, tp_pct)
+
+def plot_warsh_plumbing(rrp_series_bn: pd.Series, spread_series_bp: pd.Series, out_png_path: pathlib.Path) -> None:
+    """
+    Warsh 管道双轴图：RRP (B) 左轴，SOFR−IORB (bp) 右轴；标注 AMBER 阈值 100B 与 0bp 硬约束线。
+    """
+    fig, ax1 = plt.subplots(figsize=(10, 5))
+    ax1.set_xlabel("Date")
+    ax1.set_ylabel("RRP (Billions USD)", color="C0")
+    ax1.plot(rrp_series_bn.index, rrp_series_bn.values, color="C0", label="RRP (B)")
+    ax1.axhline(y=RRP_AMBER_BN, color="orange", linestyle="--", linewidth=1.5, label=f"AMBER threshold ({RRP_AMBER_BN:.0f}B)")
+    ax1.tick_params(axis="y", labelcolor="C0")
+    ax1.legend(loc="upper left")
+    ax1.grid(True, alpha=0.3)
+
+    ax2 = ax1.twinx()
+    ax2.set_ylabel("SOFR − IORB (bp)", color="C1")
+    ax2.plot(spread_series_bp.index, spread_series_bp.values, color="C1", label="SOFR−IORB (bp)")
+    ax2.axhline(y=0.0, color="red", linestyle="--", linewidth=1.5, label="RED (hard constraint)")
+    ax2.tick_params(axis="y", labelcolor="C1")
+    ax2.legend(loc="upper right")
+    fig.tight_layout()
+    out_png_path.parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(out_png_path, dpi=160, bbox_inches="tight")
+    plt.close()
+
+def plot_warsh_term_premium(tp_series_pct: pd.Series, out_png_path: pathlib.Path) -> None:
+    """
+    10Y 期限溢价单轴图；画历史中位数水平线，图例说明高于中枢表示重估压力上升。
+    """
+    tp_median = float(np.nanmedian(tp_series_pct.values))
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.set_xlabel("Date")
+    ax.set_ylabel("10Y Term Premium (%)")
+    ax.plot(tp_series_pct.index, tp_series_pct.values, color="C0", label="10Y Term Premium")
+    ax.axhline(y=tp_median, color="gray", linestyle="--", linewidth=1.5, label=f"Historical median ({tp_median:.2f}%)")
+    ax.legend(loc="best")
+    ax.grid(True, alpha=0.3)
+    ax.set_title("Above median → repricing risk / stress pressure may be building")
+    fig.tight_layout()
+    out_png_path.parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(out_png_path, dpi=160, bbox_inches="tight")
+    plt.close()
+
+# CRO 口径：Warsh 仪表盘说明（禁止预测/交易/情绪化）
+WARSH_DASHBOARD_CRO_NARRATIVE = """
+**本仪表盘监控内容**
+- **RRP（逆回购）**：流动性缓冲垫。接近枯竭时，系统对资产负债表收紧的容忍度下降（对应 AMBER / Constraint Watch）。
+- **SOFR−IORB 利差**：反映利率走廊是否被测试。持续高于 0bp 视为硬约束突破（RED）。
+- **期限溢价（Term premium）**：刻画长端除政策利率预期外的重定价压力；持续高于历史中位数表示重定价风险在积累。
+
+**如何解读**
+- RRP 偏低且利差逼近 0bp：约束正在形成，吸收冲击能力下降。
+- 利差持续 > 0bp：硬约束突破，历史上政策重新校准（recalibration）的概率上升。
+- 期限溢价上升且债市波动上升：债市功能压力 / 重定价风险。
+"""
+
+def get_warsh_state() -> dict:
+    """收集 Warsh 管道指标当前值、历史分位及数据截止日。缺失序列时字段为 None。"""
+    state = {
+        "sofr_iorb_spread": None,
+        "sofr_iorb_spread_5dma": None,
+        "sofr_iorb_pos_days_20": None,
+        "sofr_iorb_last_date": None,
+        "rrp_level": None,
+        "rrp_level_bn": None,
+        "rrp_20d_pct": None,
+        "rrp_20d_abs_change_bn": None,
+        "rrp_last_date": None,
+        "term_premium": None,
+        "term_premium_median": None,
+        "term_premium_last_date": None,
+        "bond_vol_proxy": None,
+        "bond_vol_60pctl": None,
+        "bear_steepening": None,
+    }
+    try:
+        # SOFR - IORB
+        spread_ts = compose_series("SOFR_MINUS_IORB")
+        if spread_ts is None or spread_ts.empty:
+            sofr = fetch_series("SOFR")
+            iorb = fetch_series("IORB")
+            if sofr is not None and not sofr.empty and iorb is not None and not iorb.empty:
+                iorb_aligned = iorb.reindex_like(sofr).ffill()
+                spread_ts = (sofr - iorb_aligned).dropna()
+        if spread_ts is not None and not spread_ts.empty:
+            state["sofr_iorb_spread"] = float(spread_ts.iloc[-1])
+            state["sofr_iorb_spread_5dma"] = float(spread_ts.rolling(5, min_periods=1).mean().iloc[-1])
+            last_20 = spread_ts.iloc[-20:] if len(spread_ts) >= 20 else spread_ts
+            state["sofr_iorb_pos_days_20"] = int((last_20 > 0).sum())
+            state["sofr_iorb_last_date"] = str(spread_ts.index[-1].date()) if hasattr(spread_ts.index[-1], "date") else str(spread_ts.index[-1])
+
+        # RRP (FRED: 十亿美元 Billions of Dollars)
+        rrp = fetch_series("RRPONTSYD")
+        if rrp is not None and not rrp.empty and len(rrp) >= 21:
+            state["rrp_level"] = float(rrp.iloc[-1])  # 十亿
+            state["rrp_level_bn"] = state["rrp_level"]  # 已是十亿
+            prev_20 = rrp.iloc[-21]
+            if prev_20 and prev_20 != 0:
+                state["rrp_20d_pct"] = float((rrp.iloc[-1] - prev_20) / prev_20 * 100)
+            state["rrp_20d_abs_change_bn"] = float(rrp.iloc[-1] - rrp.iloc[-21]) if len(rrp) >= 21 else None
+            state["rrp_last_date"] = str(rrp.index[-1].date()) if hasattr(rrp.index[-1], "date") else str(rrp.index[-1])
+
+        # Term Premium + 历史中位数
+        tp = fetch_series("THREEFYTP10")
+        if tp is not None and not tp.empty:
+            state["term_premium"] = float(tp.iloc[-1])
+            state["term_premium_median"] = float(np.nanmedian(tp.values))
+            state["term_premium_last_date"] = str(tp.index[-1].date()) if hasattr(tp.index[-1], "date") else str(tp.index[-1])
+
+        # Bond vol proxy: VIXCLS * DGS10 (rolling 20d if needed for percentile)
+        vix = fetch_series("VIXCLS")
+        dgs10 = fetch_series("DGS10")
+        if vix is not None and not vix.empty and dgs10 is not None and not dgs10.empty:
+            dgs10_aligned = dgs10.reindex_like(vix).ffill()
+            bond_vol = (vix * (dgs10_aligned / 100)).dropna()
+            if not bond_vol.empty:
+                state["bond_vol_proxy"] = float(bond_vol.iloc[-1])
+                state["bond_vol_60pctl"] = float(np.nanpercentile(bond_vol.values, 60))
+
+        # Bear steepening: Δ20D(DGS10) > 0 and Δ20D(DGS2) < 0
+        d10 = fetch_series("DGS10")
+        d2 = fetch_series("DGS2")
+        if d10 is not None and not d10.empty and d2 is not None and not d2.empty and len(d10) >= 21 and len(d2) >= 21:
+            delta10 = float(d10.iloc[-1] - d10.iloc[-21])
+            delta2 = float(d2.iloc[-1] - d2.iloc[-21])
+            state["bear_steepening"] = bool(delta10 > 0 and delta2 < 0)
+    except Exception as e:
+        print(f"⚠️ Warsh 状态收集异常: {e}")
+    return state
+
+
+def compute_warsh_risk_level(indicators: dict) -> dict:
+    """
+    [Logic Refined by CRO]
+    Warsh 风险信号灯逻辑修正：
+    - RED (Breached): 物理约束已被突破 (SOFR > IORB)。
+    - AMBER (Constraint Watch): 缓冲垫耗尽 (RRP < 100B)，系统失去弹性，但尚未通过价格对抗。
+    - YELLOW (Emerging): 缓冲垫快速消耗或尾部风险上升。
+    - GREEN: 管道畅通。
+    """
+    s = indicators
+    red_flags = []
+    amber_flags = []
+    yellow_flags = []
+
+    reason_red = "Constraint Breached — Financial system actively resisting tightening. Policy pivot imminent."
+    reason_amber = "Policy Constraint Watch — System tolerance to tightening has materially declined (Buffer Exhausted)."
+    reason_yellow = "Constraint Forming — Liquidity buffer allows tightening, but capacity is shrinking."
+    reason_green = "Green Light — Financial plumbing remains functional and absorptive."
+
+    sofr = s.get("sofr_iorb_spread")
+    sofr5 = s.get("sofr_iorb_spread_5dma")
+    rrp_bn = s.get("rrp_level_bn")
+    rrp_drop = s.get("rrp_20d_abs_change_bn")
+    tp_val = s.get("term_premium")
+    tp_med = s.get("term_premium_median")
+    bv = s.get("bond_vol_proxy")
+    bv60 = s.get("bond_vol_60pctl")
+
+    # --- 1. RED Criteria (必须是硬约束突破) ---
+    if sofr5 is not None and sofr5 > 0.00:
+        red_flags.append("Liquidity floor breached (SOFR > IORB)")
+    if tp_val is not None and bv is not None and bv60 is not None and tp_med is not None:
+        if tp_val > tp_med * 1.5 and bv > bv60 * 1.5:
+            red_flags.append("Bond vigilantes active rejection")
+
+    if red_flags:
+        return {"warsh_level": "RED", "warsh_level_reason": reason_red, "warsh_flags": red_flags}
+
+    # --- 2. AMBER Criteria (缓冲耗尽，高度脆弱) ---
+    if rrp_bn is not None and rrp_bn < 100.0:
+        amber_flags.append("Liquidity buffer exhausted (RRP < 100B)")
+    if sofr is not None and sofr >= -0.01:
+        amber_flags.append("SOFR testing IORB floor (>-1bp)")
+    if s.get("bear_steepening") is True:
+        amber_flags.append("Bear steepening (Policy conflict pricing)")
+
+    if amber_flags:
+        return {"warsh_level": "AMBER", "warsh_level_reason": reason_amber, "warsh_flags": amber_flags}
+
+    # --- 3. YELLOW Criteria (早期预警) ---
+    if rrp_drop is not None and rrp_drop < -100.0:
+        yellow_flags.append("Buffer draining rapidly")
+    if tp_val is not None and tp_med is not None and tp_val > tp_med * 1.1:
+        yellow_flags.append("Term premium widening")
+
+    if yellow_flags:
+        return {"warsh_level": "YELLOW", "warsh_level_reason": reason_yellow, "warsh_flags": yellow_flags}
+
+    return {"warsh_level": "GREEN", "warsh_level_reason": reason_green, "warsh_flags": []}
+
+
+# ---------- JPY Carry-Trade Unwind 模块：数据状态与传染检测 ----------
+# 阈值：利差单周收窄超过 15bps 视为平仓压力；NKY-SPX 相关性 > 0.85 视为全球去杠杆
+JPY_SPREAD_NARROW_BPS = -15.0
+JPY_NKY_SPX_CORR_HIGH = 0.85
+JGB_KEY_LEVELS_PCT = [1.0, 1.5]
+YEN_APPRECIATION_5D_PCT = -2.0   # 5 日内日元升值超过 2% 视为快速升值
+
+
+def get_japan_carry_state() -> dict:
+    """
+    收集 JPY Carry-Trade Unwind 观测点：波动率、美日利差及 1 周变化、NKY-SPX 相关性、
+    JGB 10Y、USD/JPY 近期变化。用于 check_japan_contagion 与报告展示。
+    """
+    state = {
+        "jpy_vol_1m": None,
+        "jpy_vol_1y_p90": None,
+        "us_jp_spread": None,
+        "us_jp_spread_1w_chg_bps": None,
+        "nky_spx_corr_20d": None,
+        "nky_spx_corr_median": None,
+        "jgb10y": None,
+        "usdjpy_5d_pct": None,
+        "data_cutoff": None,
+    }
+    try:
+        vol1m = compose_series("JPY_VOL_1M")
+        if vol1m is not None and not vol1m.empty:
+            state["jpy_vol_1m"] = float(vol1m.iloc[-1])
+            one_year = vol1m.last("365D")
+            if len(one_year) >= 20:
+                state["jpy_vol_1y_p90"] = float(one_year.quantile(0.90))
+            state["data_cutoff"] = vol1m.index[-1]
+
+        spread = compose_series("US_JPY_10Y_SPREAD")
+        if spread is not None and not spread.empty:
+            state["us_jp_spread"] = float(spread.iloc[-1])
+            state["data_cutoff"] = state["data_cutoff"] or spread.index[-1]
+        chg = compose_series("US_JPY_10Y_1W_CHG")
+        if chg is not None and not chg.empty:
+            state["us_jp_spread_1w_chg_bps"] = float(chg.iloc[-1])
+
+        corr = compose_series("NKY_SPX_CORR_20D")
+        if corr is not None and not corr.empty:
+            state["nky_spx_corr_20d"] = float(corr.iloc[-1])
+            one_year_c = corr.last("365D")
+            if len(one_year_c) >= 20:
+                state["nky_spx_corr_median"] = float(one_year_c.median())
+
+        jgb = fetch_series("IRLTLT01JPM156N")
+        if jgb is not None and not jgb.empty:
+            state["jgb10y"] = float(jgb.iloc[-1])
+            state["jgb10y_cutoff"] = jgb.index[-1]  # FRED 常滞后 1–2 月，用于报告标注
+            try:
+                cutoff = jgb.index[-1]
+                last_date = cutoff.date() if hasattr(cutoff, "date") else cutoff
+                state["jgb_fred_stale"] = (datetime.now().date() - last_date).days > 30
+            except Exception:
+                state["jgb_fred_stale"] = True
+        else:
+            state["jgb_fred_stale"] = True
+
+        # 8282.T 为 10Y 日债 ETF 代理，用于近期敏感度（实时代理）
+        etf8282 = compose_series("JGB_ETF_8282")
+        if etf8282 is not None and len(etf8282) >= 6:
+            pct_5d = (float(etf8282.iloc[-1]) / float(etf8282.iloc[-6]) - 1.0) * 100
+            state["jgb_etf_8282_5d_pct"] = pct_5d
+
+        usdjpy = fetch_yahoo_safe("USDJPY=X")
+        if usdjpy is not None and len(usdjpy) >= 6:
+            pct_5d = (float(usdjpy.iloc[-1]) / float(usdjpy.iloc[-6]) - 1.0) * 100
+            state["usdjpy_5d_pct"] = pct_5d  # 负 = 日元升值
+    except Exception as e:
+        print(f"⚠️ Japan carry 状态收集异常: {e}")
+    return state
+
+
+def check_japan_contagion(warsh_level: Optional[str] = None, japan_state: Optional[dict] = None) -> dict:
+    """
+    JPY Carry-Trade Unwind 风险等级与 Regime 联动。
+
+    - Normal: 无触发。
+    - Amber: JPY 1M 波动率突破 1Y 90% 分位 / 利差单周收窄 >15bps / NKY-SPX 相关性飙升。
+    - Red: JGB 触及关键关口(1.0% 或 1.5%)且日元快速升值；或 (Warsh AMBER + 日本波动率 AMBER) 直接升 RED。
+
+    返回: {"level": "Normal"|"Amber"|"Red", "reasons": [], "flags": {...}, "escalate_global_to_red": bool}
+    """
+    s = japan_state if japan_state is not None else get_japan_carry_state()
+    warsh = (warsh_level or "").strip().upper()
+    reasons = []
+    flags = {}
+
+    # --- Amber 条件 ---
+    vol_trigger = False
+    if s.get("jpy_vol_1m") is not None and s.get("jpy_vol_1y_p90") is not None:
+        if s["jpy_vol_1m"] >= s["jpy_vol_1y_p90"]:
+            vol_trigger = True
+            reasons.append("JPY 1M 实现波动率突破过去一年 90% 分位")
+            flags["jpy_vol_amber"] = True
+
+    if s.get("us_jp_spread_1w_chg_bps") is not None and s["us_jp_spread_1w_chg_bps"] <= JPY_SPREAD_NARROW_BPS:
+        reasons.append("美日 10Y 利差单周收窄超过 15bps，平仓压力上升")
+        flags["spread_narrow_amber"] = True
+
+    if s.get("nky_spx_corr_20d") is not None and s["nky_spx_corr_20d"] >= JPY_NKY_SPX_CORR_HIGH:
+        reasons.append("日经-标普 20 日相关性飙升，全球去杠杆信号")
+        flags["nky_spx_corr_amber"] = True
+
+    # --- Red 条件 1：JGB 关键关口 + 日元快速升值 ---
+    jgb_red = False
+    if s.get("jgb10y") is not None and s.get("usdjpy_5d_pct") is not None:
+        for thresh in JGB_KEY_LEVELS_PCT:
+            if s["jgb10y"] >= thresh and s["usdjpy_5d_pct"] <= YEN_APPRECIATION_5D_PCT:
+                jgb_red = True
+                reasons.append(f"日本 10Y 触及 {thresh}% 且日元 5 日快速升值 (Regime Shift)")
+                flags["jgb_yen_red"] = True
+                break
+
+    # --- Red 条件 2：Warsh AMBER + 日本波动率 AMBER → 跳过中间状态升 RED ---
+    escalate_global_to_red = False
+    if warsh == "AMBER" and vol_trigger:
+        escalate_global_to_red = True
+        reasons.append("Warsh 流动性缓冲 AMBER 且 JPY 波动率警报同时触发，全局升 RED")
+        flags["warsh_jpy_escalation"] = True
+
+    if jgb_red or escalate_global_to_red:
+        return {
+            "level": "Red",
+            "reasons": reasons,
+            "flags": flags,
+            "escalate_global_to_red": escalate_global_to_red,
+            "japan_state": s,
+        }
+    if reasons:
+        return {
+            "level": "Amber",
+            "reasons": reasons,
+            "flags": flags,
+            "escalate_global_to_red": False,
+            "japan_state": s,
+        }
+    return {
+        "level": "Normal",
+        "reasons": [],
+        "flags": {},
+        "escalate_global_to_red": False,
+        "japan_state": s,
+    }
+
+
+def _japan_indicator_status(s: dict) -> tuple:
+    """各核心指标单独状态与说明，用于仪表盘表格。返回 (vol_status, vol_note), (spread_status, spread_note), (corr_status, corr_note)。"""
+    vol_amber = (
+        s.get("jpy_vol_1m") is not None
+        and s.get("jpy_vol_1y_p90") is not None
+        and s["jpy_vol_1m"] >= s["jpy_vol_1y_p90"]
+    )
+    vol_status = "🟡 AMBER" if vol_amber else "🟢 Normal"
+    vol_note = "突破一年 90% 分位，日元走势开始不稳定。" if vol_amber else "未突破一年 90% 分位。"
+
+    spread_amber = (
+        s.get("us_jp_spread_1w_chg_bps") is not None
+        and s["us_jp_spread_1w_chg_bps"] <= JPY_SPREAD_NARROW_BPS
+    )
+    spread_status = "🟡 AMBER" if spread_amber else "🟢 Normal"
+    chg = s.get("us_jp_spread_1w_chg_bps")
+    spread_note = f"周变化 {chg:.1f} bps，触及 -15bps 平仓警戒线。" if spread_amber else (f"周变化 {chg:.1f} bps，未触及 -15bps 平仓警戒线。" if chg is not None else "—")
+
+    corr_red = (
+        s.get("nky_spx_corr_20d") is not None
+        and s["nky_spx_corr_20d"] >= JPY_NKY_SPX_CORR_HIGH
+    )
+    corr_status = "🔴 RED" if corr_red else "🟢 Normal"
+    corr_note = "日经与标普高度同步，说明全球资金正在统一步调去杠杆。" if corr_red else "相关性未触及去杠杆阈值。"
+
+    return (vol_status, vol_note), (spread_status, spread_note), (corr_status, corr_note)
+
+
+def build_japan_carry_unwind_section(japan_result: dict) -> str:
+    """生成报告用「JPY Carry-Trade Unwind」仪表盘：核心指标状态表 + 日本宏观底座。"""
+    s = japan_result.get("japan_state") or {}
+    level = japan_result.get("level", "Normal")
+    reasons = japan_result.get("reasons", [])
+    emoji = {"Normal": "🟢", "Amber": "🟠", "Red": "🔴"}.get(level, "")
+
+    (vol_status, vol_note), (spread_status, spread_note), (corr_status, corr_note) = _japan_indicator_status(s)
+
+    vol_str = f"{s.get('jpy_vol_1m'):.2f}%" if s.get("jpy_vol_1m") is not None else "—"
+    spread_str = f"{s.get('us_jp_spread'):.2f}%" if s.get("us_jp_spread") is not None else "—"
+    corr_str = f"{s.get('nky_spx_corr_20d'):.2f}" if s.get("nky_spx_corr_20d") is not None else "—"
+
+    lines = [
+        "## 🇯🇵 JPY Carry-Trade Unwind 仪表盘",
+        "",
+        f"**风险等级**: {emoji} **{level}**",
+        "",
+        "### 核心指标状态表",
+        "",
+        "| 指标 | 最新数值 | 状态 | 逻辑说明 |",
+        "|------|----------|------|----------|",
+        f"| USD/JPY 1M Vol | {vol_str} | {vol_status} | {vol_note} |",
+        f"| US-JP 10Y Spread | {spread_str} | {spread_status} | {spread_note} |",
+        f"| NKY-SPX Corr | {corr_str} | {corr_status} | {corr_note} |",
+        "",
+        "### 日本宏观底座",
+        "",
+    ]
+    jgb_cutoff_str = ""
+    if s.get("jgb10y_cutoff") is not None:
+        try:
+            jgb_cutoff_str = f"（FRED 数据截止 {s['jgb10y_cutoff'].strftime('%Y-%m')}，存在 1–2 月滞后）"
+        except Exception:
+            jgb_cutoff_str = "（FRED 存在 1–2 月滞后）"
+    elif s.get("jgb10y") is not None:
+        jgb_cutoff_str = "（FRED 存在 1–2 月滞后）"
+    if s.get("jgb_fred_stale"):
+        jgb_cutoff_str += " **FRED 已滞后 >30 天，实时代理以 8282.T 与 USD/JPY 波动率为主。**"
+    jgb_str = f"{s.get('jgb10y'):.2f}%" if s.get("jgb10y") is not None else "—"
+    usdjpy_str = f"{s.get('usdjpy_5d_pct'):.2f}%" if s.get("usdjpy_5d_pct") is not None else "—"
+    jgb_note = ""
+    if s.get("jgb10y") is not None:
+        for thresh in JGB_KEY_LEVELS_PCT:
+            if s["jgb10y"] >= thresh:
+                jgb_note = f"（已触及心理关口 {thresh}%）"
+                break
+    usdjpy_note = "（日元快速升值，套利平仓压力显现）" if (s.get("usdjpy_5d_pct") is not None and s["usdjpy_5d_pct"] <= YEN_APPRECIATION_5D_PCT) else ""
+    lines.append(f"- **JGB 10Y**: {jgb_str} {jgb_note} {jgb_cutoff_str}")
+    if s.get("jgb_etf_8282_5d_pct") is not None:
+        lines.append(f"- **8282.T (10Y JGB ETF 代理) 5 日涨跌**: {s['jgb_etf_8282_5d_pct']:.2f}% (实时)")
+    lines.append(f"- **日元 5 日涨跌**: {usdjpy_str} {usdjpy_note}")
+    lines.append("")
+    if s.get("jgb_fred_stale"):
+        lines.append("**⚠️ FRED 日债数据已滞后超过 30 天**：当前美日利差与 JGB 读数仅供参考；**实时代理以 8282.T 与 USD/JPY 波动率为主**。")
+    else:
+        lines.append("*说明：若无实时日债数据，USD/JPY 波动率监控已足够作为警报哨所。*")
+    lines.append("")
+    if reasons:
+        lines.append("### 逻辑说明")
+        lines.append("")
+        for r in reasons:
+            lines.append(f"- {r}")
+        lines.append("")
+    if japan_result.get("escalate_global_to_red"):
+        lines.append("**⚠️ Conflict Detection**: Warsh AMBER + JPY 波动率 AMBER → 全局风险等级已升为 **RED**。")
+        lines.append("")
+    return "\n".join(lines)
+
+
+def build_warsh_executive_summary(warsh_result: dict, warsh_state: dict) -> str:
+    """生成 Executive Summary — Warsh Policy Risk (CRO Tone)"""
+    level = warsh_result.get("warsh_level", "GREEN")
+    reason = warsh_result.get("warsh_level_reason", "")
+    flags = warsh_result.get("warsh_flags", [])
+    s = warsh_state
+
+    level_map = {
+        "GREEN": "🟢 GREEN (No Constraint)",
+        "YELLOW": "🟡 YELLOW (Constraint Forming)",
+        "AMBER": "🟠 AMBER (Constraint Watch)",
+        "RED": "🔴 RED (Constraint Breached)",
+    }
+    level_text = level_map.get(level, level)
+
+    binding = "、".join(flags) if flags else "无显性约束"
+    sofr_str = f"{s.get('sofr_iorb_spread', 0):.3f}%" if s.get("sofr_iorb_spread") is not None else "—"
+    rrp_str = f"{s.get('rrp_level_bn', 0):.1f}B" if s.get("rrp_level_bn") is not None else "—"
+    tp_str = f"{s.get('term_premium', 0):.2f}%" if s.get("term_premium") is not None else "—"
+
+    text = f"""**Warsh 政策约束监控**：{level_text}。{reason}
+
+在 Warsh 的资产负债表纪律框架下，主要关注流动性管道的承压能力。当前系统状态：{binding}。关键读数：RRP {rrp_str}（缓冲垫厚度），SOFR−IORB {sofr_str}（利率走廊下限），10Y 期限溢价 {tp_str}。
+
+**CRO 点评**：本仪表盘显示金融系统对进一步缩表的容忍度已{"显著下降" if level in ["AMBER", "RED"] else "处于正常区间"}。当 AMBER 或 RED 信号出现时，历史统计显示政策路径往往面临重新校准（Recalibration）的压力，资产价格的风险溢价将面临重估。"""
+
+    return text.strip()
+
+
+def generate_tldr_summary(macro_result: dict, warsh_result: dict, japan_result: Optional[dict] = None) -> str:
+    """
+    生成【太长不看版】决策指南。
+    根据宏观评分 + Warsh 约束状态 + Japan 传染检测，直接给出「读/不读」建议。
+    当 Conflict Detection 触发（Warsh AMBER + JPY Vol AMBER → Escalated RED）时，显示「系统性流动性共振」专属文案。
+    返回 Markdown，便于在报告中展示；含简要框式结构。
+    """
+    macro_score = macro_result.get("total_score", 0) or 0
+    warsh_level = warsh_result.get("warsh_level", "GREEN")
+    is_escalated = bool(japan_result and japan_result.get("escalate_global_to_red"))
+
+    has_critical_risk = (macro_score >= 80) or (warsh_level == "RED")
+    has_warning = (macro_score >= 60) or (warsh_level in ["AMBER", "YELLOW"])
+
+    if has_critical_risk:
+        if is_escalated:
+            headline = "🔴 **今日有重大风险信号：系统性流动性共振 (Escalated)**"
+            action = "Warsh 缓冲垫已耗尽，且日元套利交易出现平仓迹象（JPY Vol 突破 90% 分位）。系统正处于「内外交困」的去杠杆边缘，风险权重已自动上调。"
+        else:
+            headline = "🔴 **今日有重大风险信号，请务必全文阅读！**"
+            action = "系统已触及硬约束（红灯），市场变盘概率极高。请立即检查风险敞口。"
+        can_skip = "❌ **不可跳过**"
+        risk_ans = "是"
+    elif has_warning:
+        headline = "🟠 **宏观面平稳，但流动性防线出现裂痕。**"
+        risk_ans = "否，但有结构性隐患"
+        if warsh_level == "AMBER":
+            action = "宏观数据（GDP/就业）无恙，但流动性缓冲（RRP）已耗尽。系统正如「无备胎行驶」，对突发震荡的抵抗力变弱。"
+            can_skip = "⚠️ **长线投资者可略读；债券/波动率交易者建议关注「流动性管道」章节。**"
+        else:
+            action = "部分指标出现背离，虽然尚未形成共振，但值得保持警惕。"
+            can_skip = "✅ **若无重大交易计划，今日可略读。**"
+    else:
+        headline = "🟢 **今日风平浪静，系统运行良好。**"
+        action = "各项指标均在安全区间，流动性充裕，未见异常压力。"
+        can_skip = "✅ **今日可以放心暂停阅读。**"
+        risk_ans = "否"
+
+    # Markdown 版：报告通用，渲染成 HTML 时也清晰
+    tldr_md = f"""
+## ⏱️ 太长不看版 (TL;DR) — 今日决策指南
+
+{headline}
+
+- **是否有大风险？** {risk_ans}
+- **我可以停止阅读吗？** {can_skip}
+- **核心关注点：** {action}
+
+---
+"""
+    return tldr_md.strip()
+
+
+WARSH_WHY_MATTERS_SECTION = """
+Warsh 更关注资产负债表纪律，而不仅是利率水平。在潜在「降息 + 继续缩表」的组合下，名义利率下行并不等同于流动性宽松；若缩表持续，银行间与债市仍可能面临流动性收紧。
+
+本仪表盘监控的管道指标（Plumbing Indicators）——SOFR 与准备金利率利差、逆回购消耗、期限溢价与债市波动——通常在就业、CPI、GDP 等宏观数据恶化之前就会发出信号。它们回答的是：**政策意图是否已触及金融系统的物理极限**。
+
+当多个管道指标同时恶化时，历史经验表明，央行往往被迫放缓或重新定义原有紧缩路径。对投资者而言，这对应极端风险定价阶段，以及随后由政策妥协触发的反向交易机会。本层不替代既有危机监测评分，仅作为 Warsh 政策约束的叠加视角。
+""".strip()
+
+
+def build_warsh_interpretation_report(warsh_state: dict) -> str:
+    """根据当前 Warsh 指标状态生成「Warsh Constraints / Liquidity Plumbing — Interpretation」章节（Markdown）。"""
+    s = warsh_state
+
+    # Section A — Why These Indicators Matter
+    section_a = """在 Kevin Warsh 的政策框架下，名义利率（Fed Funds）不再是唯一的宽松工具。
+Warsh 更强调通过资产负债表规模（QT）恢复「货币纪律」。
+
+因此，市场的核心风险不在于「是否降息」，而在于：
+**在降息的同时，金融系统是否还能承受持续的流动性抽取。**
+
+本仪表盘专门监控那些能最早暴露「缩表撞墙」的金融管道指标（Plumbing Indicators），
+这些指标通常在传统宏观数据（就业、CPI、GDP）恶化之前就会发出警告。
+
+"""
+
+    # Section B — Policy Transmission Channels（带当前数值）
+    sofr_line = "（当前无 SOFR−IORB 序列，无法判断。）"
+    if s.get("sofr_iorb_spread") is not None:
+        x = s["sofr_iorb_spread"]
+        x5 = s.get("sofr_iorb_spread_5dma")
+        pos20 = s.get("sofr_iorb_pos_days_20")
+        tail = f"当前 SOFR−IORB 为 **{x:.4f}%**"
+        if x5 is not None:
+            tail += f"，5 日均值为 **{x5:.4f}%**"
+        if pos20 is not None:
+            tail += f"，近 20 日为正的天数为 **{pos20}** 天。"
+        if x > 0:
+            tail += " **已突破 0，属于流动性底线告警。**"
+        elif x5 is not None and x5 > 0:
+            tail += " 5 日均值已为正，需密切关注。"
+        else:
+            tail += " 尚未突破 0，流动性底线暂未触及。"
+        sofr_line = tail
+
+    section_b1 = f"""#### 1) 银行间流动性底线（SOFR − IORB）
+
+IORB 是银行体系的无风险利率下限。
+正常情况下，银行不应在回购市场以高于 IORB 的利率融资。
+
+当 **SOFR − IORB 持续为正**，意味着银行体系的准备金已不足，
+即便存在央行准备金，市场仍被迫以更高成本融资。
+
+这是缩表最直接、也最危险的约束信号，历史上往往迫使央行放缓或停止流动性抽取。
+
+{sofr_line}
+
+"""
+
+    rrp_line = "（当前无 RRP 序列或数据不足，无法判断。）"
+    if s.get("rrp_level_bn") is not None:
+        level_bn = s["rrp_level_bn"]  # 十亿美元
+        pct = s.get("rrp_20d_pct")
+        tail = f"当前 RRP 余额为 **{level_bn:.1f}** 十亿美元"
+        if pct is not None:
+            tail += f"，20 日变化率为 **{pct:+.1f}%**。"
+        else:
+            tail += "。"
+        if pct is not None and pct < -10:
+            tail += " 20 日显著下降，缓冲垫消耗加快，需警惕后续对准备金的直接抽取。"
+        elif pct is not None and pct < 0:
+            tail += " 20 日略有下降，缓冲垫在缓慢消耗。"
+        else:
+            tail += " 近期 RRP 未明显收缩。"
+        rrp_line = tail
+
+    section_b2 = f"""#### 2) 缓冲垫消耗（RRP Drain）
+
+当前美联储体系中，隔夜逆回购（RRP）是缩表的「第一道缓冲垫」。
+缩表初期，流动性通常先从 RRP 流出，而非直接抽取银行准备金。
+
+当 RRP 快速下降并接近枯竭时，后续缩表将不可避免地侵蚀银行体系准备金，
+流动性风险将呈现非线性上升。
+
+{rrp_line}
+
+"""
+
+    tp_line = "（当前无期限溢价序列，无法判断。）"
+    if s.get("term_premium") is not None:
+        tp_val = s["term_premium"]
+        tp_line = f"当前 10 年期期限溢价（THREEFYTP10）为 **{tp_val:.2f}%**。"
+        if tp_val > 0.5:
+            tp_line += " 处于偏高水平，反映市场对长端美债风险补偿要求上升，需关注与债券波动率的联动。"
+        else:
+            tp_line += " 水平尚可，长端反噬压力暂不突出。"
+
+    section_b3 = f"""#### 3) 长端反噬（Term Premium & Bond Vol）
+
+Warsh 的政策组合可能同时压低短端利率（降息）并抛售或不再吸收长端国债（QT）。
+
+如果 10 年期收益率上升主要来自 **期限溢价（Term Premium）**，
+而非经济增长预期，这意味着市场正在要求更高的风险补偿来持有美债。
+
+当期限溢价与债券波动率同时上升时，通常标志着
+**美债市场定价功能开始失灵**，财政与货币政策的张力显性化。
+
+{tp_line}
+
+"""
+
+    # Section C — How to Read This Dashboard
+    section_c = """### Section C — 如何使用本仪表盘（决策指引）
+
+该仪表盘并不用于预测经济衰退，
+而是用于监测 **「政策意图是否已触及金融系统的物理极限」**。
+
+- 当多个 Plumbing 指标同时恶化时，历史经验表明，
+  政策制定者往往被迫放缓或重新定义原有紧缩路径。
+- 对投资者而言，这通常对应：
+  - 极端风险定价阶段
+  - 以及随后由政策妥协触发的反向交易机会。
+
+"""
+
+    run_meta = []
+    if s.get("sofr_iorb_last_date"):
+        run_meta.append(f"SOFR−IORB 数据截止: {s['sofr_iorb_last_date']}")
+    if s.get("rrp_last_date"):
+        run_meta.append(f"RRP 数据截止: {s['rrp_last_date']}")
+    if s.get("term_premium_last_date"):
+        run_meta.append(f"THREEFYTP10 数据截止: {s['term_premium_last_date']}")
+    meta_line = " | ".join(run_meta) if run_meta else "（暂无 Warsh 指标数据截止日）"
+
+    header = f"""**运行元数据**（时区: JST）：{datetime.now(JST).strftime("%Y-%m-%d %H:%M:%S")} | {meta_line}
+
+---
+
+### Section A — 为何监控这些指标
+
+"""
+
+    return header + section_a + "\n### Section B — Warsh 下的政策传导路径\n\n" + section_b1 + section_b2 + section_b3 + section_c
+
 
 # HTML转换函数
 def markdown_to_html(markdown_content: str, image_paths: dict) -> str:
@@ -1186,6 +2132,26 @@ def calculate_real_fred_scores(indicators_config=None, scoring_config=None):
             total_weighted_score += avg_score * normalized_weight
     
     return final_group_scores, total_weighted_score, processed_indicators
+
+
+def apply_japan_red_compensation(
+    group_scores: dict, total_score: float, japan_result: Optional[dict]
+) -> tuple:
+    """
+    当 Japan Carry-Trade Unwind 风险等级为 Red 时，对「银行业」与「收益率曲线」分组进行权重补偿：
+    score += 15（上限 100），并同步更新总分。用于体现「内外交困」下去杠杆风险的自动上调。
+    """
+    if not japan_result or japan_result.get("level") != "Red":
+        return group_scores, total_score
+    for group_key in ["banking", "core_warning"]:
+        if group_key not in group_scores:
+            continue
+        old_s = group_scores[group_key]["score"]
+        new_s = min(100.0, old_s + 15.0)
+        group_scores[group_key]["score"] = new_s
+        total_score += (new_s - old_s) * (group_scores[group_key]["weight"] / 100.0)
+    return group_scores, total_score
+
 
 def process_single_indicator_real(indicator, crisis_periods, scoring_config=None):
     """处理单个指标的真实FRED数据（统一变换/同域基准/同域ECDF）"""
@@ -1611,24 +2577,29 @@ def run_data_pipeline():
     current_dir = os.getcwd()
     _log_stage(f"📁 当前工作目录: {current_dir}")
 
-    # 1. 运行FRED数据下载
+    # 1. 运行FRED数据下载（可由每日批处理在外部先执行，设 CRISIS_MONITOR_SKIP_SYNC=1 则跳过避免重复）
     current_step += 1
     progress = int((current_step / total_steps) * 100)
-    _log_stage(f"📥 步骤{current_step}/{total_steps} ({progress}%): 下载FRED数据...")
-    _log_stage("⏳ 预计等待时间: 2-5分钟...")
-
-    try:
-        script_path = os.path.join(current_dir, "scripts", "sync_fred_http.py")
-        _log_stage(f"🔍 执行脚本: {script_path}")
-        result = subprocess.run([sys.executable, script_path],
-                              capture_output=True, text=True, timeout=300, cwd=current_dir,
-                              encoding="utf-8", errors="replace")
-        if result.returncode == 0:
-            _log_stage("✅ FRED数据下载完成")
-        else:
-            _log_stage(f"⚠️ FRED数据下载警告: {result.stderr}")
-    except Exception as e:
-        _log_stage(f"❌ FRED数据下载失败: {e}")
+    skip_sync = os.environ.get("CRISIS_MONITOR_SKIP_SYNC", "").strip().lower() in ("1", "true", "yes")
+    if skip_sync:
+        _log_stage(f"📥 步骤{current_step}/{total_steps} ({progress}%): 跳过下载（已由批处理先执行，CRISIS_MONITOR_SKIP_SYNC=1）")
+    else:
+        _log_stage(f"📥 步骤{current_step}/{total_steps} ({progress}%): 下载FRED数据（报告前全量拉取）...")
+        _log_stage("⏳ 预计等待时间: 5-30分钟（序列较多时请耐心等待）...")
+        try:
+            script_path = os.path.join(current_dir, "scripts", "sync_fred_http.py")
+            _log_stage(f"🔍 执行脚本: {script_path} --before-report（先全量拉取再计算，避免报告遗漏）")
+            result = subprocess.run(
+                [sys.executable, script_path, "--before-report"],
+                capture_output=True, text=True, timeout=1800, cwd=current_dir,
+                encoding="utf-8", errors="replace",
+            )
+            if result.returncode == 0:
+                _log_stage("✅ FRED数据下载完成")
+            else:
+                _log_stage(f"⚠️ FRED数据下载警告: {result.stderr}")
+        except Exception as e:
+            _log_stage(f"❌ FRED数据下载失败: {e}")
 
     # 2. 运行企业债/GDP比率计算
     current_step += 1
@@ -2084,9 +3055,9 @@ def generate_detailed_explanation_report(processed_indicators, output_path, time
             'typical_range': '-5% - 5%',
             'crisis_threshold': '> 10%'
         },
-        'STLFSI3': {
+        'STLFSI4': {
             'name': '圣路易斯金融压力',
-            'description': '圣路易斯联邦储备银行的金融压力指数',
+            'description': '圣路易斯联邦储备银行的金融压力指数（STLFSI4 口径）',
             'high_risk_explanation': '压力指数高表示金融市场压力大',
             'low_risk_explanation': '压力指数低表示金融市场稳定',
             'unit': '指数',
@@ -2207,6 +3178,345 @@ def generate_detailed_explanation_report(processed_indicators, output_path, time
         f.write("---\n")
         f.write(f"*报告生成时间: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}*\n")
 
+
+def generate_narrative_with_llm(processed_indicators, warsh_state, api_key=None):
+    """
+    [AI 核心] 使用大模型 (Alibaba Qwen / DeepSeek) 生成深度宏观研报 (CRO 版，强制中文输出)。
+    """
+    try:
+        from openai import OpenAI
+    except ImportError:
+        return "⚠️ 未安装 openai 库，无法生成 AI 研报。"
+
+    if not api_key:
+        api_key = os.getenv("DASHSCOPE_API_KEY")
+    if not api_key:
+        return "⚠️ 未配置 API Key，无法生成 AI 深度研报。请配置 DASHSCOPE_API_KEY。"
+
+    key_metrics = {
+        "Warsh_Constraints": {
+            "RRP_Level_Bn": warsh_state.get("rrp_level_bn"),
+            "SOFR_Spread": warsh_state.get("sofr_iorb_spread"),
+            "Term_Premium": warsh_state.get("term_premium"),
+        },
+        "High_Risk_Indicators": [
+            {"id": i.get("series_id"), "name": i.get("name"), "val": i.get("current_value"), "score": i.get("risk_score")}
+            for i in processed_indicators
+            if i.get("risk_score", 0) >= 60
+        ],
+        "Key_Macro": {
+            "GDP": next((i["current_value"] for i in processed_indicators if i.get("series_id") == "GDP"), None),
+            "Inflation_CPI": next((i["current_value"] for i in processed_indicators if i.get("series_id") == "CPIAUCSL"), None),
+            "Unemployment": next((i["current_value"] for i in processed_indicators if i.get("series_id") == "PAYEMS"), None),
+            "VIX": next((i["current_value"] for i in processed_indicators if i.get("series_id") == "VIXCLS"), None),
+        },
+    }
+    data_context = json.dumps(key_metrics, indent=2, ensure_ascii=False)
+
+    system_prompt = """
+🔴 **IMPORTANT: 全程必须使用【中文】撰写报告，严禁输出英文段落！**
+
+你是一位【首席风险官（CRO）】，但你的读者不是基金经理，而是「聪明、理性、但不懂金融术语的普通投资者」。
+你的任务不是炫耀专业性，而是把复杂的金融管道风险，翻译成人人能理解的「因果故事」。
+
+====================
+【最高优先级写作要求】
+====================
+你必须同时满足两种读者：
+1️⃣ 专业读者：逻辑必须严谨、定义必须正确、不得夸大风险。
+2️⃣ 普通读者：不懂 SOFR、RRP、IORB，也能理解「发生了什么」。
+⚠️ 如果普通人看不懂，你的回答就是失败的。
+
+====================
+【强制结构（必须遵守）】
+====================
+每一个核心指标或结论，必须包含以下三个层次：
+
+① **白话一句话总结（Plain Language Summary）**
+- 用 15–25 个字
+- 不允许出现专业名词
+- 回答：「这件事大概在说什么？」
+例：「央行还能不能继续收紧资金，正在接近极限。」
+
+② **专业解释（Technical Explanation）**
+- 可以使用 RRP、SOFR、IORB、Term Premium 等术语
+- 解释它们在金融系统中的「物理作用」
+- 说明为什么这个指标在 Warsh 框架下重要
+
+③ **对普通人的含义（What This Means for You）**
+- 不给买卖建议
+- 只回答：现在安全吗？需要立刻担心吗？这是「已经出事」还是「需要盯着」的阶段？
+例：「这并不意味着市场马上会下跌，但意味着一旦出现冲击，央行能缓冲的空间变小了。」
+
+====================
+【语言风格约束】
+====================
+🚫 严禁使用：崩盘、必然、死局、末日、系统性灾难、买入/卖出/抄底/做空
+✅ 鼓励使用：缓冲垫、安全余量、「还没撞墙，但离墙更近了」、「这是一盏『注意路况』的灯，而不是『立刻刹车』」
+
+====================
+【Warsh 专属解释要求（必须体现）】
+====================
+你必须明确告诉读者：Warsh 关注的不是「利率高不高」，而是**金融系统还能不能承受继续抽水**。
+解释时必须使用以下类比之一：水箱/管道、减震器、高速公路限流。
+
+====================
+【风险信号灯的白话翻译（强制）】
+====================
+🟢 GREEN = 「系统宽裕，有余量」
+🟡 YELLOW = 「问题开始出现，但不紧急」
+🟠 AMBER = 「还没出事，但安全垫已经很薄，需要盯着」
+🔴 RED = 「已经撞到物理限制，政策必须调整」
+
+====================
+【最终目标】
+====================
+读者读完后应当能回答之一：
+- 「哦，原来现在不是马上要出事，但不再是随便玩的环境。」
+- 「我终于明白为什么你们老盯着这些奇怪的指标。」
+- 「即使我不交易，也知道现在该不该提高警惕。」
+如果你只是让人觉得「你很专业」而不是「我懂了」，那就是失败。
+
+（本系统是「容错空间监测系统」，不是预测系统。）
+
+====================
+【小节顺序与收束（强制，不可打乱）】
+====================
+正文必须严格按以下顺序输出（标题编号与 🔹/✅ 标记须保留）：
+1) 1–2 段开篇引导（例如「汽车仪表盘」比喻，禁止英文段落）。
+2) `### 🔹 1.` — 第一个核心约束指标（优先 RRP / 缓冲垫主题）。
+3) `### 🔹 2.` — SOFR 与 IORB / 利率走廊主题。
+4) `### 🔹 3.` — 期限溢价（Term Premium）主题。
+5) `### 🔹 综合三指标：Warsh系统状态判断` — 三指标合并后的信号灯结论。
+6) `### 🔹 附：其他高风险指标简评（辅助验证）` — 列表简评，勿展开成另一篇长文。
+7) `### ✅ 最后一句给所有普通人的话：` — **必须是全文最后一节**；该节下只允许一小段说明 + **一段引用块**（每行以 `>` 开头，内含一句给普通人的收束比喻）。**引用块结束后立即结束输出，禁止再写任何段落**（尤其禁止在引用后再写「这就是 Warsh 框架想告诉你的全部」等总结句）。
+"""
+    user_prompt = f"这是最新的市场监控数据 (JSON格式)：\n{data_context}\n\n请基于此数据，按上述「白话+专业+对普通人含义」三层结构，生成一份**中文**、普通人也能读懂的 Warsh 风险解读。"
+
+    try:
+        client = OpenAI(
+            api_key=api_key,
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+        )
+        completion = client.chat.completions.create(
+            model="qwen-plus",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            temperature=0.6,
+        )
+        usage = getattr(completion, "usage", None)
+        if usage:
+            pt = getattr(usage, "prompt_tokens", 0)
+            ct = getattr(usage, "completion_tokens", 0)
+            total = getattr(usage, "total_tokens", pt + ct)
+            _log_stage(f"🤖 AI 深度推演 API 用量: 输入 {pt} + 输出 {ct} = {total} tokens")
+        return completion.choices[0].message.content or "（模型返回为空）"
+    except Exception as e:
+        return f"❌ AI 分析生成失败: {str(e)}"
+
+
+def generate_warsh_plots(output_dir: pathlib.Path) -> dict:
+    """
+    生成 Warsh 约束仪表盘专用图表（双轴图 + 期限溢价图），使用真实 FRED 数据。
+    返回图表相对路径字典 {'liquidity': 'figures/warsh_liquidity.png', 'term_premium': 'figures/warsh_term_premium.png'}
+    """
+    plots = {}
+    _log_stage("🎨 正在绘制 Warsh 约束仪表盘…")
+    try:
+        rrp = fetch_series("RRPONTSYD")
+        spread = compose_series("SOFR_MINUS_IORB")
+        if spread is None or (hasattr(spread, "empty") and spread.empty):
+            sofr = fetch_series("SOFR")
+            iorb = fetch_series("IORB")
+            if sofr is not None and not sofr.empty and iorb is not None and not iorb.empty:
+                iorb_aligned = iorb.reindex_like(sofr).ffill()
+                spread = (sofr - iorb_aligned).dropna()
+        tp = fetch_series("THREEFYTP10")
+        start_2y = pd.Timestamp.now() - pd.DateOffset(years=2)
+        start_5y = pd.Timestamp.now() - pd.DateOffset(years=5)
+
+        if rrp is not None and not rrp.empty and spread is not None and not spread.empty:
+            rrp_cut = rrp[rrp.index >= start_2y]
+            spread_cut = spread[spread.index >= start_2y]
+            common_idx = rrp_cut.index.intersection(spread_cut.index)
+            if len(common_idx) >= 10:
+                rrp_cut = rrp_cut.reindex(common_idx).ffill().dropna()
+                spread_cut = spread_cut.reindex(common_idx).ffill().dropna()
+                fig, ax1 = plt.subplots(figsize=(10, 5))
+                ax1.set_xlabel("日期")
+                ax1.set_ylabel("逆回购 RRP（十亿美元）", color="tab:blue", fontweight="bold")
+                ax1.fill_between(rrp_cut.index, 0, rrp_cut.values, color="tab:blue", alpha=0.3)
+                ax1.plot(rrp_cut.index, rrp_cut.values, color="tab:blue", linewidth=1)
+                ax1.tick_params(axis="y", labelcolor="tab:blue")
+                ax1.set_ylim(0, max(rrp_cut.max(), 2000))
+                ax1.axhline(y=100, color="red", linestyle=":", alpha=0.5)
+                ax1.text(rrp_cut.index[0], 120, "缓冲警戒线 (<100B)", color="red", fontsize=8)
+
+                ax2 = ax1.twinx()
+                ax2.set_ylabel("SOFR − IORB 利差 (bp)", color="tab:orange", fontweight="bold")
+                ax2.plot(spread_cut.index, spread_cut.values * 100, color="tab:orange", linewidth=1.5)
+                ax2.tick_params(axis="y", labelcolor="tab:orange")
+                ax2.axhline(y=0, color="gray", linestyle="-", linewidth=0.8)
+                plt.title("Warsh 约束 #1：流动性管道（缓冲消耗 vs 利率走廊）", fontsize=11, fontweight="bold")
+                plt.tight_layout()
+                path_a = output_dir / "figures" / "warsh_liquidity.png"
+                path_a.parent.mkdir(parents=True, exist_ok=True)
+                plt.savefig(path_a, dpi=150)
+                plt.close()
+                plots["liquidity"] = "figures/warsh_liquidity.png"
+
+        if tp is not None and not tp.empty:
+            tp_cut = tp[tp.index >= start_5y].dropna()
+            if len(tp_cut) >= 10:
+                fig, ax = plt.subplots(figsize=(10, 4))
+                ax.plot(tp_cut.index, tp_cut.values, color="tab:purple", linewidth=1.5)
+                ax.set_ylabel("10Y 期限溢价 (%)", color="tab:purple", fontweight="bold")
+                median_val = float(tp_cut.median())
+                ax.axhline(y=median_val, color="green", linestyle="--", alpha=0.6, label=f"历史中位数 ({median_val:.2f}%)")
+                ax.fill_between(tp_cut.index, median_val, tp_cut.values, where=(tp_cut.values > median_val), color="tab:purple", alpha=0.1)
+                plt.title("Warsh 约束 #2：债市重定价压力（10Y 期限溢价）", fontsize=11, fontweight="bold")
+                plt.legend(loc="upper left")
+                plt.grid(True, alpha=0.3)
+                plt.tight_layout()
+                path_b = output_dir / "figures" / "warsh_term_premium.png"
+                path_b.parent.mkdir(parents=True, exist_ok=True)
+                plt.savefig(path_b, dpi=150)
+                plt.close()
+                plots["term_premium"] = "figures/warsh_term_premium.png"
+    except Exception as e:
+        _log_stage(f"⚠️ Warsh 图表绘制失败: {e}")
+    return plots
+
+
+def _compute_freshness_classes(processed_indicators, indicators, scoring_config, reference_date=None):
+    """按周末感知的滞后阈值将指标分为「今日/可接受」与「已滞后」，排除已废弃序列。"""
+    ref = reference_date or datetime.now(JST).date()
+    deprecated_set = set(scoring_config.get("deprecated_series") or [])
+    id_to_indicator = {ind.get("id"): ind for ind in (indicators or []) if ind.get("id")}
+    fresh, stale = [], []
+    for p in processed_indicators or []:
+        sid = p.get("series_id")
+        if sid in deprecated_set:
+            continue
+        last_s = p.get("last_date")
+        if not last_s:
+            continue
+        try:
+            last_d = datetime.strptime(last_s, "%Y-%m-%d").date()
+        except Exception:
+            continue
+        age_days = (ref - last_d).days
+        ind = id_to_indicator.get(sid, {})
+        freq = (ind.get("freq") or "D").upper()
+        if freq == "D":
+            max_lag_days = 7   # 日频：留周末+发布延迟缓冲，避免正常 3–5 天延迟误报
+        elif freq == "W":
+            max_lag_days = 10  # 周频：最多 10 天属正常发布节奏
+        elif freq == "M":
+            max_lag_days = 60
+        elif freq == "Q":
+            max_lag_days = 120
+        else:
+            max_lag_days = 7
+        row = {
+            "name": p.get("name", sid),
+            "series_id": sid,
+            "last_date": last_s,
+            "age_days": age_days,
+            "max_lag_days": max_lag_days,
+        }
+        if age_days <= max_lag_days:
+            fresh.append(row)
+        else:
+            stale.append(row)
+    return fresh, stale
+
+
+def _format_freshness_section(fresh, stale) -> str:
+    """生成「数据新鲜度与覆盖」Markdown 区块。"""
+    parts = ["## 📅 数据新鲜度与覆盖\n\n"]
+    parts.append("基于各指标最后观测日期与更新频率（日频 7 天、周频 10 天、月频 60 天、季频 120 天）判断是否在可接受滞后范围内。\n\n")
+    if fresh:
+        parts.append("**✅ 今日已更新 / 可接受滞后**\n\n")
+        for r in sorted(fresh, key=lambda x: (x["series_id"],)):
+            parts.append(f"- **{r['name']}** (`{r['series_id']}`)：最后观测 {r['last_date']}，滞后 {r['age_days']} 天（阈值 {r['max_lag_days']} 天）\n")
+        parts.append("\n")
+    if stale:
+        parts.append("**⚠️ 已滞后（建议关注或更新数据源）**\n\n")
+        for r in sorted(stale, key=lambda x: (-x["age_days"], x["series_id"])):
+            parts.append(f"- **{r['name']}** (`{r['series_id']}`)：最后观测 {r['last_date']}，滞后 **{r['age_days']}** 天（阈值 {r['max_lag_days']} 天）\n")
+        parts.append("\n")
+    if not fresh and not stale:
+        parts.append("*暂无指标纳入新鲜度统计（或无 last_date）。*\n\n")
+    return "".join(parts)
+
+
+# 报告目录中带时间戳的产物；仅按 mtime 删除，避免误删 latest / 状态文件
+_CRISIS_OUTPUT_STALE_NAME_PATTERNS = (
+    re.compile(r"^crisis_report_\d{8}_\d{6}\.(md|html|json)$"),
+    re.compile(r"^crisis_report_detailed_\d{8}_\d{6}\.md$"),
+    re.compile(r"^crisis_report_long_\d{8}_\d{6}\.png$"),
+    re.compile(r"^latest_\d{8}_\d{6}\.(md|html)$"),
+    re.compile(r"^audit_per_indicator_\d{8}_\d{6}\.tsv$"),
+)
+_CRISIS_OUTPUT_PROTECTED_NAMES = frozenset(
+    {
+        "crisis_report_latest.md",
+        "crisis_report_latest.html",
+        "crisis_report_latest.json",
+        "investigo_signals.json",
+        "ew_state.json",
+        "ew_profile_history.json",
+        "run_trace.log",
+    }
+)
+
+
+def cleanup_old_crisis_monitor_outputs(
+    output_dir: pathlib.Path,
+    max_age_days: Optional[int] = None,
+) -> int:
+    """
+    删除 output_dir 下「带时间戳的报告产物」中超过 max_age_days 天的文件。
+    不删除 latest 链接副本、investigo、EW 状态与 run_trace。
+    可通过环境变量 CRISIS_MONITOR_OUTPUT_MAX_AGE_DAYS 覆盖默认 30 天；
+    设置 CRISIS_MONITOR_SKIP_OUTPUT_CLEANUP=1 跳过清理。
+    """
+    if os.environ.get("CRISIS_MONITOR_SKIP_OUTPUT_CLEANUP", "").strip() == "1":
+        return 0
+    if max_age_days is None:
+        try:
+            max_age_days = int(os.environ.get("CRISIS_MONITOR_OUTPUT_MAX_AGE_DAYS", "30"))
+        except ValueError:
+            max_age_days = 30
+    if max_age_days <= 0:
+        return 0
+    if not output_dir.is_dir():
+        return 0
+    cutoff = time.time() - float(max_age_days) * 86400.0
+    removed = 0
+    for p in output_dir.iterdir():
+        if not p.is_file():
+            continue
+        name = p.name
+        if name in _CRISIS_OUTPUT_PROTECTED_NAMES:
+            continue
+        if not any(pat.match(name) for pat in _CRISIS_OUTPUT_STALE_NAME_PATTERNS):
+            continue
+        try:
+            if p.stat().st_mtime >= cutoff:
+                continue
+            p.unlink()
+            removed += 1
+        except OSError:
+            pass
+    if removed:
+        print(f"🧹 已删除 {removed} 个超过 {max_age_days} 天的旧报告文件（{output_dir.name}）")
+    return removed
+
+
 def generate_report_with_images():
     """生成带图片的危机预警报告"""
     global RUN_LOG_PATH, RUN_START_TS
@@ -2248,6 +3558,21 @@ def generate_report_with_images():
     _log_stage("🧮 计算指标评分...")
     group_scores, total_score, processed_indicators = calculate_real_fred_scores(indicators, scoring_config)
     _log_stage("✅ 指标评分完成")
+    
+    # Warsh + Japan 传染检测（早算以便做 Japan RED 权重补偿与后续报告）
+    warsh_state = get_warsh_state()
+    warsh_level_result = compute_warsh_risk_level(warsh_state)
+    japan_state = get_japan_carry_state()
+    japan_result = check_japan_contagion(warsh_level_result.get("warsh_level"), japan_state)
+    effective_warsh_result = warsh_level_result
+    if japan_result.get("escalate_global_to_red"):
+        effective_warsh_result = {
+            **warsh_level_result,
+            "warsh_level": "RED",
+            "warsh_level_reason": (warsh_level_result.get("warsh_level_reason", "") + " [Escalated: Warsh AMBER + JPY Carry Unwind]"),
+            "warsh_flags": list(warsh_level_result.get("warsh_flags", [])) + ["Japan contagion: JPY vol AMBER + Warsh AMBER → RED"],
+        }
+    group_scores, total_score = apply_japan_red_compensation(group_scores, total_score, japan_result)
     
     # 为每个指标添加风险等级
     for indicator in processed_indicators:
@@ -2318,10 +3643,10 @@ def generate_report_with_images():
                         print(f"⚠️ 企业债/GDP比率数据读取失败: {e}")
                 
                 # 处理合成指标
-                elif (ts is None or ts.empty) and series_id in ['CP_MINUS_DTB3', 'SOFR20DMA_MINUS_DTB3', 'CORPDEBT_GDP_PCT', 'RESERVES_ASSETS_PCT', 'RESERVES_DEPOSITS_PCT']:
+                elif (ts is None or ts.empty) and series_id in ['CP_MINUS_DTB3', 'SOFR20DMA_MINUS_DTB3', 'SOFR_MINUS_IORB', 'RRP_DRAIN_RATE', 'CORPDEBT_GDP_PCT', 'RESERVES_ASSETS_PCT', 'RESERVES_DEPOSITS_PCT']:
                     # 使用预计算的合成指标数据
                     try:
-                        synthetic_file = pathlib.Path(f"data/series/{series_id}.csv")
+                        synthetic_file = BASE / "data" / "series" / f"{series_id}.csv"
                         if synthetic_file.exists():
                             synthetic_df = pd.read_csv(synthetic_file)
                             synthetic_df['date'] = pd.to_datetime(synthetic_df['date'])
@@ -2424,12 +3749,64 @@ def generate_report_with_images():
     detailed_md_path = output_dir / f"crisis_report_detailed_{timestamp}.md"
     generate_detailed_explanation_report(processed_indicators, detailed_md_path, timestamp)
     
-    # 生成Markdown报告 - 优化排版格式
+    # 生成Markdown报告 - 优化排版格式（warsh_state / japan_result / effective_warsh_result 已在上文计算）
     md_path = output_dir / f"crisis_report_{timestamp}.md"
+    warsh_exec_summary = build_warsh_executive_summary(effective_warsh_result, warsh_state)
+    warsh_interpretation_md = build_warsh_interpretation_report(warsh_state)
+    deep_insights_md = generate_narrative_with_llm(processed_indicators, warsh_state)
+
+    # ---------- Warsh 约束仪表盘：生成双轴图 + 期限溢价图（真实数据） ----------
+    warsh_plots = generate_warsh_plots(output_dir)
+
+    # ---------- 太长不看版 (TL;DR)：宏观 + Warsh + Japan 决策指南 ----------
+    macro_result = {"total_score": total_score}
+    tldr_section = generate_tldr_summary(macro_result, effective_warsh_result, japan_result)
+
     with open(md_path, "w", encoding="utf-8") as f:
         f.write("# 🚨 FRED 宏观金融危机预警监控报告\n\n")
         f.write(f"**生成时间**: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}\n\n")
-        
+        f.write(tldr_section)
+        f.write("\n\n")
+
+        f.write("## 🧠 深度宏观推演 (AI Logic Inference)\n\n")
+        f.write("> 以下结论由系统基于各板块指标与 Warsh 约束数据调用大模型自动推演，旨在发现被平均数掩盖的结构性风险。\n\n")
+        f.write(deep_insights_md)
+        f.write("\n\n---\n\n")
+
+        # ---------- Warsh Risk Layer (Part 1–4) ----------
+        f.write("## Executive Summary — Warsh Policy Risk\n\n")
+        f.write(warsh_exec_summary)
+        f.write("\n\n")
+        level = effective_warsh_result.get("warsh_level", "GREEN")
+        level_emoji = {"GREEN": "🟢", "YELLOW": "🟡", "AMBER": "🟠", "RED": "🔴"}.get(level, "")
+        f.write("## Warsh Risk Level (Traffic Light)\n\n")
+        f.write(f"**{level_emoji} {level}** — {effective_warsh_result.get('warsh_level_reason', '')}\n\n")
+        flags = effective_warsh_result.get("warsh_flags", [])
+        if flags:
+            f.write("**Triggered constraints:** " + ", ".join(flags) + "\n\n")
+        f.write("## Why Warsh Matters\n\n")
+        f.write(WARSH_WHY_MATTERS_SECTION)
+        f.write("\n\n")
+        f.write("## Warsh Constraints / Liquidity Plumbing\n\n")
+        if warsh_plots.get("liquidity"):
+            f.write(f"![流动性管道（RRP vs SOFR−IORB）]({warsh_plots['liquidity']})\n\n")
+        if warsh_plots.get("term_premium"):
+            f.write(f"![10Y 期限溢价]({warsh_plots['term_premium']})\n\n")
+        f.write(WARSH_DASHBOARD_CRO_NARRATIVE)
+        f.write("\n\n")
+        f.write("## Warsh Constraints / Liquidity Plumbing — Interpretation\n\n")
+        if warsh_plots.get("liquidity"):
+            f.write(f"![流动性管道]({warsh_plots['liquidity']})\n\n")
+        f.write(warsh_interpretation_md)
+        if warsh_plots.get("term_premium"):
+            f.write(f"\n\n![期限溢价]({warsh_plots['term_premium']})\n\n")
+        f.write("\n\n")
+        f.write(build_japan_carry_unwind_section(japan_result))
+        f.write("\n\n---\n\n")
+        # 数据新鲜度与覆盖（基于 processed_indicators 的 last_date，周末感知）
+        fresh_list, stale_list = _compute_freshness_classes(processed_indicators, indicators, scoring_config)
+        f.write(_format_freshness_section(fresh_list, stale_list))
+        f.write("\n---\n\n")
         f.write("## 📋 报告说明\n\n")
         f.write("本报告基于FRED宏观指标，将当前值与历史危机期间基准值比较，以评估风险。\n\n")
         f.write("【数据由人采集和处理，请批判看待这些数据，欢迎email jiangx@gmail.com 任何问题讨论】\n\n")
@@ -2522,7 +3899,7 @@ def generate_report_with_images():
         
         f.write("### 📊 分组风险评分\n\n")
         for group_name, data in group_scores.items():
-            f.write(f"- **{group_name}**: {data['score']:.1f}/100 (权重: {data['weight']}%, 指标数: {data['count']})\n")
+            f.write(f"- **{group_name}**: {data['score']:.1f}/100 (权重: {data['weight']:.1f}%, 指标数: {data['count']})\n")
         f.write("\n")
         
         # 确定总体风险等级
@@ -2625,12 +4002,22 @@ def generate_report_with_images():
     latest_html_link = output_dir / "crisis_report_latest.html"
     latest_json_link = output_dir / "crisis_report_latest.json"
     
-    # 保存JSON数据
+    # 保存JSON数据（含 Warsh 层级）
     json_path = output_dir / f"crisis_report_{timestamp}.json"
     json_data = {
         "timestamp": timestamp,
         "total_score": total_score,
         "risk_level": risk_level,
+        "warsh": {
+            "warsh_level": warsh_level_result.get("warsh_level"),
+            "warsh_level_reason": warsh_level_result.get("warsh_level_reason"),
+            "warsh_flags": warsh_level_result.get("warsh_flags", []),
+            "latest": {
+                "sofr_iorb_spread": warsh_state.get("sofr_iorb_spread"),
+                "rrp_level_bn": warsh_state.get("rrp_level_bn"),
+                "term_premium": warsh_state.get("term_premium"),
+            }
+        },
         "indicators": processed_indicators,
         "group_scores": group_scores,
         "summary": {
@@ -2672,6 +4059,24 @@ def generate_report_with_images():
     print(f"📊 图表目录: {output_dir / 'figures'}")
     print(f"🎯 总体风险评分: {total_score:.1f}/100")
     print(f"📊 风险等级: {risk_level}")
+    # Warsh 控制台摘要
+    _w = warsh_level_result
+    _s = warsh_state
+    print("---")
+    print("Warsh Risk Level:", _w.get("warsh_level", "—"))
+    print("Triggered constraints:", _w.get("warsh_flags", []) or "none")
+    sofr_val = _s.get("sofr_iorb_spread")
+    print("Latest SOFR−IORB:", f"{sofr_val:.4f}%" if sofr_val is not None else "—")
+    rrp_bn = _s.get("rrp_level_bn")
+    print("Latest RRP (Bn):", f"{rrp_bn:.1f}" if rrp_bn is not None else "—")
+    tp_val = _s.get("term_premium")
+    print("Latest Term Premium (THREEFYTP10):", f"{tp_val:.2f}%" if tp_val is not None else "—")
+    print("---")
+
+    try:
+        cleanup_old_crisis_monitor_outputs(output_dir)
+    except Exception as e:
+        print(f"⚠️ 旧报告文件清理失败（已忽略）: {e}")
 
     stop_event.set()
     heartbeat_thread.join(timeout=1)

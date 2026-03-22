@@ -47,7 +47,7 @@ indicators:
 
   # === 监测项（不计分；展示在报告末尾） ===
   - {id: VIXCLS,   name: "VIX 波动率",            group: fin_cond_vol, transform: level,   higher_is_risk: true,  compare_to: noncrisis_p90,  weight: 0.0,   freq: D, role: monitor}
-  - {id: STLFSI3,  name: "圣路易斯金融压力",      group: fin_cond_vol, transform: level,   higher_is_risk: true,  compare_to: noncrisis_p75,  weight: 0.0,   freq: W, role: monitor}
+  - {id: STLFSI4,  name: "圣路易斯金融压力",      group: fin_cond_vol, transform: level,   higher_is_risk: true,  compare_to: noncrisis_p75,  weight: 0.0,   freq: W, role: monitor}
   - {id: DRSFRMACBS, name: "房贷违约率",         group: housing,       transform: level,   higher_is_risk: true,  compare_to: crisis_median,  weight: 0.0,   freq: Q, role: monitor}
   - {id: CORPDEBT_GDP_PCT, name: "企业债/GDP（旧）", group: leverage,   transform: level,   higher_is_risk: true,  compare_to: noncrisis_p65,  weight: 0.0,   freq: Q, role: monitor}
   - {id: RESERVES_ASSETS_PCT, name: "准备金/资产%", group: banking,     transform: level,   higher_is_risk: false, compare_to: noncrisis_p25,  weight: 0.0,   freq: Q, role: monitor}

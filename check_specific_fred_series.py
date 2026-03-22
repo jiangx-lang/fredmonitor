@@ -71,7 +71,7 @@ def check_specific_fred_series():
             "INDPRO": "工业产出"
         },
         "综合金融压力指数": {
-            "STLFSI3": "圣路易斯金融压力指数",
+            "STLFSI4": "圣路易斯金融压力指数",
             "NFCI": "芝加哥金融状况指数"
         }
     }
@@ -157,7 +157,7 @@ def check_specific_fred_series():
         "BAA10YM": ["BAA", "BAA10YM"],
         "AAA10YM": ["AAA", "AAA10YM"],
         "NAPM": ["NAPM", "PMI"],
-        "STLFSI3": ["STLFSI", "STLFSI3"],
+        "STLFSI4": ["STLFSI4", "STLFSI3"],
         "INDPRO": ["INDPRO", "INDPROD"]
     }
     

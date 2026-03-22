@@ -26,7 +26,7 @@ series:
     alias: House_Price_Index
     calc:
       yoy: {op: pct_change, shift: 12, scale: 100}
-    freshness_days: 40
+    freshness_days: 60
 
   - id: PPIACO
     alias: PPI_All_Commodities
@@ -118,15 +118,80 @@ series:
 
   - id: NFCI
     alias: Chicago_NFCI
-    freshness_days: 14
+    freshness_days: 10
 
   - id: BAMLH0A0HYM2
     alias: HY_Spread
     freshness_days: 7
+  - id: BAMLHYH0A0HYM2TRIV
+    alias: HY_Total_Return_Index
+    freshness_days: 7
+  - id: BAMLCC0A0CMTRIV
+    alias: IG_Total_Return_Index
+    freshness_days: 7
+
+  # Crisis 监控日/周频利率与利差（补全同步范围）
+  - id: DTB3
+    alias: 3M_Treasury
+    freshness_days: 7
+  - id: T10Y3M
+    alias: 10Y3M_Spread
+    freshness_days: 7
+  - id: T10Y2Y
+    alias: 10Y2Y_Spread
+    freshness_days: 7
+  - id: BAA10YM
+    alias: Baa_10Y_Spread
+    freshness_days: 7
+  - id: CPN3M
+    alias: 3M_Commercial_Paper
+    freshness_days: 7
+  - id: MORTGAGE30US
+    alias: 30Y_Mortgage_Rate
+    freshness_days: 7
+  - id: TEDRATE
+    alias: TED_Spread
+    freshness_days: 7
+
+  # 央行与银行资产负债（crisis / 派生指标依赖）
+  - id: WALCL
+    alias: Fed_Total_Assets
+    freshness_days: 7
+  - id: TOTLL
+    alias: Total_Loans_Leases
+    freshness_days: 14
+  - id: TOTALSA
+    alias: Consumer_Credit_SA
+    freshness_days: 30
+  - id: TOTRESNS
+    alias: Reserve_Balances
+    freshness_days: 60
+
+  # 就业与派生依赖
+  - id: MANEMP
+    alias: Manufacturing_Employment
+    freshness_days: 60
+
+  # 派生指标可选依赖（NET_LIQUIDITY / SOFR-IORB 等）
+  - id: WTREGEN
+    alias: Treasury_General_Account
+    freshness_days: 7
+  - id: RRPONTSYD
+    alias: RRP_Overnight
+    freshness_days: 7
+  - id: IORB
+    alias: Interest_Rate_Reserve_Balances
+    freshness_days: 7
+  - id: DRCCLACBS
+    alias: Credit_Card_Delinquency
+    freshness_days: 120
+  - id: VIX3M
+    alias: VIX_3M
+    freshness_days: 7
 
   - id: DTWEXBGS
     alias: DXY
-    freshness_days: 7
+    freshness_days: 10
 
   # Exchange Rates
   - id: DEXUSEU
@@ -150,7 +215,7 @@ series:
     alias: Industrial_Production
     calc:
       yoy: {op: pct_change, shift: 12, scale: 100}
-    freshness_days: 30
+    freshness_days: 60
 
   - id: RETAILSMNSA
     alias: Retail_Sales
@@ -160,7 +225,7 @@ series:
 
   - id: UMCSENT
     alias: Consumer_Confidence
-    freshness_days: 40
+    freshness_days: 60
 
   - id: SP500
     alias: SP500_Index
@@ -168,7 +233,7 @@ series:
 
   - id: HOUST
     alias: Housing_Starts
-    freshness_days: 30
+    freshness_days: 60
 
   # === U.S. Regional Data ===
   - id: CAUR
@@ -246,7 +311,7 @@ series:
     alias: Initial_Claims_4_Week_Average
     calc:
       level: {op: level}
-    freshness_days: 14
+    freshness_days: 10
 
   - id: NEWORDER
     alias: New_Orders_Nondefense_Capital_Goods_Ex_Aircraft
@@ -270,4 +335,66 @@ series:
     alias: Term_Premium_10Y_Kim_Wright_Proxy
     calc:
       level: {op: level}
+    freshness_days: 10
+
+  # === Regime-Aware (Fiscal Dominance Era) ===
+  - id: T5YIFR
+    alias: 5y5y_Forward_Inflation_Expectation
     freshness_days: 7
+  - id: LNS14027662
+    alias: College_Graduate_Unemployment_Rate
+    freshness_days: 30
+  - id: DFII10
+    alias: 10Y_TIPS_Real_Rate
+    freshness_days: 7
+  - id: DGS30
+    alias: UST30Y
+    freshness_days: 7
+
+  # === Conflict & Divergence (Policy Incoherence / 2026) ===
+  - id: ACMTP10
+    alias: ACM_10Y_Term_Premium
+    freshness_days: 7
+  - id: LNS14027660
+    alias: High_School_Grad_Unemployment_Rate
+    freshness_days: 30
+  - id: IRLTLT01JPM156N
+    alias: JGB_10Y_Monthly
+    freshness_days: 45
+
+  # === Regime Layer (Structural Risk) ===
+  - id: USEPUINDXD
+    alias: Economic_Policy_Uncertainty_Index
+    freshness_days: 60
+  - id: NFIBIDX
+    alias: NFIB_Small_Business_Optimism
+    freshness_days: 45
+
+  # === Event-X Radars (Private Credit & Geopolitics) ===
+  - id: STLFSI4
+    alias: St_Louis_Financial_Stress_Index_4
+    freshness_days: 10
+  - id: DCOILBRENTEU
+    alias: Brent_Crude_Europe
+    freshness_days: 14
+  - id: DFII5
+    alias: 5年期TIPS收益率（实际利率）
+    freshness_days: 7
+
+  - id: T5YIE
+    alias: 5Y_Breakeven_Inflation
+    freshness_days: 7
+  - id: CPIENGSL
+    alias: Energy_CPI
+    calc:
+      mom: {op: pct_change, shift: 1, scale: 100}
+    freshness_days: 60
+  - id: GOLDAMGBD228NLBM
+    alias: Gold_Price_London
+    freshness_days: 14
+  - id: GOLDPMGBD228NLBM
+    alias: Gold_Fixing_Price_London
+    freshness_days: 14
+  - id: DRTSCILM
+    alias: Senior_Loan_Officer_C_I_Large_Medium
+    freshness_days: 120

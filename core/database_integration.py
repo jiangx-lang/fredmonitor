@@ -69,7 +69,7 @@ class DatabaseIntegration:
             'IC4WSA': 'IC4WSA',             # 初请失业金
             'MANEMP': 'MANEMP',             # 制造业就业
             'HOUST': 'HOUST',               # 新屋开工
-            'STLFSI3': 'STLFSI3',           # 圣路易斯金融压力
+            'STLFSI4': 'STLFSI4',           # 圣路易斯金融压力（统一口径）
             'DRSFRMACBS': 'DRSFRMACBS'      # 房贷违约率
         }
         
@@ -396,7 +396,7 @@ class DatabaseIntegration:
             # 外部与杠杆 (3%)
             'DXY_VOL': 0.01,           # 美元指数
             'NCBDBIQ027S': 0.01,       # 企业债/GDP
-            'STLFSI3': 0.01,           # 圣路易斯金融压力
+            'STLFSI4': 0.01,           # 圣路易斯金融压力
             
             # 监测项 (2%)
             'DRSFRMACBS': 0.01,        # 房贷违约率
