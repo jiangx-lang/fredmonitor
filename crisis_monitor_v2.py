@@ -378,6 +378,23 @@ def finalize_canonical_risk_control(json_data: dict, summary: Optional[dict] = N
     confidence = _derive_final_confidence(summ)
     pm = _canonical_portfolio_mapping(final_state)
 
+    # Phase 1: data quality audit trail for canonical risk_control
+    indicators = json_data.get("indicators") if isinstance(json_data.get("indicators"), list) else []
+    data_error_ids = [
+        i.get("series_id")
+        for i in indicators
+        if isinstance(i, dict) and i.get("data_error") is True and i.get("series_id")
+    ]
+    proxy_dependencies = [
+        i.get("series_id")
+        for i in indicators
+        if isinstance(i, dict)
+        and i.get("series_id")
+        and "yahoo" in str(i.get("data_source") or "").lower()
+    ]
+    core_stale_list = summ.get("core_data_stale_list") if isinstance(summ.get("core_data_stale_list"), list) else []
+    freshness_confidence = summ.get("data_freshness_confidence")
+
     rc: Dict[str, object] = {
         "final_state": final_state,
         "final_state_level": int(as_.get("level", as_.get("Level", 0))),
@@ -388,6 +405,20 @@ def finalize_canonical_risk_control(json_data: dict, summary: Optional[dict] = N
         "breaker_reasons": list(hv.get("reasons") or []),
         "breaker_override_reason": hv.get("override_reason"),
         "portfolio_mapping": pm,
+        "data_quality_flags": {
+            "core_stale_list": core_stale_list,
+            "data_error_ids": data_error_ids,
+            "freshness_confidence": freshness_confidence,
+            "proxy_dependencies": proxy_dependencies,
+        },
+        # Phase 2 placeholder: will be populated by compute_fragility_state()
+        "fragility_state": None,
+        "fragility_score": None,
+        "fragility_bucket_counts": None,
+        "fragility_confidence": None,
+        "confidence_flags": [],
+        "escalation_context": False,
+        "fragility_state_reason": "Phase 2 pending - not yet computed",
         "legacy_fields": {
             # 原 status_label 仅反映确认矩阵+快慢变量，不等价于最终 L0–L3 决策口径（已弃用作 headline）
             "confirmation_status_label": legacy_confirmation_label,
@@ -399,6 +430,19 @@ def finalize_canonical_risk_control(json_data: dict, summary: Optional[dict] = N
             "early_warning_index_pre_breaker": diag.get("early_warning_index_pre_breaker"),
         },
     }
+
+    fragility_data = json_data.get("fragility") or {}
+    if isinstance(fragility_data, dict):
+        rc["fragility_state"] = fragility_data.get("fragility_state", "UNAVAILABLE")
+        rc["fragility_score"] = fragility_data.get("fragility_score")
+        rc["fragility_bucket_counts"] = fragility_data.get("fragility_bucket_counts")
+        rc["fragility_confidence"] = fragility_data.get("fragility_confidence")
+        rc["confidence_flags"] = fragility_data.get("confidence_flags", [])
+        rc["escalation_context"] = fragility_data.get("escalation_context", False)
+        rc["fragility_state_reason"] = fragility_data.get(
+            "fragility_state_reason", "not computed"
+        )
+
     json_data["risk_control"] = rc
     summ["risk_control"] = rc
     summ["legacy_confirmation_status_label"] = legacy_confirmation_label
@@ -1668,7 +1712,265 @@ def calculate_real_fred_scores_v2(indicators_config=None, scoring_config=None):
     return final_group_scores, total_weighted_score, processed_indicators
 
 
-def _build_early_warning_section(summary: dict) -> str:
+def _build_reader_summary_section(json_data: dict, summary: dict) -> str:
+    # 普通读者摘要：5 秒内读懂今天结论（基于 canonical final_state + fragility 诊断）
+    rc = json_data.get("risk_control", {}) or {}
+    final_state = rc.get("final_state", "UNKNOWN")
+    final_level = rc.get("final_state_level", 0) or 0
+    confidence = rc.get("final_confidence", "UNKNOWN")
+    breaker_active = bool(rc.get("breaker_active", False))
+    breaker_reasons = rc.get("breaker_reasons") or []
+
+    portfolio = rc.get("portfolio_mapping") or {}
+    strategy = portfolio.get("strategy", "")
+
+    fragility_data = json_data.get("fragility") or {}
+    frag_state = fragility_data.get("fragility_state", "UNAVAILABLE")
+    frag_score = fragility_data.get("fragility_score")
+    frag_bucket = fragility_data.get("fragility_bucket_counts") or {}
+    frag_fired = frag_bucket.get("triggers_fired", 0)
+    frag_total = frag_bucket.get("triggers_total", 7)
+    escalation = bool(fragility_data.get("escalation_context", False))
+
+    diag = json_data.get("diagnostic_scores") or {}
+    fast_ew = summary.get("fast_ew_index")
+    slow_macro = summary.get("slow_macro_deterioration_index")
+    pre_breaker = diag.get("early_warning_index_pre_breaker")
+
+    regime_data = json_data.get("regime") or {}
+    regime_verdict = regime_data.get("verdict", "")
+
+    dqf = rc.get("data_quality_flags") or {}
+    error_ids = dqf.get("data_error_ids") or []
+    proxy_deps = dqf.get("proxy_dependencies") or []
+    core_stale = dqf.get("core_stale_list") or []
+
+    pm = portfolio
+    spx_stance = pm.get("SPX", "")
+    gold_stance = pm.get("Gold", "")
+    tlt_stance = pm.get("TLT", "")
+    cash_stance = pm.get("Cash_BIL", "")
+
+    state_zh_map = {
+        "L0_NORMAL": "正常",
+        "L1_STRUCTURAL_TENSION": "结构性压力",
+        "L2_DEFENSIVE_ROTATION": "防御轮动",
+        "L3_SYSTEMIC_STRESS": "系统性压力",
+    }
+    state_zh = state_zh_map.get(final_state, final_state)
+
+    level_emoji_map = {0: "🟢", 1: "🟡", 2: "🟠", 3: "🔴"}
+    level_emoji = level_emoji_map.get(int(final_level), "⚪")
+
+    frag_zh_map = {
+        "FRAGILITY_LOW": "低",
+        "FRAGILITY_MEDIUM": "中等",
+        "FRAGILITY_HIGH": "偏高",
+        "FRAGILITY_CRITICAL": "高",
+        "UNAVAILABLE": "不可用",
+    }
+    frag_zh = frag_zh_map.get(frag_state, frag_state)
+    frag_score_str = (
+        f"{frag_score:.0f}/100"
+        if isinstance(frag_score, (int, float))
+        else "N/A"
+    )
+
+    macro_zh = "有所压力"
+    macro_emoji = "🟡"
+    if isinstance(pre_breaker, (int, float)):
+        if pre_breaker < 40:
+            macro_zh = "整体稳健"
+            macro_emoji = "🟢"
+        elif pre_breaker < 60:
+            macro_zh = "有所压力"
+            macro_emoji = "🟡"
+        else:
+            macro_zh = "明显恶化"
+            macro_emoji = "🔴"
+
+    if (
+        breaker_active
+        and isinstance(frag_score, (int, float))
+        and frag_score < 45
+    ):
+        trigger_type = "单点触发型"
+        trigger_explain = (
+            "断路器由少数市场信号机械触发，"
+            "底层流动性/信贷/广度指标仍属正常范围"
+        )
+    elif breaker_active:
+        trigger_type = "市场压力型"
+        trigger_explain = (
+            "多个市场信号同时触发断路器，"
+            "需关注底层指标是否进一步恶化"
+        )
+    else:
+        trigger_type = "指标驱动型"
+        trigger_explain = "由底层宏观指标累积触发，非断路器机械切换"
+
+    stance_zh = {
+        "Strong Sell": "强烈减持",
+        "Sell": "减持",
+        "Neutral": "中性",
+        "Buy": "增持",
+        "Strong Buy": "强烈增持",
+    }
+    spx_zh = stance_zh.get(spx_stance, spx_stance)
+    gold_zh = stance_zh.get(gold_stance, gold_stance)
+    tlt_zh = stance_zh.get(tlt_stance, tlt_stance)
+    cash_zh = stance_zh.get(cash_stance, cash_stance)
+
+    conf_zh = {"HIGH": "高", "MEDIUM": "中", "LOW": "偏低"}.get(confidence, confidence)
+
+    lines: list = []
+
+    # 顶部警报横幅
+    if int(final_level) >= 3 and breaker_active:
+        lines.append(
+            f"> {level_emoji} **系统警报已触发（{state_zh}）** — "
+            f"断路器检测到市场压力信号，已切换至最大防御模式。"
+            f"置信度：{conf_zh}"
+            f"{'（部分数据来自代理指标）' if proxy_deps else ''}"
+        )
+    elif int(final_level) >= 2:
+        lines.append(
+            f"> {level_emoji} **防御信号已激活（{state_zh}）** — "
+            f"建议降低风险资产敞口。置信度：{conf_zh}"
+        )
+    else:
+        lines.append(
+            f"> {level_emoji} **风险处于正常范围（{state_zh}）** — "
+            f"当前无需特别防御操作。置信度：{conf_zh}"
+        )
+    lines.append("")
+
+    # 三格指标摘要
+    frag_emoji = (
+        "🔴"
+        if frag_state == "FRAGILITY_CRITICAL"
+        else "🟠"
+        if frag_state == "FRAGILITY_HIGH"
+        else "🟡"
+        if frag_state == "FRAGILITY_MEDIUM"
+        else "🟢"
+    )
+    lines.append("| 风险等级 | 底层脆弱性 | 宏观基本面 |")
+    lines.append("|:---:|:---:|:---:|")
+    lines.append(
+        f"| {level_emoji} **{state_zh}** <br><sub>L{final_level}/L3 · "
+        f"{'正常' if final_level==0 else '关注' if final_level==1 else '防御' if final_level==2 else '最大防御'}"
+        f"（L0正常→L1关注→L2防御→L3最大防御）</sub> "
+        f"| {frag_emoji} {frag_zh}（{frag_score_str}）"
+        f"| {macro_emoji} {macro_zh} |"
+    )
+    lines.append("")
+
+    # 今天最重要的三件事
+    lines.append("### 今天最重要的三件事")
+    lines.append("")
+
+    # 第一件事：触发类型解释
+    lines.append(f"🔴 **警报性质：{trigger_type}** — {trigger_explain}")
+    if breaker_reasons:
+        reason_short = "；".join(str(r) for r in breaker_reasons[:2])
+        lines.append(f"   - 触发条件：{reason_short}")
+    lines.append("")
+
+    # 第二件事：regime 信号
+    regime_modules = regime_data.get("modules") or {}
+    critical_modules = [
+        k
+        for k, v in regime_modules.items()
+        if isinstance(v, dict) and v.get("status") in ("CRITICAL", "WARNING")
+    ]
+    if critical_modules:
+        mod_str = "、".join(critical_modules[:2])
+        lines.append(f"🟡 **需要关注：{mod_str} 模块发出警告**")
+        for mod in critical_modules[:2]:
+            mod_info = regime_modules.get(mod) or {}
+            reason = mod_info.get("reason", "")
+            if reason:
+                lines.append(f"   - {reason}")
+    else:
+        lines.append("🟡 **体制层信号：暂无 CRITICAL 模块**")
+    lines.append("")
+
+    # 第三件事：底层基本面状态
+    lines.append(
+        f"🟢 **底层基本面{macro_zh}** — "
+        f"脆弱性信号 {frag_fired}/{frag_total} 个触发，"
+        f"流动性/信贷底层指标尚未全面恶化"
+    )
+    fast_ew_str = (
+        f"{fast_ew:.1f}" if isinstance(fast_ew, (int, float)) else "N/A"
+    )
+    slow_str = (
+        f"{slow_macro:.1f}" if isinstance(slow_macro, (int, float)) else "N/A"
+    )
+    lines.append(f"   - 快变量指数：{fast_ew_str}　慢变量指数：{slow_str}")
+    lines.append("")
+
+    # 建议仓位
+    lines.append("### 建议仓位")
+    lines.append("")
+    lines.append("| 资产 | 方向 | 说明 |")
+    lines.append("|---|:---:|---|")
+    lines.append(f"| 美股 SPX | {spx_zh} | 降低权益风险敞口 |")
+    lines.append(f"| 黄金 Gold | {gold_zh} | 硬资产/避险对冲 |")
+    lines.append(f"| 长债 TLT | {tlt_zh} | 利率风险对冲 |")
+    lines.append(f"| 现金 BIL | {cash_zh} | 优先保障流动性 |")
+    lines.append("")
+    if strategy:
+        lines.append(f"> **策略核心**：{strategy}")
+        lines.append("")
+
+    # 如何理解这个警报
+    lines.append("### 如何理解这个警报")
+    lines.append("")
+    lines.append(f"当前 **{state_zh}** 状态的触发方式是「{trigger_type}」。")
+    if (
+        escalation
+        and isinstance(frag_score, (int, float))
+        and frag_score < 45
+    ):
+        lines.append(
+            "断路器（Circuit Breaker）已确认，但 C层脆弱性评分仅 "
+            f"{frag_score:.0f}/100，说明底层7个系统性压力信号中大多数仍在正常范围。"
+            "这意味着当前警报更像「早期预警信号集中」，而非「系统正在崩溃」。"
+        )
+    lines.append("")
+
+    # 升级条件
+    lines.append("**若出现以下情况，警报将升级为真正的系统性压力：**")
+    lines.append("")
+    lines.append("- VIX 突破 30，或期限结构倒挂加深")
+    lines.append("- 高收益债利差明显走阔（HY OAS > 5%）")
+    lines.append("- NFCI 转正，或 SOFR 利差快速抬升")
+    lines.append("- 日元剧烈波动或日本央行干预失败")
+    lines.append("")
+
+    # 置信度说明
+    confidence_notes = []
+    if core_stale:
+        confidence_notes.append(f"核心序列滞后：{', '.join(core_stale[:3])}")
+    if error_ids:
+        confidence_notes.append(f"数据错误已排除：{', '.join(error_ids[:2])}")
+    if proxy_deps:
+        confidence_notes.append(f"使用代理数据：{len(proxy_deps)} 个序列")
+    if confidence_notes:
+        lines.append(
+            f"*置信度{conf_zh}的原因：{'；'.join(confidence_notes)}。"
+            "建议结合后续章节详细数据综合判断。*"
+        )
+        lines.append("")
+
+    lines.append("---")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _build_early_warning_section(summary: dict, fragility_data: dict = None) -> str:
     rc = summary.get("risk_control") or {}
     leg_confirm = summary.get("legacy_confirmation_status_label")
     diag = summary.get("diagnostic_scores") or {}
@@ -1714,6 +2016,128 @@ def _build_early_warning_section(summary: dict) -> str:
     ]
     for item in summary.get("top_change_indicators", []):
         lines.append(f"- {item['name']} ({item['series_id']}): {item['change_score']}")
+
+    if fragility_data is not None:
+        # Phase 2: C-layer diagnostic fragility block
+        lines += [
+            "",
+            "---",
+            "",
+            "### 🔬 C层脆弱性传导状态（Fragility Layer）",
+            "",
+            "> 诊断层指标，不直接驱动 final_state。基于流动性/信用/波动三组信号的触发计数。",
+            "",
+        ]
+
+        state = fragility_data.get("fragility_state", "UNAVAILABLE")
+        score = fragility_data.get("fragility_score")
+        reason = fragility_data.get("fragility_state_reason", "") or ""
+        bucket = fragility_data.get("fragility_bucket_counts") or {}
+        conf = fragility_data.get("fragility_confidence", "") or ""
+        flags = fragility_data.get("confidence_flags") or []
+        esc = fragility_data.get("escalation_context", False)
+
+        if state == "FRAGILITY_LOW":
+            emoji = "🟢"
+        elif state == "FRAGILITY_MEDIUM":
+            emoji = "🟡"
+        elif state == "FRAGILITY_HIGH":
+            emoji = "🟠"
+        elif state == "FRAGILITY_CRITICAL":
+            emoji = "🔴"
+        elif state == "UNAVAILABLE":
+            emoji = "⚪"
+        else:
+            emoji = "⚪"
+
+        score_str = f"{score:.1f}" if isinstance(score, (int, float)) else "N/A"
+        trigger_score = bucket.get("trigger_score", 0)
+        amp_bonus = bucket.get("amplification_bonus", 0)
+        fired_count = bucket.get("triggers_fired", 0)
+        strong_count = bucket.get("strong_triggers_fired", 0)
+
+        lines.append(f"{emoji} **{state}**　fragility_score = {score_str}")
+        lines += [
+            "",
+            f"- 触发分：{trigger_score}　放大加分：{amp_bonus}　"
+            f"触发信号数：{fired_count}/7　强触发：{strong_count}/4",
+        ]
+
+        if esc:
+            lines.append(
+                "- ⚡ Circuit Breaker 已确认（escalation_context=True）　— C层独立评估，不计入 fragility_score"
+            )
+
+        if flags:
+            flag_str = "、".join(flags)
+            lines.append(f"- 置信度：**{conf}**　标注：{flag_str}")
+        else:
+            lines.append(f"- 置信度：**{conf}**")
+
+        lines += [
+            "",
+            f"*主要驱动：{reason}*",
+            "",
+        ]
+
+        triggers = fragility_data.get("fragility_triggers") or []
+        if triggers:
+            lines.append("| 信号 | 状态 | 字段 | 值 | 强度 |")
+            lines.append("|---|---|---|---|---|")
+
+            trigger_sorted = sorted(
+                triggers,
+                key=lambda t: (not bool(t.get("fired", False)), str(t.get("series_id", ""))),
+            )
+
+            intensity_map = {
+                "barely": "⚠️ 微超",
+                "moderate": "⚡ 中等",
+                "strong": "🔥 强",
+                "weak_trigger": "〰️ 弱",
+            }
+
+            for t in trigger_sorted:
+                fired = t.get("fired", False)
+                sid = t.get("series_id", "")
+                field_used = t.get("field_used", "")
+                value = t.get("value")
+                intensity = t.get("intensity")
+                excl_reason = t.get("excluded_reason")
+
+                if excl_reason:
+                    status_icon = "❌ 排除"
+                    status_text = f"（{excl_reason}）"
+                elif fired:
+                    status_icon = "✅ 触发"
+                    status_text = ""
+                else:
+                    status_icon = "➖ 未触发"
+                    status_text = ""
+
+                val_str = f"{value:.3f}" if isinstance(value, (int, float)) else "—"
+                int_str = intensity_map.get(intensity, "—") if intensity else "—"
+
+                lines.append(
+                    f"| `{sid}` | {status_icon}{status_text} "
+                    f"| {field_used} | {val_str} | {int_str} |"
+                )
+
+        excl = fragility_data.get("signals_excluded") or []
+        trigger_sids = {t.get("series_id") for t in triggers}
+        extra_excl = [e for e in excl if e.get("series_id") not in trigger_sids]
+
+        if extra_excl:
+            lines.append("")
+            lines.append("**排除信号（未参与计算）：**")
+            for e in extra_excl:
+                lines.append(f"- `{e.get('series_id')}` — {e.get('reason','')}")
+
+        lines += [
+            "",
+            "---",
+            "",
+        ]
     return "\n".join(lines) + "\n"
 
 
@@ -1775,7 +2199,16 @@ def generate_executive_summary(
     if data_confidence == "LOW" and today.weekday() >= 5:
         weekend_note = "结构性判断有效，但部分慢变量为滞后发布数据"
 
-    para1 = f"{regime}，但需警惕可能的边际变化。"
+    # 修复硬编码矛盾文本：仅当 final_level==0 时允许使用“整体风险处于低位”
+    final_level = 0
+    final_state_label_zh = ""
+    if risk_control and isinstance(risk_control, dict):
+        final_level = risk_control.get("final_state_level", 0) or 0
+        final_state_label_zh = risk_control.get("final_state_label_zh") or ""
+    if regime == "整体风险处于低位" and int(final_level) != 0:
+        para1 = f"{final_state_label_zh or final_state}，但需警惕可能的边际变化。"
+    else:
+        para1 = f"{regime}，但需警惕可能的边际变化。"
     para2 = (
         f"（诊断）快慢变量融合标量 early_warning_index={early_warning_index:.1f}，"
         f"**非独立最终决策口径**；快变量 fast_ew_index={fast_ew_index:.1f}，慢变量 slow_macro={slow_macro_index:.1f}，"
@@ -3129,6 +3562,518 @@ def compute_action_state(report_data: dict) -> dict:
     }
 
 
+def compute_fragility_state(json_data: dict, summary: dict) -> dict:
+    """
+    Phase 2.1 (C-layer): trigger-based fragility_state with amplification bonus.
+    - No risk_score weighted-average logic.
+    - Uses only indicator fields + stale classification from summary.
+    """
+
+    try:
+        indicators_by_id = {
+            item["series_id"]: item
+            for item in json_data.get("indicators", [])
+            if isinstance(item, dict) and item.get("series_id")
+        }
+
+        core_stale_set = set(summary.get("core_data_stale_list") or [])
+        freshness = summary.get("data_freshness") or {}
+        stale_acceptable_set = set(freshness.get("stale_but_acceptable") or [])
+        stale_series_set = set(freshness.get("stale_series") or [])
+
+        hv_active = bool(
+            json_data.get("high_voltage_circuit_breaker", {}).get("active", False)
+        )
+
+        # fast_ew from diagnostic_scores; in our JSON it's usually under summary
+        fast_ew = (
+            (json_data.get("diagnostic_scores") or {}).get("fast_ew_index")
+            if isinstance(json_data.get("diagnostic_scores"), dict)
+            else None
+        )
+        if fast_ew is None:
+            fast_ew = (
+                (summary.get("diagnostic_scores") or {}).get("fast_ew_index")
+                if isinstance(summary.get("diagnostic_scores"), dict)
+                else None
+            )
+
+        breadth_ew = summary.get("breadth_early_warning")
+
+        def _is_finite_number(x) -> bool:
+            if x is None or isinstance(x, bool):
+                return False
+            if not isinstance(x, (int, float)):
+                return False
+            try:
+                return not bool(np.isnan(float(x)))
+            except Exception:
+                return False
+
+        fired_set = set()
+        trigger_details = []
+        trigger_score_raw = 0
+
+        signals_excluded: list = []
+
+        # KRE_SPY_RATIO is not a trigger signal, but is required for confidence flags.
+        kre_item = indicators_by_id.get("KRE_SPY_RATIO")
+        if isinstance(kre_item, dict) and kre_item.get("data_error") is True:
+            signals_excluded.append({"series_id": "KRE_SPY_RATIO", "reason": "data_error"})
+
+        def _exclude(sid: str, reason: str, field_used: Optional[str] = None, value=None):
+            signals_excluded.append({"series_id": sid, "reason": reason})
+            trigger_details.append(
+                {
+                    "series_id": sid,
+                    "fired": False,
+                    "field_used": field_used,
+                    "value": value,
+                    "threshold_score": 0,
+                    "excluded_reason": reason,
+                    "intensity": None,
+                }
+            )
+
+        def _calc_intensity(_sid: str, _field_used: Optional[str], _value):
+            # 仅用于“表现强度”诊断，不改变阈值/触发逻辑
+            if not isinstance(_value, (int, float)) or isinstance(_value, bool):
+                return None
+
+            if _sid == "NFCI":
+                if _field_used == "change_score":
+                    return "weak_trigger"
+                thresholds = [(0.3, "barely"), (0.8, "moderate"), (float("inf"), "strong")]
+                for threshold, label in thresholds:
+                    if _value <= threshold:
+                        return label
+                return "strong"
+
+            rules = {
+                "HY_OAS_MOMENTUM_RATIO": [
+                    (1.10, "barely"),
+                    (1.20, "moderate"),
+                    (float("inf"), "strong"),
+                ],
+                "VIX_TERM_STRUCTURE": [
+                    (1.10, "barely"),
+                    (1.25, "moderate"),
+                    (float("inf"), "strong"),
+                ],
+                "SOFR20DMA_MINUS_DTB3": [
+                    (65, "barely"),
+                    (80, "moderate"),
+                    (float("inf"), "strong"),
+                ],
+                "CP_MINUS_DTB3": [
+                    (65, "barely"),
+                    (80, "moderate"),
+                    (float("inf"), "strong"),
+                ],
+                "HYG_LQD_RATIO": [
+                    (70, "barely"),
+                    (85, "moderate"),
+                    (float("inf"), "strong"),
+                ],
+                "SP500_DGS10_CORR60D": [
+                    (0.65, "barely"),
+                    (0.80, "moderate"),
+                    (float("inf"), "strong"),
+                ],
+            }
+
+            thresholds = rules.get(_sid)
+            if not thresholds:
+                return None
+            for threshold, label in thresholds:
+                if _value <= threshold:
+                    return label
+            return "strong"
+
+        # 1) HY_OAS_MOMENTUM_RATIO
+        sid = "HY_OAS_MOMENTUM_RATIO"
+        item = indicators_by_id.get(sid)
+        if item is None:
+            _exclude(sid, "not_found")
+        elif item.get("data_error") is True:
+            _exclude(sid, "data_error")
+        else:
+            val = item.get("current_value")
+            if not _is_finite_number(val):
+                _exclude(sid, "invalid_value", "current_value", val)
+            else:
+                fired = float(val) > 1.05
+                threshold_score = 20 if fired else 0
+                if fired:
+                    fired_set.add(sid)
+                    trigger_score_raw += threshold_score
+                trigger_details.append(
+                    {
+                        "series_id": sid,
+                        "fired": fired,
+                        "field_used": "current_value",
+                        "value": float(val),
+                        "threshold_score": threshold_score,
+                        "excluded_reason": None,
+                        "intensity": _calc_intensity(sid, "current_value", float(val)) if fired else None,
+                    }
+                )
+
+        # 2) VIX_TERM_STRUCTURE
+        sid = "VIX_TERM_STRUCTURE"
+        item = indicators_by_id.get(sid)
+        if item is None:
+            _exclude(sid, "not_found")
+        elif item.get("data_error") is True:
+            _exclude(sid, "data_error")
+        else:
+            cur = item.get("current_value")
+            used_field = None
+            val_num = None
+            if _is_finite_number(cur):
+                used_field = "current_value"
+                val_num = float(cur)
+            else:
+                rs = item.get("risk_score")
+                if _is_finite_number(rs):
+                    used_field = "risk_score_fallback"
+                    val_num = float(rs)
+            if used_field is None:
+                _exclude(sid, "invalid_value", None, cur)
+            else:
+                fired = val_num > 1.0
+                threshold_score = 15 if fired else 0
+                if fired:
+                    fired_set.add(sid)
+                    trigger_score_raw += threshold_score
+                trigger_details.append(
+                    {
+                        "series_id": sid,
+                        "fired": fired,
+                        "field_used": used_field,
+                        "value": val_num,
+                        "threshold_score": threshold_score,
+                        "excluded_reason": None,
+                        "intensity": _calc_intensity(sid, used_field, val_num) if fired else None,
+                    }
+                )
+
+        # 3) SOFR20DMA_MINUS_DTB3
+        sid = "SOFR20DMA_MINUS_DTB3"
+        item = indicators_by_id.get(sid)
+        if item is None:
+            _exclude(sid, "not_found")
+        elif item.get("data_error") is True:
+            _exclude(sid, "data_error")
+        else:
+            rs = item.get("risk_score")
+            if not _is_finite_number(rs):
+                _exclude(sid, "invalid_value", "risk_score", rs)
+            else:
+                fired = float(rs) > 55
+                threshold_score = 15 if fired else 0
+                if fired:
+                    fired_set.add(sid)
+                    trigger_score_raw += threshold_score
+                trigger_details.append(
+                    {
+                        "series_id": sid,
+                        "fired": fired,
+                        "field_used": "risk_score",
+                        "value": float(rs),
+                        "threshold_score": threshold_score,
+                        "excluded_reason": None,
+                        "intensity": _calc_intensity(sid, "risk_score", float(rs)) if fired else None,
+                    }
+                )
+
+        # 4) CP_MINUS_DTB3
+        sid = "CP_MINUS_DTB3"
+        item = indicators_by_id.get(sid)
+        if item is None:
+            _exclude(sid, "not_found")
+        elif item.get("data_error") is True:
+            _exclude(sid, "data_error")
+        else:
+            rs = item.get("risk_score")
+            if not _is_finite_number(rs):
+                _exclude(sid, "invalid_value", "risk_score", rs)
+            else:
+                fired = float(rs) > 55
+                threshold_score = 12 if fired else 0
+                if fired:
+                    fired_set.add(sid)
+                    trigger_score_raw += threshold_score
+                trigger_details.append(
+                    {
+                        "series_id": sid,
+                        "fired": fired,
+                        "field_used": "risk_score",
+                        "value": float(rs),
+                        "threshold_score": threshold_score,
+                        "excluded_reason": None,
+                        "intensity": _calc_intensity(sid, "risk_score", float(rs)) if fired else None,
+                    }
+                )
+
+        # 5) HYG_LQD_RATIO
+        sid = "HYG_LQD_RATIO"
+        item = indicators_by_id.get(sid)
+        if item is None:
+            _exclude(sid, "not_found")
+        elif item.get("data_error") is True:
+            _exclude(sid, "data_error")
+        else:
+            ch = item.get("change_score")
+            if not _is_finite_number(ch):
+                _exclude(sid, "invalid_value", "change_score", ch)
+            else:
+                fired = float(ch) > 60
+                threshold_score = 10 if fired else 0
+                if fired:
+                    fired_set.add(sid)
+                    trigger_score_raw += threshold_score
+                trigger_details.append(
+                    {
+                        "series_id": sid,
+                        "fired": fired,
+                        "field_used": "change_score",
+                        "value": float(ch),
+                        "threshold_score": threshold_score,
+                        "excluded_reason": None,
+                        "intensity": _calc_intensity(sid, "change_score", float(ch)) if fired else None,
+                    }
+                )
+
+        # 6) NFCI (strong/weak mutually exclusive)
+        sid = "NFCI"
+        item = indicators_by_id.get(sid)
+        if item is None:
+            _exclude(sid, "not_found")
+        elif item.get("data_error") is True:
+            _exclude(sid, "data_error")
+        else:
+            cur = item.get("current_value")
+            ch = item.get("change_score")
+            strong_val_ok = _is_finite_number(cur)
+            weak_val_ok = _is_finite_number(ch)
+            if (not strong_val_ok) and (not weak_val_ok):
+                _exclude(sid, "invalid_value", None, None)
+            else:
+                fired = False
+                threshold_score = 0
+                used_field = None
+                value = None
+
+                # strong trigger: current_value > 0
+                if strong_val_ok and float(cur) > 0:
+                    fired = True
+                    threshold_score = 10
+                    used_field = "current_value"
+                    value = float(cur)
+                # weak trigger: change_score > 60 AND not strong triggered
+                elif weak_val_ok and float(ch) > 60:
+                    fired = True
+                    threshold_score = 5
+                    used_field = "change_score"
+                    value = float(ch)
+                else:
+                    # not fired: report the best available numeric field
+                    if strong_val_ok:
+                        used_field = "current_value"
+                        value = float(cur)
+                    elif weak_val_ok:
+                        used_field = "change_score"
+                        value = float(ch)
+
+                if fired:
+                    fired_set.add(sid)
+                    trigger_score_raw += threshold_score
+
+                trigger_details.append(
+                    {
+                        "series_id": sid,
+                        "fired": fired,
+                        "field_used": used_field,
+                        "value": value,
+                        "threshold_score": threshold_score,
+                        "excluded_reason": None,
+                        "intensity": _calc_intensity(sid, used_field, value) if fired else None,
+                    }
+                )
+
+        # 7) SP500_DGS10_CORR60D
+        sid = "SP500_DGS10_CORR60D"
+        item = indicators_by_id.get(sid)
+        if item is None:
+            _exclude(sid, "not_found")
+        elif item.get("data_error") is True:
+            _exclude(sid, "data_error")
+        else:
+            cur = item.get("current_value")
+            if not _is_finite_number(cur):
+                _exclude(sid, "invalid_value", "current_value", cur)
+            else:
+                fired = float(cur) > 0.5
+                threshold_score = 5 if fired else 0
+                if fired:
+                    fired_set.add(sid)
+                    trigger_score_raw += threshold_score
+                trigger_details.append(
+                    {
+                        "series_id": sid,
+                        "fired": fired,
+                        "field_used": "current_value",
+                        "value": float(cur),
+                        "threshold_score": threshold_score,
+                        "excluded_reason": None,
+                        "intensity": _calc_intensity(sid, "current_value", float(cur)) if fired else None,
+                    }
+                )
+
+        STRONG_TRIGGERS = {
+            "HY_OAS_MOMENTUM_RATIO",
+            "VIX_TERM_STRUCTURE",
+            "SOFR20DMA_MINUS_DTB3",
+            "CP_MINUS_DTB3",
+        }
+        strong_trigger_count = len(fired_set & STRONG_TRIGGERS)
+
+        trigger_score = min(trigger_score_raw, 70)
+
+        # Amplification bonus (C-layer)
+        amplification_bonus = 0
+        amplification_details = []
+
+        if (
+            "HY_OAS_MOMENTUM_RATIO" in fired_set
+            and "VIX_TERM_STRUCTURE" in fired_set
+        ):
+            amplification_bonus += 15
+            amplification_details.append("credit_vol_resonance")
+
+        if (
+            "SOFR20DMA_MINUS_DTB3" in fired_set
+            and "CP_MINUS_DTB3" in fired_set
+        ):
+            amplification_bonus += 10
+            amplification_details.append("liquidity_stress_dual")
+
+        if _is_finite_number(fast_ew) and float(fast_ew) > 50 and breadth_ew:
+            amplification_bonus += 10
+            amplification_details.append("macro_breadth_deterioration")
+
+        liquidity_sids = {"SOFR20DMA_MINUS_DTB3", "CP_MINUS_DTB3"}
+        if (
+            "SP500_DGS10_CORR60D" in fired_set
+            and bool(fired_set & liquidity_sids)
+        ):
+            amplification_bonus += 5
+            amplification_details.append("corr_liquidity_resonance")
+
+        amplification_bonus = min(amplification_bonus, 30)
+
+        # breaker_active -> flag only (does not change fragility_score)
+        escalation_context = hv_active
+
+        fragility_score = min(trigger_score + amplification_bonus, 100)
+
+        if fragility_score < 20:
+            state = "FRAGILITY_LOW"
+        elif fragility_score < 45:
+            state = "FRAGILITY_MEDIUM"
+        elif fragility_score < 70:
+            state = "FRAGILITY_HIGH"
+        else:
+            # CRITICAL needs structural gate
+            critical_structural_ok = (
+                strong_trigger_count >= 2 or len(amplification_details) >= 1
+            )
+            state = "FRAGILITY_CRITICAL" if critical_structural_ok else "FRAGILITY_HIGH"
+
+        # Confidence assessment
+        confidence_flags = []
+
+        proxy_fired = [
+            sid
+            for sid in fired_set
+            if "yahoo" in str(indicators_by_id.get(sid, {}).get("data_source", "")).lower()
+        ]
+        if len(fired_set) > 0 and (len(proxy_fired) / len(fired_set)) > 0.5:
+            confidence_flags.append("LOW_PROXY")
+
+        stale_fired = [
+            sid
+            for sid in fired_set
+            if sid in (core_stale_set | stale_series_set | stale_acceptable_set)
+        ]
+        if len(stale_fired) >= 2:
+            confidence_flags.append("LOW_STALE")
+
+        # KRE exclusion drives an unconfirmed bank stress flag
+        kre_excluded = any(
+            e.get("series_id") == "KRE_SPY_RATIO" for e in signals_excluded
+        )
+        if kre_excluded:
+            confidence_flags.append("BANK_STRESS_UNCONFIRMED")
+
+        if any(f in confidence_flags for f in ("LOW_PROXY", "LOW_STALE")):
+            fragility_confidence = "LOW"
+        elif confidence_flags:
+            fragility_confidence = "MEDIUM"
+        else:
+            fragility_confidence = "HIGH"
+
+        fired_names = list(fired_set)
+        amp_text = "、".join(amplification_details) if amplification_details else "无"
+        escalation_text = (
+            "（Circuit Breaker 已确认，C层独立评估）" if escalation_context else ""
+        )
+        reason = (
+            f"触发信号：{fired_names}；"
+            f"共振放大：{amp_text}；"
+            f"强触发数：{strong_trigger_count}"
+            f"{escalation_text}"
+        )
+
+        return {
+            "fragility_state": state,
+            "fragility_score": float(fragility_score),
+            "fragility_bucket_counts": {
+                "trigger_score": trigger_score,
+                "amplification_bonus": amplification_bonus,
+                "triggers_fired": len(fired_set),
+                "strong_triggers_fired": strong_trigger_count,
+                "triggers_total": 7,
+            },
+            "fragility_triggers": trigger_details,
+            "fragility_amplifiers": amplification_details,
+            "escalation_context": escalation_context,
+            "fragility_confidence": fragility_confidence,
+            "confidence_flags": confidence_flags,
+            "signals_used": list(fired_set),
+            "signals_excluded": signals_excluded,
+            "proxy_dependencies_fragility": proxy_fired,
+            "fragility_state_reason": reason,
+        }
+
+    except Exception as e:
+        return {
+            "fragility_state": "UNAVAILABLE",
+            "fragility_score": None,
+            "fragility_bucket_counts": None,
+            "fragility_triggers": [],
+            "fragility_amplifiers": [],
+            "escalation_context": False,
+            "fragility_confidence": "LOW",
+            "confidence_flags": ["COMPUTE_ERROR"],
+            "signals_used": [],
+            "signals_excluded": [],
+            "proxy_dependencies_fragility": [],
+            "fragility_state_reason": f"compute error: {e}",
+        }
+
+
 def _inject_action_state_into_tldr(md_text: str, action_state: Optional[dict]) -> str:
     """在 TL;DR 标题下插入 action_state（level + instruction）。"""
     if not action_state:
@@ -4288,8 +5233,13 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
     json_data["summary"]["data_freshness"] = freshness_summary
 
     core_daily_ids = {
-        "T10Y3M", "T10Y2Y", "BAA10YM", "SOFR", "DTB3",
-        "SOFR20DMA_MINUS_DTB3", "CP_MINUS_DTB3", "BAMLH0A0HYM2"
+        "T10Y3M",
+        "T10Y2Y",
+        "SOFR",
+        "DTB3",
+        "SOFR20DMA_MINUS_DTB3",
+        "CP_MINUS_DTB3",
+        "BAMLH0A0HYM2",
     }
     core_stale_list = []
     for item in json_data.get("indicators", []):
@@ -4308,6 +5258,25 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
                 core_stale_list.append(sid)
         except Exception:
             core_stale_list.append(sid)
+
+    # BAA10YM is M-frequency; moved from core_daily_ids to freq-aware stale check
+    if "BAA10YM" not in deprecated_series:
+        baa_item = next(
+            (i for i in json_data.get("indicators", []) if i.get("series_id") == "BAA10YM"),
+            None,
+        )
+        if baa_item:
+            last_date = baa_item.get("last_date")
+            if not last_date:
+                core_stale_list.append("BAA10YM")
+            else:
+                try:
+                    dt = pd.to_datetime(last_date).date()
+                    lag = (today - dt).days
+                    if lag > stale_thresholds.get("M", 60):
+                        core_stale_list.append("BAA10YM")
+                except Exception:
+                    core_stale_list.append("BAA10YM")
     data_confidence = "LOW" if core_stale_list else "OK"
     summary["core_data_stale_list"] = core_stale_list
     summary["data_freshness_confidence"] = data_confidence
@@ -4591,6 +5560,9 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
         _log_v2_stage("⚡ 高压断路器触发：覆盖慢变量稀释后的总分展示")
     apply_high_voltage_circuit_breaker_to_report(json_data, summary)
 
+    # Phase 2: compute fragility layer (C-layer, does not affect final_state)
+    json_data["fragility"] = compute_fragility_state(json_data, summary)
+
     json_data["action_state"] = compute_action_state(json_data)
     finalize_canonical_risk_control(json_data, summary)
 
@@ -4692,7 +5664,8 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
         _log_v2_stage(f"⚠️ investigo_signals 导出跳过: {_inv_e}")
 
     _md_summary = {**summary, **(json_data.get("summary") or {})}
-    section = _build_early_warning_section(_md_summary)
+    fragility_data = json_data.get("fragility") or {}
+    section = _build_early_warning_section(_md_summary, fragility_data)
     section = section + "\n" + _build_profiles_section(profiles, trends, consensus, drivers_summary)
     section = section + "\n" + _build_heatmap_section(indicators)
     section = section + "\n" + _build_anomaly_section(summary.get("anomaly_notes", []))
@@ -4767,11 +5740,14 @@ def postprocess_reports(output_dir: pathlib.Path, summary: dict) -> None:
                 insert_idx += 1
             while insert_idx < len(lines) and lines[insert_idx].strip() == "":
                 insert_idx += 1
+            reader_summary = _build_reader_summary_section(json_data, summary)
             # 生成时间下一行起：先综合性结论，再 TL;DR → Portfolio → Event-X → 体制/市场/结构 → AI 简报
             lines.insert(insert_idx, "")
-            lines.insert(insert_idx + 1, executive_section.rstrip())
+            lines.insert(insert_idx + 1, reader_summary.rstrip())
             lines.insert(insert_idx + 2, "")
-            pos = 3
+            lines.insert(insert_idx + 3, executive_section.rstrip())
+            lines.insert(insert_idx + 4, "")
+            pos = 5
             if tldr_extracted:
                 lines.insert(insert_idx + pos, tldr_extracted)
                 lines.insert(insert_idx + pos + 1, "")

@@ -36,6 +36,11 @@ set CRISIS_MONITOR_SKIP_SYNC=
 echo send_daily_report exit %SEND_EXIT% >> "%LOGFILE%"
 echo %date% %time% 结束 exit %SEND_EXIT% >> "%LOGFILE%"
 
+echo [3/3] 同步最新报告到腾讯云（若已配置 FRED_CLOUD_SYNC_*）...
+echo [3/3] sync_to_cloud... >> "%LOGFILE%"
+py "%BASE_DIR%\sync_to_cloud.py" >> "%LOGFILE%" 2>&1
+echo sync_to_cloud exit %errorlevel% >> "%LOGFILE%"
+
 if %SEND_EXIT% neq 0 (
     echo.
     echo ERROR: 发邮件或生成报告失败，请打开日志: %LOGFILE%

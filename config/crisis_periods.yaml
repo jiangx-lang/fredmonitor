@@ -157,3 +157,33 @@ crises:
     start: "2022-01-01"
     end: "2022-12-31"
     description: "2022年通胀快速上升引发的市场调整"
+
+  - code: "EURO_EXTENDED_2012"
+    name: "欧债危机延续期"
+    start: "2011-07-01"
+    end: "2012-12-31"
+    description: "欧债危机持续压力期，希腊/西班牙/意大利主权利差仍处高位"
+
+  - code: "POST_GFC_STRESS_2010"
+    name: "后GFC压力期"
+    start: "2010-01-01"
+    end: "2010-09-30"
+    description: "GFC后流动性压力残留期，信用利差仍显著高于正常水平"
+
+  - code: "ASIAN_SPILLOVER_1997"
+    name: "亚洲危机美国溢出期"
+    start: "1997-01-01"
+    end: "1998-07-31"
+    description: "亚洲金融危机对美国信用市场的溢出压力期，CP利差和VIX均有抬升"
+
+  - code: "SUBPRIME_PRELUDE_2006"
+    name: "次贷危机前兆期"
+    start: "2006-01-01"
+    end: "2007-06-30"
+    description: "次贷危机正式爆发前的信用利差抬升期，HY OAS开始持续上升"
+
+  - code: "OIL_CREDIT_2014"
+    name: "油价崩盘信用压力期"
+    start: "2014-06-01"
+    end: "2014-12-31"
+    description: "油价暴跌引发能源高收益债信用利差飙升"

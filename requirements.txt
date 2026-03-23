@@ -16,6 +16,10 @@ playwright>=1.30.0
 # weasyprint>=57.0
 # wkhtmltopdf (需要单独安装)
 
+# 可选：SCP 同步报告到云服务器
+paramiko>=3.0.0
+scp>=0.14.0
+
 # 可选：AI 叙事层（通义千问 / OpenAI / Gemini）
 # dashscope>=1.14.0   # 阿里通义千问
 # openai>=1.0.0       # OpenAI
